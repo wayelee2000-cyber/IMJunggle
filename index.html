@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A clean landing page ready for GitHub Pages." />
+  <title>Welcome</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;1,9..40,400&family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="#">YourBrand</a>
+    <nav class="nav" aria-label="Primary">
+      <a href="#features">Features</a>
+      <a href="#about">About</a>
+      <a class="nav-cta" href="#cta">Get started</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">Ship something you are proud of</p>
+        <h1>Build a presence that feels intentional.</h1>
+        <p class="lede">
+          This is a starter layout with HTML, CSS, and static assets. Push it to GitHub Pages
+          or preview it locally with the included .NET dev server.
+        </p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#cta">Start now</a>
+          <a class="btn btn-ghost" href="https://pages.github.com/" rel="noopener noreferrer" target="_blank">GitHub Pages docs</a>
+        </div>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <img src="image/hero.svg" alt="" width="520" height="400" />
+      </div>
+    </section>
+
+    <section id="features" class="features">
+      <h2>Why this template</h2>
+      <ul class="feature-grid">
+        <li>
+          <h3>Static first</h3>
+          <p>No build step required. Drop in your own copy, colors, and images.</p>
+        </li>
+        <li>
+          <h3>GitHub Pages ready</h3>
+          <p>Keep <code>index.html</code> at the repo root (or use the <code>docs</code> folder) and enable Pages in repository settings.</p>
+        </li>
+        <li>
+          <h3>Local preview</h3>
+          <p>Run the <code>DevServer</code> project from Visual Studio or <code>dotnet run</code> inside <code>DevServer</code>.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section id="about" class="about">
+      <div class="about-inner">
+        <h2>About</h2>
+        <p>
+          Replace this section with your product story, team, or mission. The stylesheet uses CSS custom properties
+          so you can retheme quickly by editing the <code>:root</code> block in <code>style.css</code>.
+        </p>
+      </div>
+    </section>
+
+    <section id="cta" class="cta">
+      <h2>Ready when you are</h2>
+      <p>Swap the buttons for a newsletter form, app store links, or your main call to action.</p>
+      <a class="btn btn-primary btn-lg" href="#">Primary action</a>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> YourBrand. All rights reserved.</p>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
