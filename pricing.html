@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="IMJunggle pricing: SaaS plans by MAU and self-hosted licensing." />
+  <title>Pricing — IMJunggle</title>
+  <link rel="icon" href="image/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <img class="logo-mark" src="image/logo.svg" alt="" width="36" height="36" decoding="async" />
+      <span class="logo-text">IMJunggle</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="product.html">Product</a>
+      <a href="developers.html">Developers</a>
+      <a href="pricing.html" aria-current="page">Pricing</a>
+      <a href="docs.html">Docs</a>
+      <a class="nav-cta" href="index.html#cta">Request demo</a>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <section class="pricing section" id="pricing" aria-labelledby="pricing-heading">
+      <h1 id="pricing-heading" class="section-title">Pricing</h1>
+      <p class="section-lead">Keep it simple. Scale as you grow.</p>
+
+      <h2 class="pricing-subhead">SaaS</h2>
+      <div class="table-wrap">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th scope="col">Plan</th>
+              <th scope="col">Price</th>
+              <th scope="col">MAU</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Starter</td>
+              <td>$199/month</td>
+              <td>5k</td>
+            </tr>
+            <tr>
+              <td>Growth</td>
+              <td>$799/month</td>
+              <td>25k</td>
+            </tr>
+            <tr>
+              <td>Business</td>
+              <td>$2,500/month</td>
+              <td>100k</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="pricing-subhead">Self-Hosted</h2>
+      <div class="table-wrap">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th scope="col">Plan</th>
+              <th scope="col">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Standard</td>
+              <td>$25k/year</td>
+            </tr>
+            <tr>
+              <td>Enterprise</td>
+              <td>$80k/year</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p class="pricing-note">Questions about a bigger rollout? Reach out—we’ll help you map volume and deployment without the runaround.</p>
+      <p class="subpage-back"><a href="index.html">← Back to home</a></p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer-copy">© <span id="year"></span> IMJunggle. All rights reserved.</p>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

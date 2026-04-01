@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="IMJunggle documentation: quickstart, API reference, SDKs, and example apps." />
+  <title>Documentation — IMJunggle</title>
+  <link rel="icon" href="image/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <img class="logo-mark" src="image/logo.svg" alt="" width="36" height="36" decoding="async" />
+      <span class="logo-text">IMJunggle</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="product.html">Product</a>
+      <a href="developers.html">Developers</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="docs.html" aria-current="page">Docs</a>
+      <a class="nav-cta" href="index.html#cta">Request demo</a>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <section class="docs section" id="docs" aria-labelledby="docs-heading">
+      <h1 id="docs-heading" class="section-title">Documentation</h1>
+      <p class="section-lead">
+        Stuck? Start with the quickstart, then dig into the API when you need it. Examples on GitHub are there so you can copy, run, and tweak—not to impress a committee.
+      </p>
+      <ul class="docs-links">
+        <li><a href="#">Quickstart guide</a></li>
+        <li><a href="#">API reference</a></li>
+        <li><a href="#">SDK downloads</a></li>
+        <li><a href="https://github.com" rel="noopener noreferrer" target="_blank">Example apps on GitHub</a></li>
+      </ul>
+    </section>
+
+    <p class="subpage-back"><a href="index.html">← Back to home</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer-copy">© <span id="year"></span> IMJunggle. All rights reserved.</p>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

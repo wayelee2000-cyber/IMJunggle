@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="IMJunggle product: messaging platform for product teams, scale, deployment, and use cases." />
+  <title>Product — IMJunggle</title>
+  <link rel="icon" href="image/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <img class="logo-mark" src="image/logo.svg" alt="" width="36" height="36" decoding="async" />
+      <span class="logo-text">IMJunggle</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="product.html" aria-current="page">Product</a>
+      <a href="developers.html">Developers</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="docs.html">Docs</a>
+      <a class="nav-cta" href="index.html#cta">Request demo</a>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <section class="social-proof section" id="social-proof" aria-labelledby="social-heading">
+      <h1 id="social-heading" class="section-title">Built for modern product teams</h1>
+      <p class="section-lead">
+        Here’s the straight story—architecture sketches, what the product actually does, and where it fits.
+        We’d rather you understand the system than sit through a slide deck.
+      </p>
+      <ul class="credibility-grid">
+        <li>
+          <span class="credibility-icon" aria-hidden="true">◇</span>
+          <strong>Architecture overview</strong>
+          <span>How real-time delivery, storage, and clients fit together.</span>
+        </li>
+        <li>
+          <span class="credibility-icon" aria-hidden="true">▢</span>
+          <strong>Demo screenshots</strong>
+          <span>See group threads, typing indicators, and file attachments.</span>
+        </li>
+        <li>
+          <span class="credibility-icon" aria-hidden="true">⎇</span>
+          <strong>GitHub examples</strong>
+          <span>Starter apps and snippets you can fork today.</span>
+        </li>
+      </ul>
+    </section>
+
+    <section class="problem section section--tint" id="problem" aria-labelledby="problem-heading">
+      <h2 id="problem-heading" class="section-title">Building messaging infrastructure is hard</h2>
+      <div class="prose-columns">
+        <p>
+          Reliable messaging systems require real-time networking,
+          scalable storage, push notifications, and complex
+          client SDKs.
+        </p>
+        <p>
+          Most teams spend months building chat systems instead
+          of focusing on their core product.
+        </p>
+      </div>
+    </section>
+
+    <section class="solution section" id="solution" aria-labelledby="solution-heading">
+      <h2 id="solution-heading" class="section-title">A messaging platform designed for product teams</h2>
+      <p class="section-lead section-lead--max">
+        Our platform provides the infrastructure, SDKs, and APIs
+        needed to add messaging features quickly.
+      </p>
+      <ul class="feature-highlights">
+        <li>Real-time messaging</li>
+        <li>Group chat</li>
+        <li>Message history</li>
+        <li>Typing indicators</li>
+        <li>File sharing</li>
+        <li>Push notifications</li>
+      </ul>
+    </section>
+
+    <section class="architecture section" id="architecture" aria-labelledby="arch-heading">
+      <div class="architecture-intro">
+        <h2 id="arch-heading" class="section-title">Built for scale</h2>
+        <ul class="checklist">
+          <li>Horizontally scalable messaging infrastructure</li>
+          <li>Low latency real-time delivery</li>
+          <li>Message persistence and search</li>
+          <li>Multi-region deployment</li>
+          <li>High availability architecture</li>
+        </ul>
+      </div>
+      <div class="diagram-card" aria-hidden="true">
+        <svg class="arch-diagram" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 480 220" fill="none" role="img">
+          <title>Architecture diagram</title>
+          <rect width="480" height="220" rx="8" fill="#231f2e" stroke="rgba(245,243,255,0.12)"/>
+          <rect x="24" y="78" width="88" height="64" rx="6" fill="rgba(196,181,253,0.1)" stroke="rgba(196,181,253,0.35)"/>
+          <text x="68" y="118" text-anchor="middle" fill="#f5f3ff" font-family="ui-monospace, monospace" font-size="10" font-weight="600">Clients</text>
+          <path d="M112 110h48" stroke="rgba(253,164,175,0.5)" stroke-width="2" stroke-dasharray="4 3"/>
+          <rect x="168" y="60" width="144" height="100" rx="6" fill="rgba(167,139,250,0.1)" stroke="rgba(167,139,250,0.35)"/>
+          <text x="240" y="100" text-anchor="middle" fill="#f5f3ff" font-family="ui-monospace, monospace" font-size="11" font-weight="600">Realtime layer</text>
+          <text x="240" y="120" text-anchor="middle" fill="#b4adc4" font-family="ui-monospace, monospace" font-size="9">WebSockets · presence</text>
+          <path d="M312 110h48" stroke="rgba(253,164,175,0.5)" stroke-width="2" stroke-dasharray="4 3"/>
+          <rect x="368" y="78" width="88" height="64" rx="6" fill="rgba(110,231,183,0.08)" stroke="rgba(110,231,183,0.32)"/>
+          <text x="412" y="118" text-anchor="middle" fill="#f5f3ff" font-family="ui-monospace, monospace" font-size="10" font-weight="600">Storage</text>
+          <rect x="192" y="168" width="96" height="36" rx="4" fill="rgba(245,243,255,0.04)" stroke="rgba(245,243,255,0.1)"/>
+          <text x="240" y="190" text-anchor="middle" fill="#b4adc4" font-family="ui-monospace, monospace" font-size="9">Push · search</text>
+        </svg>
+      </div>
+    </section>
+
+    <section class="deployment section section--tint" id="deployment" aria-labelledby="deploy-heading">
+      <h2 id="deploy-heading" class="section-title">Flexible deployment</h2>
+      <p class="section-lead section-lead--max">
+        This is where we differentiate from platforms like
+        Sendbird and Twilio: your data model and hosting choices stay in your control.
+      </p>
+      <div class="deployment-grid">
+        <article class="deployment-card">
+          <h3>SaaS</h3>
+          <p>Managed cloud platform for fast onboarding.</p>
+        </article>
+        <article class="deployment-card">
+          <h3>Private Cloud</h3>
+          <p>Deploy in your AWS or Azure account.</p>
+        </article>
+        <article class="deployment-card">
+          <h3>Self-Hosted</h3>
+          <p>Run the messaging infrastructure in your own environment.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="use-cases section section--tint" id="use-cases" aria-labelledby="use-heading">
+      <h2 id="use-heading" class="section-title">Use cases</h2>
+      <div class="use-case-grid">
+        <article>
+          <h3>Marketplace messaging</h3>
+          <p>Buyer and seller communication.</p>
+        </article>
+        <article>
+          <h3>Healthcare apps</h3>
+          <p>Secure patient-provider messaging.</p>
+        </article>
+        <article>
+          <h3>Community platforms</h3>
+          <p>Real-time group discussions.</p>
+        </article>
+        <article>
+          <h3>Enterprise apps</h3>
+          <p>Internal collaboration tools.</p>
+        </article>
+      </div>
+    </section>
+
+    <p class="subpage-back"><a href="index.html">← Back to home</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer-copy">© <span id="year"></span> IMJunggle. All rights reserved.</p>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>

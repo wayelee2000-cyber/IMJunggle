@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Integrate IMJunggle messaging with client SDKs and APIs for Web, iOS, and Android." />
+  <title>Developers — IMJunggle</title>
+  <link rel="icon" href="image/logo.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Nunito:ital,wght@0,500;0,600;0,700;0,800;1,500&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html">
+      <img class="logo-mark" src="image/logo.svg" alt="" width="36" height="36" decoding="async" />
+      <span class="logo-text">IMJunggle</span>
+    </a>
+    <nav class="nav" aria-label="Primary">
+      <a href="product.html">Product</a>
+      <a href="developers.html" aria-current="page">Developers</a>
+      <a href="pricing.html">Pricing</a>
+      <a href="docs.html">Docs</a>
+      <a class="nav-cta" href="index.html#cta">Request demo</a>
+    </nav>
+  </header>
+
+  <main class="site-main">
+    <section class="developer section section--tint" id="developer" aria-labelledby="developer-heading">
+      <h1 id="developer-heading" class="section-title">Integrate messaging in minutes</h1>
+      <div class="developer-grid">
+        <div class="code-panel" aria-label="Example API usage">
+          <div class="code-panel-header">
+            <span class="code-dot" aria-hidden="true"></span>
+            <span class="code-dot code-dot--amber" aria-hidden="true"></span>
+            <span class="code-dot code-dot--green" aria-hidden="true"></span>
+            <span class="code-panel-title">quickstart.js</span>
+          </div>
+          <pre class="code-block"><code><span class="kw">const</span> channel = <span class="kw">await</span> chat.createChannel([<span class="str">"user1"</span>, <span class="str">"user2"</span>])
+channel.sendMessage(<span class="str">"Hello"</span>)</code></pre>
+        </div>
+        <div class="developer-copy">
+          <p>
+            You shouldn’t need a week of reading to send a first message. These client SDKs and APIs are built for quick wins—then you can go deeper when you want to.
+          </p>
+          <p class="supported-label">Supported platforms</p>
+          <ul class="platform-pills">
+            <li>Web</li>
+            <li>iOS</li>
+            <li>Android</li>
+            <li>REST API</li>
+          </ul>
+          <p class="developer-docs-link"><a href="docs.html">View full documentation →</a></p>
+        </div>
+      </div>
+    </section>
+
+    <p class="subpage-back"><a href="index.html">← Back to home</a></p>
+  </main>
+
+  <footer class="site-footer">
+    <p class="site-footer-copy">© <span id="year"></span> IMJunggle. All rights reserved.</p>
+  </footer>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
