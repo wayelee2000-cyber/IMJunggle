@@ -1,0 +1,112 @@
+---
+title: 合并消息
+hide_title: true
+sidebar_position: 3
+---
+
+<Tabs
+groupId="sdks-language"
+values={[
+{ label: 'Android', value: 'android', },
+{ label: 'iOS', value: 'ios', },
+{ label: 'JavaScript', value: 'js', },
+{ label: 'Flutter', value: 'flutter', },
+{ label: 'ReactNative', value: 'reactnative', },
+{ label: '鸿蒙', value: 'harmony', }
+]
+}>
+<TabItem value="android">
+
+合并消息（MergeMessage）是 SDK 内置的消息类型，对应的 contentType 是 @"jg:merge"。
+
+| 属性名    | 类型    | 说明                                         | 版本     |
+|-----------|---------|----------------------------------------------|----------|
+| title          | String   | 合并消息标题 | 1.0.0    |
+| conversation   | Conversation   | 被合并消息的会话标识 | 1.0.0    |
+| messageIdList  | List     | 所有被合并的消息 id 列表，不能超过 100 条 | 1.0.0    |
+| previewList    | List     | 消息气泡上用来预览的被合并消息列表，不能超过 10 条 | 1.0.0 |
+| extra          | String   | 扩展字段 | 1.0.0 |  
+
+</TabItem>
+<TabItem value="ios">
+
+合并消息（JMergeMessage）是 SDK 内置的消息类型，对应的 contentType 是 @"jg:merge"。
+
+| 属性名    | 类型    | 说明                                         | 版本     |
+|-----------|---------|----------------------------------------------|----------|
+| title          |  NSString   | 合并消息标题 | 1.0.0    |
+| conversation   |  JConversation   | 被合并消息的会话标识 | 1.0.0    |
+| messageIdList  | NSArray     | 所有被合并的消息 id 列表，不能超过 100 条 | 1.0.0    |
+| previewList    | NSArray     | 消息气泡上用来预览的被合并消息列表，不能超过 10 条 | 1.0.0 |
+| extra          | NSString    | 扩展字段     | 1.0.0 |
+
+</TabItem>
+<TabItem value="js">
+
+合并转发消息是 SDK 内置消息类型，枚举对应 _[MessageType.MERGE](../../enum/web#message)_
+
+| 属性名    | 类型    | 说明                                         | 版本     |
+|-----------|---------|----------------------------------------------|----------|
+| title     |  String   | 合并消息标题 | 1.0.0    |
+| previewList  | Array   | 合并消息的简称 | 1.0.0    |
+| messageIdList| Array   | 被合并消息的 messageId 列表 | 1.0.0    |
+| extra  |  String | 消息附加内容，支持 JSON 字符串，设置后不可修改 | 1.0.0    |
+
+```js
+let mergeMsg = {
+  title: '小 J 和 阿罗 的聊天记录',
+  previewList: [{ content: '[文件]', senderName: '阿罗' }],
+  messageIdList: ['ns7c4mzpsa4g7sb5', 'ns6wbh472ayg7sb5']
+}
+
+let message = {
+  conversationType: ConversationType.PRIVATE,
+  conversationId: 'userId1',
+  name: MessageType.MERGE,
+  content: mergeMsg
+};
+```
+
+</TabItem>
+
+<TabItem value="flutter">
+
+合并消息（MergeMessage）是 SDK 内置的消息类型，对应的 contentType 是 @"jg:merge"。
+
+| 属性名    | 类型    | 说明                                         | 版本     |
+|-----------|---------|----------------------------------------------|----------|
+| title          | String   | 合并消息标题 | 0.6.3    |
+| conversation   | Conversation   | 被合并消息的会话标识 | 0.6.3    |
+| messageIdList  | List     | 所有被合并的消息 id 列表，不能超过 100 条 | 0.6.3    |
+| previewList    | List     | 消息气泡上用来预览的被合并消息列表，不能超过 10 条 | 0.6.3 |
+| extra          | String   | 扩展字段 | 0.6.3 |
+
+</TabItem>
+
+<TabItem value="reactnative">
+
+合并消息（MergeMessageContent）是 SDK 内置的消息类型，对应的 contentType 是 "jg:merge"。
+
+| 属性名    | 类型    | 说明                                         | 版本     |
+|-----------|---------|----------------------------------------------|----------|
+| title          | string   | 合并消息标题 | 1.0.0    |
+| conversation   | Conversation   | 被合并消息的会话标识 | 1.0.0    |
+| messageIdList  | string[]     | 所有被合并的消息 id 列表，不能超过 100 条 | 1.0.0    |
+| previewList    | PreviewUnit[]     | 消息气泡上用来预览的被合并消息列表，不能超过 10 条 | 1.0.0 |
+| extra          | string   | 扩展字段 | 1.0.0 |
+
+</TabItem>
+
+<TabItem value="harmony">
+
+合并消息（MergeMessage）是 SDK 内置的消息类型，对应的 contentType 是 @"jg:merge"。
+
+| 属性名    | 类型    | 说明                                         | 版本     |
+|-----------|---------|----------------------------------------------|----------|
+| title          |  string   | 合并消息标题 | 1.0.0    |
+| conversation   |  Conversation   | 被合并消息的会话标识 | 1.0.0    |
+| messageIdList  | string[]     | 所有被合并的消息 id 列表，不能超过 100 条 | 1.0.0    |
+| previewList    | PreviewUnit[]     | 消息气泡上用来预览的被合并消息列表，不能超过 10 条 | 1.0.0 |
+
+</TabItem>
+</Tabs>

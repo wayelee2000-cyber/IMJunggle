@@ -1,0 +1,98 @@
+---
+title: ReactNative
+hide_title: true
+sidebar_position: 5
+---
+
+#### 连接状态
+
+```ts
+type ConnectionStatus = "connected" | "connecting" | "disconnected" | "failure" | "dbOpen" | "dbClose"
+```
+
+#### 会话类型
+
+```ts
+enum ConversationType {
+  PRIVATE = 1,    // 单聊
+  GROUP = 2,      // 群组
+  CHATROOM = 3,   // 聊天室
+  SYSTEM = 4      // 系统会话
+}
+```
+
+#### 消息方向
+
+```ts
+enum MessageDirection {
+  SEND = 1,    // 发送
+  RECEIVE = 2  // 接收
+}
+```
+
+#### 消息状态
+
+```ts
+enum MessageState {
+  UNKNOWN = 0,      // 未知
+  SENDING = 1,      // 发送中
+  SENT = 2,         // 已发送
+  SEND_FAILED = 3,  // 发送失败
+  UPLOADING = 4     // 上传中
+}
+```
+
+#### 监听器{#listener}
+
+**连接状态监听器类型：**
+
+```typescript
+type ConnectionStatusListener = (
+  status: ConnectionStatus,
+  code: number,
+  extra: string
+) => void;
+```
+
+**消息监听器类型：**
+
+```typescript
+type MessageListener = {
+  onMessageReceive?: (message: Message) => void;
+  onMessageRecall?: (message: Message) => void;
+  onMessageUpdate?: (message: Message) => void;
+  onMessageDelete?: (
+    conversation: Conversation,
+    clientMsgNos: number[]
+  ) => void;
+  onMessageClear?: (
+    conversation: Conversation,
+    timestamp: number,
+    senderId: string
+  ) => void;
+  onMessageReactionAdd?: (
+    conversation: Conversation,
+    reaction: MessageReaction
+  ) => void;
+  onMessageReactionRemove?: (
+    conversation: Conversation,
+    reaction: MessageReaction
+  ) => void;
+  onMessageSetTop?: (
+    message: Message,
+    operator: UserInfo,
+    isTop: boolean
+  ) => void;
+}
+```
+
+**会话监听器类型：**
+
+```typescript
+type ConversationListener = {
+  onConversationInfoAdd?: (conversations: ConversationInfo[]) => void;
+  onConversationInfoUpdate?: (conversations: ConversationInfo[]) => void;
+  onConversationInfoDelete?: (conversations: ConversationInfo[]) => void;
+  onTotalUnreadMessageCountUpdate?: (count: number) => void;
+}
+```

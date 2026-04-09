@@ -1,0 +1,212 @@
+---
+title: 消息对象
+hide_title: true
+sidebar_position: 1
+---
+
+消息对象 `Message` 是 SDK 封装通用消息对象，Message 更像是一个父类， **Message.content** 是具体的子类，例如：`文本消息`、`图片消息` 等
+
+![](../assets/msg-web/msg.png)
+
+<Tabs
+groupId="sdks-language"
+values={[
+{ label: 'Android', value: 'android', },
+{ label: 'iOS', value: 'ios', },
+{ label: 'JavaScript', value: 'js', },
+{ label: 'Flutter', value: 'flutter', },
+{ label: 'ReactNative', value: 'reactnative', },
+{ label: '鸿蒙', value: 'harmony', }
+]
+}>
+<TabItem value="android">
+
+| 属性名       | 类型              | 说明                                                         | 版本  |
+| ------------ | ----------------- | ------------------------------------------------------------ | ----- |
+| conversation | [Conversation](#conversation)     | 消息所属会话                                                 | 1.0.0 |
+| contentType  | String          | 消息类型（文本消息、图片消息等）                             | 1.0.0 |
+| content      | [MessageContent](#messagecontent)   | 消息内容，内容与 contentType 属性相关，例如：contentType 为 `jg:text` 时，content 是 [文本消息](.././text) | 1.0.0 |
+| messageId    | String          | 消息 Id，区分每条的标识，全局唯一                            | 1.0.0 |
+| clientMsgNo  | long         | 本端消息唯一编号（对应本地数据库唯一 id）                    | 1.0.0 |
+| direction    | [MessageDirection](#messagedirection) | 消息方向，用于标识"接收的消息 or 发送的消息"                 | 1.0.0 |
+| state | [MessageState](#messagestate)     | 消息状态，用于标识"发送中 or 发送成功 or 发送失败"           | 1.0.0 |
+| hasRead      | boolean              | 消息是否已读                                                 | 1.0.0 |
+| timestamp    | long         | 消息的发送时间，格式为时间戳精确到毫秒（服务端时间）         | 1.0.0 |
+| senderUserId | String          | 消息发送者的 userId                                          | 1.0.0 |
+| referredMessage | Message   | 引用消息                                              | 1.0.0 |
+| mentionInfo | [MessageMentionInfo](#messagementioninfo) | @ 信息                                          | 1.0.0 |
+| localAttribute | String | 消息本地属性（仅对本端生效，不会同步到服务端）                  | 1.0.0 |
+| groupMessageReadInfo | [GroupMessageReadInfo](#groupmessagereadinfo) | 群消息阅读信息（只对群消息生效）         | 1.0.0 |
+| isEdit | boolean | 是否被编辑                                                     | 1.0.0 |
+| isDeleted | boolean | 是否已删除                                                 | 1.0.0 |
+| destroyTime | long | 消息销毁时间戳（服务器时间，单位毫秒）。默认值为 0，表示不自动销毁。| 1.0.0 |
+| lifeTimeAfterRead | long | 消息已读后的生存周期，单位毫秒。默认值为 0，表示读后不自动销毁。 | 1.0.0 |
+| senderDisplayName | String          | 发送者名字（按照默认规则显示的发送者名字）                                         | 1.8.39 |
+| friendAlias | String          | 发送者好友备注                                          | 1.8.39|
+| groupMemberAlias | String          | 发送者群成员备注                                        | 1.8.39 |
+| senderName | String          | 发送者本名                                         | 1.8.39 |
+| senderPortrait | String          | 发送者头像 URL                                      | 1.8.39 |
+
+
+</TabItem>
+<TabItem value="ios">
+
+| 属性名       | 类型              | 说明                                                         | 版本  |
+| ------------ | ----------------- | ------------------------------------------------------------ | ----- |
+| conversation | JConversation     | 消息所属会话                                                 | 1.0.0 |
+| contentType  | NSString          | 消息类型（文本消息、图片消息等）                             | 1.0.0 |
+| content      | JMessageContent   | 消息内容，内容与 contentType 属性相关，例如：contentType 为 `jg:text` 时，content 是 [文本消息](.././text) | 1.0.0 |
+| messageId    | NSString          | 消息 Id，区分每条的标识，全局唯一                            | 1.0.0 |
+| clientMsgNo  | long long         | 本端消息唯一编号（对应本地数据库唯一 id）                    | 1.0.0 |
+| direction    | JMessageDirection | 消息方向，用于标识“接收的消息 or 发送的消息”                 | 1.0.0 |
+| messageState | JMessageState     | 消息状态，用于标识“发送中 or 发送成功 or 发送失败”           | 1.0.0 |
+| hasRead      | BOOL              | 消息是否已读                                                 | 1.0.0 |
+| timestamp    | long long         | 消息的发送时间，格式为时间戳精确到毫秒（服务端时间）         | 1.0.0 |
+| senderUserId | NSString          | 消息发送者的 userId                                          | 1.0.0 |
+| referredMsg | Message   | 引用消息                                              | 1.0.0 |
+| mentionInfo | MessageMentionInfo | @ 信息                                          | 1.0.0 |
+| localAttribute | String | 消息本地属性（仅对本端生效，不会同步到服务端）                  | 1.0.0 |
+| groupReadInfo | JGroupMessageReadInfo | 群消息阅读信息（只对群消息生效）                | 1.0.0 |
+| isEdit | BOOL | 是否被编辑                                                          | 1.0.0 |
+| isDeleted | BOOL | 是否被删除                                                       | 1.0.0 |
+| destroyTime | long long | 消息销毁时间戳（服务器时间，单位毫秒）。默认值为 0，表示不自动销毁。 | 1.0.0 |
+| lifeTimeAfterRead | long long | 消息已读后的生存周期，单位毫秒。默认值为 0，表示读后不自动销毁。 | 1.0.0 |
+| senderDisplayName | NSString          | 发送者名字（按照默认规则显示的发送者名字）                                         | 1.8.39 |
+| friendAlias | NSString          | 发送者好友备注                                          | 1.8.39|
+| groupMemberAlias | NSString          | 发送者群成员备注                                        | 1.8.39 |
+| senderName | NSString          | 发送者本名                                         | 1.8.39 |
+| senderPortrait | NSString          | 发送者头像 URL                                      | 1.8.39 |
+
+</TabItem>
+<TabItem value="js">
+
+| 属性名           | 类型      | 说明                                                | 版本     |
+|------------------|-----------|-----------------------------------------------------|----------|
+| conversationId    | String   | 会话 Id，会话类型是 `PRIVATE` 时，会话 Id 是接收方的 userId，会话类型是 `GROUP` 时是群组 Id | 1.0.0    |
+| conversationType  | Number   | 会话类型 | 1.0.0    |
+| conversationTitle    | String   | 会话名称，修改会话名称请直接修改用户或群组名称 | 1.0.0    |
+| conversationPortrait | String   | 会话头像，修改会话头像请直接修改用户或群组头像 | 1.0.0    |
+| conversationExts    | Object   | 会话的扩展，修改会话会话扩展请直接修改用户或群组扩展 | 1.0.0    |
+| tid              | String    | 本地生成的消息临时 Id，发送消息是异步的，消息发送成功和 `onbefore` 事件都会返回 `tid`，用来匹配更新页面中消息发送状态 | 1.0.0    |
+| messageId        | String    | 服务端生成的消息 Id, 区分每条的标识，全局唯一              | 1.0.0    |
+| name             | String    | 消息名称，收发后消息可以根据 name 进行 UI 展示       | 1.0.0    |
+| content          | Object    | 消息内容，内容与 name 属性相关，例如：name 为 `jg:text` 时，content 是 [文本消息](.././text) | 1.0.0    |
+| sentState        | Number    | 消息的 [发送状态](../../enum/web#msg_sent) | 1.0.0    |
+| sentTime         | Number    | 消息的发送时间，格式为时间戳精确到毫秒，可用于 UI 展示每条消息的发送时间 | 1.0.0    |
+| sender           | Object    | 消息发送者的用户信息                                     | 1.0.0    |
+| sender.id        | String    | 消息发送者的 Id，[修改请用 API 更新](../../../../server/user/updateuser/) | 1.0.0    |
+| sender.name      | String    | 消息发送者名称，[修改请用 API 更新](../../../../server/user/updateuser/)   | 1.0.0    |
+| sender.portrait  | String    | 消息发送者头像，[修改请用 API 更新](../../../../server/user/updateuser/)   | 1.0.0    |
+| sender.exts      | Object    | 用户扩展字段，[修改请用 API 更新](../../../../server/user/updateuser/)    | 1.0.0    |
+| attribute        | String    | `Electron` 中生效，本地消息扩展属性，如存放本地文件 URL，可通过 [修改本地消息扩展](../../message/operator/update_lc_attr) 修改| 1.0.0    |
+| reactions        | Object    | 消息回应 | 1.8.0    |
+| mentionInfo      | Object    | @ 信息 | 1.0.0    |
+| mentionInfo.mentionType      | Number    | @所有人或 @ 指定人，枚举值请查看 [MentionType](../../enum/web/#mention) | 1.0.0    |
+| mentionInfo.members      | Array    | 被 @ 的人的列表，@ 指定人时有值，包含 `id`、`name`、`portrait` | 1.0.0    |
+| referMsg         | Object    | 被引用消息或回复消息的内容，包含消息的发送者信息，详细可参考 [Message](./) 对象 | 1.0.0    |
+| isMass           | Boolean   | 当前消息是否为 [群发消息](../../message/msg_send/send_mass) | 1.0.0    |
+| isUpdated        | Boolean   | 消息是否被修改过                                    | 1.0.0    |
+| isSender         | Boolean   | 本条消息自己是否为发送方，例如用于 UI 展示消息布局，自己发送的在右，接收的消息在左 | 1.0.0    |
+| isRead           | Boolean   | 单聊会话时生效，消息接收方是否看了本条消息                         | 1.0.0    |
+| readCount        | Number    | 群组会话时生效，表示当前消息的**已读**人数，以消息发送时群人数为准，不会随群成员变化而变化 | 1.0.0    |
+| unreadCount      | Number    | 群组会话时生效，表示当前消息的**未读**人数，以消息发送时群人数为准，不会随群成员变化而变化 | 1.0.0    |
+| destroyTime      | Number    | 消息的销毁时间戳，大于 `0` 时, 表示需要销毁，如发送消息时设置了销毁时间  | 1.9.0    |
+| lifeTimeAfterRead| Number    | 消息的阅后即焚的时间戳，大于 `0` 时, 表示是阅后即焚消息, 如阅读后 1 分钟销毁，单位 `ms`, 值为 `1 * 60 * 1000`  | 1.9.0    |
+| friendAlias    | String   | 好友备注名称 | 1.9.7    |
+
+**reactions 说明：**
+```js
+let message = {
+  //... 其他属性
+  reactions: {
+    // :smile 是添加回应时自定义的 Key 值
+    :simle: [{
+      key: '回应消息时设置的 key',
+      value: '触发回应操作的用户 Id',
+      timestamp: '设置回应时间，单位：ms',
+      // 触发回应操作的用户信息
+      user: {
+        id: '触发回应操作的用户 Id',
+        name: '触发回应操作的用户名称',
+        portrait: '触发回应操作的用户头像'
+      }
+    }],
+  }
+};
+```
+
+</TabItem>
+
+<TabItem value="flutter">
+
+| 属性名       | 类型              | 说明                                                         | 版本  |
+| ------------ | ----------------- | ------------------------------------------------------------ | ----- |
+| conversation | Conversation     | 消息所属会话                                                 | 0.0.63 |
+| contentType  | String          | 消息类型（文本消息、图片消息等）                             | 0.0.63 |
+| content      | MessageContent   | 消息内容，内容与 contentType 属性相关，例如：contentType 为 `jg:text` 时，content 是 [文本消息](.././text) | 0.0.63 |
+| messageId    | String          | 消息 Id，区分每条的标识，全局唯一                            | 0.0.63 |
+| clientMsgNo  | int         | 本端消息唯一编号（对应本地数据库唯一 id）                    | 0.0.63 |
+| direction    | int | 消息方向，用于标识“接收的消息(2) or 发送的消息(1)”                 | 0.0.63 |
+| messageState | int     | 消息状态，用于标识“发送中(1) or 发送成功(2) or 发送失败(3)”           | 0.0.63 |
+| hasRead      | bool              | 消息是否已读                                                 | 0.0.63 |
+| timestamp    | int         | 消息的发送时间，格式为时间戳精确到毫秒（服务端时间）         | 0.0.63 |
+| senderUserId | String          | 消息发送者的 userId                                          | 0.0.63 |
+| referredMsg | Message   | 引用消息                                              | 0.0.63 |
+| mentionInfo | MessageMentionInfo | @ 消息的内容                                          | 0.0.63 |
+| localAttribute | String | 消息本地属性（仅对本端生效，不会同步到服务端）                  | 0.0.63 |
+| groupReadInfo | GroupMessageReadInfo | 群消息阅读信息（只对群消息生效）         | 0.0.63 |
+| isEdit | bool | 是否被编辑                                                     | 0.0.63 |
+| destroyTime | int | 消息销毁时间戳（服务器时间，单位毫秒）。默认值为 0，表示不自动销毁。| 0.0.63 |
+| lifeTimeAfterRead | int | 消息已读后的生存周期，单位毫秒。默认值为 0，表示读后不自动销毁。 | 0.0.63 |
+| senderDisplayName | String          | 发送者名字（按照默认规则显示的发送者名字）                                         | 0.0.72 |
+| friendAlias | String          | 发送者好友备注                                          | 0.0.72|
+| groupMemberAlias | String          | 发送者群成员备注                                        | 0.0.72 |
+| sender | UserInfo?          | 发送者用户信息                                         | 0.0.72 |
+
+</TabItem>
+
+<TabItem value="reactnative">
+
+| 属性名       | 类型              | 说明                                                         | 版本  |
+| ------------ | ----------------- | ------------------------------------------------------------ | ----- |
+| conversation | Conversation     | 消息所属会话                                                 | 1.0.0 |
+| contentType  | string          | 消息类型（文本消息、图片消息等）                             | 1.0.0 |
+| content      | MessageContent   | 消息内容，内容与 contentType 属性相关，例如：contentType 为 `jg:text` 时，content 是 [文本消息](.././text) | 1.0.0 |
+| messageId    | string          | 消息 Id，区分每条的标识，全局唯一                            | 1.0.0 |
+| clientMsgNo  | number         | 本端消息唯一编号（对应本地数据库唯一 id）                    | 1.0.0 |
+| direction    | number | 消息方向，用于标识"接收的消息(2) or 发送的消息(1)"                 | 1.0.0 |
+| messageState | number     | 消息状态，用于标识"发送中(1) or 发送成功(2) or 发送失败(3)"           | 1.0.0 |
+| hasRead      | boolean              | 消息是否已读                                                 | 1.0.0 |
+| timestamp    | number         | 消息的发送时间，格式为时间戳精确到毫秒（服务端时间）         | 1.0.0 |
+| senderUserId | string          | 消息发送者的 userId                                          | 1.0.0 |
+| referredMessage | Message   | 引用消息                                              | 1.0.0 |
+| mentionInfo | MessageMentionInfo | @ 信息                                          | 1.0.0 |
+| localAttribute | string | 消息本地属性（仅对本端生效，不会同步到服务端）                  | 1.0.0 |
+| groupMessageReadInfo | GroupMessageReadInfo | 群消息阅读信息（只对群消息生效）         | 1.0.0 |
+| isEdit | boolean | 是否被编辑                                                     | 1.0.0 |
+| isDeleted | boolean | 是否已删除                                                 | 1.0.0 |
+| destroyTime | number | 消息销毁时间戳（服务器时间，单位毫秒）。默认值为 0，��示不自动销毁。| 1.0.0 |
+| lifeTimeAfterRead | number | 消息已读后的生存周期，单位毫秒。默认值为 0，表示读后不自动销毁。 | 1.0.0 |
+
+</TabItem>
+
+<TabItem value="harmony">
+
+| 属性名       | 类型              | 说明                                                         | 版本  |
+| ------------ | ----------------- | ------------------------------------------------------------ | ----- |
+| conversation | Conversation     | 消息所属会话                                                 | 1.0.0 |
+| contentType  | string          | 消息类型（文本消息、图片消息等）                             | 1.0.0 |
+| content      | MessageContent   | 消息内容，内容与 messageType 属性相关，例如：name 为 `jg:text` 时，content 是 [文本消息](.././text) | 1.0.0 |
+| messageId    | string          | 消息 Id，区分每条的标识，全局唯一                            | 1.0.0 |
+| clientMsgNo  | number         | 本端消息唯一编号（对应本地数据库唯一 id）                    | 1.0.0 |
+| direction    | MessageDirection | 消息方向，用于标识“接收的消息 or 发送的消息”                 | 1.0.0 |
+| messageState | MessageState     | 消息状态，用于标识“发送中 or 发送成功 or 发送失败”           | 1.0.0 |
+| hasRead      | boolean              | 消息是否已读                                                 | 1.0.0 |
+| sentTime    | number         | 消息的发送时间，格式为时间戳精确到毫秒（服务端时间）         | 1.0.0 |
+| senderUserId | string          | 消息发送者的 userId                                          | 1.0.0 |
+| referredMessage | Message   | 引用消息                                              | 1.0.0 |
+| mentionInfo | MessageMentionInfo | @ 信息                                          | 1.0.0 |
+| localAttribute | string | 消息本地属性（仅对本端生效，不会同步到服务端）                  | 1.0.0 |
+
+</TabItem>
+</Tabs>

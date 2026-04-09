@@ -1,0 +1,54 @@
+---
+title: 更新评论
+hide_title: true
+sidebar_position: 12
+---
+### 功能说明{#intro}
+
+更新评论
+
+### 请求说明{#req}
+
+> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+
+> **请求类型**：`POST`
+
+> **请求限频**：`100次/秒`
+
+> **请求地址**：https://[请求域名](../api#api)/momentgateway/moments/comments/update
+
+> **Content-Type**：`application/json`
+
+
+### 请求参数{#param}
+
+
+### 请求示例{#req_demo}
+``` js
+POST /momentgateway/moments/comments/update HTTP/1.1
+appkey: appkey
+Authorization: xxxxxxxxxxxxxxxxxx
+Content-Type: application/json
+
+{
+  "user_id":"userid1",   // 以此用户身份
+  "comment_id":"帖子id",
+  "content":{
+    "text":"评论内容"
+  }
+}
+```
+
+### 响应示例{#res_demo}
+
+```json
+{
+  "code":0,
+  "msg":"sucess"
+}
+```
+
+### 响应码
+
+|响应码|说明||
+|:--|:---|:--|

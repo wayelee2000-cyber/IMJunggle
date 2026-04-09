@@ -1,0 +1,54 @@
+---
+title: 添加点赞
+hide_title: true
+sidebar_position: 21
+---
+### 功能说明{#intro}
+
+对帖子进行点赞
+
+### 请求说明{#req}
+
+> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+
+> **请求类型**：`POST`
+
+> **请求限频**：`100次/秒`
+
+> **请求地址**：https://[请求域名](../api#api)/momentgateway/moments/reactions/add
+
+> **Content-Type**：`application/json`
+
+
+### 请求参数{#param}
+
+
+### 请求示例{#req_demo}
+``` js
+POST /momentgateway/moments/reactions/add HTTP/1.1
+appkey: appkey
+Authorization: xxxxxxxxxxxxxxxxxx
+Content-Type: application/json
+
+{
+  "moment_id":"帖子id",
+  "reaction":{
+    "key":"k1",
+    "value":"v1"
+  }
+}
+```
+
+### 响应示例{#res_demo}
+
+```json
+{
+  "code":0,
+  "msg":"sucess"
+}
+```
+
+### 响应码
+
+|响应码|说明||
+|:--|:---|:--|

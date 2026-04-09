@@ -1,0 +1,56 @@
+---
+title: 移除管理员
+hide_title: true
+sidebar_position: 2
+---
+### 功能说明{#intro}
+
+移除群管理员
+
+### 请求说明{#req}
+
+> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+
+> **请求类型**：`POST`
+
+> **请求限频**：`100次/秒`
+
+> **请求地址**：https://[请求域名](../api#api)/jim/groups/management/administrators/del
+
+> **Content-Type**：`application/json`
+
+
+### 请求参数{#param}
+
+|参数|数据类型|是否必填|参数说明||
+|:--|:------|:-----|:-------|:--|
+|group_id|string|是|群组id||
+|admin_ids|array|是|管理员userid列表||
+
+
+### 请求示例{#req_demo}
+``` js
+POST /jim/groups/management/administrators/del HTTP/1.1
+appkey: appkey
+Authorization: xxxxxxxxxxxxxxxxxx
+Content-Type: application/json
+
+{
+  "group_id":"group1",
+  "admin_ids":["userid1","userid2"]
+}
+```
+
+### 响应示例{#res_demo}
+
+```json
+{
+  "code":0,
+  "msg":"sucess"
+}
+```
+
+### 响应码
+
+|响应码|说明||
+|:--|:---|:--|

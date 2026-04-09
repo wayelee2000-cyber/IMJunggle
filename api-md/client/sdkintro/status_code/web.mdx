@@ -1,0 +1,40 @@
+---
+title: Web
+hide_title: true
+sidebar_position: 2
+---
+
+| Name                        | Code  | Desc                              |
+|-----------------------------|-------|----------------------------------|
+| CONNECT_SUCCESS             | 0     | 链接成功                         |
+| CONNECT_ERROR               | 11000 | 默认错误                         |
+| CONNECT_APPKEY_IS_REQUIRE    | 11001 | 未传 Appkey                      |
+| CONNECT_TOKEN_NOT_EXISTS     | 11002 | 未传 Token                       |
+| CONNECT_APPKEY_NOT_EXISTS    | 11003 | Appkey 不存在                    |
+| CONNECT_TOKEN_ILLEGAL        | 11004 | Token 不合法                     |
+| CONNECT_TOKEN_UNAUTHORIZED   | 11005 | Token 未授权                     |
+| CONNECT_TOKEN_EXPIRE         | 11006 | Token 已过期                     |
+| CONNECT_UNSUPPORT_PLATFORM   | 11008 | 不支持的平台类型                 |
+| CONNECT_APP_BLOCKED          | 11009 | App已封禁                        |
+| CONNECT_USER_BLOCKED         | 11010 | 用户已封禁                       |
+| CONNECT_USER_KICKED          | 11011 | 被踢下线                         |
+| CONNECT_USER_LOGOUT          | 11012 | 注销下线                         |
+| PB_ERROR                     | 11100 | 入参 PB 解析失败                   |
+| GROUP_NOT_EXISTS             | 13001 | 群组不存在                       |
+| ILLEGAL_PARAMS               | 25000 | 参数缺失，请检查传入参数         |
+| CONNECTION_EXISTS            | 25001 | 连接已存在                       |
+| CONNECTION_NOT_READY         | 25002 | 连接不存在                       |
+| ILLEGAL_TYPE_PARAMS          | 25003 | 参数类型不正确                   |
+| COMMAND_FAILED               | 25004 | 发送超时，连接异常               |
+| UPLOAD_PLUGIN_ERROR          | 25005 | 上传文件组件为空                 |
+| UPLOAD_PLUGIN_NOTMATCH       | 25006 | 上传文件组件与 OSS 存储不一致    |
+| UPLOADING_FILE_ERROR         | 25007 | 文件上传失败，请重试             |
+| TRANSFER_MESSAGE_COUNT_EXCEED| 25008 | 单次合并转发消息条数上限为 20 条 |
+| DATABASE_NOT_OPENED          | 25009 | 未建立本地数据库连接，请优先调用连接方法 |
+| SDK_FUNC_NOT_DEFINED         | 25010 | 方法未实现，请确定 SDK 版本       |
+| SEND_REFER_MESSAGE_ERROR     | 25011 | 引用消息必须传入完成的 Message 对象 |
+| IM_SERVER_CONNECT_ERROR      | 25012 | IM 服务连接失败，请检查当前设备网络是否可用 |
+| ILLEGAL_PARAMS_EMPTY         | 25013 | 参数不可为空，请检查传入参数      |
+| REPREAT_CONNECTION           | 25014 | SDK 内部正在连接，无需重复调用 connect 方法      |
+| MESSAGE_SEND_REPETITION      | 25015 | 消息重复发送，相同的 tid 且正在发送中，无需再次发送消息      |
+| MESSAGE_RECALL_SUCCESS       | 21200 | 消息撤回成功                     |
