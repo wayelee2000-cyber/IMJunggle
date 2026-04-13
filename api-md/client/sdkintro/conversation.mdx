@@ -1,5 +1,5 @@
 ---
-title: 会话结构
+title: Conversation model
 hide_title: true
 sidebar_position: 1
 ---
@@ -7,171 +7,171 @@ sidebar_position: 1
 <Tabs
 groupId="sdks-language"
 values={[
-{ label: 'Android', value: 'android', },
-{ label: 'iOS', value: 'ios', },
-{ label: 'JavaScript', value: 'js', },
-{ label: 'Flutter', value: 'flutter', },
-{ label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
-]
-}>
+{ label: 'Android', value: 'android' },
+{ label: 'iOS', value: 'ios' },
+{ label: 'JavaScript', value: 'js' },
+{ label: 'Flutter', value: 'flutter' },
+{ label: 'ReactNative', value: 'reactnative' },
+{ label: 'HarmonyOS', value: 'harmony' }
+]}
+>
 <TabItem value="android">
 
-ConversationInfo 是 SDK 封装的通用会话对象。ConversationInfo 对象中的 conversation（Conversation 类型）用来唯一标识一个会话。Conversation 包含两个属性：conversationType 标识会话类型，conversationId 标识会话 id。
+`ConversationInfo` is the SDK's general conversation object. Its `conversation` property, of type `Conversation`, uniquely identifies a conversation. The `Conversation` object contains two properties: `conversationType`, which indicates the type of conversation, and `conversationId`, which identifies the conversation itself.
 
-| 属性名        | 类型          | 说明                       | 版本  |
-| ------------- | ------------- | -------------------------- | ----- |
-| conversation  | Conversation | 会话标识                | 1.0.0 |
-| lastMessage | Message      | 会话的最后一条消息         | 1.0.0 |
-| unreadCount   | int           | 当前会话的未读数           | 1.0.0 |
-| sortTime    | long   | 会话排序时间（服务端时间） | 1.0.0 |
-| isTop         | boolean       | 是否置顶                | 1.0.0 |
-| topTime       | long          | 会话置顶时间             | 1.0.0 |
-| mute          | boolean       | 是否免打扰              | 1.0.0 |
-| draft         | String        | 会话草稿               |  1.0.0 |
-| mentionInfo   | ConversationMentionInfo   | @ 信息     |  1.0.0 |
-| displayName   | String   | 会话名字（按照默认规则显示的会话名字）     |  1.8.39 |
-| alias   | String   | 会话备注名（群会话使用群备注名，单聊会话使用好友备注名）     |  1.8.39 |
-| name   | String   | 会话本名（群会话使用群名称，单聊会话使用用户名称）     |  1.8.39 |
-| portrait   | String   | 会话头像 URL   |  1.8.39 |
+| Property Name | Type | Description | Version |
+| --- | --- | --- | --- |
+| conversation | Conversation | Conversation identifier | 1.0.0 |
+| lastMessage | Message | The last message in the conversation | 1.0.0 |
+| unreadCount | int | Number of unread messages in the conversation | 1.0.0 |
+| sortTime | long | Conversation sort time (server time) | 1.0.0 |
+| isTop | boolean | Whether the conversation is pinned | 1.0.0 |
+| topTime | long | Time when the conversation was pinned | 1.0.0 |
+| mute | boolean | Whether Do Not Disturb is enabled | 1.0.0 |
+| draft | String | Conversation draft | 1.0.0 |
+| mentionInfo | ConversationMentionInfo | @ mention information | 1.0.0 |
+| displayName | String | Conversation name shown by the default display rules | 1.8.39 |
+| alias | String | Conversation alias. Group chats use the group alias; one-to-one chats use the friend alias | 1.8.39 |
+| name | String | Original conversation name. Group chats use the group name; one-to-one chats use the user name | 1.8.39 |
+| portrait | String | Conversation avatar URL | 1.8.39 |
+
 </TabItem>
-
 
 <TabItem value="ios">
 
-JConversationInfo 是 SDK 封装的通用会话对象。JConversationInfo 对象中的 conversation （JConversation 类型）用来唯一标识一个会话。JConversation 包含两个属性：conversationType 标识会话类型，conversationId 标识会话 id。
+`JConversationInfo` is the SDK's general conversation object. Its `conversation` property, of type `JConversation`, uniquely identifies a conversation. The `JConversation` object contains two properties: `conversationType`, which indicates the type of conversation, and `conversationId`, which identifies the conversation itself.
 
-| 属性名        | 类型          | 说明                       | 版本  |
-| ------------- | ------------- | -------------------------- | ----- |
-| conversation  | JConversation | 会话标识               | 1.0.0 |
-| lastMessage | JMessage      | 会话的最后一条消息         | 1.0.0 |
-| unreadCount   | int           | 当前会话的未读数           | 1.0.0 |
-| sortTime    | long long     | 会话排序时间（服务端时间） | 1.0.0 |
-| isTop         | BOOL          | 是否置顶                | 1.0.0 |
-| topTime       | long long     | 会话置顶时间             | 1.0.0 |
-| mute          | BOOL          | 是否免打扰              | 1.0.0 |
-| draft         | NSString      | 会话草稿               |  1.0.0 |
-| mentionInfo   | JConversationMentionInfo   | @ 信息     |  1.0.0 |
-| displayName   | NSString   | 会话名字（按照默认规则显示的会话名字）     |  1.8.39 |
-| alias   | NSString   | 会话备注名（群会话使用群备注名，单聊会话使用好友备注名）     |  1.8.39 |
-| name   | NSString   | 会话本名（群会话使用群名称，单聊会话使用用户名称）     |  1.8.39 |
-| portrait   | NSString   | 会话头像 URL   |  1.8.39 |
+| Property Name | Type | Description | Version |
+| --- | --- | --- | --- |
+| conversation | JConversation | Conversation identifier | 1.0.0 |
+| lastMessage | JMessage | The last message in the conversation | 1.0.0 |
+| unreadCount | int | Number of unread messages in the conversation | 1.0.0 |
+| sortTime | long long | Conversation sort time (server time) | 1.0.0 |
+| isTop | BOOL | Whether the conversation is pinned | 1.0.0 |
+| topTime | long long | Time when the conversation was pinned | 1.0.0 |
+| mute | BOOL | Whether Do Not Disturb is enabled | 1.0.0 |
+| draft | NSString | Conversation draft | 1.0.0 |
+| mentionInfo | JConversationMentionInfo | @ mention information | 1.0.0 |
+| displayName | NSString | Conversation name shown by the default display rules | 1.8.39 |
+| alias | NSString | Conversation alias. Group chats use the group alias; one-to-one chats use the friend alias | 1.8.39 |
+| name | NSString | Original conversation name. Group chats use the group name; one-to-one chats use the user name | 1.8.39 |
+| portrait | NSString | Conversation avatar URL | 1.8.39 |
 
 </TabItem>
+
 <TabItem value="js">
 
-| 属性名             | 类型     | 说明   | 版本     |
-|-------------------|----------|--------|----------|
-| conversationId    | String   | 会话 Id，会话类型是 `PRIVATE` 时，会话 Id 是接收方的 userId，会话类型是 `GROUP` 时是群组 Id | 1.0.0    |
-| conversationType  | Number   | 会话类型 | 1.0.0    |
-| conversationTitle    | String   | 会话名称，修改会话名称请直接修改用户或群组名称 | 1.0.0    |
-| conversationPortrait | String   | 会话头像，修改会话头像请直接修改用户或群组头像 | 1.0.0    |
-| conversationExts    | Object   | 会话的扩展，修改会话会话扩展请直接修改用户或群组扩展 | 1.0.0    |
-| conversationAlias    | String   | 会话备注名（群会话是群备注名，单聊会话是好友备注名） | 1.9.7    |
-| latestMessage     | Message  | 会话的最后一条消息，详细请查看 [Message](./msg/message.mdx) | 1.0.0    |
-| draft             | String   | 会话草稿，存储在本地，不会多端同步| 1.0.0    |
-| isTop             | Boolean   | 会话是否置顶 | 1.0.0    |
-| latestReadIndex   | Number   | 当前会话中已读消息中最大的消息索引 | 1.0.0    |
-| latestUnreadIndex | Number   | 当前会话中未读消息中最大的消息索引，[清理单个会话未读](./clear_unread/) 时会用到 | 1.0.0    |
-| undisturbType     | Number   | [免打扰类型](../enum/web#disturb)，用来显示会话免打扰状态| 1.0.0    |
-| sortTime          | Number   | 会话排序时间，会话列表默认按 sortTime 倒序排列 | 1.0.0    |
-| unreadCount       | Number   | 当前会话的未读数 | 1.0.0    |
-| unreadTag          | Number   | [会话标记状态](../enum/web#unreadtag) | 1.0.0    |
-| mentions              | Object  | 会话 @ 消息标识，调用 [清空单个会话未读数](.././conversation/unread/clear_unread) 后，`mentions` 会被清空 | 1.7.0    |
-| mentions.isMentioned  | Boolean | 会话中是否有 @ 自己的消息, 为 true 可在 UI 层展示 `有人 @ 我` | 1.7.0    |
-| mentions.senders      | Array   | 会话中 @ 消息发送人列表，可以用来在会话中展示发送 @ 消息头像名称，数据结构见下方示例 | 1.7.0    |
-| mentions.msgs         | Array   | 会话中 @ 消息列表，数据结构见下方示例  | 1.7.0    |
-| mentions.count        | Number  | 会话中 @ 消息的条数 | 1.7.0    |
+| Property Name | Type | Description | Version |
+| --- | --- | --- | --- |
+| conversationId | String | Conversation ID. For `PRIVATE`, this is the recipient's userId; for `GROUP`, it is the group ID | 1.0.0 |
+| conversationType | Number | Conversation type | 1.0.0 |
+| conversationTitle | String | Conversation name. To change it, update the user or group name directly | 1.0.0 |
+| conversationPortrait | String | Conversation avatar. To change it, update the user or group avatar directly | 1.0.0 |
+| conversationExts | Object | Conversation extensions. To change them, update the user or group extensions directly | 1.0.0 |
+| conversationAlias | String | Conversation alias. Group chats use the group alias; one-to-one chats use the friend alias | 1.9.7 |
+| latestMessage | Message | The last message in the conversation. See [Message](./msg/message.mdx) for details | 1.0.0 |
+| draft | String | Conversation draft stored locally and not synchronized across devices | 1.0.0 |
+| isTop | Boolean | Whether the conversation is pinned | 1.0.0 |
+| latestReadIndex | Number | The highest message index read in the conversation | 1.0.0 |
+| latestUnreadIndex | Number | The highest unread message index in the conversation. Used when clearing unread count for a single conversation | 1.0.0 |
+| undisturbType | Number | [Do Not Disturb type](../enum/web.md#disturb), used to show the conversation's Do Not Disturb status | 1.0.0 |
+| sortTime | Number | Conversation sort time. The conversation list is sorted in descending order by this value | 1.0.0 |
+| unreadCount | Number | Number of unread messages in the conversation | 1.0.0 |
+| unreadTag | Number | [Conversation unread tag status](../enum/web.md#unreadtag) | 1.0.0 |
+| mentions | Object | @ mention information in the conversation. After calling [Clear unread for a single conversation](./conversation/unread/clear_unread.md), `mentions` will be cleared | 1.7.0 |
+| mentions.isMentioned | Boolean | Whether there are messages that @ mention the current user | 1.7.0 |
+| mentions.senders | Array | List of users who sent @ messages. Can be used to show avatars and names in the conversation | 1.7.0 |
+| mentions.msgs | Array | List of @ messages in the conversation | 1.7.0 |
+| mentions.count | Number | Number of @ messages in the conversation | 1.7.0 |
 
-**Metions 数据结构**:
+**Mentions Data Structure**
 
 ```js
-
 {
-  conversationId: 'Akd1kdlsf'
+  conversationId: 'Akd1kdlsf',
   conversationType: 2,
-  //...
+  // ...
   mentions: {
-    // 是否有 @ 自己
     isMentioned: true,
     senders: [
-      { id: "userId01", name: "Xs", portrait: "https://xxx.com/avatar.png", updatedTime: 1726113434045, exts: {} }
+      { id: 'userId01', name: 'Xs', portrait: 'https://xxx.com/avatar.png', updatedTime: 1726113434045, exts: {} }
     ],
     msgs: [
-      { senderId: "userId01", messageId: "nut3lupwjgnlukc9", sentTime: 1728964798161 }
+      { senderId: 'userId01', messageId: 'nut3lupwjgnlukc9', sentTime: 1728964798161 }
     ],
     count: 2
-	},
+  }
 }
-
 ```
 
 </TabItem>
 
 <TabItem value="flutter">
 
-ConversationInfo 是 SDK 封装的通用会话对象。ConversationInfo 对象中的 conversation（Conversation 类型）用来唯一标识一个会话。Conversation 包含两个属性：conversationType 标识会话类型，conversationId 标识会话 id。
+`ConversationInfo` is the SDK's general conversation object. Its `conversation` property, of type `Conversation`, uniquely identifies a conversation. The `Conversation` object contains two properties: `conversationType`, which indicates the type of conversation, and `conversationId`, which identifies the conversation itself.
 
-| 属性名        | 类型          | 说明                       | 版本  |
-| ------------- | ------------- | -------------------------- | ----- |
-| conversation  | Conversation | 会话标识                | 0.0.63 |
-| lastMessage | Message      | 会话的最后一条消息         | 0.0.63 |
-| unreadCount   | int           | 当前会话的未读数           | 0.0.63 |
-| sortTime    | int   | 会话排序时间（服务端时间） | 0.0.63 |
-| isTop         | bool       | 是否置顶                | 0.0.63 |
-| topTime       | int          | 会话置顶时间             | 0.0.63 |
-| mute          | bool       | 是否免打扰              | 0.0.63 |
-| draft         | String        | 会话草稿               |  0.0.63 |
-| mentionInfo   | ConversationMentionInfo   | @ 信息     |  0.0.63 |
-| name         | String        | 会话本名（群会话使用群名称，单聊会话使用用户名称）            |  0.0.72 |
-| portrait         | String        | 会话头像 URL            |  0.0.72 |
-| displayName         | String        | 会话名字（按照默认规则显示的会话名字）                |  0.0.72 |
-| alias         | String        | 会话备注名（群会话使用群备注名，单聊会话使用好友备注名）              |  0.0.72 |
+| Property Name | Type | Description | Version |
+| --- | --- | --- | --- |
+| conversation | Conversation | Conversation identifier | 0.0.63 |
+| lastMessage | Message | The last message in the conversation | 0.0.63 |
+| unreadCount | int | Number of unread messages in the conversation | 0.0.63 |
+| sortTime | int | Conversation sort time (server time) | 0.0.63 |
+| isTop | bool | Whether the conversation is pinned | 0.0.63 |
+| topTime | int | Time when the conversation was pinned | 0.0.63 |
+| mute | bool | Whether Do Not Disturb is enabled | 0.0.63 |
+| draft | String | Conversation draft | 0.0.63 |
+| mentionInfo | ConversationMentionInfo | @ mention information | 0.0.63 |
+| name | String | Original conversation name. Group chats use the group name; one-to-one chats use the user name | 0.0.72 |
+| portrait | String | Conversation avatar URL | 0.0.72 |
+| displayName | String | Conversation name shown by the default display rules | 0.0.72 |
+| alias | String | Conversation alias. Group chats use the group alias; one-to-one chats use the friend alias | 0.0.72 |
+
 </TabItem>
 
 <TabItem value="reactnative">
 
-ConversationInfo 是 SDK 封装的通用会话对象。ConversationInfo 对象中的 conversation（Conversation 类型）用来唯一标识一个会话。Conversation 包含两个属性：conversationType 标识会话类型，conversationId 标识会话 id。
+`ConversationInfo` is the SDK's general conversation object. Its `conversation` property, of type `Conversation`, uniquely identifies a conversation. The `Conversation` object contains two properties: `conversationType`, which indicates the type of conversation, and `conversationId`, which identifies the conversation itself.
 
-| 属性名        | 类型          | 说明                       | 版本  |
-| ------------- | ------------- | -------------------------- | ----- |
-| conversation  | Conversation | 会话标识                | 1.0.0 |
-| lastMessage | Message      | 会话的最后一条消息         | 1.0.0 |
-| unreadCount   | number           | 当前会话的未读数           | 1.0.0 |
-| sortTime    | number   | 会话排序时间（��务端时间） | 1.0.0 |
-| isTop         | boolean       | 是否置顶                | 1.0.0 |
-| topTime       | number          | 会话置顶时间             | 1.0.0 |
-| isMute          | boolean       | 是否免打扰              | 1.0.0 |
-| draft         | string        | 会话草稿               |  1.0.0 |
-| hasUnread         | boolean       | 是否有未读消息              | 1.0.0 |
-| mentionInfo   | ConversationMentionInfo   | @ 信息     |  1.0.0 |
-| name         | string   | 会话名称              | 1.0.0 |
-| avatar         | string   | 会话头像              | 1.0.0 |
-| extra         | object   | 会话扩展信息              | 1.0.0 |
+| Property Name | Type | Description | Version |
+| --- | --- | --- | --- |
+| conversation | Conversation | Conversation identifier | 1.0.0 |
+| lastMessage | Message | The last message in the conversation | 1.0.0 |
+| unreadCount | number | Number of unread messages in the conversation | 1.0.0 |
+| sortTime | number | Conversation sort time (server time) | 1.0.0 |
+| isTop | boolean | Whether the conversation is pinned | 1.0.0 |
+| topTime | number | Time when the conversation was pinned | 1.0.0 |
+| isMute | boolean | Whether Do Not Disturb is enabled | 1.0.0 |
+| draft | string | Conversation draft | 1.0.0 |
+| hasUnread | boolean | Whether there are unread messages | 1.0.0 |
+| mentionInfo | ConversationMentionInfo | @ mention information | 1.0.0 |
+| name | string | Conversation name | 1.0.0 |
+| avatar | string | Conversation avatar | 1.0.0 |
+| extra | object | Conversation extension information | 1.0.0 |
 
-**Conversation 对象属性：**
+**Conversation Object Properties**
 
-| 属性名 | 类型 | 说明 |
-| ------ | ------ | ---- |
-| conversationType | number | 会话类型：1-单聊，2-群聊，3-聊天室，4-系统会话 |
-| conversationId | string | 会话 Id |
+| Property Name | Type | Description |
+| --- | --- | --- |
+| conversationType | number | Conversation type: 1 = private chat, 2 = group chat, 3 = chatroom, 4 = system conversation |
+| conversationId | string | Conversation ID |
 
 </TabItem>
 
 <TabItem value="harmony">
 
-ConversationInfo 是 SDK 封装的通用会话对象。ConversationInfo 对象中的 conversation（Conversation 类型）用来唯一标识一个会话。Conversation 包含两个属性：conversationType 标识会话类型，conversationId 标识会话 id。
+`ConversationInfo` is the SDK's general conversation object. Its `conversation` property, of type `Conversation`, uniquely identifies a conversation. The `Conversation` object contains two properties: `conversationType`, which indicates the type of conversation, and `conversationId`, which identifies the conversation itself.
 
-| 属性名        | 类型          | 说明                       | 版本  |
-| ------------- | ------------- | -------------------------- | ----- |
-| conversation  | Conversation | 会话标识                | 1.0.0 |
-| lastMessage | Message      | 会话的最后一条消息         | 1.0.0 |
-| unreadCount   | number           | 当前会话的未读数           | 1.0.0 |
-| sortTime    | number   | 会话排序时间（服务端时间） | 1.0.0 |
-| isTop         | boolean       | 是否置顶                | 1.0.0 |
-| topTime       | number          | 会话置顶时间             | 1.0.0 |
-| mute          | boolean       | 是否免打扰              | 1.0.0 |
-| draft         | string        | 会话草稿               |  1.0.0 |
-| mentionInfo   | ConversationMentionInfo   | @ 信息     |  1.0.0 |
+| Property Name | Type | Description | Version |
+| --- | --- | --- | --- |
+| conversation | Conversation | Conversation identifier | 1.0.0 |
+| lastMessage | Message | The last message in the conversation | 1.0.0 |
+| unreadCount | number | Number of unread messages in the conversation | 1.0.0 |
+| sortTime | number | Conversation sort time (server time) | 1.0.0 |
+| isTop | boolean | Whether the conversation is pinned | 1.0.0 |
+| topTime | number | Time when the conversation was pinned | 1.0.0 |
+| mute | boolean | Whether Do Not Disturb is enabled | 1.0.0 |
+| draft | string | Conversation draft | 1.0.0 |
+| mentionInfo | ConversationMentionInfo | @ mention information | 1.0.0 |
+
 </TabItem>
-</Tabs> 
+</Tabs>
