@@ -1,56 +1,56 @@
 ---
-title: 发送文件
+title: Send file
 hide_title: true
 sidebar_position: 3
 ---
 
-### 前期准备{#pre}
+### Preparation{#pre}
 
-发送文件消息、图片消息、视频消息、语音消息都需要用到文件上传，示例以文件消息举例，用法类似只需要替换发送消息方法和入参即可
+Sending file messages, picture messages, video messages, and voice messages all require file uploads. This example uses file messages. The usage is similar; you only need to replace the sending message method and input parameters.
 
-1、在 `开发者后台` 创建应用获取 `AppKey` 和 `Secret`。
+1. Create an application in the `Developer Backstage` to obtain your `AppKey` and `Secret`.
 
 ![](../assets/appkey_secret.png)
 
-2、自己调用服务端 API 获取 Token 或在开发者后台的 -> 选择应用-> 开发工具 -> API -> 用户相关中，调用用户注册接口，获取两个测试 Token。
+2. Call the server API to obtain the token yourself, or in the developer backend -> Select Application -> Development Tools -> API -> User Related, call the user registration interface to obtain two test tokens.
 
 ![](../assets/token.png)
 
-3、下载最新版本 `JavaScript SDK`
+3. Download the latest version of the `JavaScript SDK`.
 
-4、下载云厂商文件上传 SDK，[七牛 SDK](https://developer.qiniu.com/kodo/1283/javascript)、[阿里 OSS](https://www.alibabacloud.com/help/zh/oss/user-guide/upload-a-file-using-a-file-url?spm=a2c63.p38356.0.0.55571f10Ci0gEp#392d9bf073h38) 下文以七牛为例
+4. Download the cloud vendor file upload SDK, such as [Qiniu SDK](https://developer.qiniu.com/kodo/1283/javascript) or [Alibaba OSS](https://www.alibabacloud.com/help/zh/oss/user-guide/upload-a-file-using-a-file-url?spm=a2c63.p38356.0.0.55571f10Ci0gEp#392d9bf073h38). The following example uses Qiniu.
 
-5、在开发者后台设置云存储类型，如果使用阿里 OSS，请在阿里云后台 **设置允许 Web 端跨域**
+5. Set the cloud storage type in the developer backend. If you use Alibaba OSS, please configure the Alibaba Cloud backend to allow web-side cross-domain requests.
 
 ![](../assets/storage.png)
 
-6、根据集成文档逐步集成。
+6. Integrate step-by-step according to the integration document.
 
-### 使用流程{#flow}
+### Use process{#flow}
 
-> 1、引入 IM Web SDK
+> 1. Import the IM Web SDK
 
-> 2、引入 qiniu JS SDK
+> 2. Import the Qiniu JS SDK
 
-> 3、初始化配置上传组件
+> 3. Initialize and configure the upload component
 
-> 4、连接成功
+> 4. Establish a successful connection
 
-> 5、发送文件消息
+> 5. Send a file message
 
-### 示例代码{#code}
+### Sample code{#code}
 
-为了方便演示，示例代码中包含官方测试 AppKey 和 Token，测试完成后请替换为开发者的 AppKey 和 Token。
+For demonstration purposes, the sample code includes the official test AppKey and Token. Please replace them with your own AppKey and Token after testing.
 
-> 1、新建 `HTML` 文件，命名为 `demo.html`
+> 1. Create a new `HTML` file named `demo.html`.
 
-> 2、下载 [juggleim-dev-1.9.0.zip](./juggleim-dev-1.9.0.zip) , 将 `juggleim-dev-1.9.0.js` 放在 `demo.html` **同级目录**
+> 2. Download [juggleim-dev-1.9.0.zip](./juggleim-dev-1.9.0.zip) and place `juggleim-dev-1.9.0.js` in the same directory as `demo.html`.
 
-> 3、将 [qiniu.min.js](https://developer.qiniu.com/kodo/1283/javascript) 放在 `demo.html` **同级目录**
+> 3. Place [qiniu.min.js](https://developer.qiniu.com/kodo/1283/javascript) in the same directory as `demo.html`.
 
-> 4、将下方代码复制粘贴到 `demo.html`
+> 4. Copy and paste the code below into `demo.html`.
 
-> 4、使用 Chrome 浏览器打开 `demo.html` 预览效果
+> 5. Open `demo.html` in the Chrome browser to preview the effect.
 
 <br/>
 
@@ -58,7 +58,7 @@ sidebar_position: 3
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>JIM</title>
   <script src="./jim-[version].js"></script>
   <script src="./qiniu.min.js"></script>
@@ -84,7 +84,7 @@ sidebar_position: 3
 
 <body>
   <div class="container">
-    <div>请打开浏览器控制台查看结果</div>
+    <div>Please open the browser console to view the results</div>
     <input type="file" id="file" class="input" />
     <div>
       <span id="percent">0</span>
@@ -92,15 +92,14 @@ sidebar_position: 3
     </div>
   </div>
   <script>
-
     let fileNode = document.querySelector('#file');
     let percentNode = document.querySelector('#percent');
 
-    // 准备基础信息
+    // Prepare basic information
     let appkey = 'Your AppKey';
     let token = 'Your Token';
-    let userId = '与 Token 对应的 userId' 
-    // 私有化部署后的 WebSocket 域名或 IP
+    let userId = 'userId matching the Token';
+    // WebSocket domain name or IP after privatized deployment
     let serverList = [
       'https://demo.im.com',
       'http://demo.im.com',
@@ -108,51 +107,54 @@ sidebar_position: 3
     ];
 
     /*
-      初始化七牛文件存储
-      let jim = JIM.init({ appkey, upload: qiniu });
+    Initialize Qiniu file storage
+    let jim = JIM.init({ appkey, upload: qiniu });
     */
 
-    /* 
-      初始化阿里文件存储: OSS 通过引入阿里上传 JS SDK 获得 https://gosspublic.alicdn.com/aliyun-oss-sdk-6.18.0.min.js
-      let jim = JIM.init({ appkey, upload: OSS });
+    /*
+    Initialize Ali file storage: OSS requires including https://gosspublic.alicdn.com/aliyun-oss-sdk-6.18.0.min.js by importing the Ali upload JS SDK
+    let jim = JIM.init({ appkey, upload: OSS });
     */
 
-    /* 
-      初始化 AWS 文件存储: S3Client 通过引入 AWS JS SDK 获得 https://www.npmjs.com/package/@aws-sdk/client-s3
-      import { S3Client } from "@aws-sdk/client-s3";
-      let jim = JIM.init({ appkey, upload: S3Client });
+    /*
+    Initialize AWS file storage: S3Client is obtained by importing AWS JS SDK https://www.npmjs.com/package/@aws-sdk/client-s3
+    import { S3Client } from "@aws-sdk/client-s3";
+    let jim = JIM.init({ appkey, upload: S3Client });
     */
 
-    //  步骤 1: 初始化 SDK, 全局只需初始化一次, 以七牛为例 
+    // Step 1: Initialize the SDK. This only needs to be done once globally. Using Qiniu as an example.
     let jim = JuggleIM.init({ appkey, serverList, upload: qiniu });
     let { Event, ConnectionState, ConversationType, MessageType } = JIM;
 
-    // 步骤 2: 设置状态监听，全局只需设置一次
+    // Step 2: Set up status monitoring. This only needs to be done once globally.
     jim.on(Event.STATE_CHANGED, ({ state, user }) => {
-      if (ConnectionState.CONNECTING == state) {
-        console.log('im is connecting');
+      if (ConnectionState.CONNECTING === state) {
+        console.log('IM is connecting');
       }
-      if (ConnectionState.CONNECTED == state) {
+      if (ConnectionState.CONNECTED === state) {
         // user => { id: 'xxx' }
-        console.log('im is connected', user);
+        console.log('IM is connected', user);
       }
-      if (ConnectionState.DISCONNECTED == state) {
-        console.log('im is disconnected');
+      if (ConnectionState.DISCONNECTED === state) {
+        console.log('IM is disconnected');
       }
     });
 
-    // 步骤 3: 设置消息监听，全局只需设置一次
+    // Step 3: Set up message monitoring. This only needs to be done once globally.
     jim.on(Event.MESSAGE_RECEIVED, (message) => {
       console.log(message);
     });
 
-    // 步骤 4: 连接，全局只需调用一次，消息相关、会话相关接口必须连接成功后才可调用
-    jim.connect({ token, userId }).then((user) => {
-      fileNode.style = "display: block;";
-      fileNode.onchange = sendFile
-    }, (error) => {
-      console.log(error)
-    });
+    // Step 4: Connect. This only needs to be called once globally. Message-related and session-related interfaces can only be called after a successful connection.
+    jim.connect({ token, userId }).then(
+      (user) => {
+        fileNode.style.display = "block";
+        fileNode.onchange = sendFile;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
 
     function sendFile(e) {
       let file = e.target.files[0];
@@ -162,33 +164,36 @@ sidebar_position: 3
         content: {
           file: file,
           name: file.name,
-          type: file.type
+          type: file.type,
         },
         /*
-        自定义属性: 按需使用, 自定义属性会在文件上传进度 onprogress 和消息发送成功后 msg 对象中返回
-        使用的场景: 发送文件消息时可自定义 tid，然后将消息渲染到页面，通过 onprogress 中返回的 
-                  message.tid 更新进度条
+        Custom attributes: used as needed. Custom attributes will be returned in the file upload progress onprogress and the msg object after the message is sent successfully.
+        Usage scenario: When sending a file message, you can customize the tid, then render the message to the page through the returned value in onprogress.
+        message.tid updates the progress bar.
         */
-        tid: `tid_${Date.now()}`
+        tid: `tid_${Date.now()}`,
       };
 
       jim.sendFileMessage(message, {
         onprogress: ({ percent, message }) => {
           console.log(`${percent}%`, message);
           percentNode.innerHTML = percent;
+        },
+      }).then(
+        (msg) => {
+          console.log('File message sent successfully', msg);
+          e.target.value = '';
+        },
+        (error) => {
+          console.log(error);
         }
-      }).then((msg) => {
-        console.log('send file message successfully', msg)
-        e.value = '';
-      }, (error) => {
-        console.log(error)
-      });
+      );
     }
   </script>
 </body>
 </html>
 ```
 
-:::danger 要注意哦
-Demo 里展示到连接成功，在实际项目中可根据 [集成文档](../../../sdkintro/init/) 按需选择使用 JIM 功能
+:::danger Please be careful
+The demo shows a successful connection. In an actual project, you can choose to use the JIM functions as needed according to the [Integration Document](../../../sdkintro/init/).
 :::

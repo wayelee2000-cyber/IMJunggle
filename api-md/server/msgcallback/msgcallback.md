@@ -1,33 +1,33 @@
 ---
-title: 消息回调
+title: message callback
 hide_title: true
 sidebar_position: 1
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-消息回调，IM服务器收到消息发送请求时，可以回调给客户业务服务器，由业务服务器来决定该消息是否继续分发和发送。可以用于消息审核，权限控制等场景。
+Message callback allows the IM server to notify the customer's business server when it receives a message sending request. The business server then decides whether to continue distributing and sending the message. This feature is useful for scenarios such as message auditing and permission control.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **推送鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../api#header)
+> **Push Authentication**: The interface requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
-> **推送结果**：业务服务器响应200，且响应数据中要指定该消息是否继续下发，详见下面文档中参数说明。
+> **Push result**: The business server should respond with HTTP status 200, and the response data must specify whether the message should continue to be sent. For details, see the parameter descriptions below.
 
-> **机制说明**: 消息回调，实在消息实际分发前，给业务服务器一次干预的机会。业务服务器响应的快慢，将直接影响消息的处理延时。另外，通过Server API发送的消息，将不会回调。
+> **Mechanism description**: Message callback provides the business server an opportunity to intervene before the message is actually distributed. The response time of the business server directly affects message processing delay. Note that messages sent through the Server API will not trigger callbacks.
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|sender|string|是|消息发送者id||
-|receiver|string|是|消息接收者id||
-|msg_type|string|是|消息类型标识||
-|msg_content|string|是|消息内容，建议json格式||
-|mention_info.mention_type|string|否|@消息类型，mention_all:@所有人；mention_someone:@某些人；mention_all_someone:@所有人和某些人；||
-|mention_info.target_user_ids|array|否|当@某些人时，这里指定要@的人的userid||
+| Parameters                 | Data type | Required | Parameter description                                                                                  |   |
+|:---------------------------|:----------|:---------|:-----------------------------------------------------------------------------------------------------|---|
+| sender                    | string    | yes      | Message sender ID                                                                                      |   |
+| receiver                  | string    | yes      | Message receiver ID                                                                                    |   |
+| msg_type                  | string    | yes      | Message type identifier                                                                                |   |
+| msg_content               | string    | yes      | Message content; JSON format is recommended                                                           |   |
+| mention_info.mention_type | string    | no       | @Message type: mention_all for @everyone; mention_someone for @someone; mention_all_someone for @everyone and some people |   |
+| mention_info.target_user_ids | array  | no       | When mentioning specific users, specify the user IDs to be mentioned here                             |   |
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 
 ```js
 POST /message/callback HTTP/1.1
@@ -38,35 +38,35 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-    "platform":"iOS",// iOS/Android/Web/PC/Server
-    "sender": "userid1", //发送uid
-    "receiver": "userid2", //接收uid
-    "channel_type": 1, //1:private 2:group 3:chatroomstem
+    "platform": "iOS", // iOS/Android/Web/PC/Server
+    "sender": "userid1", // sender user ID
+    "receiver": "userid2", // receiver user ID
+    "channel_type": 1, // 1: private, 2: group, 3: chatroom
     "msg_type": "text",
     "msg_content": "Hello, world!",
-    "mention_info":{
-      "mention_type":"mention_all",
-      "target_user_ids":["userid1","userid2"]
+    "mention_info": {
+      "mention_type": "mention_all",
+      "target_user_ids": ["userid1", "userid2"]
     }
 }
 ```
 
-### 响应示例{#resp_demo}
+### Response example{#resp_demo}
 
 ```js
-
 {
-    "result":"PASS",//REJECT, REPLACE, SILENT
-    "msg_type":"jg:text",
-    "msg_content":"{\"content\":\"hello world!\"}",
-    "custom_code":132
+    "result": "PASS", // REJECT, REPLACE, SILENT
+    "msg_type": "jg:text",
+    "msg_content": "{\"content\":\"hello world!\"}",
+    "custom_code": 132
 }
-
 ```
-### 响应参数
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|result|string|是|消息回调结果。PASS：消息继续分发；REJECT:该消息拒绝下发；REPLACE:内容需要替换；SILENT:静默处理，消息拒绝下发，但发送者无感知；||
-|msg_type|string|否|result是REPLACE时，该字段有效， 用于替换原消息的消息类型||
-|msg_content|string|否|result是REPLACE时，该字段有效， 用于替换原消息的消息内容||
-|custom_code|int|否|result是reject时，该字段有效，用于自定义向发送端返回的错误码，如果设置成0，将用im中默认的错误码||
+
+### Response parameters
+
+| Parameters   | Data type | Required | Parameter description                                                                                                         |   |
+|:-------------|:----------|:---------|:------------------------------------------------------------------------------------------------------------------------------|---|
+| result       | string    | yes      | Message callback result. Possible values: PASS (continue distribution), REJECT (refuse delivery), REPLACE (replace content), SILENT (refuse delivery silently, sender unaware) |   |
+| msg_type     | string    | no       | Valid when result is REPLACE; used to replace the original message type                                                        |   |
+| msg_content  | string    | no       | Valid when result is REPLACE; used to replace the original message content                                                    |   |
+| custom_code  | int       | no       | Valid when result is REJECT; custom error code returned to the sender. If set to 0, the default IM error code is used          |   |

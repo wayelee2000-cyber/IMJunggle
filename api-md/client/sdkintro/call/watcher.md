@@ -1,5 +1,5 @@
 ---
-title: 事件监听
+title: event listening
 hide_title: true
 sidebar_position: 5
 ---
@@ -16,45 +16,45 @@ values={[
 }>
 <TabItem value="android">
 
-通话中的事件监听，可以使用通话实体 `ICallSession` 对象来进行注册。
+You can register event listeners during a call using the call entity `ICallSession` object.
 
 ```java
 mCallSession.addListener("SingleCallActivity", this);
 ```
 
-回调事件定义如下。
+The callback interface is defined as follows:
 
 ```java
 interface ICallSessionListener {
-    //通话已接通
+    // The call has been connected
     void onCallConnect();
 
-    //通话已结束
+    // The call has ended
     void onCallFinish(CallConst.CallFinishReason finishReason);
 
-    //通话中的错误回调
+    // Error callback during the call
     void onErrorOccur(CallConst.CallErrorCode errorCode);
 
-    // 用户被邀请（多人通话中使用）
+    // User is invited (used in multi-person calls)
     void onUsersInvite(String inviterId, List<String> userIdList);
 
-    // 用户加入通话（多人通话中使用）
+    // User joins the call (used in multi-person calls)
     void onUsersConnect(List<String> userIdList);
 
-    // 用户退出通话（多人通话中使用）
+    // User leaves the call (used in multi-person calls)
     void onUsersLeave(List<String> userIdList);
 
-    // 用户开启/关闭摄像头
+    // User turns camera on/off
     void onUserCameraEnable(String userId, boolean enable);
 
-    // 用户开启/关闭麦克风
+    // User turns microphone on/off
     void onUserMicrophoneEnable(String userId, boolean enable);
 
-    // 用户声音大小变化
-    // userId 为 key，声音大小为 value
+    // Changes in user voice volume
+    // userId is the key, sound level is the value
     void onSoundLevelUpdate(HashMap<String, Float> soundLevels);
 
-    // 视频渲染第一祯回调
+    // Video rendering first frame callback
     void onVideoFirstFrameRender(String userId);
 }
 ```
@@ -62,148 +62,145 @@ interface ICallSessionListener {
 </TabItem>
 <TabItem value="ios">
 
-通话中的事件监听，可以使用通话实体 `id<JCallSession>` 对象来进行注册。
+You can register event listeners during a call using the call entity `id<JCallSession>` object.
 
 ```objectivec
 [callSession addDelegate:self];
 ```
 
-事件定义如下。
+The delegate methods are defined as follows:
 
 ```objectivec
 @protocol JCallSessionDelegate <NSObject>
 
 @optional
 
-/// 通话已接通
+/// Call connected
 - (void)callDidConnect;
 
-/// 通话已结束
-/// - Parameter finishReason: 结束原因
+/// Call ended
+/// - Parameter finishReason: reason for call end
 - (void)callDidFinish:(JCallFinishReason)finishReason;
 
-/// 用户被邀请（多人通话中使用）
-/// - Parameter userId: 被邀请的用户 id
+/// User invited (used in multi-person calls)
+/// - Parameter userId: invited user ID
 - (void)userDidInvite:(NSString *)userId;
 
-/// 用户加入通话（多人通话中使用）
-/// - Parameter userId: 用户 id
+/// User joins the call (used in multi-person calls)
+/// - Parameter userId: user ID
 - (void)userDidConnect:(NSString *)userId;
 
-/// 用户退出通话（多人通话中使用）
-/// - Parameter userId: 用户 id
+/// User leaves the call (used in multi-person calls)
+/// - Parameter userId: user ID
 - (void)userDidLeave:(NSString *)userId;
 
-/// 用户开启/关闭摄像头
+/// User turns camera on/off
 /// - Parameters:
-///   - enable: 是否开启
-///   - userId: 用户 id
+///   - enable: whether camera is enabled
+///   - userId: user ID
 - (void)userCamaraDidChange:(BOOL)enable
                      userId:(NSString *)userId;
 
-/// 用户开启/关闭麦克风
+/// User turns microphone on/off
 /// - Parameters:
-///   - enable: 是否开启
-///   - userId: 用户 id
+///   - enable: whether microphone is enabled
+///   - userId: user ID
 - (void)userMicrophoneDidChange:(BOOL)enable
                          userId:(NSString *)userId;
 
-/// 用户声音大小变化回调
-/// - Parameter soundLevels: 由 userId 为 key，声音大小为 value 的字典
+/// User voice volume change callback
+/// - Parameter soundLevels: dictionary with userId as key and sound level as value
 - (void)soundLevelDidUpdate:(NSDictionary<NSString *,NSNumber *> *)soundLevels;
 
-/// 视频渲染第一祯回调
-/// - Parameter userId: 用户 id
+/// Video rendering first frame callback
+/// - Parameter userId: user ID
 - (void)videoFirstFrameDidRender:(NSString *)userId;
 
-/// 通话中的错误回调
-/// - Parameter errorCode: 错误码
+/// Error callback during the call
+/// - Parameter errorCode: error code
 - (void)errorDidOccur:(JCallErrorCode)errorCode;
 
 @end
 ```
 
-
-
 </TabItem>
 <TabItem value="js">
-
 
 ```javascript
 let { CallEvent } = JuggleCall;
 
-// 成员加入通话，可以显示视频的 DOM 节点
+// When a member joins the call, the video DOM node can be displayed.
 juggleCall.on(CallEvent.MEMBER_JOINED, (event) => {
   let { target: { callId, member } } = event;
   let session = juggleCall.getSession({ callId });
   let userId = member.id;
-  // createVideo 创建 video 节点
+  // createVideo creates a video element
   let el = createVideo(userId);
   session.setVideoView([{ userId, videoElement: el }]);
   console.log('CallEvent.MEMBER_JOINED', event);
 });
 
-// 成员退出通话，可以移除显示视频的 DOM 节点
+// When a member leaves the call, the video DOM node can be removed.
 juggleCall.on(CallEvent.MEMBER_QUIT, (event) => {
   let { target: { member } } = event;
   console.log('CallEvent.MEMBER_QUIT', event);
 });
 
-// 通话结束后返回
+// Callback after the call ends
 juggleCall.on(CallEvent.CALL_FINISHED, (event) => {
   console.log('CallEvent.CALL_FINISHED', event);
-  let { callId, callStatus, isMultiCall, members} = event;
-  // members 中包含每个用户断开的原因
+  let { callId, callStatus, isMultiCall, members } = event;
+  // members contains the reason each user disconnected
   // members[0] => { id: '', reason: 1 }
 });
 ```
 
-**每个用户断开的枚举说明**:
+**Enumeration of Disconnect Reasons per User**:
 
-| 键名                     | 值   | 含义                               |
-| ------------------------ | ---- | ---------------------------------- |
-| CallFinishedReason.HANGUP                   | 1    | 当前用户挂断已接通的来电           |
-| CallFinishedReason.DECLINE                  | 2    | 当前用户拒接来电                   |
-| CallFinishedReason.BUSY                     | 3    | 当前用户忙线                       |
-| CallFinishedReason.NO_RESPONSE              | 4    | 当前用户未接听                     |
-| CallFinishedReason.CANCEL                   | 5    | 当前用户取消呼叫                   |
-| CallFinishedReason.OTHER_SIDE_HANGUP        | 6    | 对端用户挂断已接通的来电           |
-| CallFinishedReason.OTHER_SIDE_DECLINE       | 7    | 对端用户拒接来电                   |
-| CallFinishedReason.OTHER_SIDE_BUSY          | 8    | 对端用户忙线                       |
-| CallFinishedReason.OTHER_SIDE_NO_RESPONSE   | 9    | 对端用户未接听                     |
-| CallFinishedReason.OTHER_SIDE_CANCEL        | 10   | 对端用户取消呼叫                   |
-| CallFinishedReason.ROOM_DESTROY             | 11   | 房间被销毁                         |
-| CallFinishedReason.NETWORK_ERROR            | 12   | 网络出错                           |
+| Key name                      | Value | Description                                  |
+| ----------------------------- | ----- | -------------------------------------------- |
+| CallFinishedReason.HANGUP      | 1     | The current user hung up the connected call |
+| CallFinishedReason.DECLINE     | 2     | The current user rejected the call           |
+| CallFinishedReason.BUSY        | 3     | The current user is busy                      |
+| CallFinishedReason.NO_RESPONSE | 4     | The current user did not answer               |
+| CallFinishedReason.CANCEL      | 5     | The current user canceled the call            |
+| CallFinishedReason.OTHER_SIDE_HANGUP      | 6     | The peer user hung up the connected call     |
+| CallFinishedReason.OTHER_SIDE_DECLINE     | 7     | The peer user rejected the call               |
+| CallFinishedReason.OTHER_SIDE_BUSY        | 8     | The peer user is busy                          |
+| CallFinishedReason.OTHER_SIDE_NO_RESPONSE | 9     | The peer user did not answer                   |
+| CallFinishedReason.OTHER_SIDE_CANCEL      | 10    | The peer user canceled the call                |
+| CallFinishedReason.ROOM_DESTROY            | 11    | The room was destroyed                          |
+| CallFinishedReason.NETWORK_ERROR            | 12    | Network error                                  |
 
 </TabItem>
 
 <TabItem value="flutter">
 
-通话中的事件，可以使用通话实体 `CallSession` 对象来进行监听。
+You can monitor events during a call using the call entity `CallSession` object.
 
-回调事件定义如下。
+The callback events are defined as follows:
 
 ```dart
-//通话已接通
+// The call has been connected
 Function()? onCallConnect;
-//通话已结束
+// The call has ended
 Function(int finishReason)? onCallFinish;
-// 用户被邀请（多人通话中使用）
+// User is invited (used in multi-person calls)
 Function(List<String> userIdList, String inviterId)? onUsersInvite;
-// 用户加入通话（多人通话中使用）
+// User joins the call (used in multi-person calls)
 Function(List<String> userIdList)? onUsersConnect;
-// 用户退出通话（多人通话中使用）
+// User leaves the call (used in multi-person calls)
 Function(List<String> userIdList)? onUsersLeave;
-// 用户开启/关闭摄像头
+// User turns camera on/off
 Function(String userId, bool enable)? onUserCameraChange;
-// 用户开启/关闭麦克风
+// User turns microphone on/off
 Function(String userId, bool enable)? onUserMicrophoneChange;
-//通话中的错误回调
+// Error callback during the call
 Function(int errorCode)? onErrorOccur;
-// 用户声音大小变化
-// userId 为 key，声音大小为 value
+// Changes in user voice volume
+// userId is the key, sound level is the value
 Function(Map<String, double>)? onSoundLevelUpdate;
-// 视频渲染第一祯回调
+// Video rendering first frame callback
 Function(String userId)? onVideoFirstFrameRender;
 ```
 
@@ -211,32 +208,32 @@ Function(String userId)? onVideoFirstFrameRender;
 
 <TabItem value="reactnative">
 
-通话中的事件，可以使用通话实体 `CallSession` 对象来进行监听。
+You can monitor events during a call using the call entity `CallSession` object.
 
-回调事件定义如下：
+The callback events are defined as follows:
 
 ```typescript
 interface CallSessionListener {
-  //通话已接通
+  // The call has been connected
   onCallConnect?: () => void;
-  //通话已结束
+  // The call has ended
   onCallFinish?: (finishReason: number) => void;
-  // 用户被邀请（多人通话中使用）
+  // User is invited (used in multi-person calls)
   onUsersInvite?: (userIdList: string[], inviterId: string) => void;
-  // 用户加入通话（多人通话中使用）
+  // User joins the call (used in multi-person calls)
   onUsersConnect?: (userIdList: string[]) => void;
-  // 用户退出通话（多人通话中使用）
+  // User leaves the call (used in multi-person calls)
   onUsersLeave?: (userIdList: string[]) => void;
-  // 用户开启/关闭摄像头
+  // User turns camera on/off
   onUserCameraChange?: (userId: string, enable: boolean) => void;
-  // 用户开启/关闭麦克风
+  // User turns microphone on/off
   onUserMicrophoneChange?: (userId: string, enable: boolean) => void;
-  //通话中的错误回调
+  // Error callback during the call
   onErrorOccur?: (errorCode: number) => void;
-  // 用户声音大小变化
-  // userId 为 key，声音大小为 value
+  // Changes in user voice volume
+  // userId is the key, sound level is the value
   onSoundLevelUpdate?: (soundLevels: Map<string, number>) => void;
-  // 视频渲染第一祯回调
+  // Video rendering first frame callback
   onVideoFirstFrameRender?: (userId: string) => void;
 }
 ```

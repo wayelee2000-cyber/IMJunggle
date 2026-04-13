@@ -1,68 +1,87 @@
 ---
-title: SDK 引入
+title: SDK introduction
 hide_title: true
 sidebar_position: 1
 ---
   
 
-  <Tabs groupId='sdks-language' values={[
-  { label: 'Android', value: 'android'},
-  { label: 'iOS', value: 'ios', },
-  { label: 'JavaScript', value: 'js', },
-  { label: 'Flutter', value: 'flutter', },
-  ]}
-  >
+<Tabs groupId='sdks-language' values={[
+  { label: 'Android', value: 'android' },
+  { label: 'iOS', value: 'ios' },
+  { label: 'JavaScript', value: 'js' },
+  { label: 'Flutter', value: 'flutter' },
+]}>
   
-<TabItem value="android">
-1. 导入 Juggle 的 maven 代码库。打开根目录下的 settings.gradle（Project 视图）。
-```java
 
-  dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        google()
-        mavenCentral()
-        maven {
-            url "https://repo.juggle.im/repository/maven-releases/"
-        }
+<TabItem value="android">
+
+1. Import Juggle’s Maven repository. Open `settings.gradle` in the root directory (Project view).
+
+```java
+dependencyResolutionManagement {
+  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+  repositories {
+    google()
+    mavenCentral()
+    maven {
+      url "https://repo.juggle.im/repository/maven-releases/"
     }
   }
-  
-```
-2. 在应用的 build.gradle 中，添加 Juggle 依赖。
-```java
+}
+```
 
-  dependencies {
-    ...
-    api 'com.juggle.im:juggle:1.8.13.2'
-  }
-  
-```
-</TabItem>
-<TabItem value="ios">
-1. 在 podfile 里添加如下内容
-```shell
-pod 'JuggleIM', '1.8.13.2'
-```
-2. 在终端中运行以下命令
-```shell
-pod install
-```
-</TabItem>
-<TabItem value="js">
-```js
-npm install jugglechat-websdk --save
-import JIM from 'jugglechat-websdk';
-```
-详细示例，请参考 [快速开始](../../client/quickstart/web/quickstart)
-</TabItem>
-<TabItem value="flutter">
-1. 在 pubspec.yaml 的 dependencies 下添加如下内容
-```shell
-# pubspec.yaml
-dependencies:
-  juggle_im: 0.0.63
-```
-2. 详细示例，请参考 [快速开始](../../client/quickstart/flutter)
-</TabItem>
-</Tabs>
+2. Add the Juggle dependency in your application’s `build.gradle`.
+
+```java
+dependencies {
+  ...
+  api 'com.juggle.im:juggle:1.8.13.2'
+}
+```
+
+</TabItem>
+
+<TabItem value="ios">
+
+1. Add the following line to your Podfile:
+
+```shell
+pod 'JuggleIM', '1.8.13.2'
+```
+
+2. Run the following command in the terminal:
+
+```shell
+pod install
+```
+
+</TabItem>
+
+<TabItem value="js">
+
+```js
+npm install jugglechat-websdk --save
+
+import JIM from 'jugglechat-websdk';
+```
+
+For detailed examples, please refer to [Quick Start](../../client/quickstart/web/quickstart).
+
+</TabItem>
+
+<TabItem value="flutter">
+
+1. Add the following under `dependencies` in your `pubspec.yaml`:
+
+```yaml
+# pubspec.yaml
+
+dependencies:
+  juggle_im: 0.0.63
+```
+
+2. For detailed examples, please refer to [Quick Start](../../client/quickstart/flutter).
+
+</TabItem>
+
+</Tabs>

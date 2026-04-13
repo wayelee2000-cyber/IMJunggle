@@ -1,34 +1,34 @@
 ---
-title: 移除好友
+title: remove friend
 hide_title: true
 sidebar_position: 4
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-移除好友
+Remove a friend.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 times/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/friends/del
+> **Request URL**: https://[request domain name](../api.md#api)/jim/friends/del
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|friend_ids|array|是|要移除好友的用户id列表||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameter   | Data type | Required | Description                     |   |
+|:------------|:----------|:---------|:-------------------------------|---|
+| friend_ids  | array     | yes      | A list of user IDs to remove as friends |   |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /jim/friends/del HTTP/1.1
 appkey: appkey
@@ -36,15 +36,15 @@ Authorization: xxxxxxxxxxxxxxxxxx
 Content-Type: application/json
 
 {
-  "friend_ids":["userid1","userid2"]
+  "friend_ids": ["userid1", "userid2"]
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

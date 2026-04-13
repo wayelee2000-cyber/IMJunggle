@@ -1,5 +1,5 @@
 ---
-title: 获取历史消息
+title: Get historical messages
 hide_title: true
 sidebar_position: 3
 ---
@@ -12,20 +12,21 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-**接口定义**
+**Interface definition**
 
 ```java
 /**
- * 获取消息，结果按照消息时间正序排列（旧的在前，新的在后）。当消息有缺失并且网络有问题的时候，返回本地缓存的消息。
- * @param conversation 会话对象
- * @param direction 拉取方向
- * @param options 获取消息选项
- * @param callback 回调
+ * Retrieves messages arranged in chronological order (oldest first, newest last). 
+ * If messages are missing and there is a network issue, locally cached messages are returned.
+ * @param conversation Conversation object
+ * @param direction Pull direction
+ * @param options Options for retrieving messages
+ * @param callback Callback interface
  */
 void getMessages(Conversation conversation,
                   JIMConst.PullDirection direction,
@@ -34,17 +35,17 @@ void getMessages(Conversation conversation,
 
 interface IGetMessagesCallbackV3 {
     /**
-     * 结果回调
-     * @param messages 消息列表
-     * @param timestamp 消息时间戳，拉下一批消息的时候可以使用
-     * @param hasMore 是否还有更多消息
-     * @param code 结果码，0 为成功。code 不为 0 的时候，如果本地存在缓存消息，则会在 messages 里返回本地消息
+     * Result callback
+     * @param messages List of messages
+     * @param timestamp Message timestamp, used for pulling the next batch of messages
+     * @param hasMore Indicates if there are more messages
+     * @param code Result code; 0 indicates success. If code is not 0 and cached messages exist locally, local messages will be returned in messages
      */
     void onGetMessages(List<Message> messages, long timestamp, boolean hasMore, int code);
 }
 ```
 
-**示例代码**
+**Sample Code**
 
 ```java
 GetMessageOptions options = new GetMessageOptions();
@@ -62,26 +63,24 @@ JIM.getInstance().getMessageManager().getMessages(conversation, JIMConst.PullDir
 </TabItem>
 <TabItem value="ios">
 
-
-
-**接口定义**
+**Interface definition**
 
 ```objectivec
-/// 获取消息，结果按照消息时间正序排列（旧的在前，新的在后）。当消息有缺失并且网络有问题的时候，返回本地缓存的消息。
+/// Retrieves messages arranged by message time (oldest first, newest last). 
+/// If messages are missing and there is a network issue, locally cached messages are returned.
 /// - Parameters:
-///   - conversation: 会话对象
-///   - direction: 拉取方向
-///   - option: 获取消息选项
-///   - completeBlock: messages: 消息列表，timestamp: 消息时间戳，拉下一批消息的时候可以使用，hasMore: 是否还有更多消息，
-///                    code: 错误码（code 不为 0 的时候，如果本地存在缓存消息，则会在 messages 里返回本地消息）
+///   - conversation: Conversation object
+///   - direction: Pull direction
+///   - option: Options for retrieving messages
+///   - completeBlock: Callback with messages: list of messages, timestamp: message timestamp for pulling next batch, hasMore: whether more messages exist,
+///     code: error code (if code is not 0 and cached messages exist locally, local messages will be returned)
 - (void)getMessages:(JConversation *)conversation
           direction:(JPullDirection)direction
              option:(JGetMessageOptions *)option
            complete:(void (^)(NSArray <JMessage *> *messages, long long timestamp, BOOL hasMore, JErrorCode code))completeBlock;
 ```
 
-
-**示例代码**
+**Sample Code**
 
 ```objectivec
 JGetMessageOptions *options = [[JGetMessageOptions alloc] init];
@@ -96,37 +95,35 @@ JConversation *conversation = [[JConversation alloc] initWithConversationType:JC
 }];
 ```
 
-
-
 </TabItem>
 <TabItem value="js">
 
-**参数说明**
+**Parameter description**
 
-| 名称                | 类型    | 必填  | 默认值           | 描述                                                                      | 版本   |
-|---------------------|---------|------|------------------|---------------------------------------------------------------------------|--------|
-| params              | Object  | 是   |                | 历史消息获取参数                                                           | 1.0.0  |
-| params.conversationType | Number  | 是   |                | [会话类型](../../../enum/web#conversation)                                       | 1.0.0  |
-| params.conversationId   | String  | 是   |                | 会话 Id，会话类型是 `PRIVATE` 时，会话 Id 是对方的 userId，会话类型是 `GROUP` 时是群组 Id | 1.0.0  |
-| params.count        | Object  | 否   | 20               | 历史消息获取条数，获取历史消息条数范围 1 - 20 条                             | 1.0.0  |
-| params.time         | Number  | 否   | 0                | 从指定时间开始获取历史消息，可用于调到历史某一条消息，获取前后消息           | 1.0.0  |
-| params.order        | Number  | 否   | [BACKWARD](../../../enum/web) | 获取历史消息方向，BACKWARD 获取更早的历史消息| 1.0.0  |
+| Name | Type | Required | Default | Description | Version |
+|---------------------|---------|------|------------------|------------------------------------------------------------------------------|--------|
+| params | Object | Yes | | Parameters for retrieving historical messages | 1.0.0 |
+| params.conversationType | Number | Yes | | [Conversation Type](../../../enum/web#conversation) | 1.0.0 |
+| params.conversationId | String | Yes | | Session ID. For `PRIVATE` sessions, this is the userId of the other party; for `GROUP` sessions, it is the group ID | 1.0.0 |
+| params.count | Number | No | 20 | Number of historical messages to retrieve, range: 1 - 20 | 1.0.0 |
+| params.time | Number | No | 0 | Starting point for retrieving historical messages. Can be used to fetch messages before or after a specific message | 1.0.0 |
+| params.order | Number | No | [BACKWARD](../../../enum/web) | Direction for retrieving historical messages; BACKWARD fetches earlier messages | 1.0.0 |
 
-**成功回调**
+**Successful callback**
 
-| 名称                   | 类型    | 描述                                    | 版本   |
+| Name | Type | Description | Version |
 |------------------------|---------|-----------------------------------------|--------|
-| result                 | Object  |                                        | 1.0.0  |
-| result.isFinished      | Object  | 是否还有更多的历史消息没有获取            | 1.0.0  |
-| result.messages        | Object  | 消息数组，每条消息的属性，请查看 [Message](../../../msg/message) 结构 | 1.0.0  |
+| result | Object | | 1.0.0 |
+| result.isFinished | Boolean | Indicates whether there are more historical messages to retrieve | 1.0.0 |
+| result.messages | Array | Array of messages; see [Message](../../../msg/message) structure for details | 1.0.0 |
 
-**失败回调**
+**Failure callback**
 
-| 名称   | 类型    | 描述                                                      | 版本   |
-|--------|---------|-----------------------------------------------------------|--------|
-| error  | Object  | 发送失败后会有对应的状态码，可以直接查看 `error.msg`，或者查看 [状态码](../../../status_code/web) | 1.0.0  |
+| Name | Type | Description | Version |
+|--------|---------|--------------------------------------------------------------|--------|
+| error | Object | Contains error information. You can check `error.msg` or refer to [status codes](../../../status_code/web) | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType } = JIM;
 
@@ -140,66 +137,66 @@ jim.getMessages(params).then((result) => {
   console.log(messages, isFinished);
 }, (error) => {
   console.log(error);
-})
+});
 ```
 </TabItem>
 
 <TabItem value="harmony">
 
-**接口定义**
+**Interface definition**
 
 ```java
 /**
- * 结果回调
- * @param code  响应错误码，0为成功
- * @param msgs   消息列表
- * @param hasMore 是否还有更多消息
+ * Result callback
+ * @param code Response error code; 0 indicates success
+ * @param msgs List of messages
+ * @param hasMore Indicates if there are more messages
  */
-export type QryMessagesCallback = (code:number,msgs:Message[],hasMore:boolean)=>void
+export type QryMessagesCallback = (code: number, msgs: Message[], hasMore: boolean) => void;
 
 /**
- * 获取消息，结果按照消息时间正序排列（旧的在前，新的在后）。当消息有缺失并且网络有问题的时候，返回本地缓存的消息。
- * @param conver 会话对象
- * @param options 消息拉取选项
- * @param callback 回调
+ * Retrieves messages arranged in chronological order (oldest first, newest last). 
+ * If messages are missing and there is a network issue, locally cached messages are returned.
+ * @param conver Session object
+ * @param options Message retrieval options
+ * @param callback Callback function
  */
-queryMessages(conver:Conversation,options:QueryMsgOptions,callback:QryMessagesCallback)
-
+queryMessages(conver: Conversation, options: QueryMsgOptions, callback: QryMessagesCallback);
 ```
 
-**示例代码**
+**Sample Code**
 
 ```java
-let options = new QueryMsgOptions()
-options.count = 100
-options.startTime = 0
-options.isPositive = false
-JuggleIm.instance.getMessageManager().queryMessages(new Conversation("userid1",1),options,(code,msgs,hasMore)=>{
+let options = new QueryMsgOptions();
+options.count = 100;
+options.startTime = 0;
+options.isPositive = false;
+JuggleIm.instance.getMessageManager().queryMessages(new Conversation("userid1", 1), options, (code, msgs, hasMore) => {
 
-})
+});
 ```
 
 </TabItem>
 <TabItem value="reactnative" label="ReactNative">
 
-获取指定会话的历史消息，支持从最新的消息获取，或按照某个时间点获取更早或更晚的消息。返回的消息列表按照消息发送时间正序排列。
+Retrieve historical messages for a specified session. Supports fetching from the latest message or retrieving earlier or later messages relative to a specific point in time. The returned message list is sorted in ascending order by message timestamp.
 
-**参数说明**
+**Parameter description**
 
-| 名称                | 类型    | 必填  | 默认值           | 描述                                       | 版本   |
-|---------------------|---------|------|------------------|-----------------------------------------|--------|
-| conversation        | Conversation  | 是   |         | 会话对象，会话类型是 1 时，会话 Id 是对方的 userId，会话类型是 2 时是群组 Id | 1.0.0  |
-| direction    | number  | 否   | 1 | 获取发送时间更早或更晚的消息 | 1.0.0  |
-| options        | GetMessageOptions  | 是   |                | 历���消息获取选项  | 1.0.0  |
+| Name | Type | Required | Default | Description | Version |
+|---------------------|---------|------|------------------|------------------------------------------|--------|
+| conversation | Conversation | Yes | | Conversation object. For conversation type 1, the conversation ID is the userId of the other party; for type 2, it is the group ID | 1.0.0 |
+| direction | number | No | 1 | Direction to retrieve messages: earlier or later | 1.0.0 |
+| options | GetMessageOptions | Yes | | Options for retrieving historical messages | 1.0.0 |
 
-**GetMessageOptions 参数说明**
+**GetMessageOptions parameter description**
 
-| 名称                | 类型    | 必填  | 默认值           | 描述                                       | 版本   |
-|---------------------|---------|------|------------------|-----------------------------------------|--------|
-| count        | number  | 是   | 20                | 历史消息获取条数，获取历史消息条数范围 1 - 20 条  | 1.0.0  |
-| startTime    | number  | 否   | 0                | 从指定时间开始获取历史消息，可用于调到历史某一条消息，获取前后消息  | 1.0.0  |
+| Name | Type | Required | Default | Description | Version |
+|---------------------|---------|------|------------------|------------------------------------------|--------|
+| count | number | Yes | 20 | Number of historical messages to retrieve, range: 1 - 20 | 1.0.0 |
+| startTime | number | No | 0 | Starting point for retrieving historical messages. Can be used to fetch messages before or after a specific message | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```typescript
 import JuggleIM from 'juggleim-rnsdk';
@@ -228,30 +225,30 @@ try {
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-获取指定会话的历史消息，支持从最新的消息获取，或按照某个时间点获取更早或更晚的消息。返回的消息列表按照消息发送时间正序排列。
+Retrieve historical messages for a specified session. Supports fetching from the latest message or retrieving earlier or later messages relative to a specific point in time. The returned message list is sorted in ascending order by message timestamp.
 
-**查询条件参数说明**
+**Query condition parameter description**
 
 `GetMessageOption option = GetMessageOption();`
 
-| 名称                | 类型    | 必填  | 默认值           | 描述                                       | 版本   |
-|---------------------|---------|------|------------------|-----------------------------------------|--------|
-| option.count        | int  | 是   | 20                | 历史消息获取条数，获取历史消息条数范围 1 - 20 条  | 0.6.3  |
-| option.startTime    | int  | 否   | 0                | 从指定时间开始获取历史消息，可用于调到历史某一条消息，获取前后消息  | 0.6.3  |
+| Name | Type | Required | Default | Description | Version |
+|---------------------|---------|------|------------------|------------------------------------------|--------|
+| option.count | int | Yes | 20 | Number of historical messages to retrieve, range: 1 - 20 | 0.6.3 |
+| option.startTime | int | No | 0 | Starting point for retrieving historical messages. Can be used to fetch messages before or after a specific message | 0.6.3 |
 
-**查询方向参数说明**
+**Query direction parameter description**
 
-| 名称                | 类型    | 必填  | 默认值           | 描述                                       | 版本   |
-|---------------------|---------|------|------------------|-----------------------------------------|--------|
-| direction    | int  | 否   | PullDirection.older | 获取发送时间更早或更晚的消息 | 0.6.3  |
+| Name | Type | Required | Default | Description | Version |
+|---------------------|---------|------|------------------|------------------------------------------|--------|
+| direction | int | No | PullDirection.older | Direction to retrieve messages: earlier or later | 0.6.3 |
 
-**查询会话参数说明**
+**Query session parameter description**
 
-| 名称                | 类型    | 必填  | 默认值           | 描述                                       | 版本   |
-|---------------------|---------|------|------------------|-----------------------------------------|--------|
-| conversation        | Conversation  | 是   |         | 会话对象，会话类型是 `private` 时，会话 Id 是对方的 userId，会话类型是 `group` 时是群组 Id | 0.6.3  |
+| Name | Type | Required | Default | Description | Version |
+|---------------------|---------|------|------------------|------------------------------------------|--------|
+| conversation | Conversation | Yes | | Conversation object. For `private` type, the conversation ID is the userId of the other party; for `group` type, it is the group ID | 0.6.3 |
 
-**示例代码**
+**Sample Code**
 
 ```dart
 Conversation conversation = Conversation(ConversationType.group, 'groupId1');
@@ -267,13 +264,13 @@ bool hasMore = result.hasMore;
 List<Message> messages = result.t as List<Message>;
 ```
 
-**回调说明**
+**Callback description**
 
-| 名称                   | 类型    | 描述                                    | 版本   |
+| Name | Type | Description | Version |
 |------------------------|---------|-----------------------------------------|--------|
-| result                 | `GetMessageResult<List<Message>>` |  | 0.6.3  |
-| result.hasMore      | bool  | 是否还有更多的历史消息   | 0.6.3  |
-| result.t        | `List<Message>`  | 消息数组，每条消息的属性，请查看 [Message](../../../msg/message) 结构 | 0.6.3  |
+| result | `GetMessageResult<List<Message>>` | | 0.6.3 |
+| result.hasMore | bool | Indicates whether there are more historical messages | 0.6.3 |
+| result.t | `List<Message>` | Array of messages; see [Message](../../../msg/message) structure for details | 0.6.3 |
 
 </TabItem>
 </Tabs>

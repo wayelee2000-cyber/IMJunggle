@@ -1,33 +1,33 @@
 ---
-title: 添加用户黑名单
+title: Add User to Blacklist
 hide_title: true
 sidebar_position: 1
 ---
-### 功能说明{#intro}
+### Function Description{#intro}
 
-添加黑名单用户
+Add users to the blacklist.
 
-### 请求说明{#req}
+### Request Description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api.md#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request Rate Limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/users/blockusers/add
+> **Request URL**: https://[request domain name](../api#api)/jim/users/blockusers/add
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|block_user_ids|array|是|加黑的用户id列表||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request Parameters {#param}
+
+| Parameter       | Data Type | Required | Description                 |   |
+|:----------------|:----------|:---------|:----------------------------|---|
+| block_user_ids  | array     | yes      | List of user IDs to blacklist |   |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /jim/users/blockusers/add HTTP/1.1
 appkey: appkey
@@ -35,20 +35,20 @@ Authorization: xxxxxxxxxxxxxxxxxx
 Content-Type: application/json
 
 {
-  "block_user_ids":["userid1","userid2"]
+  "block_user_ids": ["userid1", "userid2"]
 }
 ```
 
-### 响应示例{#res_demo}
+### Response Example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```
 
-### 响应码
+### Response Codes
 
-|响应码|说明||
-|:--|:---|:--|
+| Response Code | Description |   |
+|:--------------|:------------|---|

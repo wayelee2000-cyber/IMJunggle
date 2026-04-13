@@ -1,5 +1,5 @@
 ---
-title: 群组成员信息
+title: Group member information
 hide_title: true
 sidebar_position: 3
 ---
@@ -16,34 +16,34 @@ values={[
 }>
 <TabItem value="android">
 
-**群组成员信息结构**
+**Group Member Information Structure**
 
-GroupMember 是 SDK 封装的群组成员信息对象。
+`GroupMember` is an object representing group member information encapsulated by the SDK.
 
-| 属性名        | 类型          | 说明                       | 版本  |
-| ------------- | ------------- | -------------------------- | ----- |
-| groupId  | String | 群组 id                | 1.0.0 |
-| userId | String      | 用户名 id        | 1.0.0 |
-| groupDisplayName   | String           | 用户在群里的昵称          | 1.0.0 |
-| extra    | Map<String, String>   | 扩展字段 | 1.0.0 |
-| updatedTime         | long       | 更新时间戳                | 1.0.0 |
+| Attribute name     | Type               | Description               | Version |
+| ------------------ | ------------------ | ------------------------- | ------- |
+| groupId            | String             | Group ID                  | 1.0.0   |
+| userId             | String             | User ID                   | 1.0.0   |
+| groupDisplayName   | String             | User's nickname in the group | 1.0.0   |
+| extra              | Map<String, String> | Extension fields          | 1.0.0   |
+| updatedTime        | long               | Update timestamp          | 1.0.0   |
 
-**获取群组成员信息**
+**Get Group Member Information**
 
 ```java
-//接口定义
+// Interface definition
 
 /**
- * 获取群成员
- * @param groupId 群组 id
- * @param userId 用户 id
- * @return 群成员信息
+ * Get group member information
+ * @param groupId Group ID
+ * @param userId User ID
+ * @return Group member information
  */
 GroupMember getGroupMember(String groupId, String userId);
 ```
 
 ```java
-//示例代码
+// Sample code
 GroupMember member = JIM.getInstance().getUserInfoManager().getGroupMember("groupId", "userId");
 ```
 
@@ -51,83 +51,77 @@ GroupMember member = JIM.getInstance().getUserInfoManager().getGroupMember("grou
 
 <TabItem value="ios">
 
-**群组成员信息结构**
+**Group Member Information Structure**
 
-JGroupMember 是 SDK 封装的群组成员信息对象。
+`JGroupMember` is an object representing group member information encapsulated by the SDK.
 
-| 属性名        | 类型          | 说明                       | 版本  |
-| ------------- | ------------- | -------------------------- | ----- |
-| groupId  | NSString | 群组 id                | 1.0.0 |
-| userId | NSString      | 用户名 id        | 1.0.0 |
-| groupDisplayName   | NSString           | 用户在群里的昵称          | 1.0.0 |
-| extraDic    | NSDictionary <NSString *, NSString *>   | 扩展字段 | 1.0.0 |
-| updatedTime         | long long      | 更新时间戳                | 1.0.0 |
+| Attribute name     | Type                          | Description               | Version |
+| ------------------ | -----------------------------| ------------------------- | ------- |
+| groupId            | NSString                      | Group ID                  | 1.0.0   |
+| userId             | NSString                      | User ID                   | 1.0.0   |
+| groupDisplayName   | NSString                      | User's nickname in the group | 1.0.0   |
+| extraDic           | NSDictionary<NSString *, NSString *> | Extension fields          | 1.0.0   |
+| updatedTime        | long long                    | Update timestamp          | 1.0.0   |
 
-**获取群组成员信息**
+**Get Group Member Information**
 
 ```objectivec
-//接口定义
+// Interface definition
 
-/// 获取群成员信息
+/// Get group member information
 /// - Parameters:
-///   - groupId: 群组 id
-///   - userId: 用户 id
+///   - groupId: Group ID
+///   - userId: User ID
 - (JGroupMember *)getGroupMember:(NSString *)groupId
                           userId:(NSString *)userId;
 ```
 
 ```objectivec
-//示例代码
+// Sample code
 JGroupMember *member = [JIM.shared.userInfoManager getGroupMember:@"groupId" userId:@"userId"];
 ```
 
-
 </TabItem>
 <TabItem value="js">
-
-
 
 </TabItem>
 
 <TabItem value="flutter">
 
-**群组成员信息结构**
+**Group Member Information Structure**
 
-GroupMember 是 SDK 封装的群组成员信息对象。
+`GroupMember` is an object representing group member information encapsulated by the SDK.
 
-| 属性名        | 类型          | 说明                       | 版本  |
-| ------------- | ------------- | -------------------------- | ----- |
-| groupId  | String | 群组 id                | 1.0.0 |
-| userId | String      | 用户名 id        | 1.0.0 |
-| groupDisplayName   | String           | 用户在群里的昵称          | 1.0.0 |
-| extraMap    | Map<String, String>?   | 扩展字段 | 1.0.0 |
-| updatedTime         | long       | 更新时间戳                | 1.0.0 |
+| Attribute name     | Type                 | Description               | Version |
+| ------------------ | -------------------- | ------------------------- | ------- |
+| groupId            | String               | Group ID                  | 1.0.0   |
+| userId             | String               | User ID                   | 1.0.0   |
+| groupDisplayName   | String               | User's nickname in the group | 1.0.0   |
+| extraMap           | Map<String, String>?  | Extension fields          | 1.0.0   |
+| updatedTime        | long                 | Update timestamp          | 1.0.0   |
 
-**获取群组成员信息**
+**Get Group Member Information**
 
 ```dart
-//接口定义
+// Interface definition
 
 /**
- * 获取群成员
- * @param groupId 群组 id
- * @param userId 用户 id
- * @return 群成员信息
+ * Get group member information
+ * @param groupId Group ID
+ * @param userId User ID
+ * @return Group member information
  */
 Future<GroupMember?> getGroupMember(String groupId, String userId) async
 ```
 
 ```dart
-//示例代码
+// Sample code
 GroupMember? member = await JuggleIm.instance.getGroupMember("groupId", "userId");
 ```
-
 
 </TabItem>
 
 <TabItem value="reactnative">
-
-
 
 </TabItem>
 

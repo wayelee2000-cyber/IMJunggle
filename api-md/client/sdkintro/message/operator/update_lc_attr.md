@@ -1,5 +1,5 @@
 ---
-title: 修改本地消息扩展
+title: Modify local message extension
 hide_title: true
 sidebar_position: 7
 ---
@@ -12,21 +12,21 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', },
+{ label: 'Hongmeng', value: 'harmony', },
 ]
 }>
 <TabItem value="android">
 
-消息本地扩展功能，只对本地的消息生效，不会同步到远端。
+The local message extension function only affects local messages and will not be synchronized to the remote end.
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| clientMsgNo    | long  | 本端消息唯一编号   | 1.0.0    |
-| attribute       | String  | 本地属性（可以使用 JSON 以满足复杂的业务场景） | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| clientMsgNo | long | The unique identifier of the local message | 1.0.0 |
+| attribute | String | Local attributes (JSON format can be used to support complex business scenarios) | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
 JIM.getInstance().getMessageManager().setLocalAttribute(123L, "attribute1");
@@ -35,16 +35,16 @@ JIM.getInstance().getMessageManager().setLocalAttribute(123L, "attribute1");
 </TabItem>
 <TabItem value="ios">
 
-消息本地扩展功能，只对本地的消息生效，不会同步到远端。
+The local message extension function only affects local messages and will not be synchronized to the remote end.
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| attribute       | NSString  | 本地属性（可以使用 JSON 以满足复杂的业务场景） | 1.0.0    |
-| clientMsgNo    | long long | 本端消息唯一编号   | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| attribute | NSString | Local attributes (JSON format can be used to support complex business scenarios) | 1.0.0 |
+| clientMsgNo | long long | The unique identifier of the local message | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
 [JIM.shared.messageManager setLocalAttribute:@"attribute1" forClientMsgNo:123];
@@ -53,30 +53,30 @@ JIM.getInstance().getMessageManager().setLocalAttribute(123L, "attribute1");
 </TabItem>
 <TabItem value="js">
 
-:::danger 仅 Electron 中支持 
+:::danger This feature is only supported in Electron
 :::
 
-为方便本地消息增加特殊字段用来实现不同功能，例如在 `Electron` 中为消息添加本地文件路径，可使用此方法实现，设置扩展成功后，获取历史消息时会自动返回对应消息的扩展
+To support local messages, special fields are added to implement different functions. For example, adding a local file path to a message in `Electron` can be achieved using this method. After the extension is set successfully, the extension of the corresponding message will be automatically returned when retrieving historical messages.
 
-**参数说明**
+**Parameter description**
 
-| 名称                    | 类型    | 必填 |描述                                                                      | 版本   |
-|------------------------|---------|----|---------------------------------------------------------------------------|--------|
-| message                | Object  | 是 | 消息搜索参数                                                                | 1.0.0  |
-| message.tid            | String  | 是  | 消息的唯一标识，可在 [Message](../../../msg/message) 中获取 | 1.0.0  |
-| message.attribute      | String  | 是  | 可以设置 JSON 字符串用来扩展，长度 `1000` 个字符           | 1.0.0  |
+| Name | Type | Required | Description | Version |
+|---------------------|---------|----|-------------------------------------------------------------------------------|--------|
+| message | Object | Yes | Message search parameters | 1.0.0 |
+| message.tid | String | Yes | The unique identifier of the message, which can be obtained in [Message](../../../msg/message) | 1.0.0 |
+| message.attribute | String | Yes | Extension data as a JSON string, maximum length of 1000 characters | 1.0.0 |
 
-**成功回调**
+**Success callback**
 
-无参数返回，回调触发表示成功
+No parameters are returned; the callback is triggered to indicate success.
 
-**失败回调**
+**Failure callback**
 
-| 名称   | 类型    | 描述                                                      | 版本   |
-|--------|---------|-----------------------------------------------------------|--------|
-| error  | Object  | 发送失败后会有对应的状态码，可以直接查看 `error.msg`，或者查看 [状态码](../../../../sdkintro/status_code/web) | 1.0.0  |
+| Name | Type | Description | Version |
+|--------|---------|--------------------------------------------------------------|--------|
+| error | Object | Contains a status code indicating the failure reason. You can view `error.msg` directly or refer to [Status Code](../../../../sdkintro/status_code/web) | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```js
 let message = { 
   tid: 'nrde5kxxaacg7sb5', 
@@ -84,40 +84,39 @@ let message = {
 };
 
 jim.updateMessageAttr(message).then(() => {
-  console.log('Update Local Message successfully')
+  console.log('Local message updated successfully');
 }, (error) => {
-  console.log(error)
+  console.log(error);
 });
 ```
 </TabItem>
 <TabItem value="harmony">
 
-消息本地扩展功能，只对本地的消息生效，不会同步到远端。
+The local message extension function only affects local messages and will not be synchronized to the remote end.
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| msgId    | string  | 消息id   | 1.0.0    |
-| attribute       | string  | 本地属性（可以使用 JSON 以满足复杂的业务场景） | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| msgId | string | Message ID | 1.0.0 |
+| attribute | string | Local attributes (JSON format can be used to support complex business scenarios) | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
-JuggleIm.instance.getMessageManager().setLocalAttribue("msgid1","json content")
+JuggleIm.instance.getMessageManager().setLocalAttribue("msgid1", "json content");
 ```
 
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
+The local message extension function only affects local messages and will not be synchronized to the remote end.
 
-消息本地扩展功能，只对本地的消息生效，不会同步到远端。
-
-**示例代码**
+**Sample Code**
 
 ```dart
 await JuggleIm.instance.setMessageLocalAttribute(
-  100, // 消息的 clientMsgNo
+  100, // clientMsgNo of the message
   'localAttribute'
 );
 ```

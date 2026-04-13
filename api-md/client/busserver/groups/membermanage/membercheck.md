@@ -1,35 +1,34 @@
 ---
-title: 检查是否群成员
+title: Check if Group Member
 hide_title: true
 sidebar_position: 7
 ---
-### 功能说明{#intro}
+### Function Description{#intro}
 
-查询用户是否是群成员
+Check whether a user is a member of a group.
 
-### 请求说明{#req}
+### Request Description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api.md#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request Rate Limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/groups/members/check
+> **Request URL**: https://[request domain name](../api#api)/jim/groups/members/check
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|group_id|string|是|群组id||
-|member_ids|array |是| 用户id列表||
+> **Content-Type**: `application/json`
 
 
+### Request Parameters {#param}
 
-### 请求示例{#req_demo}
+| Parameter   | Data Type | Required | Description          |   |
+|:------------|:----------|:---------|:---------------------|---|
+| group_id   | string    | yes      | Group ID             |   |
+| member_ids | array     | yes      | List of user IDs     |   |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /jim/groups/members/check HTTP/1.1
 appkey: appkey
@@ -37,28 +36,28 @@ Authorization: xxxxxxxxxxxxxxxxxx
 Content-Type: application/json
 
 {
-  "group_id":"groupid1",
-  "member_ids":["userid1","userid2"]
+  "group_id": "groupid1",
+  "member_ids": ["userid1", "userid2"]
 }
 ```
 
-### 响应示例{#res_demo}
+### Response Example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "group_id":"groupid1",
-    "member_exist_map":{
-      "userid1":true,
-      "userid2":false
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "group_id": "groupid1",
+    "group_member_map": {
+      "userid1": true,
+      "userid2": false
     }
   }
 }
 ```
 
-### 响应码
+### Response Codes
 
-|响应码|说明||
-|:--|:---|:--|
+| Response Code | Description |   |
+|:--------------|:------------|---|

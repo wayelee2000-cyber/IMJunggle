@@ -1,25 +1,25 @@
 ---
-title: 全员/标签推送
+title: All members/label push
 hide_title: true
 sidebar_position: 5
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-发起全员/标签推送
+Initiate a push to all members or users with specific labels.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request Rate Limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/push
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/push
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/push HTTP/1.1
 appkey: appkey
@@ -29,49 +29,46 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-    "from_user_id":"userid1",
-    "condition":{
-        "tags_and":["tag1","tag2"],
-        "tags_or":["tag1","tag2"]
+    "from_user_id": "userid1",
+    "condition": {
+        "tags_and": ["tag1", "tag2"],
+        "tags_or": ["tag1", "tag2"]
     },
-    "msg_body":{
-        "msg_type":"jg:text",
-        "msg_content":"{\"content\":\"Hello World!\"}"
+    "msg_body": {
+        "msg_type": "jg:text",
+        "msg_content": "{\"content\":\"Hello World!\"}"
     },
-    "notification":{
-        "title":"title",
-        "push_text":"推送详情内容"
+    "notification": {
+        "title": "title",
+        "push_text": "Push details"
     }
 }
 ```
 
+### Request parameters {#param}
 
-### 请求参数{#param}
+| Parameter     | Data type | Required | Description                                                                 |  |
+|:--------------|:----------|:---------|:----------------------------------------------------------------------------|--|
+| from_user_id  | string    | Yes      | The sender's user ID                                                        |  |
+| condition     | object    | Yes      | Filtering criteria for target users                                         |  |
+| tags_and     | array     | No       | Filter users who have all tags in this list; must be used with `tags_or`    |  |
+| tags_or      | array     | No       | Filter users who have any tag in this list; must be used with `tags_and`    |  |
+| msg_body      | object    | No       | The message payload to send; sends a system message to the target users. Use either this or the `notification` field |  |
+| notification  | object    | No       | Sends a remote push notification to the target users. Use either this or the `msg_body` field |  |
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|from_user_id|string|是|发送者的用户id||
-|condition|object|是|目标用户的筛选条件||
-|tags_and|array|否|筛选同时拥有列表中标签的用户，与tags_or二选一||
-|tags_or|array|否|筛选拥有列表中任一标签的用户，与tags_and二选一||
-|msg_body|object|否|要发送的实体消息，这里会给目标用户发送一条实体的系统消息，与notification字段二选一||
-|notification|object|否|仅向目标用户发送远程推送，与msg_body二选一||
+### Response parameters {#res_param}
 
-### 响应参数{#res_param}
+| Parameter | Data type | Description |
+|:----------|:----------|:------------|
 
-|参数|数据类型|参数说明||
-|:--|:------|:-----|:-------|
-
-
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "push_id":"xxxxx"
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "push_id": "xxxxx"
   }
 }
 ```
-

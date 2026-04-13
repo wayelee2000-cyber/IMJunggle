@@ -1,52 +1,52 @@
 ---
-title: 通过 Script 引入集成
+title: Introducing Integration via Script
 hide_title: true
 sidebar_position: 1
 ---
 
-### 使用流程{#flow}
+### Use process{#flow}
 
 ![](../assets/flow.png)
 
-### 逐步集成{#step}
+### Step-by-step Integration {#step}
 
 <Tabs
 groupId="sdks-language"
 values={[
-{ label: '第 1 步', value: 'one', },
-{ label: '第 2 步', value: 'two', },
-{ label: '第 3 步', value: 'three', },
-{ label: '第 4 步', value: 'four', },
-]
-}>
+{ label: 'Step 1', value: 'one', },
+{ label: 'Step 2', value: 'two', },
+{ label: 'Step 3', value: 'three', },
+{ label: 'Step 4', value: 'four', },
+]}
+>
 <TabItem value="one">
 
-在 `开发者后台` 创建应用获取 `AppKey` 和 `Secret`。
+Create an application in the `Developer Backend` to obtain your `AppKey` and `Secret`.
 
 ![](../assets/appkey_secret.png)
 
 </TabItem>
 <TabItem value="two">
 
-自己调用服务端 API 获取 Token 或在开发者后台的 -> 选择应用-> 开发工具 -> API -> 用户相关中，调用用户注册接口，获取两个测试 Token。
+Call the server-side API to obtain the token yourself, or in the Developer Backend, navigate to Select Application → Development Tools → API → User Related, and call the user registration interface to obtain two test tokens.
 
 ![](../assets/token.png)
 
 </TabItem>
 <TabItem value="three">
 
-下载 JavaScript SDK
+Download the JavaScript SDK.
 
 </TabItem>
 <TabItem value="four">
 
-> 1、新建 `HTML` 文件，命名为 `demo.html`
+> 1. Create a new `HTML` file and name it `demo.html`.
 
-> 2、下载 [juggleim-dev-1.9.0.zip](./juggleim-dev-1.9.0.zip) , 将 `juggleim-dev-1.9.0.js` 放在 `demo.html` **同级目录**
+> 2. Download [juggleim-dev-1.9.0.zip](./juggleim-dev-1.9.0.zip) and place `juggleim-dev-1.9.0.js` in the same directory as `demo.html`.
 
-> 3、将下方代码复制粘贴到 `demo.html`
+> 3. Copy and paste the code below into `demo.html`.
 
-> 4、使用 Chrome 浏览器打开 `demo.html` 预览效果
+> 4. Open `demo.html` in the Chrome browser to preview the result.
 
 <br/>
 
@@ -54,11 +54,11 @@ values={[
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>IM</title>
-  <script src="./`juggleim-dev-1.9.0.js"></script>
+  <script src="./juggleim-dev-1.9.0.js"></script>
   <style>
-    .container{
+    .container {
       height: 200px;
       width: 600px;
       background-color: rgb(119, 128, 226);
@@ -73,54 +73,57 @@ values={[
   </style>
 </head>
 <body>
-  <div class="container">请打开浏览器控制台查看结果</div>
+  <div class="container">Please open the browser console to view the results</div>
   <script>
-    // 准备基础信息
+    // Prepare basic information
     let appkey = 'Your AppKey';
     let token = 'Your Token';
-    // 私有化部署后的 WebSocket 域名或 IP
+    // WebSocket domain or IP after privatized deployment
     let serverList = [
       'https://demo.im.com',
       'http://demo.im.com',
       'http://10.23.31.111:8080',
     ];
 
-    // 步骤 1: 初始化 SDK, 全局只需初始化一次
+    // Step 1: Initialize SDK; only needs to be done once globally
     let jim = JuggleIM.init({ appkey, serverList });
     let { Event, ConnectionState, ConversationType, MessageType } = JIM;
 
-    // 步骤 2: 设置状态监听，全局只需设置一次
+    // Step 2: Set up status monitoring; only needs to be done once globally
     jim.on(Event.STATE_CHANGED, ({ state, user }) => {
-      if(ConnectionState.CONNECTING == state){
-        console.log('im is connecting');
+      if (ConnectionState.CONNECTING === state) {
+        console.log('IM is connecting');
       }
-      if(ConnectionState.CONNECTED == state){
+      if (ConnectionState.CONNECTED === state) {
         // user => { id: 'xxx' }
-        console.log('im is connected', user);
+        console.log('IM is connected', user);
       }
-      if(ConnectionState.DISCONNECTED == state){
-        console.log('im is disconnected');
+      if (ConnectionState.DISCONNECTED === state) {
+        console.log('IM is disconnected');
       }
     });
 
-    // 步骤 3: 设置消息监听，全局只需设置一次
+    // Step 3: Set up message monitoring; only needs to be done once globally
     jim.on(Event.MESSAGE_RECEIVED, (message) => {
       console.log(message);
     });
 
-    // 步骤 4: 连接，全局只需调用一次，消息相关、会话相关接口必须连接成功后才可调用
-    jim.connect({ token }).then((result) => {
-      console.log(result)
-    }, (error) => {
-      console.log(error)
-    });
+    // Step 4: Connect; only needs to be called once globally. Message- and session-related interfaces can only be called after a successful connection.
+    jim.connect({ token }).then(
+      (result) => {
+        console.log(result);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   </script>
 </body>
 </html>
 ```
 
-:::danger 要注意哦
-Demo 里展示到连接成功，在实际项目中可根据 [集成文档](../../../sdkintro/init/) 按需选择使用 JIM 功能
+:::danger Please be careful
+The demo shows a successful connection. In an actual project, you can choose to use the JIM functions as needed according to the [Integration Document](../../../sdkintro/init/).
 :::
 
 </TabItem>

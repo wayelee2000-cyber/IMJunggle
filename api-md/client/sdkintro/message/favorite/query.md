@@ -1,5 +1,5 @@
 ---
-title: 查询收藏
+title: Query collection
 hide_title: true
 sidebar_position: 2
 ---
@@ -17,15 +17,15 @@ values={[
 }>
 <TabItem value="android">
 
-查询收藏列表，按时间倒序排列，支持 `count` 和 `offset` 分页查询。
+Query the collection list, sorted in reverse chronological order, with support for `count` and `offset` pagination.
 
-**接口定义**
+**Interface definition**
 
 ```java
 /**
- * 获取收藏的消息
- * @param option 查询参数
- * @param callback 结果回调
+ * Retrieve favorite news
+ * @param option Query parameters
+ * @param callback Result callback
  */
 void getFavorite(GetFavoriteMessageOption option, IGetFavoriteMessageCallback callback);
 ```
@@ -33,16 +33,16 @@ void getFavorite(GetFavoriteMessageOption option, IGetFavoriteMessageCallback ca
 </TabItem>
 <TabItem value="ios">
 
-查询收藏列表，按时间倒序排列，支持 `count` 和 `offset` 分页查询。
+Query the collection list, sorted in reverse chronological order, with support for `count` and `offset` pagination.
 
-**接口定义**
+**Interface definition**
 
 ```objectivec
-/// 获取收藏的消息
+/// Retrieve favorited messages
 /// - Parameters:
-///   - option: 查询参数
-///   - successBlock: 成功回调
-///   - errorBlock: 失败回调
+///   - option: Query parameters
+///   - successBlock: Success callback
+///   - errorBlock: Failure callback
 - (void)getFavorite:(JGetFavoriteMessageOption *)option
             success:(void (^)(NSArray <JFavoriteMessage *> *messageList, NSString *offset))successBlock
               error:(void (^)(JErrorCode code))errorBlock;
@@ -51,36 +51,35 @@ void getFavorite(GetFavoriteMessageOption option, IGetFavoriteMessageCallback ca
 </TabItem>
 <TabItem value="js">
 
-查询收藏列表，按时间倒序排列，支持 `limit` 和 `offset` 分页查询。
+Query the collection list, sorted in reverse chronological order, with support for `limit` and `offset` pagination.
 
 ![](./list.png)
 
-**参数说明**
+**Parameter description**
 
-| 名称                    | 类型    | 必填   | 默认值  | 描述                                                         | 版本     |
-|-------------------------|---------|--------|--------|--------------------------------------------------------------|----------|
-| params                  | Object  | 是     |        | 参数对象                                                      | 1.0.0    |
-| message.limit           | Number  | 否     |   20     | 每次查询的条数                           | 1.0.0    |
-| message.offset          | String  | 否     |   空    | 默认为空，查询成功后会返回 `offset`，再次获取需传入返回的 `offset` | 1.0.0    |
+| Name | Type | Required | Default | Description | Version |
+|--------------------------|---------|--------|--------|------------------------------------------------------------------|----------|
+| params | Object | Yes | | Parameter object | 1.0.0 |
+| message.limit | Number | No | 20 | Number of items per query | 1.0.0 |
+| message.offset | String | No | Empty | Default is empty. After a successful query, an `offset` is returned. Pass this `offset` in subsequent queries to retrieve the next set of results. | 1.0.0 |
 
-**成功回调**
+**Successful callback**
 
-| 名称                 | 类型    | 描述                                    | 版本   |
-|---------------------|---------|-----------------------------------------|--------|
-| result              | Object  |                                        | 1.0.0  |
-| result.offset       | String  | 获取更多标识，再次获取收藏消息时需要传入 `offset`| 1.0.0  |
-| result.list         | Array  | 收藏列表，`list.lenght` 小于等于 `limit` 时表示数据已取完，`offset` 会返回空 `字符串`          | 1.0.0  |
-| result.list[0]      | Array  | 收藏的 [Message](../../../msg/message) 对象          | 1.0.0  |
+| Name | Type | Description | Version |
+|------------------------|---------|-----------------------------------------|--------|
+| result | Object | | 1.0.0 |
+| result.offset | String | Pagination identifier. Pass this `offset` to retrieve additional favorite messages. | 1.0.0 |
+| result.list | Array | Collection list. When `list.length` is less than or equal to `limit`, it indicates all data has been fetched. In this case, `offset` will be an empty string. | 1.0.0 |
+| result.list[0] | Object | Favorite [Message](../../../msg/message) objects | 1.0.0 |
 
-**失败回调**
+**Failure callback**
 
-| 名称   | 类型    | 描述                                                      | 版本   |
-|--------|---------|-----------------------------------------------------------|--------|
-| error  | Object  | 发送失败后会有对应的状态码，可以直接查看 `error.msg`，或者查看 [状态码](../../../../sdkintro/status_code/web) | 1.0.0  |
+| Name | Type | Description | Version |
+|--------|---------|--------------------------------------------------------------|--------|
+| error | Object | Contains the status code if the request fails. You can check `error.msg` directly or refer to [Status Code](../../../../sdkintro/status_code/web) for details. | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```js
-
 let params = {
   offset: '',
   limit: 20
@@ -90,25 +89,25 @@ jim.getFavoriteMessages(params).then((result) => {
 
   let { offset, list } = result;
 
-  // offset => 分页标识
+  // offset => pagination identifier
   
-  // list => 收藏消息列表
+  // list => Favorite message list
 
 }, (error) => {
-  console.log(error)
+  console.log(error);
 });
 ```
 </TabItem>
 <TabItem value="flutter">
 
-查询收藏列表，按时间倒序排列，支持 `count` 和 `offset` 分页查询。
+Query the collection list, sorted in reverse chronological order, with support for `count` and `offset` pagination.
 
-**接口定义**
+**Interface definition**
 
-```objectivec
-/// 获取收藏的消息
+```dart
+/// Retrieve favorited messages
 /// - Parameters:
-///   - option: 查询参数
+///   - option: Query parameters
 Future<Result<FavoriteMessageResult>> getFavoriteMessages(GetFavoriteMessageOption option) async
 ```
 

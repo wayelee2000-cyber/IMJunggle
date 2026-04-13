@@ -1,5 +1,5 @@
 ---
-title: 获取标签会话列表
+title: Get the tag session list
 hide_title: true
 sidebar_position: 3
 ---
@@ -17,9 +17,9 @@ values={[
 }>
 <TabItem value="android">
 
-获取标签下的会话列表，支持分页获取。
+Retrieve the conversation list under a specific tag, with support for pagination.
 
-**示例代码**
+**Sample Code**
 
 ```java
 GetConversationOptions o = new GetConversationOptions();
@@ -34,9 +34,9 @@ List<ConversationInfo> infoList = JIM.getInstance().getConversationManager().get
 </TabItem>
 <TabItem value="ios">
 
-获取标签下的会话列表，支持分页获取。
+Retrieve the conversation list under a specific tag, with support for pagination.
 
-**示例代码**
+**Sample Code**
 
 
 ```objectivec
@@ -51,37 +51,37 @@ NSArray *arr = [JIM.shared.conversationManager getConversationInfoListWith:o];
 </TabItem>
 <TabItem value="js">
 
-获取标签下的会话列表，支持分页获取。
+Retrieve the conversation list under a specific tag, with support for pagination.
 
 ![](./list.png)
 
-**参数说明**
+**Parameter Description**
 
-| 名称          | 类型    | 必填     | 默认值                               | 描述                                           | 版本     |
-|--------------|---------|----------|--------------------------------------|------------------------------------------------|----------|
-| option        | Object  | 是       |                                    |  | 1.7.5    |
-| option.tag    | String  | 是       |                                    |  | 1.7.5    |
-| option.count  | Number  | 否       | 50                                   | 获取指定数量的会话列表，单次最多获取 100 个会话 | 1.0.0    |
-| option.order  | Number  | 否       | [FORWARD](../../../enum/web#conversation) | 获取方向，支持获取更早的会话或者更（四声）新的会话，配合 `time` 属性一起使用 | 1.0.0    |
-| option.time   | Number  | 否       | 0                                    | 从指定时间点开始获取会话，可以配合 `order` 获取新老会话 | 1.0.0    |
+| Name | Type | Required | Default | Description | Version |
+|--------------|---------|----------|----------------------------------|------------------------------------------------|----------|
+| option | Object | Yes | | | 1.7.5 |
+| option.tag | String | Yes | | | 1.7.5 |
+| option.count | Number | No | 50 | Number of sessions to retrieve, up to 100 sessions per request | 1.0.0 |
+| option.order | Number | No | [FORWARD](../../../enum/web#conversation) | Direction of retrieval; supports fetching earlier or newer sessions, used with the `time` attribute | 1.0.0 |
+| option.time | Number | No | 0 | Starting point in time to retrieve sessions. Use with `order` to fetch newer or older sessions | 1.0.0 |
 
-**回调说明**
+**Callback Description**
 
-| 属性            | 类型    | 描述                                           | 版本  |
-|-----------------|---------|------------------------------------------------|----------|
-| result          | Object  | 查询结果                                       | 1.0.0    |
-| result.conversations | Array | 会话数组，单个会话对象结构请查看 [Conversation](../../conversation.mdx) | 1.0.0    |
-| result.isFinished | Boolean | 标志会话是否获取完成 | 1.0.0    |
+| Properties | Type | Description | Version |
+|------------------|----------|------------------------------------------------|----------|
+| result | Object | Query result | 1.0.0 |
+| result.conversations | Array | Array of conversations. See [Conversation](../../conversation.mdx) for the structure of a single conversation object | 1.0.0 |
+| result.isFinished | Boolean | Indicates whether all sessions have been retrieved | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```js
 /* 
-  假设当前用户有 199 个会话，每页获取 50 条，会话列表按时间倒序排列，实现会话列表分页逻辑如下：
-  1、加载第 1 页获取参数： { count: 50, time: 0 }
-  2、加载第 2 页获取参数： { count: 50, time: '获取第 1 页会话数组中最小的 sortTime（数组下标最大的会话）' }
-  3、加载第 3 页获取参数： { count: 50, time: '获取第 2 页会话数组中最小的 sortTime（数组下标最大的会话）' }
-  4、加载第 4 页获取参数： { count: 50, time: '获取第 3 页会话数组中最小的 sortTime（数组下标最大的会话）' }
-  5、结束：isFinished 返回 true，停止加载
+Assuming the current user has 199 sessions, and each page retrieves 50 items. The session list is ordered in reverse chronological order. The pagination logic is as follows:
+1. Load page 1 with parameters: { count: 50, time: 0 }
+2. Load page 2 with parameters: { count: 50, time: 'Smallest sortTime in the session array on page 1 (session with the highest array index)' }
+3. Load page 3 with parameters: { count: 50, time: 'Smallest sortTime in the session array on page 2 (session with the highest array index)' }
+4. Load page 4 with parameters: { count: 50, time: 'Smallest sortTime in the session array on page 3 (session with the highest array index)' }
+5. End: When isFinished returns true, stop loading.
 */
 
 let option = {
@@ -95,23 +95,23 @@ jim.getConversations(option).then((result) => {
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="reactnative">
 
-获取标签下的会话列表，支持分页获取。
+Retrieve the conversation list under a specific tag, with support for pagination.
 
-**参数说明**
+**Parameter Description**
 
-| 名称          | 类型    | 必填     | 默认值       | 描述                                           | 版本     |
+| Name | Type | Required | Default | Description | Version |
 |--------------|---------|----------|------------|------------------------------------------------|----------|
-| tag  | String     | 是       | 无         | 标签ID | 0.6.3    |
-| count  | Number  | 否       | 50       | 获取指定数量的会话列表，单次最多获取 100 个会话 | 0.6.3    |
-| timestamp  | Number  | 否       | 0       | 从指定时间点开始获取会话 | 0.6.3    |
-| direction  | Number  | 否       | 1      | 获取方向，0: 拉取 timestamp 之后的会话，1: 拉取 timestamp 之前的会话 | 0.6.3    |
+| tag | String | Yes | None | Tag ID | 0.6.3 |
+| count | Number | No | 50 | Number of sessions to retrieve, up to 100 sessions per request | 0.6.3 |
+| timestamp | Number | No | 0 | Starting point in time to retrieve sessions | 0.6.3 |
+| direction | Number | No | 1 | Retrieval direction: 0 to pull sessions after the timestamp, 1 to pull sessions before the timestamp | 0.6.3 |
 
-**示例代码**
+**Sample Code**
 
 ```javascript
 import JuggleIM from 'juggleim-rnsdk';

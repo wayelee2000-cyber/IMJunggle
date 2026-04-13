@@ -1,5 +1,5 @@
 ---
-title: 获取 @ 消息
+title: Get @ message
 hide_title: true
 sidebar_position: 3
 ---
@@ -12,22 +12,22 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-**参数说明**
+**Parameter Description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| conversation   | Conversation  | 会话标识     | 1.0.0    |
-| count | int  | 拉取数量                          | 1.0.0    |
-| time  | long  | 消息时间戳，如果传 0 为当前时间 | 1.0.0    |
-| direction| JIMConst.PullDirection | 拉取方向| 1.0.0    |
-| callback | IMessageManager.IGetMessagesWithFinishCallback| 拉取回调 | 1.0.0 |
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| conversation | Conversation | Conversation identifier | 1.0.0 |
+| count | int | Number of messages to pull | 1.0.0 |
+| time | long | Message timestamp; if 0 is passed, the current time is used | 1.0.0 |
+| direction| JIMConst.PullDirection | Pull direction | 1.0.0 |
+| callback | IMessageManager.IGetMessagesWithFinishCallback| Pull callback | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
 Conversation conversation = new Conversation(Conversation.ConversationType.GROUP, "groupId1");
@@ -44,22 +44,21 @@ JIM.getInstance().getMessageManager().getMentionMessageList(conversation, 100, 0
 });
 ```
 
-
 </TabItem>
 <TabItem value="ios">
 
-**参数说明**
+**Parameter Description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| conversation   | JConversation  | 会话标识     | 1.0.0    |
-| count | int  | 拉取数量                          | 1.0.0    |
-| time  | long  | 消息时间戳，如果传 0 为当前时间 | 1.0.0    |
-| direction| JPullDirection | 拉取方向| 1.0.0    |
-| successBlock | | 成功回调 | 1.0.0 |
-| errorBlock | | 失败回调| 1.0.0|
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| conversation | JConversation | Session identifier | 1.0.0 |
+| count | int | Number of messages to pull | 1.0.0 |
+| time | long | Message timestamp; if 0 is passed, the current time is used | 1.0.0 |
+| direction| JPullDirection | Pull direction | 1.0.0 |
+| successBlock | | Success callback | 1.0.0 |
+| errorBlock | | Failure callback | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 JConversation *conversation = [[JConversation alloc] initWithConversationType:JConversationTypeGroup conversationId:@"groupId1"];
@@ -77,26 +76,26 @@ JConversation *conversation = [[JConversation alloc] initWithConversationType:JC
 </TabItem>
 <TabItem value="js">
 
-**参数说明**
+**Parameter Description**
 
-| 名称                              | 类型    | 必填     | 默认值 | 描述      | 版本     |
-|----------------------------------|---------|----------|------|-----------|----------|
-| conversation                     | Object  | 是     |        | 会话对象   | 1.0.0    |
-| conversation.conversationType     | Number  | 是     |        | 会话类型   | 1.0.0    |
-| conversation.conversationId       | String  | 是     |        | 会话 Id    | 1.0.0    |
-| conversation.messageIndex         | Number  | 否     |   0    | 消息索引，查询 @ 消息会以 messageIndex 为起始点向前或向后获取 `count` 条消息   | 1.0.0    |
-| conversation.count                | Number  | 否     |  20    | 获取消息条数    | 1.0.0    |
-| conversation.order                | Number  | 否     |  [BACKWARD](../../../enum/web#mention_order) | 获取方向    | 1.0.0    |
+| Name | Type | Required | Default | Description | Version |
+|----------------------------------|----------|----------|------|-----------|----------|
+| conversation | Object | Yes | | Conversation object | 1.0.0 |
+| conversation.conversationType | Number | Yes | | Conversation type | 1.0.0 |
+| conversation.conversationId | String | Yes | | Conversation ID | 1.0.0 |
+| conversation.messageIndex | Number | No | 0 | Message index; when querying @ messages, this is the starting point to retrieve `count` messages forward or backward | 1.0.0 |
+| conversation.count | Number | No | 20 | Number of messages to retrieve | 1.0.0 |
+| conversation.order | Number | No | [BACKWARD](../../../enum/web#mention_order) | Retrieval direction | 1.0.0 |
 
-**回调说明**
+**Callback Description**
 
-| 属性            | 类型    | 描述                                           | 版本  |
-|-----------------|---------|------------------------------------------------|----------|
-| result          | Object  | 查询结果                                       | 1.0.0    |
-| result.isFinished | Boolean | @ 消息是否查询完成，false 表示服务端还有更多的 @ 消息列表 | 1.0.0    |
-| result.msgs      | Array | @ 消息列表，获取消息内容可通过 [按 ID 查询消息](../get_by_ids) 获取 | 1.0.0    |
+| Properties | Type | Description | Version |
+|------------------|----------|------------------------------------------------|----------|
+| result | Object | Query result | 1.0.0 |
+| result.isFinished | Boolean | Indicates whether the @ message query is complete; false means more @ messages are available on the server | 1.0.0 |
+| result.msgs | Array | List of @ messages; message content can be accessed via [Query message by ID](../get_by_ids) | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType, MentionOrder } = JIM;
 
@@ -116,17 +115,17 @@ jim.getMentionMessages(conversation).then((result) => {
 </TabItem>
 <TabItem value="harmony">
 
-**参数说明**
+**Parameter Description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| conver   | Conversation  | 会话标识     | 1.0.0    |
-| count | number  | 拉取数量                          | 1.0.0    |
-| startTime  | number  | 消息时间戳，如果传 0 为当前时间 | 1.0.0    |
-| isPositive| boolean | 拉取方向,true:正序；false：倒序| 1.0.0    |
-| callback | QryMessagesCallback| 拉取回调 | 1.0.0 |
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| conver | Conversation | Session ID | 1.0.0 |
+| count | number | Number of messages to pull | 1.0.0 |
+| startTime | number | Message timestamp; if 0 is passed, the current time is used | 1.0.0 |
+| isPositive| boolean | Pull direction; true: forward order; false: reverse order | 1.0.0 |
+| callback | QryMessagesCallback| Pull callback | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
 let conver = new Conversation("userid1",1)
@@ -138,18 +137,18 @@ JuggleIm.instance.getMessageManager().queryMentionMessages(conver,100,0,false,(c
 
 <TabItem value="flutter" label="Flutter">
 
-获取指定会话里的 @ 自己的消息列表，支持分页拉取。
+Retrieve the list of @ messages in the specified conversation, supporting paginated retrieval.
 
-**参数说明**
+**Parameter Description**
 
-| 名称                           | 类型    | 描述          | 版本     |
-|-------------------------------|---------|----------------|----------|
-| conversation   | Conversation  | 会话标识     | 0.6.3    |
-| count | int  | 拉取数量                          | 0.6.3    |
-| startTime  | int  | 消息时间戳，如果传 0 为当前时间 | 0.6.3    |
-| direction | int | 拉取方向,0: 拉取开始时间之后的消息；1: 拉取开始时间之前的消息| 0.6.3    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------------|----------|
+| conversation | Conversation | Conversation identifier | 0.6.3 |
+| count | int | Number of messages to pull | 0.6.3 |
+| startTime | int | Message timestamp; if 0 is passed, the current time is used | 0.6.3 |
+| direction | int | Pull direction; 0: pull messages after the start time; 1: pull messages before the start time | 0.6.3 |
 
-**示例代码**
+**Sample Code**
 
 ```dart
 Conversation conversation = Conversation(ConversationType.group, 'groupId1');
@@ -165,14 +164,13 @@ GetMessageResult<List<Message>> result = await JuggleIm.instance.getMentionMessa
 );
 ```
 
+**Callback Description**
 
-**回调说明**
-
-| 名称                   | 类型    | 描述                                    | 版本   |
+| Name | Type | Description | Version |
 |------------------------|---------|-----------------------------------------|--------|
-| result                 | `GetMessageResult<List<Message>>` |  | 0.6.3  |
-| result.hasMore      | bool  | 是否还有更多的 @ 消息   | 0.6.3  |
-| result.t        | `List<Message>`  | 消息数组，每条消息的属性，请查看 [Message](../../../msg/message) 结构 | 0.6.3  |
+| result | `GetMessageResult<List<Message>>` | Result object | 0.6.3 |
+| result.hasMore | bool | Indicates whether there are more @ messages | 0.6.3 |
+| result.t | `List<Message>` | List of messages; see [Message](../../../msg/message) for message properties | 0.6.3 |
 
 </TabItem>
 </Tabs>

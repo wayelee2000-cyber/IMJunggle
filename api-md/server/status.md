@@ -1,127 +1,126 @@
 ---
-title: 状态码
+title: status code
 hide_title: true
 sidebar_position: 100
 ---
 
-### API 相关{#api}
-| 错误码 | 说明 | |
+### API related {#api}
+| Error code | Description | |
 |:------|:-----|:-------|
-|10000|默认错误||
-|10001|Appkey未赋值||
-|10002|Nonce未赋值||
-|10003|Timestamp 未赋值||
-|10004|Signature未赋值||
-|10005|App不存在||
-|10006|Signature 校验失败||
-|10007|请求参数不合法||
-|10008|内部处理超时||
-|10009|内部响应错误||
-|10010|缺少必填参数||
-|10011|参数不合法||
+|10000|Default error||
+|10001|Appkey not assigned||
+|10002|Nonce not assigned||
+|10003|Timestamp not assigned||
+|10004|Signature not assigned||
+|10005|App does not exist||
+|10006|Signature verification failed||
+|10007|Illegal request parameters||
+|10008|Internal processing timeout||
+|10009|Internal response error||
+|10010|Missing required parameter||
+|10011|Illegal parameters||
 
-### 连接相关{#connection}
-| 错误码 | 说明 | |
+### Connection related {#connection}
+| Error code | Description | |
 |:------|:-----|:-------|
-|11000|默认错误||
-|11001|Appkey 未赋值||
-|11002|Token 未赋值||
-|11003|App不存在||
-|11004|Token不合法||
-|11005|Token校验失败||
-|11006|Token已过期||
-|11007|需要重新链接||
-|11008|不支持的平台类型||
-|11009|App已被封禁||
-|11010|用户被封禁||
-|11011|被其他设备踢下线||
-|11012|注销登录||
-|11013|不支持的信令||
-|11014|请求超频||
-|11015|缺少必填参数||
-|11016|客户端异常断开||
-|11017|数据解析异常，链接断开||
-|11018|心跳超时，链接断开||
-|11019|数据非法，链接断开||
-|11020|安全域名错误||
-|11021|不支持的调用||
-|11022|被自己设备踢下线，主要出现在本设备重连时，上一个链接被踢下线，一般可忽略||
+|11000|Default error||
+|11001|Appkey not assigned||
+|11002|Token not assigned||
+|11003|App does not exist||
+|11004|Token is invalid||
+|11005|Token verification failed||
+|11006|Token has expired||
+|11007|Reconnection required||
+|11008|Unsupported platform type||
+|11009|App has been banned||
+|11010|User banned||
+|11011|Kicked offline by other devices||
+|11012|Logged out||
+|11013|Unsupported signaling||
+|11014|Request rate limit exceeded||
+|11015|Missing required parameters||
+|11016|Client disconnected abnormally||
+|11017|Data parsing error, connection disconnected||
+|11018|Heartbeat timeout, connection disconnected||
+|11019|Illegal data, connection broken||
+|11020|Secure domain name error||
+|11021|Unsupported call||
+|11022|Kicked offline by own device, typically occurs when reconnecting and the previous connection is disconnected. This can generally be ignored||
 
-### 用户相关{#user}
-| 错误码 | 说明 | |
+### User related {#user}
+| Error code | Description | |
 |:------|:-----|:-------|
-|10100|默认错误||
-|10101|用户数量超限||
-|10102|用户不存在||
-|10103|不支持的用户属性||
-|10104|时区不合法||
+|10100|Default error||
+|10101|User count exceeds limit||
+|10102|User does not exist||
+|10103|Unsupported user attribute||
+|10104|Illegal time zone||
 
-### 消息相关{#message}
-| 错误码 | 说明 | |
+### Message related {#message}
+| Error code | Description | |
 |:------|:-----|:-------|
-|12000|默认错误||
-|12001|消息存储失败||
-|12002|消息删除失败||
-|12003|消息更新失败||
-|12004|消息格式不合法||
-|12005|被对方拉黑||
-|12006|消息扩展，字段重复||
-|12007|消息命中敏感词策略，被拦截||
-|12008|消息扩展数量超限||
-|12009|非好友关系||
-|12010|没有操作权限||
-|12011|消息找不到||
-|12012|收藏重复消息||
+|12000|Default error||
+|12001|Message storage failed||
+|12002|Message deletion failed||
+|12003|Message update failed||
+|12004|Illegal message format||
+|12005|Blocked by recipient||
+|12006|Message extension contains duplicate fields||
+|12007|Message blocked due to sensitive word policy||
+|12008|Message extension count exceeds limit||
+|12009|Non-friend relationship||
+|12010|No permission to perform operation||
+|12011|Message not found||
+|12012|Duplicate message collection||
 
-### 群组相关{#group}
-| 错误码 | 说明 | |
+### Group related {#group}
+| Error code | Description | |
 |:------|:-----|:-------|
-|13000|默认错误||
-|13001|群组不存在||
-|13002|用户不是群组成员||
-|13003|群组被禁言||
-|13004|群成员被禁言||
-|13005|群成员数量已达上限||
-|13006|查不到对应群组快照||
+|13000|Default error||
+|13001|Group does not exist||
+|13002|User is not a group member||
+|13003|Group banned||
+|13004|Group member banned||
+|13005|Group member count has reached the limit||
+|13006|Corresponding group snapshot not found||
 
-### 聊天室相关{#chatroom}
-| 错误码 | 说明 | |
+### Chat room related {#chatroom}
+| Error code | Description | |
 |:------|:-----|:-------|
-|14000|默认错误||
-|14001|非聊天室成员||
-|14002|属性已满||
-|14003|key已被占用||
-|14004|属性不存在||
-|14005|聊天室不存在||
-|14006|聊天室已被销毁||
-|14007|已被禁言||
-|14008|已被封禁||
+|14000|Default error||
+|14001|Not a member of the chat room||
+|14002|Attributes are full||
+|14003|Key has been occupied||
+|14004|Property does not exist||
+|14005|Chat room does not exist||
+|14006|Chat room has been destroyed||
+|14007|User has been banned||
+|14008|Banned||
 
-### 其他{#other}
-| 错误码 | 说明 | |
+### Other {#other}
+| Error code | Description | |
 |:------|:-----|:-------|
-|15000|默认错误||
-|15001|未配置文件存储引擎||
-|15002|文件上传，预签名错误||
-|15101|客户端上报日志参数不合法||
+|15000|Default error||
+|15001|File storage engine not configured||
+|15002|File upload pre-signing error||
+|15101|Illegal log parameters reported by client||
 
-### 音视频相关{#rtc}
-| 错误码 | 说明 | |
+### Audio and video related {#rtc}
+| Error code | Description | |
 |:------|:-----|:-------|
-|16000|默认错误||
-|16001|音视频房间不存在||
-|16002|音视频房间已经存在||
-|16003|音视频房间已经销毁||
-|16004|非音视频房间成员||
-|16005|该成员已存在||
-|16006|创建音视频房间失败||
-|16007|更新音视频房间失败||
-|16008|音视频授权失败||
-|16009|不支持的音视频设置||
-|16010|参数不合法||
-|16100|已经接听||
-|16101|对方拒绝||
-|16102|对方已挂断||
-|16103|对方繁忙||
-|16104|已取消||
-
+|16000|Default error||
+|16001|Audio and video room does not exist||
+|16002|Audio and video room already exists||
+|16003|Audio and video room has been destroyed||
+|16004|Not a member of the audio and video room||
+|16005|Member already exists||
+|16006|Failed to create audio and video room||
+|16007|Failed to update audio and video room||
+|16008|Audio and video authorization failed||
+|16009|Unsupported audio and video settings||
+|16010|Illegal parameters||
+|16100|Already answered||
+|16101|The other party refused||
+|16102|The other party hung up||
+|16103|The other party is busy||
+|16104|Cancelled||

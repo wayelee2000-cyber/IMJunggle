@@ -1,5 +1,5 @@
 ---
-title: 设置全局免打扰
+title: Set global do not disturb
 hide_title: true
 sidebar_position: 5
 ---
@@ -16,17 +16,17 @@ values={[
 }>
 <TabItem value="android">
 
-设置当前用户全局免打扰，设置成功后当前用户不再接收全部离线消息推送，支持分时段设置，一个用户的多个设备同时设置全局免打扰，以最后一次成功设置为准。
+Set a global Do Not Disturb for the current user. Once set successfully, the user will no longer receive any offline push messages. Time-scheduled settings are supported. Multiple devices of the same user can set global Do Not Disturb simultaneously. The most recent successful setting takes precedence.
 
-**参数说明**
+**Parameter description**
 
-| 名称             | 类型     | 描述| 版本     |
-|-----------------|---------|-------|--------|
-| isMute     | boolean | 是否免打扰 | 1.1.0    |
-| periods   | `List<TimePeriod>` | 免打扰的时间段，如果为空则视为全天免打扰 | 1.1.0    |
-| callback   | ISimpleCallback | 结果回调 | 1.1.0    |
+| Name | Type | Description | Version |
+|------------------|---------|-------|--------|
+| isMute | boolean | Whether to enable Do Not Disturb | 1.1.0 |
+| periods | `List<TimePeriod>` | Do Not Disturb time periods; if empty, it is considered as Do Not Disturb all day | 1.1.0 |
+| callback | ISimpleCallback | Result callback | 1.1.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
 List<TimePeriod> list = new ArrayList<>();
@@ -48,17 +48,17 @@ JIM.getInstance().getMessageManager().setMute(true, list, new IMessageManager.IS
 </TabItem>
 <TabItem value="ios">
 
-设置当前用户全局免打扰，设置成功后当前用户不再接收全部离线消息推送，支持分时段设置，一个用户的多个设备同时设置全局免打扰，以最后一次成功设置为准。
+Set a global Do Not Disturb for the current user. Once set successfully, the user will no longer receive any offline push messages. Time-scheduled settings are supported. Multiple devices of the same user can set global Do Not Disturb simultaneously. The most recent successful setting takes precedence.
 
-**参数说明**
+**Parameter description**
 
-| 名称             | 类型     | 描述| 版本     |
-|-----------------|---------|-------|--------|
-| isMute     | BOOL | 是否免打扰 | 1.1.0    |
-| periods   | NSArray `<JTimePeriod *>` | 免打扰的时间段，如果为空则视为全天免打扰 | 1.1.0    |
-|  completeBlock   |  | 结果回调 | 1.1.0    |
+| Name | Type | Description | Version |
+|------------------|---------|-------|--------|
+| isMute | BOOL | Whether to enable Do Not Disturb | 1.1.0 |
+| periods | NSArray `<JTimePeriod *>` | Do Not Disturb time periods; if empty, it is considered as Do Not Disturb all day | 1.1.0 |
+| completeBlock | | Result callback | 1.1.0 |
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 NSMutableArray *a = [NSMutableArray array];
@@ -76,50 +76,50 @@ p1.endTime = @"20:40";
 </TabItem>
 <TabItem value="js">
 
-设置当前用户全局免打扰，设置成功后当前用户不再接收全部离线消息推送，支持按时区分时段设置，一个用户的多个设备同时设置全局免打扰，以最后一次成功设置为准。
+Set a global Do Not Disturb (DND) for the current user. After a successful setting, the user will no longer receive any offline message push notifications. Time-based settings and multiple time periods are supported. Multiple devices of the same user can set global DND simultaneously. The most recent successful setting takes precedence.
 
-**参数说明**
+**Parameter description**
 
-| 名称             | 类型     | 必填   | 默认值  | 描述| 版本     |
-|-----------------|---------|-------|--------|----------|----------|
-| params          | Object | 是     | 无 |  | 1.0.0    |
-| params.type     | Number | 是     | 无 | [免打扰类型](../../../enum/web#disturb) | 1.0.0    |
-| params.timezone | String | [UndisturbType.DISTURB](../../../enum/web#disturb) 时必传     | 无 | 时区字符串，例如：`Asia/Shanghai` | 1.3.0    |
-| params.times    | Array | [UndisturbType.DISTURB](../../../enum/web#disturb) 时必传     | 无 | 免打扰时间段，支持设置多个，请参考示例 | 1.3.0    |
+| Name | Type | Required | Default | Description | Version |
+|------------------|----------|-------|--------|----------|----------|
+| params | Object | Yes | None | | 1.0.0 |
+| params.type | Number | Yes | None | [DND type](../../../enum/web#disturb) | 1.0.0 |
+| params.timezone | String | Required for [UndisturbType.DISTURB](../../../enum/web#disturb) | None | Time zone string, e.g., `Asia/Shanghai` | 1.3.0 |
+| params.times | Array | Must be provided every time for [UndisturbType.DISTURB](../../../enum/web#disturb) | None | Do Not Disturb time periods; multiple periods supported, see example | 1.3.0 |
 
-**示例代码**
+**Sample Code**
 
 ```js
 let { UndisturbType } = JIM;
 
- let params = {
+let params = {
   type: UndisturbType.DISTURB,
   timezone: 'Asia/Shanghai',
   times: [
-    // 上午 8 点 至上午 12 点免打扰
+    // Do Not Disturb from 8:00 to 12:00
     { start: '08:00', end: '12:00' },
     
-    // 下午 19 点 至下午 20 点免打扰
+    // Do Not Disturb from 19:00 to 20:00
     { start: '19:00', end: '20:00' },
     
-    // 晚上 23 点 至次日早 6 点免打扰
+    // Do Not Disturb from 23:00 to 6:00 the next morning
     { start: '23:00', end: '06:00' },
   ]
 };
 
 jim.setAllDisturb(params).then(() => {
-  console.log('set all disturb successfully');
+  console.log('Set all disturb successfully');
 });
 ```
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="reactnative">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 </Tabs>

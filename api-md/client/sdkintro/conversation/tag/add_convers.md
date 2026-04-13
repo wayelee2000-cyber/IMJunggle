@@ -1,5 +1,5 @@
 ---
-title: 向标签里添加会话
+title: Add conversation to label
 hide_title: true
 sidebar_position: 2
 ---
@@ -16,16 +16,16 @@ values={[
 }>
 <TabItem value="android">
 
-向存在的标签内添加会话，添加会话动作自动同步当前用户的多设备。
+Add a conversation to an existing tag and perform a session action to automatically synchronize across the current user's multiple devices.
 
-**接口定义**
+**Interface definition**
 
 ```java
 /**
- * 将会话添加到标签
- * @param conversations 会话列表
- * @param tagId 标签 id
- * @param callback 结果回调
+ * Add conversation to label
+ * @param conversations List of conversations
+ * @param tagId Tag ID
+ * @param callback Result callback
  */
 void addConversationsToTag(List<Conversation> conversations, String tagId, ISimpleCallback callback);
 ```
@@ -34,17 +34,17 @@ void addConversationsToTag(List<Conversation> conversations, String tagId, ISimp
 </TabItem>
 <TabItem value="ios">
 
-向存在的标签内添加会话，添加会话动作自动同步当前用户的多设备。
+Add a conversation to an existing tag and perform a session action to automatically synchronize across the current user's multiple devices.
 
-**接口定义**
+**Interface definition**
 
 ```objectivec
-/// 将会话添加到标签
+/// Add conversations to a label
 /// - Parameters:
-///   - conversationList: 会话列表
-///   - tagId: 标签 id
-///   - successBlock: 成功回调
-///   - errorBlock: 失败回调
+///   - conversationList: List of conversations
+///   - tagId: Tag ID
+///   - successBlock: Success callback
+///   - errorBlock: Failure callback
 - (void)addConversationList:(NSArray <JConversation *> *)conversationList
                       toTag:(NSString *)tagId
                     success:(void (^)(void))successBlock
@@ -55,27 +55,27 @@ void addConversationsToTag(List<Conversation> conversations, String tagId, ISimp
 </TabItem>
 <TabItem value="js">
 
-向存在的标签内添加会话，添加会话动作自动同步当前用户的多设备。
+Add a conversation to an existing tag and perform a session action to automatically synchronize across the current user's multiple devices.
 
-**参数说明**
+**Parameter description**
 
-| 名称          | 类型    | 必填   | 默认值  | 描述                                       | 版本     |
-|--------------|---------|--------|--------|--------------------------------------------|----------|
-| tag          | Object  | 是     |        | Tag 对象                                   | 1.7.5    |
-| tag.id       | String  | 是     |        | 标签 ID，开发者可自定义，最大长度 64 个字符     | 1.7.5    |
-| tag.conversations       | Array  | 是     |        | 会话列表，详见代码示例     | 1.7.5    |
+| Name | Type | Required | Default | Description | Version |
+|--------------|---------|--------|--------|-----------------------------------------------|----------|
+| tag | Object | Yes | | Tag object | 1.7.5 |
+| tag.id | String | Yes | | Tag ID, customizable by the developer, maximum length 64 characters | 1.7.5 |
+| tag.conversations | Array | Yes | | List of conversations, see code example | 1.7.5 |
 
-**成功回调**
+**Success callback**
 
-无参数返回，回调触发表示成功
+No parameters are returned. The callback is triggered to indicate success.
 
-**失败回调**
+**Failure callback**
 
-| 名称   | 类型    | 描述                                                      | 版本   |
-|--------|---------|-----------------------------------------------------------|--------|
-| error  | Object  | 发送失败后会有对应的状态码，可以直接查看 `error.msg`，或者查看 [状态码](../../../../sdkintro/status_code/web) | 1.0.0  |
+| Name | Type | Description | Version |
+|--------|---------|--------------------------------------------------------------|--------|
+| error | Object | Contains a status code if the operation fails. You can access `error.msg` or refer to [Status Code](../../../../sdkintro/status_code/web) | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType } = JIM;
 
@@ -87,29 +87,29 @@ let tag = {
 };
 
 jim.addConversationsToTag(tag).then(() => {
-  console.log('addConversationsToTag successfully')
+  console.log('addConversationsToTag succeeded');
 }, (error) => {
-  console.log(error)
+  console.log(error);
 });
 ```
 
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="reactnative">
 
-向存在的标签内添加会话，添加会话动作自动同步当前用户的多设备。
+Add a conversation to an existing tag and perform a session action to automatically synchronize across the current user's multiple devices.
 
-**接口定义**
+**Interface definition**
 
 ```typescript
 /**
- * 向标签里添加会话
- * @param tagId 标签ID
- * @param conversations 会话列表
+ * Add conversations to a label
+ * @param tagId Tag ID
+ * @param conversations List of conversations
  */
 addConversationsToTag(tagId: string, conversations: Array<{
   conversationType: number;
@@ -117,7 +117,7 @@ addConversationsToTag(tagId: string, conversations: Array<{
 }>): Promise<void>;
 ```
 
-**示例代码**
+**Sample Code**
 
 ```javascript
 import JuggleIM from 'juggleim-rnsdk';

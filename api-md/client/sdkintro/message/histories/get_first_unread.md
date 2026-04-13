@@ -1,5 +1,5 @@
 ---
-title: 获取第一条未读消息
+title: Get the first unread message
 hide_title: true
 sidebar_position: 9
 ---
@@ -8,43 +8,42 @@ sidebar_position: 9
 groupId="sdks-language"
 values={[
 { label: 'Android', value: 'android', },
-{ label: 'iOS', value: 'ios', }, 
+{ label: 'iOS', value: 'ios', },
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-获取会话中的第一条未读消息。
+Retrieve the first unread message in the conversation.
 
-**接口定义**
+**Interface definition**
 
 ```java
 /**
- * 获取会话中第一条未读消息。
+ * Retrieve the first unread message in the conversation.
  *
- * @param conversation 会话标识。
- * @param callback  下载文件的回调。参考 {@link IDownloadMediaMessageCallback}。
+ * @param conversation The session ID.
+ * @param callback The callback for downloading files. See {@link IDownloadMediaMessageCallback}.
  */
 void getFirstUnreadMessage(Conversation conversation, IGetMessagesCallback callback);
 ```
 
-
 </TabItem>
 <TabItem value="ios">
 
-获取会话中的第一条未读消息。
+Retrieve the first unread message in the conversation.
 
-**接口定义**
+**Interface definition**
 
 ```objectivec
-/// 获取会话中第一条未读消息
+/// Retrieve the first unread message in the session
 /// - Parameters:
-///   - conversation: 会话标识
-///   - successBlock: 成功回调，如果没有未读消息则回调 nil
-///   - errorBlock: 失败回调
+///   - conversation: The conversation identifier
+///   - successBlock: Success callback; returns nil if there are no unread messages
+///   - errorBlock: Failure callback
 - (void)getFirstUnreadMessage:(JConversation *)conversation
                       success:(void (^)(JMessage *message))successBlock
                         error:(void (^)(JErrorCode code))errorBlock;
@@ -53,17 +52,17 @@ void getFirstUnreadMessage(Conversation conversation, IGetMessagesCallback callb
 </TabItem>
 <TabItem value="js" label="JavaScript">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
-<TabItem value="harmony" label="鸿蒙">
+<TabItem value="harmony" label="Hongmeng">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 </Tabs>

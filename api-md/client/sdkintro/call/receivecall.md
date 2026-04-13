@@ -1,5 +1,5 @@
 ---
-title: 来电监听
+title: Call monitoring
 hide_title: true
 sidebar_position: 3
 ---
@@ -16,13 +16,13 @@ values={[
 }>
 <TabItem value="android">
 
-开发者需要注册一个全局的监听以获得被呼叫的事件，并从中得到通话实体。开发者需要提前向用户申请麦克风和摄像头权限。
+Developers must register a global listener to receive call events and obtain the call entity. Additionally, they need to request microphone and camera permissions from users in advance.
 
 ```java
 JIM.getInstance().getCallManager().addReceiveListener("CallReceive", this);
 ```
 
-回调方法定义如下。
+The callback interface is defined as follows:
 
 ```java
 interface ICallReceiveListener {
@@ -33,18 +33,18 @@ interface ICallReceiveListener {
 </TabItem>
 <TabItem value="ios">
 
-开发者需要注册一个全局的监听以获得被呼叫的事件，并从中得到通话实体。开发者需要提前向用户申请麦克风和摄像头权限。
+Developers must register a global listener to receive call events and obtain the call entity. Additionally, they need to request microphone and camera permissions from users in advance.
 
 ```objcetivec
 [JIM.shared.callManager addReceiveDelegate:self];
 ```
 
-监听方法定义如下。
+The delegate protocol is defined as follows:
 
 ```objcetivec
 @protocol JCallReceiveDelegate <NSObject>
-/// 接听到通话
-/// - Parameter callSession: 通话实例
+/// Received call
+/// - Parameter callSession: call instance
 - (void)callDidReceive:(id<JCallSession>)callSession;
 
 @end
@@ -53,47 +53,47 @@ interface ICallReceiveListener {
 </TabItem>
 <TabItem value="js">
 
-开发者需要注册全局监听以获得被呼叫的事件，并从中得到通话实体。开发者需要提前向用户申请麦克风和摄像头权限。
+Developers must register a global listener to receive call events and obtain the call entity. Additionally, they need to request microphone and camera permissions from users in advance.
 
 ```javascript
 let { CallEvent } = JuggleCall;
 
-// 收到通话邀请
+// Receive call invitation
 juggleCall.on(CallEvent.INVITED, ({ target }) => {
   let { callId } = target;
-  let session = juggleCall.getSession({ callId })
-  console.log('CallEvent.INVITED', session)
+  let session = juggleCall.getSession({ callId });
+  console.log('CallEvent.INVITED', session);
 });
-
 ```
+
 </TabItem>
 <TabItem value="flutter">
 
-开发者需要一个全局的监听以获得被呼叫的事件，并从中得到通话实体。开发者需要提前向用户申请麦克风和摄像头权限。
+Developers must register a global listener to receive call events and obtain the call entity. Additionally, they need to request microphone and camera permissions from users in advance.
 
 ```dart
 JuggleIm.instance.onCallReceive = (callSession) {
-
-}
+  // Handle incoming call
+};
 ```
 
 </TabItem>
 
 <TabItem value="reactnative">
 
-开发者需要注册一个全局的监听以获得被呼叫的事件，并从中得到通话实体。开发者需要提前向用户申请麦克风和摄像头权限。
+Developers must register a global listener to receive call events and obtain the call entity. Additionally, they need to request microphone and camera permissions from users in advance.
 
 ```typescript
 import JuggleIMCall from 'juggleim-rnsdk';
 
 const removeListener = JuggleIMCall.addReceiveListener({
   onCallReceive: (callSession) => {
-    // 处理来电
-    console.log('收到通话请求', callSession);
+    // Handle incoming call
+    console.log('Incoming call request', callSession);
   }
 });
 
-// 取消监听
+// To stop monitoring, call:
 // removeListener();
 ```
 

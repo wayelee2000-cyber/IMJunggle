@@ -1,5 +1,5 @@
 ---
-title: 获取单个会话
+title: Get a single session
 hide_title: true
 sidebar_position: 3
 ---
@@ -13,20 +13,20 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-根据会话标识 `Conversation` 获取指定会话信息。返回空对象表示没有会话信息。
+Retrieve the specified session information based on the session ID `Conversation`. Returning an empty object indicates that no session information exists.
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation | Conversation | 会话标识 | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------|----------|
+| conversation | Conversation | Conversation identifier | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```java
 ConversationInfo info = JIM.getInstance().getConversationManager().getConversationInfo(conversation);
 ```
@@ -34,15 +34,15 @@ ConversationInfo info = JIM.getInstance().getConversationManager().getConversati
 </TabItem>
 <TabItem value="ios">
 
-根据会话标识 `JConversation` 获取指定会话信息。返回空对象表示没有会话信息。
+Retrieve the specified session information based on the session ID `JConversation`. Returning an empty object indicates that no session information exists.
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation | JConversation | 会话标识 | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------|----------|
+| conversation | JConversation | Session identifier | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```objectivec
 JConversation *conversation = [[JConversation alloc] initWithConversationType:JConversationTypeGroup conversationId:@"groupId1"];
 JConversationInfo *info = [JIM.shared.conversationManager getConversationInfo:conversation];
@@ -51,25 +51,25 @@ JConversationInfo *info = [JIM.shared.conversationManager getConversationInfo:co
 </TabItem>
 <TabItem value="js">
 
-根据 `conversationType` 和 `conversationId` 获取指定会话，如果本地没有会从云端获取，返回空对象表示没有会话信息
+Retrieve the specified session based on `conversationType` and `conversationId`. If the session does not exist locally, it will be fetched from the cloud. An empty object indicates that no session information exists.
 
-**参数说明**
+**Parameter description**
 
-| 名称           | 类型     | 必填   | 默认值  | 描述                                      | 版本     |
-|----------------|---------|-------|---|---------------------------------------------|----------|
-| conversation   | Object | 是     | 无 | 获取会话的对象 | 1.0.0    |
-| conversation.conversationId   | String | 是     | 无 | 会话 Id | 1.0.0    |
-| conversation.conversationType | Number | 是     | 无 | 会话类型 | 1.0.0    |
+| Name | Type | Required | Default | Description | Version |
+|----------------|---------|-------|---|------------------------------------------------|----------|
+| conversation | Object | Yes | None | Conversation object to retrieve | 1.0.0 |
+| conversation.conversationId | String | Yes | None | Conversation ID | 1.0.0 |
+| conversation.conversationType | Number | Yes | None | Conversation type | 1.0.0 |
 
-**回调参数**
+**Callback Parameters**
 
-| 名称                   | 类型    | 描述                                    | 版本   |
+| Name | Type | Description | Version |
 |------------------------|---------|-----------------------------------------|--------|
-| result                | Object  | 返回值 | 1.0.0  |
-| result.conversation   | Object  | 空对象表示会话不存在，属性可查看 [Conversation](../../conversation)| 1.0.0  |
+| result | Object | Return value | 1.0.0 |
+| result.conversation | Object | An empty object indicates the conversation does not exist. See [Conversation](../../conversation) for properties. | 1.0.0 |
 
 
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType } = JIM;
 
@@ -87,31 +87,31 @@ jim.getConversation(conversation).then(({ conversation }) => {
 
 <TabItem value="harmony">
 
-根据会话标识 `Conversation` 获取指定会话信息。返回空对象表示没有会话信息。
+Retrieve the specified session information based on the session ID `Conversation`. Returning an empty object indicates that no session information exists.
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation | Conversation | 会话标识 | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------|----------|
+| conversation | Conversation | Conversation identifier | 1.0.0 |
 
-**接口定义**
+**Interface definition**
 
 ```java
-//callback 定义
-export type ConversationCallback = (code:number,conver:ConversationInfo|null)=>void
+// Callback definition
+export type ConversationCallback = (code: number, conver: ConversationInfo | null) => void
 
 /**
- * 获取单个会话的信息
- * @param conver 会话标识
- * @return 会话信息
+ * Get information about a single session
+ * @param conver Session ID
+ * @return Session information
  */
-getConversation(conver:Conversation,callback:ConversationCallback)
+getConversation(conver: Conversation, callback: ConversationCallback)
 ```
 
-**示例代码**
+**Sample Code**
 ```java
-JuggleIm.instance.getConversationManager().getConversation(new Conversation("userid2",1),(conver)=>{
+JuggleIm.instance.getConversationManager().getConversation(new Conversation("userid2", 1), (conver) => {
     
 })
 ```
@@ -119,16 +119,16 @@ JuggleIm.instance.getConversationManager().getConversation(new Conversation("use
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-获取指定会话信息, 返回空对象表示没有会话信息，此方法仅从本地数据库获取会话信息，不会从云端获取。
+Retrieve the specified session information. Returning an empty object indicates that no session information exists. This method only retrieves session information from the local database and does not fetch it from the cloud.
 
-**参数说明**
+**Parameter description**
 
-| 名称         | 类型         | 描述      | 版本     |
+| Name | Type | Description | Version |
 |------------------|--------------|----------|----------|
-| conversationType | int | 会话类型 | 0.6.3    |
-| conversationId | String | 会话标识 | 0.6.3    |
+| conversationType | int | Conversation type | 0.6.3 |
+| conversationId | String | Session ID | 0.6.3 |
 
-**示例代码**
+**Sample Code**
 
 ```dart
 Conversation conversation = Conversation(ConversationType.group, 'groupId1');
@@ -138,16 +138,16 @@ ConversationInfo? conversationInfo = await JuggleIm.instance.getConversationInfo
 </TabItem>
 <TabItem value="reactnative">
 
-获取指定会话信息, 返回空对象表示没有会话信息，此方法仅从本地数据库获取会话信息，不会从云端获取。
+Retrieve the specified session information. Returning an empty object indicates that no session information exists. This method only retrieves session information from the local database and does not fetch it from the cloud.
 
-**参数说明**
+**Parameter description**
 
-| 名称         | 类型         | 描述      | 版本     |
+| Name | Type | Description | Version |
 |------------------|--------------|----------|----------|
-| conversationType | Number | 会话类型 | 0.6.3    |
-| conversationId | String | 会话标识 | 0.6.3    |
+| conversationType | Number | Conversation type | 0.6.3 |
+| conversationId | String | Session ID | 0.6.3 |
 
-**示例代码**
+**Sample Code**
 
 ```javascript
 import JuggleIM from 'juggleim-rnsdk';

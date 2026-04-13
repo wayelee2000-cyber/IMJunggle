@@ -1,36 +1,36 @@
 ---
-title: 入群申请列表
+title: Group membership application list
 hide_title: true
 sidebar_position: 8
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-入群申请列表，包含主动申请入群和邀请入群的
+This endpoint provides a list of group membership applications, including users who have actively applied to join the group as well as those who have been invited to join.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api.md#header).
 
-> **请求类型**：`GET`
+> **Request Type**: `GET`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/groups/grpapplications
+> **Request URL**: https://[request domain name](../api#api)/jim/groups/grpapplications
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|group_id|是|群组id||
-|start|int|否|查询列表的开始时间戳，倒序查询时，默认从当前时间开始；正序查询时，默认从0开始||
-|count|int|否|单页数量，默认20，最大不超过50||
-|order|int|否|查询顺序。0：倒序；1：正序；默认0||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameter  | Data type | Required | Description                                                                                  |   |
+|:-----------|:----------|:---------|:---------------------------------------------------------------------------------------------|---|
+| group_id   | string    | Yes      | The ID of the group                                                                         |   |
+| start      | int       | No       | The start timestamp for the query. When querying in reverse order, defaults to the current time; when querying forward, defaults to 0. |   |
+| count      | int       | No       | Number of items per page. Default is 20; maximum is 50.                                    |   |
+| order      | int       | No       | Query order: 0 for reverse order (default), 1 for forward order.                           |   |
+
+
+### Request Example{#req_demo}
 ``` js
 GET /jim/groups/grpapplications?group_id=group1&start=1734407505753&count=50 HTTP/1.1
 appkey: appkey
@@ -39,31 +39,31 @@ Content-Type: application/json
 
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "items":[
-        {
-            "apply_type":1,   //0:邀请；1:主动申请；
-            "sponsor":{  //主动申请入群时，申请人信息
-              "user_id":"userid1"
-            },
-            "inviter":{  //邀请入群时，邀请人信息
-              "user_id":"userid2"
-            },
-            "recipient":{  //邀请入群时，被邀请人信息
-              "user_id":"userid3"
-            },
-            "operator":{   //处理请求的管理员信息
-              "user_id":"userid4"
-            },
-            "status":1,    // 0：申请中；1：同意申请；2：拒绝申请；3：申请已过期; 10：邀请中；11：同意邀请；12：拒绝邀请；13：邀请已过期；
-            "apply_time":1734407505000   //申请发起时间
-        }
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "items": [
+      {
+        "apply_type": 1,   // 0: Invitation; 1: Active application
+        "sponsor": {       // Information of the applicant when actively applying to join the group
+          "user_id": "userid1"
+        },
+        "inviter": {       // Information of the inviter when inviting to the group
+          "user_id": "userid2"
+        },
+        "recipient": {     // Information of the invitee when inviting to the group
+          "user_id": "userid3"
+        },
+        "operator": {      // Information of the administrator handling the request
+          "user_id": "userid4"
+        },
+        "status": 1,       // 0: Applying; 1: Application approved; 2: Application rejected; 3: Application expired; 10: Inviting; 11: Invitation accepted; 12: Invitation declined; 13: Invitation expired
+        "apply_time": 1734407505000  // Application initiation timestamp
+      }
     ]
   }
 }

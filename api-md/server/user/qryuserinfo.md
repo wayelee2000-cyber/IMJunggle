@@ -1,32 +1,32 @@
 ---
-title: 查询用户信息
+title: Query user information
 hide_title: true
 sidebar_position: 10
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-查询单个用户信息，用作和开发者服务端用户信息对比，以开发者服务端用户信息为准，开发者服务端用户信息变更后需及时同步至 IM 服务端。
+Retrieve information for a single user to compare with the user data on the developer server. The developer server's user information takes precedence. After any changes to the developer server's user information, it must be synchronized promptly with the IM server.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`GET`
+> **Request Type**: `GET`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/users/info
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/users/info
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|user_id|string|是|查询单聊禁言的用户||
+| Parameters | Data type | Required | Description                          |  |
+|:-----------|:----------|:---------|:-----------------------------------|:--|
+| user_id    | string    | yes      | The user ID to query for single chat ban status |  |
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 GET /apigateway/users/info?user_id=user1 HTTP/1.1
 appkey: appkey
@@ -37,30 +37,29 @@ Content-Type: application/json
 
 ```
 
-### 响应参数{#res_param}
+### Response parameters {#res_param}
 
-|参数|数据类型|参数说明||
-|:--|:------|:-----|:-------|
-|user_id|string|是| 用户 Id||
-|nickname|string|否|用户昵称||
-|user_portrait|string|否|用户头像||
-|ext_fields|map|否|扩展字段列表||
+| Parameters   | Data type | Description          |  |
+|:-------------|:----------|:---------------------|:--|
+| user_id      | string    | User ID              |  |
+| nickname     | string    | User nickname        |  |
+| user_portrait| string    | User avatar URL      |  |
+| ext_fields   | map       | Extended fields list |  |
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "user_id":"user1",
-    "nickname":"user1",
-    "user_portrait":"xxxxx",
-    "ext_fields":{
-      "field1":"aaa",
-      "field2":"bbb"
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "user_id": "user1",
+    "nickname": "user1",
+    "user_portrait": "xxxxx",
+    "ext_fields": {
+      "field1": "aaa",
+      "field2": "bbb"
     }
   }
 }
 ```
-

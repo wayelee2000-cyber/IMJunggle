@@ -1,35 +1,35 @@
 ---
-title: 标记消息已读
+title: Mark message as read
 hide_title: true
 sidebar_position: 9
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-标记消息的已读状态。
+Mark a message as read.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/messages/markread
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/messages/markread
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|user_id|string|是|消息的已读用户id||
-|target_id|string|是|该消息的会话id，单聊时为消息发送者id，群聊时为群id||
-|channel_type|int|是|会话类型：1：单聊；2：群聊||
-|msg_ids|array|是|要标记已读的消息id列表||
+| Parameters   | Data type | Required | Description                                                                                   |  |
+|:-------------|:----------|:---------|:----------------------------------------------------------------------------------------------|--|
+| user_id      | string    | Yes      | The user ID of the user marking the message as read                                          |  |
+| target_id    | string    | Yes      | The session ID of the message. This is the sender's user ID for one-on-one chats, or the group ID for group chats |  |
+| channel_type | int       | Yes      | Conversation type: 1 for single chat; 2 for group chat                                       |  |
+| msg_ids      | array     | Yes      | A list of message IDs to be marked as read                                                   |  |
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/messages/markread HTTP/1.1
 appkey: appkey
@@ -39,23 +39,23 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "user_id":"userid1",
-  "target_id":"userid2",
-  "channel_type":1,
-  "msg_ids":["xxxxxxx","yyyyyyy"]
+  "user_id": "userid1",
+  "target_id": "userid2",
+  "channel_type": 1,
+  "msg_ids": ["xxxxxxx", "yyyyyyy"]
 }
 ```
 
-### 响应参数{#res_param}
+### Response parameters {#res_param}
 
-|参数|数据类型|参数说明||
-|:--|:------|:-----|:-------|
+| Parameters | Data type | Description |  |
+|:-----------|:----------|:------------|--|
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

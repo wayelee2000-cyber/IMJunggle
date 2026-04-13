@@ -1,36 +1,36 @@
 ---
-title: 查询封禁的聊天室成员
+title: Query banned chat room members
 hide_title: true
 sidebar_position: 3
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-查询被封禁的聊天室成员列表
+Retrieve the list of banned members in a chat room.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../../api#header).
 
-> **请求类型**：`GET`
+> **Request Type**: `GET`
 
-> **请求限频**：`100次/秒`
+> **Request rate limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../../api#api)/apigateway/chatrooms/banmembers/query
+> **Request URL**: https://[request domain name](../../../api#api)/apigateway/chatrooms/banmembers/query
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|chat_id|string|是|聊天室的id||
-|offset|string|否|用于分页查询的偏移量，每次查询列表时会返回下次的offset，初次可传空||
-|limit|int|否|查询数量，默认100，最大1000||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameter | Data type | Required | Description |  |
+|:----------|:----------|:---------|:------------|:--|
+| chat_id   | string    | Yes      | The ID of the chat room |  |
+| offset    | string    | No       | Offset for pagination. The next offset is returned with each response. Pass empty for the initial request. |  |
+| limit     | int       | No       | Number of records to query. Default is 100, maximum is 1000. |  |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /apigateway/chatrooms/banmembers/query?chat_id=xxx&offset=xx&limit=100 HTTP/1.1
 appkey: appkey
@@ -41,21 +41,21 @@ Content-Type: application/json
 
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "chat_id":"xxx",
-    "members":[
-        {
-            "member_id":"xxx",
-            "end_time":172987634564
-        }
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "chat_id": "xxx",
+    "members": [
+      {
+        "member_id": "xxx",
+        "end_time": 172987634564
+      }
     ],
-    "offset":"xxxx"
+    "offset": "xxxx"
   }
 }
 ```

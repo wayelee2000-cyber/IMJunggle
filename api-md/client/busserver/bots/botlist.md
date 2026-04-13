@@ -1,34 +1,34 @@
 ---
-title: Bot列表
+title: Bot list
 hide_title: true
 sidebar_position: 1
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-查询Bot列表
+Query the list of Bots.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`GET`
+> **Request Type**: `GET`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/bots/list
+> **Request URL**: https://[request domain name](../api.md#api)/jim/bots/list
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|offset|string|否|用于分页，查询Bot列表的起始位置||
-|count|int|否|单页数量，默认20，最大不超过50||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameter | Data type | Required | Description |  |
+|:----------|:----------|:---------|:------------|:--|
+| offset   | string    | No       | Used for pagination; specifies the starting position in the Bot list. |  |
+| count    | int       | No       | Number of items per page; default is 20, maximum is 50. |  |
+
+
+### Request Example{#req_demo}
 ``` js
 GET /jim/bots/list?count=50 HTTP/1.1
 appkey: appkey
@@ -37,25 +37,26 @@ Content-Type: application/json
 
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "items":[
-        {
-            "bot_id":"botid1",
-            "nickname":"bot1",
-            "avatar":"https://file.juggle.im/abcdfafsdaf.png"
-        },{
-            "user_id":"botid2",
-            "nickname":"bot2",
-            "avatar":"https://file.juggle.im/abcdfafsdaf.png"
-        }
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "items": [
+      {
+        "bot_id": "botid1",
+        "nickname": "bot1",
+        "avatar": "https://file.juggle.im/abcdfafsdaf.png"
+      },
+      {
+        "user_id": "botid2",
+        "nickname": "bot2",
+        "avatar": "https://file.juggle.im/abcdfafsdaf.png"
+      }
     ],
-    "offset":"xxxx"
+    "offset": "xxxx"
   }
 }
 ```

@@ -1,5 +1,5 @@
 ---
-title: 本地消息搜索
+title: Local news search
 hide_title: true
 sidebar_position: 3
 ---
@@ -12,112 +12,112 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-**参数说明**
+**Parameter Description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| conversation | Conversation | 要查询的会话 | 1.0.0 |
-| searchContent    | String  | 查询内容                        | 1.0.0    |
-| count       | int  | 拉取数量，超过 100 条按 100 返回 | 1.0.0    |
-| timestamp        | long  | 消息时间戳，如果传 0 为当前时间 | 1.0.0    |
-| direction | JIMConst.PullDirection | 查询方向 | 1.0.0 |
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| conversation | Conversation | The conversation to query | 1.0.0 |
+| searchContent | String | Query content | 1.0.0 |
+| count | int | Number of messages to retrieve; if more than 100 items are requested, only 100 will be returned | 1.0.0 |
+| timestamp | long | Message timestamp; if 0 is passed, the current time is used | 1.0.0 |
+| direction | JIMConst.PullDirection | Query direction | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
 List<Message> searchResults = JIM.getInstance().getMessageManager().searchMessageInConversation(conversation, "searchContent", 100, 0, JIMConst.PullDirection.OLDER);
 ```
 
-
 </TabItem>
 <TabItem value="ios">
 
-**参数说明**
+**Parameter Description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| searchContent    | NSString  | 查询内容                        | 1.0.0    |
-|conversation | JConversation | 要查询的会话 | 1.0.0 |
-| count       | int  | 拉取数量，超过 100 条按 100 返回 | 1.0.0    |
-| time        | long long  | 消息时间戳，如果传 0 为当前时间 | 1.0.0    |
-| direction | JPullDirection | 查询方向 | 1.0.0 |
-| contentTypes | `NSArray<NSString *>` | 内容类型，传空返回所有类型 | 1.0.0|
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| searchContent | NSString | Query content | 1.0.0 |
+| conversation | JConversation | The conversation to query | 1.0.0 |
+| count | int | Number of messages to retrieve; if more than 100 items are requested, only 100 will be returned | 1.0.0 |
+| time | long long | Message timestamp; if 0 is passed, the current time is used | 1.0.0 |
+| direction | JPullDirection | Query direction | 1.0.0 |
+| contentTypes | `NSArray<NSString *>` | Content types to filter; pass nil to return all types | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 NSArray <JMessage *> *searchResults = [JIM.shared.messageManager searchMessagesWithContent:@"searchContent"
                                                                             inConversation:nil
                                                                                       count:100
-                                                                                      time:0
+                                                                                       time:0
                                                                                   direction:JPullDirectionOlder
-                                                                                contentTypes:nil];
+                                                                              contentTypes:nil];
 ```
 
 </TabItem>
 <TabItem value="js">
 
-:::danger 仅 Electron 中支持 
+:::danger This feature is only supported in Electron
 :::
 
-本地消息搜索支持通过 `conversationId` 来控制 _单个会话消息_ 搜索和 _全部会话消息_, 同时支持分页获取，开发者可灵活的应用在全局搜索和聊天内搜索
+Local message search supports using `conversationId` to control whether to search messages within a single conversation or across all conversations. It also supports paginated retrieval, allowing developers to flexibly implement both global search and chat-specific search.
 
-**参数说明**
+**Parameter Description**
 
-| 名称                     | 类型    | 必填 |描述                                                                      | 版本   |
-|-------------------------|---------|----|---------------------------------------------------------------------------|--------|
-| params                  | Object  | 是 | 消息搜索参数                                                                | 1.0.0  |
-| params.conversationType | Number | 否  | [会话类型](../../../enum/web#conversation)                                       | 1.0.0  |
-| params.conversationId   | String | 否  | 会话 Id，传值表示搜索 “单个会话消息”，传空表示搜索 “全部会话消息” | 1.0.0  |
-| params.keywords       | Array  | 是    | 消息搜索关键字，最多支持 5 个，多个关键字之间是 “或” 的关系                | 1.0.0  |
-| params.senderIds      | Number  | 否   | 过滤指定消息发送者的消息           | 1.0.0  |
-| params.messageNames   | Number  | 否   | 过滤指定消息类型的消息                         | 1.0.0  |
-| params.startTime      | Number  | 否   | 过滤指定时间段的开始时间，时间戳，单位：ms    | 1.0.0  |
-| params.endTime        | Number  | 否   | 过滤指定时间段的结束时间，时间戳，单位：ms     | 1.0.0  |
-| params.page         | Number  | 否   | 默认值 1，支持分页的页码，默认第一页                         | 1.0.0  |
-| params.pageSize          | Number  | 否   | 默认值 10，每页的数据条数                         | 1.0.0  |
+| Name | Type | Required | Description | Version |
+|-------------------------|---------|----|-------------------------------------------------------------------------------|--------|
+| params | Object | Yes | Message search parameters | 1.0.0 |
+| params.conversationType | Number | No | [Conversation Type](../../../enum/web#conversation) | 1.0.0 |
+| params.conversationId | String | No | Session ID; passing a value searches messages within a single conversation, passing empty searches across all conversations | 1.0.0 |
+| params.keywords | Array | Yes | Message search keywords; supports up to 5 keywords with an "OR" relationship between them | 1.0.0 |
+| params.senderIds | Number | No | Filter messages by specified sender IDs | 1.0.0 |
+| params.messageNames | Number | No | Filter messages by specified message types | 1.0.0 |
+| params.startTime | Number | No | Filter start time of the specified period, timestamp in milliseconds | 1.0.0 |
+| params.endTime | Number | No | Filter end time of the specified period, timestamp in milliseconds | 1.0.0 |
+| params.page | Number | No | Page number for pagination; default is 1 (first page) | 1.0.0 |
+| params.pageSize | Number | No | Number of items per page; default is 10 | 1.0.0 |
 
-**成功回调**
+**Successful Callback**
 
-| 名称                 | 类型    | 描述                                    | 版本   |
-|---------------------|---------|-----------------------------------------|--------|
-| result              | Object  |                                        | 1.0.0  |
-| result.isFinished   | Boolean | 是否还有更多的搜索结果            | 1.0.0  |
-| result.total        | Number  | 全部会话搜索：表示全部会话中命中关键词的总条数 <br/> 单个会话搜索：表示该会话内命中关键词的条数 | 1.0.0  |
-| result.list         | Array   | 全部会话搜索：表示全部会话中命中关键词的消息列表，支持分页获取 <br/> 单个会话搜索：表示该会话内命中关键词的消息列表，支持分页获取 | 1.0.0  |
+| Name | Type | Description | Version |
+|------------------------|---------|-----------------------------------------|--------|
+| result | Object | | 1.0.0 |
+| result.isFinished | Boolean | Indicates whether there are more search results | 1.0.0 |
+| result.total | Number | For all sessions search: total number of keyword hits across all sessions <br/> For single session search: number of keyword hits in the session | 1.0.0 |
+| result.list | Array | For all sessions search: list of messages matching keywords across all sessions, supports pagination <br/> For single session search: list of messages matching keywords in the session, supports pagination | 1.0.0 |
 
-**result.list 是搜索结果数组，数组每一项说明如下：**
+**Each item in `result.list` is described as follows:**
 
-| 名称                 | 类型  | 描述                                    | 版本   |
-|---------------------|-------|-----------------------------------------|--------|
-| conversationType   | Number| 会话类型      | 1.0.0  |
-| conversationId     | String| 会话 Id，会话类型是 `PRIVATE` 时，会话 Id 是对方的 userId，会话类型是 `GROUP` 时是群组 Id | 1.0.0  |
-| matchedCount       | Array | 当前会话中命中关键词的数量 | 1.0.0  |
-| matchedList        | Array | 当前会话中命中关键词的消息明细，数据内部是 [Message](../../../msg/message) 对象 | 1.0.0  |
+| Name | Type | Description | Version |
+|---------------------|-------|------------------------------------------|--------|
+| conversationType | Number | Conversation type | 1.0.0 |
+| conversationId | String | Session ID; for `PRIVATE` conversations, this is the userId of the other party; for `GROUP` conversations, this is the group ID | 1.0.0 |
+| matchedCount | Array | Number of matched keywords in the current session | 1.0.0 |
+| matchedList | Array | Details of messages matching keywords in the current session; each item is a [Message](../../../msg/message) object | 1.0.0 |
 
-**失败回调**
+**Failure Callback**
 
-| 名称   | 类型    | 描述                                                      | 版本   |
-|--------|---------|-----------------------------------------------------------|--------|
-| error  | Object  | 发送失败后会有对应的状态码，可以直接查看 `error.msg`，或者查看 [状态码](../../../../sdkintro/status_code/web) | 1.0.0  |
+| Name | Type | Description | Version |
+|--------|---------|--------------------------------------------------------------|--------|
+| error | Object | Contains a status code if the request fails. You can check `error.msg` or refer to [Status Code](../../../../sdkintro/status_code/web) | 1.0.0 |
 
-**全部会话搜索: 示例代码**
+**All Sessions Search: Sample Code**
+
 ```js
 let params = {
   keywords: ['HelloChat'],
 };
 jim.searchMessages(params).then(({ isFinished, total, list }) => {
-  console.log(isFinished, total, list)
+  console.log(isFinished, total, list);
 });
-
 ```
 
-**单个会话搜索: 示例代码**
+**Single Session Search: Sample Code**
+
 ```js
 let { ConversationType } = JIM;
 let params = {
@@ -126,47 +126,47 @@ let params = {
   keywords: ['HelloChat'],
 };
 jim.searchMessages(params).then(({ isFinished, total, list }) => {
-  console.log(isFinished, total, list)
+  console.log(isFinished, total, list);
 });
 ```
+
 </TabItem>
 
 <TabItem value="harmony">
 
-**参数说明**
+**Parameter Description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| params    | SearchParams  | 查询参数                        | 1.0.0    |
-| callback | QryMessagesCallback | 内容类型，传空返回所有类型 | 1.0.0|
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| params | SearchParams | Query parameters | 1.0.0 |
+| callback | QryMessagesCallback | Callback for results; pass empty to return all content types | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
-let conver = new Conversation("userid1",1)
-let params = new SearchParams()
-params.conver = conver
-params.keywords = "keywords"
-JuggleIm.instance.getMessageManager().searchMessages(params,(code,msgs)=>{
+let conver = new Conversation("userid1", 1);
+let params = new SearchParams();
+params.conver = conver;
+params.keywords = "keywords";
+JuggleIm.instance.getMessageManager().searchMessages(params, (code, msgs) => {
 
-})
+});
 ```
-
 
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-**示例代码**
+**Sample Code**
 
 ```dart
 GetMessageOption option = GetMessageOption();
 option.count = 20;
-option.startTime = 0; // 开始时间，0 默认当前时间
+option.startTime = 0; // Start time; 0 defaults to current time
 
 List<Message> messageList = await JuggleIm.instance.searchMessagesInConversation(
   'searchContent',
   conversation,
-  1, // 拉取方向。0: 拉取开始时间之后的消息；1: 拉取开始时间之前的消息
+  1, // Pull direction: 0 fetches messages after the start time; 1 fetches messages before the start time
   option
 );
 ```

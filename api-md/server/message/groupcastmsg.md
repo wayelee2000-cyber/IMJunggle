@@ -1,39 +1,39 @@
 ---
-title: 发送群发消息
+title: Send group message
 hide_title: true
 sidebar_position: 4
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-群发消息功能，一次性向多个会话发送消息内容，群发消息不影响发送方的会话列表排序，影响接收方的会话列表排序，对于消息发送者，会单独记录群发消息历史，按target_id 汇聚，单独形成会话，此会话只包含发送方的消息。根据 `target_convers`，分别以 `sender_id` 身份向每个会话发送消息，支持 `单聊` 和 `群聊`。
+The group messaging function allows sending message content to multiple sessions simultaneously. Mass messaging does not affect the sender's session list order but does impact the receiver's session list sorting. For the sender, group messaging history is recorded separately, aggregated by `target_id`, and displayed as a distinct session. This session contains only the sender's messages. According to `target_convers`, messages are sent to each conversation as `sender_id` respectively, supporting both `single chat` and `group chat`.
 
-:::danger 特殊限频
-`target_convers` 支持多个会话，每个会话间隔发送时间为 `50ms`，会话越多发送耗时越长，返回时间越长
+:::danger special frequency limit
+`target_convers` supports multiple sessions, with a sending interval of `50ms` per session. The more sessions included, the longer the sending and response times.
 :::
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 times/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/messages/groupcast/send
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/messages/groupcast/send
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|sender_id|string|是|消息发送者id||
-|target_id|string|否|群发目标id，id相同的群发历史消息会汇聚在一起，这个参数为空时，将不为发送者生成此会话||
-|msg_type|string|是|消息类型标识||
-|msg_content|string|是|消息内容，建议json格式||
-|target_convers|array|是|群发的目标会话，支持单聊和群聊||
+| Parameters     | Data type | Required | Description                                                                                  |   |
+|:---------------|:----------|:---------|:---------------------------------------------------------------------------------------------|---|
+| sender_id      | string    | yes      | Message sender ID                                                                            |   |
+| target_id      | string    | no       | Group target ID. Group message history with the same ID will be aggregated together. If empty, no conversation will be created for the sender. |   |
+| msg_type       | string    | yes      | Message type identifier                                                                     |   |
+| msg_content    | string    | yes      | Message content; JSON format is recommended                                                 |   |
+| target_convers | array     | yes      | Target conversations for group sending, supporting both single chat and group chat          |   |
   
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/messages/groupcast/send HTTP/1.1
 appkey: appkey
@@ -60,11 +60,11 @@ Content-Type: application/json
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

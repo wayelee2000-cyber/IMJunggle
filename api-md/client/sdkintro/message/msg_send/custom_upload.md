@@ -1,5 +1,5 @@
 ---
-title: 自定义消息上传
+title: Custom message upload
 hide_title: true
 sidebar_position: 5
 ---
@@ -15,21 +15,21 @@ values={[
 }>
 <TabItem value="android">
 
-开发者在发送媒体消息调用 `sendMediaMessage` 方法时，可以自定义媒体消息（MediaMessageContent）的上传，接管上传逻辑，将文件上传到自己的文件服务器。
+When developers send media messages using the `sendMediaMessage` method, they can customize the upload process for media messages (`MediaMessageContent`), take control of the upload logic, and upload files to their own file servers.
 
-**示例代码**
+**Sample Code**
 
 ```java
 JIM.getInstance().getMessageManager().setMessageUploadProvider(this);
 
-// 开发者实现上传方法
+// Developer implements the upload method
 @Override
 public void uploadMessage(Message message, UploadCallback uploadCallback) {
     Handler mH = new Handler(Looper.getMainLooper());
     mH.postDelayed(new Runnable() {
         @Override
         public void run() {
-            //模拟上传进度回调
+            // Simulate upload progress callback
             uploadCallback.onProgress(50);
         }
     }, 100);
@@ -38,10 +38,10 @@ public void uploadMessage(Message message, UploadCallback uploadCallback) {
         public void run() {
             MediaMessageContent mediaMessageContent = (MediaMessageContent) message.getContent();
             String localPath = mediaMessageContent.getLocalPath();
-            // 使用 localPath 获取文件内容并进行上传
+            // Use localPath to access the file content and upload it
             if (true) {
-                //上传成功
-                mediaMessageContent.setUrl("xxxxxx");//上传的文件 url
+                // Upload successful
+                mediaMessageContent.setUrl("xxxxxx"); // Uploaded file URL
                 uploadCallback.onSuccess(message);
             } else {
                 uploadCallback.onError();
@@ -49,38 +49,37 @@ public void uploadMessage(Message message, UploadCallback uploadCallback) {
         }
     }, 1000);
 }
-
 ```
 
 </TabItem>
 <TabItem value="ios">
 
-开发者在发送媒体消息调用 `sendMediaMessage` 方法时，可以自定义媒体消息（JMediaMessageContent）的上传，接管上传逻辑，将文件上传到自己的文件服务器。
+When developers send media messages using the `sendMediaMessage` method, they can customize the upload process for media messages (`JMediaMessageContent`), take control of the upload logic, and upload files to their own file servers.
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 [JIM.shared.messageManager setMessageUploadProvider:self];
 
-// 开发者实现上传方法
+// Developer implements the upload method
 - (void)uploadMessage:(JMessage *)message
              progress:(void (^)(int))progressBlock
               success:(void (^)(JMessage * _Nonnull))successBlock
                 error:(void (^)(void))errorBlock cancel:(void (^)(void))cancelBlock {
     dispatch_async(dispatch_get_global_queue(0, 0), ^{
-        //模拟上传进度回调
+        // Simulate upload progress callback
         progressBlock(50);
     });
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
         JMediaMessageContent *content = (JMediaMessageContent *)message.content;
         NSString *localPath = content.localPath;
-        // 使用 localPath 获取文件内容并进行上传
+        // Use localPath to access the file content and upload it
         if (YES) {
-            //上传成功
-            content.url = @"xxx";//上传的文件 url
+            // Upload successful
+            content.url = @"xxx"; // Uploaded file URL
             successBlock(message);
         } else {
-            //上传失败
+            // Upload failed
             errorBlock();
         }
     });
@@ -90,12 +89,12 @@ public void uploadMessage(Message message, UploadCallback uploadCallback) {
 </TabItem>
 <TabItem value="reactnative" label="ReactNative">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 </Tabs>

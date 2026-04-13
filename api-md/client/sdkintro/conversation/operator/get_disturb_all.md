@@ -1,5 +1,5 @@
 ---
-title: 获取全局免打扰
+title: Get Global Do Not Disturb
 hide_title: true
 sidebar_position: 5
 ---
@@ -16,27 +16,29 @@ values={[
 }>
 <TabItem value="android">
 
-获取全局免打扰配置信息。
+Retrieve the global Do Not Disturb configuration.
 
-**回调参数**
+**Callback Parameters**
 
-| 名称             | 类型     | 描述| 版本     |
-|-----------------|---------|-------|--------|
-| errorCode | int | 错误码，0 为成功 | 1.1.0 |
-| isMute     | boolean | 是否免打扰 | 1.1.0    |
-| timezone | String | 时区 | 1.1.0 |
-| periods   | `List<TimePeriod>` | 免打扰的时间段，如果为空则视为全天免打扰 | 1.1.0    |
+| Name | Type | Description | Version |
+|------------------|---------|---------------------------------|--------|
+| errorCode | int | Error code; 0 indicates success | 1.1.0 |
+| isMute | boolean | Indicates whether Do Not Disturb is enabled | 1.1.0 |
+| timezone | String | Time zone | 1.1.0 |
+| periods | `List<TimePeriod>` | Do Not Disturb time periods; if empty, Do Not Disturb is active all day | 1.1.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
 JIM.getInstance().getMessageManager().getMuteStatus(new IMessageManager.IGetMuteStatusCallback() {
     @Override
     public void onSuccess(boolean isMute, String timezone, List<TimePeriod> periods) {
+        // Handle success
     }
 
     @Override
     public void onError(int errorCode) {
+        // Handle error
     }
 });
 ```
@@ -44,55 +46,55 @@ JIM.getInstance().getMessageManager().getMuteStatus(new IMessageManager.IGetMute
 </TabItem>
 <TabItem value="ios">
 
-获取全局免打扰配置信息。
+Retrieve the global Do Not Disturb configuration.
 
-**回调参数**
+**Callback Parameters**
 
-| 名称             | 类型     | 描述| 版本     |
-|-----------------|---------|-------|--------|
-| errorCode | JErrorCode | 错误码，0 为成功 | 1.1.0|
-| isMute     | BOOL | 是否免打扰 | 1.1.0    |
-| timezone | NSString | 时区 | 1.1.0 |
-| periods   | NSArray `<JTimePeriod *>` | 免打扰的时间段，如果为空则视为全天免打扰 | 1.1.0    |
+| Name | Type | Description | Version |
+|------------------|---------|---------------------------------|--------|
+| errorCode | JErrorCode | Error code; 0 indicates success | 1.1.0 |
+| isMute | BOOL | Indicates whether Do Not Disturb is enabled | 1.1.0 |
+| timezone | NSString | Time zone | 1.1.0 |
+| periods | NSArray `<JTimePeriod *>` | Do Not Disturb time periods; if empty, Do Not Disturb is active all day | 1.1.0 |
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 [JIM.shared.messageManager getMuteStatus:^(JErrorCode errorCode, BOOL isMute, NSString *timezone, NSArray<JTimePeriod *> *periods) {
+    // Handle callback
 }];
 ```
 
 </TabItem>
 <TabItem value="js">
 
-获取全局免打扰配置信息。
+Retrieve the global Do Not Disturb configuration.
 
-**回调参数**
+**Callback Parameters**
 
-| 属性            | 类型    | 描述                                           | 版本  |
-|-----------------|---------|------------------------------------------------|----------|
-| disturbInfo     | Object  | 免打扰信息                                       | 1.3.0    |
-| disturbInfo.type | Number | [免打扰类型](../../../enum/web#disturb) | 1.3.0    |
-| disturbInfo.timezone | String | 免到扰时区，例如: `Asia/Shanghai` | 1.3.0    |
-| disturbInfo.times | Array | 免打扰时间段 | 1.3.0    |
+| Properties | Type | Description | Version |
+|------------------|----------|------------------------------------------------|----------|
+| disturbInfo | Object | Do Not Disturb information | 1.3.0 |
+| disturbInfo.type | Number | [Do Not Disturb type](../../../enum/web#disturb) | 1.3.0 |
+| disturbInfo.timezone | String | Time zone, e.g., `Asia/Shanghai` | 1.3.0 |
+| disturbInfo.times | Array | Do Not Disturb time periods | 1.3.0 |
 
-
-**示例代码**
+**Sample Code**
 
 ```js
 jim.getAllDisturb().then((disturbInfo) => {
-  console.log('get disturb successfully', disturbInfo);
+  console.log('Successfully retrieved Do Not Disturb settings', disturbInfo);
 });
 ```
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="reactnative">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 </Tabs>

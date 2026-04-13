@@ -1,38 +1,37 @@
 ---
-title: 封禁用户
+title: Ban user
 hide_title: true
 sidebar_position: 2
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-封禁用户后用户无法与 IM Server 建立连接，客户端连接会返回用户 [已封禁](../../status/#connection) 状态码，如果已经连接成功的用户被封禁，当次连接不受影响。
+Once a user is banned, they cannot establish a connection with the IM Server. The client connection will return the user [Banned](../../status/#connection) status code. If a user who is already connected is banned, the current connection will remain unaffected.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 times/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/users/banusers/ban
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/users/banusers/ban
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|user_ids|array|是|需要封禁的用户id列表||
-|end_time|number|否|封禁结束的时间戳(ms)，为0时，表示永久封禁||
-|end_time_offset|number|否|单位：毫秒。当不指定end_time时，服务端使用end_time_offset+当前时间来计算end_time||
-|scope_key|string|是|封禁的范围，default:该用户封禁；platform:该用户指定的平台类型封禁；device:该用户指定的设备封禁;ip:该用户指定的ip封禁；||
-|scope_value|string|否|与scope_key配合使用，如按平台封禁，scope_key=platform，则scope_value用来指定平台列表(多个间用逗号隔开)||
-|ext|string|否|封禁时携带的扩展信息，可用于被封禁时的自定义提示，限制100字节内||
+| Parameter     | Data type | Required | Description                                                                                              |   |
+|:--------------|:----------|:---------|:-----------------------------------------------------------------------------------------------------|---|
+| user_ids     | array     | Yes      | A list of user IDs to be banned.                                                                       |   |
+| end_time     | number    | No       | The timestamp (in milliseconds) when the ban ends. A value of 0 indicates a permanent ban.            |   |
+| end_time_offset | number  | No       | Duration in milliseconds. If `end_time` is not specified, the server calculates `end_time` as the current time plus this offset. |   |
+| scope_key    | string    | Yes      | The scope of the ban. Options include: `default` (ban the user), `platform` (ban specified platforms), `device` (ban specified devices), `ip` (ban specified IPs). |   |
+| scope_value  | string    | No       | Used with `scope_key`. For example, if `scope_key` is `platform`, `scope_value` specifies the platforms to ban (multiple values separated by commas). |   |
+| ext          | string    | No       | Additional information included with the ban, which can be used for custom ban messages. Limited to 100 bytes. |   |
 
-
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/users/banusers/ban HTTP/1.1
 appkey: appkey
@@ -72,11 +71,11 @@ Content-Type: application/json
   ]
 }
 ```
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

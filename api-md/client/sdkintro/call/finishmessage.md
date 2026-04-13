@@ -1,5 +1,5 @@
 ---
-title: 通话结束消息
+title: call end message
 hide_title: true
 sidebar_position: 6
 ---
@@ -16,25 +16,25 @@ values={[
 }>
 <TabItem value="android">
 
-1v1 通话结束时 IM 系统会自动往对应的单聊会话中发送此类消息，用于标识通话记录。
-通话结束消息 （CallFinishNotifyMessage）对应的 contentType 是 "jg:callfinishntf";
+When a 1v1 call ends, the IM system automatically sends this message to the corresponding single chat session to identify the call record.  
+The contentType for the call end message (CallFinishNotifyMessage) is `"jg:callfinishntf"`.
 
-| 属性名  | 类型     | 说明                                             | 版本  |
-| ------- | -------- | ------------------------------------------------ | ----- |
-| finishNotifyType | CallFinishNotifyType | 通话结束类型 | 1.8.2 |
-| duration | long | 通话时长，单位（ms） | 1.8.2 |
-| mediaType | CallMediaType | 通话类型 | 1.8.2 |
+| Attribute name   | Type                 | Description       | Version |
+| ---------------- | -------------------- | ----------------- | ------- |
+| finishNotifyType | CallFinishNotifyType  | Call end type     | 1.8.2   |
+| duration        | long                 | Call duration in milliseconds | 1.8.2   |
+| mediaType       | CallMediaType        | Call type         | 1.8.2   |
 
 
 ```java
 public enum CallFinishNotifyType {
-    /// 主叫取消
+    /// Caller canceled
     CANCEL(0),
-    /// 被叫拒绝
+    /// Called party rejected
     REJECT(1),
-    /// 被叫无应答
+    /// No answer from the called party
     NO_RESPONSE(2),
-    /// 通话结束
+    /// Call completed
     COMPLETE(3);
 }
 ```
@@ -42,34 +42,33 @@ public enum CallFinishNotifyType {
 </TabItem>
 <TabItem value="ios">
 
-1v1 通话结束时 IM 系统会自动往对应的单聊会话中发送此类消息，用于标识通话记录。
-通话结束消息 （JCallFinishNotifyMessage）对应的 contentType 是 "jg:callfinishntf";
+When a 1v1 call ends, the IM system automatically sends this message to the corresponding single chat session to identify the call record.  
+The contentType for the call end message (JCallFinishNotifyMessage) is `"jg:callfinishntf"`.
 
-| 属性名  | 类型     | 说明                                             | 版本  |
-| ------- | -------- | ------------------------------------------------ | ----- |
-| finishNotifyType | JCallFinishNotifyType | 通话结束类型 | 1.8.2 |
-| duration | long long | 通话时长，单位（ms） | 1.8.2 |
-| mediaType | JCallMediaType | 通话类型 | 1.8.2 |
+| Attribute name   | Type                 | Description       | Version |
+| ---------------- | -------------------- | ----------------- | ------- |
+| finishNotifyType | JCallFinishNotifyType | Call end type     | 1.8.2   |
+| duration        | long long            | Call duration in milliseconds | 1.8.2   |
+| mediaType       | JCallMediaType       | Call type         | 1.8.2   |
 
 ```objectivec
 typedef NS_ENUM(NSUInteger, JCallFinishNotifyType) {
-    // 主叫取消
+    // Caller canceled
     JCallFinishNotifyTypeCancel = 0,
-    // 被叫拒绝
+    // Called party rejected
     JCallFinishNotifyTypeReject = 1,
-    // 被叫无应答
+    // Called party did not answer
     JCallFinishNotifyTypeNoResponse = 2,
-    //通话结束
+    // Call completed
     JCallFinishNotifyTypeComplete = 3
 };
 ```
 
-
 </TabItem>
 <TabItem value="js">
 
-1v1 通话结束时 IM 系统会自动往对应的单聊会话中发送此类消息，用于标识通话记录。
-通话结束消息消息监听会收到 `MessageType.COMMAND_RTC_1V1_FINISHED`;
+When a 1v1 call ends, the IM system automatically sends this message to the corresponding single chat session to identify the call record.  
+The call end message listener will receive `MessageType.COMMAND_RTC_1V1_FINISHED`.
 
 **message.content**
 
@@ -77,9 +76,9 @@ typedef NS_ENUM(NSUInteger, JCallFinishNotifyType) {
 let content = message.content;
 
 /*
-  duration: 通话时长
-  media_type: 0 表示音频，1 表示视频
-  reason: 0 主叫取消，1 被叫拒绝，2 被叫无应答，3 通话结束
+duration: call duration in milliseconds
+media_type: 0 means audio, 1 means video
+reason: 0 caller canceled, 1 called party rejected, 2 called party did not answer, 3 call ended
 */ 
 let { duration, media_type, reason } = content;
 ```
@@ -87,18 +86,18 @@ let { duration, media_type, reason } = content;
 
 <TabItem value="flutter">
 
-1v1 通话结束时 IM 系统会自动往对应的单聊会话中发送此类消息，用于标识通话记录。
-通话结束消息 （CallFinishNotifyMessage）对应的 contentType 是 "jg:callfinishntf";
+When a 1v1 call ends, the IM system automatically sends this message to the corresponding single chat session to identify the call record.  
+The contentType for the call end message (CallFinishNotifyMessage) is `"jg:callfinishntf"`.
 
-| 属性名  | 类型     | 说明                                             | 版本  |
-| ------- | -------- | ------------------------------------------------ | ----- |
-| finishNotifyType | int | 通话结束类型 | 1.8.2 |
-| duration | int | 通话时长，单位（ms） | 1.8.2 |
-| mediaType | int | 通话类型 | 1.8.2 |
+| Attribute name   | Type | Description       | Version |
+| ---------------- | ---- | ----------------- | ------- |
+| finishNotifyType | int  | Call end type     | 1.8.2   |
+| duration        | int  | Call duration in milliseconds | 1.8.2   |
+| mediaType       | int  | Call type         | 1.8.2   |
 
 
 ```dart
-// 通话结束类型
+// Call end types
 static const int typeCancel = 0;
 static const int typeReject = 1;
 static const int typeNoResponse = 2;
@@ -114,27 +113,27 @@ class CallMediaType {
 
 <TabItem value="reactnative">
 
-1v1 通话结束时 IM 系统会自动往对应的单聊会话中发送此类消息，用于标识通话记录。
-通话结束消息对应的 contentType 是 "jg:callfinishntf";
+When a 1v1 call ends, the IM system automatically sends this message to the corresponding single chat session to identify the call record.  
+The contentType for the call end message is `"jg:callfinishntf"`.
 
-| 属性名  | 类型     | 说明                                             | 版本  |
-| ------- | -------- | ------------------------------------------------ | ----- |
-| finishNotifyType | number | 通话结束类型 | 1.0.0 |
-| duration | number | 通话时长，单位（ms） | 1.0.0 |
-| mediaType | number | 通话类型 | 1.0.0 |
+| Attribute name   | Type   | Description       | Version |
+| ---------------- | ------ | ----------------- | ------- |
+| finishNotifyType | number | Call end type     | 1.0.0   |
+| duration        | number | Call duration in milliseconds | 1.0.0   |
+| mediaType       | number | Call type         | 1.0.0   |
 
 ```typescript
-// 通话结束类型
+// Call end types
 enum CallFinishNotifyType {
-  CANCEL = 0,      // 主叫取消
-  REJECT = 1,      // 被叫拒绝
-  NO_RESPONSE = 2, // 被叫无应答
-  COMPLETE = 3     // 通话结束
+  CANCEL = 0,      // Caller canceled
+  REJECT = 1,      // Called party rejected
+  NO_RESPONSE = 2, // Called party did not answer
+  COMPLETE = 3     // Call completed
 }
 
 enum CallMediaType {
-  VOICE = 0,  // 语音
-  VIDEO = 1   // 视频
+  VOICE = 0,  // Voice call
+  VIDEO = 1   // Video call
 }
 ```
 

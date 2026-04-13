@@ -1,12 +1,12 @@
 ---
-title: Android 集成
+title: Android integration
 hide_title: true
 sidebar_position: 1
 ---
 
-**初始化**
+**Initialization**
 
-在调用 `JIM.getInstance().init()` 方法初始化时，使用带有 `InitConfig`参数的方法：
+When initializing by calling the `JIM.getInstance().init()` method, use the version that accepts an `InitConfig` parameter:
 
 ```java
 JIM.InitConfig initConfig = new JIM.InitConfig.Builder()
@@ -19,45 +19,39 @@ JIM.getInstance().init(appContext, appKey, initConfig);
 <Tabs
 groupId="sdks-push"
 values={[
-{ label: '小米', value: 'xiaomi', },
-{ label: '华为', value: 'huawei', },
+{ label: 'xiaomi', value: 'xiaomi', },
+{ label: 'Huawei', value: 'huawei', },
 { label: 'OPPO', value: 'oppo', },
 { label: 'vivo', value: 'vivo', },
 { label: 'FCM', value: 'fcm', },
-{ label: '极光', value: 'jiguang'}
+{ label: 'Aurora', value: 'jiguang'}
 ]
 }>
 <TabItem value="xiaomi">
 
-1. 添加依赖。
-
-   ```bash
+1. Add dependencies.```bash
    implementation files('libs/XMPlugin.aar')
    implementation files('libs/MiPush_SDK_Client_6_0_1-C_3rd.aar')
    ```
-2. 构造InitConfig时设置小米推送的`appId`和`appKey`。
-   ```java
+2. Set the `appId` and `appKey` provided by Xiaomi when constructing `InitConfig`.```java
    JIM.InitConfig initConfig = new JIM.InitConfig.Builder()
         .setPushConfig(new PushConfig.Builder()
                 .setXmConfig("appId", "appKey")
                 .build())
         .build();
    ```
-3. 混淆配置。
-   ```bash
+3. Proguard configuration.```bash
    -keep class com.juggle.im.push.** {*;}
    ```
 
 </TabItem>
 <TabItem value="huawei">
 
-1. 添加依赖。
-   ```bash
+1. Add dependencies.```bash
    implementation files('libs/HWPlugin.aar')
    implementation 'com.huawei.hms:push:6.10.0.300'
    ```
-2. 在项目根目录下的`build.gradle`中增加配置。
-   ```bash
+2. Add the following configuration in the root project's `build.gradle`.```bash
    repositories {
         maven { url 'https://developer.huawei.com/repo/' }
    }
@@ -66,23 +60,20 @@ values={[
         classpath 'com.huawei.agconnect:agcp:1.9.1.301'
     }
    ```
-3. 在`app`模块的`build.gradle`中增加配置。
-   ```bash
+3. Add the following in the `build.gradle` of the `app` module.```bash
    plugins {
         id 'com.huawei.agconnect'
    }
    ```
-4. 将华为推送配置文件`agconnect-services.json`放在`app`模块目录下。
-5. 构造InitConfig时设置华为推送的`appId`。
-   ```java
+4. Place the Huawei push configuration file `agconnect-services.json` in the `app` module directory.
+5. Set the `appId` provided by Huawei when constructing `InitConfig`.```java
    JIM.InitConfig initConfig = new JIM.InitConfig.Builder()
         .setPushConfig(new PushConfig.Builder()
                 .setHwConfig("appId")
                 .build())
         .build();
    ```
-6. 混淆配置。
-   ```bash
+6. Proguard configuration.```bash
    -ignorewarnings
    -keepattributes *Annotation*
    -keepattributes Exceptions
@@ -98,25 +89,21 @@ values={[
 </TabItem>
 <TabItem value="oppo">
 
-1. 添加依赖。
-
-   ```bash
+1. Add dependencies.```bash
    implementation files('libs/OPPOPlugin.aar')
    implementation files('libs/com.heytap.msp_3.5.1.aar')
    implementation 'com.google.code.gson:gson:2.10.1'
    implementation 'commons-codec:commons-codec:1.6'
    implementation 'androidx.annotation:annotation:1.1.0'
    ```
-2. 构造InitConfig时设置OPPO推送的`appKey`和`appSecret`。
-   ```java
+2. Set the `appKey` and `appSecret` provided by OPPO when constructing `InitConfig`.```java
    JIM.InitConfig initConfig = new JIM.InitConfig.Builder()
         .setPushConfig(new PushConfig.Builder()
                 .setOppoConfig("appKey", "appSecret")
                 .build())
         .build();
    ```
-3. 混淆配置。
-   ```bash
+3. Proguard configuration.```bash
    -keep public class * extends android.app.Service
    -keep class com.heytap.msp.** { *;}
    -keep class com.juggle.im.push.** {*;}
@@ -125,14 +112,11 @@ values={[
 </TabItem>
 <TabItem value="vivo">
 
-1. 添加依赖。
-
-   ```bash
+1. Add dependencies.```bash
    implementation files('libs/VIVOPlugin.aar')
    implementation files('libs/vivo_pushSDK_v4.0.4.0_504.aar')
    ```
-2. 在`app`模块的`build.gradle`中设VIVO推送的`appKey`和`appId`。
-   ```bash
+2. Set the `appKey` and `appId` provided by VIVO in the `build.gradle` of the `app` module.```bash
    android {
         defaultConfig {
             manifestPlaceholders = [
@@ -142,16 +126,14 @@ values={[
         }
    }
    ```
-3. 构造InitConfig时设置VIVO推送。
-   ```java
+3. Enable VIVO push when constructing `InitConfig`.```java
    JIM.InitConfig initConfig = new JIM.InitConfig.Builder()
         .setPushConfig(new PushConfig.Builder()
                 .setVivoConfig()
                 .build())
         .build();
    ```
-4. 混淆配置。
-   ```bash
+4. Proguard configuration.```bash
    -dontwarn com.vivo.push.**
    -keep class com.vivo.push.**{*; }
    -keep class com.vivo.vms.**{*; }
@@ -161,15 +143,12 @@ values={[
 </TabItem>
 <TabItem value="fcm">
 
-1. 添加依赖。
-
-   ```bash
+1. Add dependencies.```bash
    implementation files('libs/GooglePlugin.aar')
    implementation(platform('com.google.firebase:firebase-bom:32.0.0'))
    implementation("com.google.firebase:firebase-messaging")
    ```
-2. 在项目根目录下的`build.gradle`中增加配置。
-   ```bash
+2. Add the following configuration in the root project's `build.gradle`.```bash
    repositories {
         google()
    }
@@ -178,79 +157,67 @@ values={[
         classpath 'com.google.gms:google-services:4.3.15'
     }
    ```
-3. 在`app`模块的`build.gradle`中增加配置。
-   ```bash
+3. Add the following in the `build.gradle` of the `app` module.```bash
    plugins {
         id 'com.google.gms.google-services'
    }
    ```
-4. 将Google推送配置文件`google-services.json`放在`app`模块目录下。
-5. 混淆配置。
-   ```bash
+4. Place the Google push configuration file `google-services.json` in the `app` module directory.
+5. Proguard configuration.```bash
    -dontwarn com.google.android.gms.**
    -keep class com.google.android.gms.** { *; }
    -keep class com.google.firebase.** { *; }
    -keep class com.juggle.im.push.** {*;}
    ```
-6. 点击推送跳转。
-
-   添加 intent-filter。
-
-   ```xml
+6. Add intent-filter for push click handling.```xml
    <intent-filter>
          <action android:name="com.j.im.intent.MESSAGE_CLICK" />
    </intent-filter>
    ```
 
-   获取参数，根据参数和业务需求做相应的跳转。
-
-   ```java
+Retrieve parameters and handle navigation based on the parameters and business logic.```java
    Intent intent = getIntent();
    if (intent != null) {
-      Bundle bundle =  intent.getExtras();
+      Bundle bundle = intent.getExtras();
       if (bundle != null) {
-            // 消息 id
+            // message id
             String messageId = bundle.getString("msg_id");
-            // 发送者用户 id
+            // sender user id
             String senderId = bundle.getString("sender_id");
-            // 会话 id
+            // conversation id
             String conversationId = bundle.getString("conver_id");
-            // 会话类型
-            Conversation.ConversationType type = Conversation.ConversationType.setValue(bundle.getInt("conver_type");)
+            // conversation type
+            Conversation.ConversationType type = Conversation.ConversationType.setValue(bundle.getInt("conver_type"));
       }
    }
    ```
 
-
-
 </TabItem>
 <TabItem value="jiguang">
 
-1. 在`app`模块的`build.gradle`中增加配置。
-
-   ```bash
+1. Add the following configuration in the `build.gradle` of the `app` module.```bash
    android {
 
       ......
 
       defaultConfig {
 
-         applicationId = "com.xxx.xxx" //JPush 上注册的包名。
+         applicationId = "com.xxx.xxx" // Package name registered on JPush.
          ......
 
          ndk {
-            //选择要添加的对应 cpu 类型的 .so 库。
+            // Select the .so libraries corresponding to the CPU architectures to include.
             abiFilters += setOf("armeabi-v7a", "arm64-v8a")
-            // 还可以添加 'x86', 'x86_64', 'mips', 'mips64'
+            // You can also add 'x86', 'x86_64', 'mips', 'mips64'
          }
 
          manifestPlaceholders.apply {
             putAll(
                   mapOf(
                      "JPUSH_PKGNAME" to applicationId!!,
-                     //JPush 上注册的包名对应的 Appkey。
-                     "JPUSH_APPKEY" to "你的 Appkey",
-                     //暂时填写默认值即可。
+                     // AppKey corresponding to the package name registered on JPush.
+                     "JPUSH_APPKEY" to "your Appkey",
+                     // Use default values for now.
                      "JPUSH_CHANNEL" to "developer-default",
                   )
             )
@@ -265,8 +232,7 @@ values={[
    }
    ```
 
-2. 构造InitConfig时设置极光推送。
-   ```java
+2. Enable Aurora Push when constructing `InitConfig`.```java
    JIM.InitConfig initConfig = new JIM.InitConfig.Builder()
         .setPushConfig(new PushConfig.Builder()
             .setJgConfig()
@@ -274,9 +240,7 @@ values={[
         .build();
    ```
 
-3. 混淆配置。
-
-   ```bash
+3. Proguard configuration.```bash
    -dontoptimize
    -dontpreverify
 

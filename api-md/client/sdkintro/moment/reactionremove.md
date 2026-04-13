@@ -1,5 +1,5 @@
 ---
-title: 删除点赞
+title: delete likes
 hide_title: true
 sidebar_position: 31
 ---
@@ -17,21 +17,21 @@ values={[
 <TabItem value="android">
 
 
-删除点赞，删除某条朋友圈的点赞或者自定义的互动类型。
+Remove likes, including likes from a specific circle of friends or a custom interaction type.
 
-**接口说明**
+**Interface description**
 
 ```java
 /**
- * 取消点赞
- * @param momentId 朋友圈 id
- * @param key 点赞类型
- * @param callback 结果回调
+ * Cancel like
+ * @param momentId Moment ID
+ * @param key Like type
+ * @param callback Result callback
  */
 void removeReaction(String momentId, String key, IMessageManager.ISimpleCallback callback);
 ```
 
-**代码示例**
+**Code Example**
 
 ```java
 JIM.getInstance().getMomentManager().removeReaction("momentId", "like", new IMessageManager.ISimpleCallback() {
@@ -49,22 +49,22 @@ JIM.getInstance().getMomentManager().removeReaction("momentId", "like", new IMes
 <TabItem value="ios">
 
 
-删除点赞，删除某条朋友圈的点赞或者自定义的互动类型。
+Remove likes, including likes from a specific circle of friends or a custom interaction type.
 
-**接口说明**
+**Interface description**
 
 ```objectivec
-/// 取消点赞
+/// Cancel like
 /// - Parameters:
-///   - momentId: 朋友圈 id
-///   - key: 点赞类型
-///   - completeBlock: 结果回调
+///   - momentId: Moment ID
+///   - key: Like type
+///   - completeBlock: Result callback
 - (void)removeReaction:(nonnull NSString *)momentId
                    key:(nonnull NSString *)key
               complete:(nullable void (^)(JErrorCode errorCode))completeBlock;
 ```
 
-**代码示例**
+**Code Example**
 
 ```objectivec
 [JIM.shared.momentManager removeReaction:@"momentId" key:@"like" complete:^(JErrorCode errorCode) {
@@ -74,21 +74,21 @@ JIM.getInstance().getMomentManager().removeReaction("momentId", "like", new IMes
 </TabItem>
 <TabItem value="flutter">
 
-删除点赞，删除某条朋友圈的点赞或者自定义的互动类型。
+Remove likes, including likes from a specific circle of friends or a custom interaction type.
 
-**接口说明**
+**Interface description**
 
 ```dart
 /**
- * 取消点赞
- * @param momentId 朋友圈 id
- * @param key 点赞类型
- * return 结果码，0 表示成功
+ * Cancel like
+ * @param momentId Moment ID
+ * @param key Like type
+ * @return Result code, 0 indicates success
  */
 Future<int> removeMomentReaction(String momentId, String key) async
 ```
 
-**代码示例**
+**Code Example**
 
 ```dart
 int removeReactionResult = await JuggleIm.instance.removeMomentReaction('momentId', 'like');
@@ -97,21 +97,21 @@ int removeReactionResult = await JuggleIm.instance.removeMomentReaction('momentI
 </TabItem>
 <TabItem value="reactnative">
 
-删除点赞，删除某条朋友圈的点赞或者自定义的互动类型。
+Remove likes, including likes from a specific circle of friends or a custom interaction type.
 
-**接口说明**
+**Interface description**
 
 ```typescript
 /**
- * 取消点赞
- * @param momentId 朋友圈 id
- * @param key 点赞类型
- * return Promise<void>
+ * Cancel like
+ * @param momentId Moment ID
+ * @param key Like type
+ * @returns Promise<void>
  */
 removeReaction(momentId: string, key: string): Promise<void>
 ```
 
-**代码示例**
+**Code Example**
 
 ```typescript
 import { JuggleIMMoment } from 'juggleim-rnsdk';
@@ -122,18 +122,18 @@ await JuggleIMMoment.removeReaction('momentId', 'like');
 </TabItem>
 <TabItem value="js">
 
-删除点赞，删除某条朋友圈的点赞或者自定义的互动类型。
+Remove likes, including likes from a specific circle of friends or a custom interaction type.
 
-**参数说明**
+**Parameter description**
 
-| 名称          | 类型    | 必填                          | 默认值      | 描述                                           | 版本     |
-|--------------|---------|-------------------------------|------------|------------------------------------------------|----------|
-| params        | Object  | 是                            | -   | 删除点赞参数  | 1.9.6   |
-| params.momentId    | String  | 是                            |  -   | 朋友圈 Id  | 1.9.6   |
-| params.reaction    | Object  | 是                            |  -   | 互动类型 | 1.9.6   |
-| params.reaction.key    | String  | 是                            |  -   | 互动类型 key, 详见代码示例 | 1.9.6   |  
+| Name             | Type   | Required | Default | Description                                | Version |
+|------------------|--------|----------|---------|--------------------------------------------|---------|
+| params           | Object | Yes      | -       | Parameters for removing a like             | 1.9.6   |
+| params.momentId   | String | Yes      | -       | Moment ID                                  | 1.9.6   |
+| params.reaction   | Object | Yes      | -       | Interaction type                           | 1.9.6   |
+| params.reaction.key | String | Yes    | -       | Interaction type key; see code example for details | 1.9.6   |
 
-**代码示例**
+**Code Example**
 
 ```js
 jim.removeReaction({
@@ -142,8 +142,8 @@ jim.removeReaction({
     key: 'like',
   },
 }).then(() => {
-  console.log('removeReaction successfully');
-})
+  console.log('removeReaction succeeded');
+});
 ```
 
 </TabItem>

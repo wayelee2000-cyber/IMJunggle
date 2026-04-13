@@ -1,5 +1,5 @@
 ---
-title: 阅后即焚
+title: Burn after reading
 hide_title: true
 sidebar_position: 9
 ---
@@ -16,13 +16,13 @@ values={[
 }>
 <TabItem value="android">
 
-发送消息时可以设置消息的阅后即焚时间 `lifeTimeAfterRead`，当消息被读后再经过 `lifeTimeAfterRead` 毫秒，消息会被销毁。
+When sending a message, you can set the message's burn-after-read duration using `lifeTimeAfterRead`. Once `lifeTimeAfterRead` milliseconds have passed after the message is read, the message will be destroyed.
 
-**示例代码**
+**Sample Code**
 
 ```java
 MessageOptions o = new MessageOptions();
-// 单位毫秒，该消息被读 5 分钟后会被自动删除。默认为 0，表示消息被读后也不自动删除。
+// The unit is milliseconds. The message will be automatically deleted 5 minutes after it is read. The default is 0, which means the message will not be automatically deleted after being read.
 o.setLifeTimeAfterRead(5 * 60 * 1000);
 TextMessage textMessage = new TextMessage("Text");
 Conversation conversation = new Conversation(Conversation.ConversationType.PRIVATE, "111");
@@ -39,15 +39,15 @@ JIM.getInstance().getMessageManager().sendMessage(textMessage, conversation, o, 
 });
 ```
 
-消息发送成功后，接收方通过 sendReadReceipt() 方法来标识消息已读。
+After the message is sent successfully, the receiver calls the `sendReadReceipt()` method to indicate that the message has been read.
 
-单聊消息从接收方已读后开始对发送和接收双方同时进行倒计时。
+For a single chat message, the countdown starts for both the sender and the receiver once the receiver has read it.
 
-群聊消息的接收方从自己已读后开始倒计时，发送方从所有其他群成员已读后开始倒计时。
+For a group chat message, the countdown starts for the receiver after they have read it, and for the sender after all other group members have read it.
 
-倒计时开始时，SDK 会回调 onMessageDestroyTimeUpdate(), 并把 Message 对象的 getDestroyTime() 自动设置成消息的已读时间加上 `lifeTimeAfterRead`，开发者可以依据这个时间来做界面倒计时。
+When the countdown begins, the SDK will invoke the `onMessageDestroyTimeUpdate()` callback and automatically set the `getDestroyTime()` of the Message object to the read time plus `lifeTimeAfterRead`. Developers can use this time to implement a countdown in the user interface.
 
-**示例代码**
+**Sample Code**
 
 ```java
 JIM.getInstance().getMessageManager().addDestroyListener("main", new IMessageManager.IMessageDestroyListener() {
@@ -63,13 +63,13 @@ JIM.getInstance().getMessageManager().addDestroyListener("main", new IMessageMan
 </TabItem>
 <TabItem value="ios">
 
-发送消息时可以设置消息的阅后即焚时间 `lifeTimeAfterRead`，当消息被读后再经过 `lifeTimeAfterRead` 毫秒，消息会被销毁。
+When sending a message, you can set the message's burn-after-read duration using `lifeTimeAfterRead`. Once `lifeTimeAfterRead` milliseconds have passed after the message is read, the message will be destroyed.
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 JMessageOptions *o = [[JMessageOptions alloc] init];
-// 单位毫秒，该消息被读 5 分钟后会被自动删除。默认为 0，表示消息被读后也不自动删除。
+// The unit is milliseconds. The message will be automatically deleted 5 minutes after it is read. The default is 0, which means the message will not be automatically deleted after being read.
 o.lifeTimeAfterRead = 5 * 60 * 1000;
 JTextMessage *textMessage = [[JTextMessage alloc] initWithContent:@"Text"];
 JConversation *conversation = [[JConversation alloc] initWithConversationType:JConversationTypePrivate
@@ -84,15 +84,15 @@ JConversation *conversation = [[JConversation alloc] initWithConversationType:JC
 }];
 ```
 
-消息发送成功后，接收方通过 `sendReadReceipt:inConversation:success:error:` 方法来标识消息已读。
+After the message is sent successfully, the receiver calls the `sendReadReceipt:inConversation:success:error:` method to indicate that the message has been read.
 
-单聊消息从接收方已读后开始对发送和接收双方同时进行倒计时。
+For a single chat message, the countdown starts for both the sender and the receiver once the receiver has read it.
 
-群聊消息的接收方从自己已读后开始倒计时，发送方从所有其他群成员已读后开始倒计时。
+For a group chat message, the countdown starts for the receiver after they have read it, and for the sender after all other group members have read it.
 
-倒计时开始时，SDK 会回调 `messageDestroyTimeDidUpdate:inconversation:destroyTime:`，并把 Message 对象的 `destroyTime` 自动设置成消息的已读时间加上 `lifeTimeAfterRead`，开发者可以依据这个时间来做界面倒计时。
+When the countdown begins, the SDK will invoke the `messageDestroyTimeDidUpdate:inConversation:destroyTime:` callback and automatically set the `destroyTime` of the Message object to the read time plus `lifeTimeAfterRead`. Developers can use this time to implement a countdown in the user interface.
 
-**示例代码**
+**Sample Code**
 
 ```objective
 [JIM.shared.messageManager addDestroyDelegate:self];
@@ -106,31 +106,31 @@ JConversation *conversation = [[JConversation alloc] initWithConversationType:JC
 </TabItem>
 <TabItem value="js">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-发送消息时可以设置消息的阅后即焚时间 `lifeTimeAfterRead`，当消息被读后再经过 `lifeTimeAfterRead` 毫秒，消息会被销毁。
+When sending a message, you can set the message's burn-after-read duration using `lifeTimeAfterRead`. Once `lifeTimeAfterRead` milliseconds have passed after the message is read, the message will be destroyed.
 
-**示例代码**
+**Sample Code**
 
 ```dart
 SendMessageOption option = SendMessageOption();
-option.lifeTimeAfterRead = 5 * 60 * 1000; //单位毫秒
+option.lifeTimeAfterRead = 5 * 60 * 1000; // Unit: milliseconds
 
 Message message = JuggleIm.instance.sendMessage(content, conversation, callback, option);
 ```
 
-消息发送成功后，接收方通过 `sendReadReceipt` 方法来标识消息已读。
+After the message is sent successfully, the receiver calls the `sendReadReceipt` method to indicate that the message has been read.
 
-单聊消息从接收方已读后开始对发送和接收双方同时进行倒计时。
+For a single chat message, the countdown starts for both the sender and the receiver once the receiver has read it.
 
-群聊消息的接收方从自己已读后开始倒计时，发送方从所有其他群成员已读后开始倒计时。
+For a group chat message, the countdown starts for the receiver after they have read it, and for the sender after all other group members have read it.
 
-倒计时开始时，SDK 会回调 `onMessageDestroyTimeUpdate`, 并把 Message 对象的 `destroyTime` 自动设置成消息的已读时间加上 `lifeTimeAfterRead`，开发者可以依据这个时间来做界面倒计时。
+When the countdown begins, the SDK will invoke the `onMessageDestroyTimeUpdate` callback and automatically set the `destroyTime` of the Message object to the read time plus `lifeTimeAfterRead`. Developers can use this time to implement a countdown in the user interface.
 
-**示例代码**
+**Sample Code**
 
 ```dart
 JuggleIm.instance.onMessageDestroyTimeUpdate = (messageId, conversation, destroyTime) {

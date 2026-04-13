@@ -1,45 +1,45 @@
 ---
-title: 单聊/私信
+title: Private chat/private message
 hide_title: true
 sidebar_position: 1
 ---
 
-### 场景介绍{#intro}
+### Scene introduction{#intro}
 
-单聊通常指两个人之间进行互动沟通，相互之间通过文本、文件、图片、语音、好友添加通知等消息交流，单聊之间对消息的硬指标是不丢、不重、不乱序，换设备后消息备份能自动同步至新设备，消息已读状态、未读数量、消息操作等要求一个用户的多个设备严格一致，消息操作例如 `撤回撤回`、`消息修改`、`回复消息`。
+Single chat typically refers to one-to-one communication between two users. They can exchange text, files, images, voice messages, friend request notifications, and other message types. In private chat scenarios, the core message delivery requirements are stringent: messages must not be lost, duplicated, or delivered out of order. When a user switches devices, historical messages should automatically synchronize to the new device. Read status, unread counts, and message operations must remain consistent across all of a user's devices. Common message operations include `recall`, `message editing`, and `reply`.
 
-### 适用场景{#match}
+### Applicable scenarios{#match}
 
-> **熟人间私信**：熟人社交通常包含好友关系，双方通过手机号或唯一标识搜索添加为好友，好友添加成功后进行线上互动。
+> **Private messages between acquaintances**: In social products, acquaintances are usually connected through friend relationships. Users search for each other by phone number or unique identifier, add each other as friends, and then begin interacting online.
 
-> **陌生人私信**：陌生人交友通常有明确的用户画像和用户标签，通过兴趣、年龄等标签进行匹配，双方进行 `灵魂社交`。
+> **Private messages from strangers**: In stranger-social scenarios, users often have clear profiles and tags. They are matched based on interests, age, or other attributes, and then communicate via private messaging.
 
-> **买卖双方沟**：买家卖家线上文字或图片沟通，通常是以订单货商品为关系链进行线上售后、售前的咨询。
+> **Buyer-seller communication**: Buyers and sellers communicate through text and images, typically for pre-sales consultation or after-sales support related to specific orders or products.
 
-> **主播粉丝互动**：具有 `KOL` 直播社交产品，提供关注主播功能，关注后可以和主播私信，发送有条数限制的互动消息。
+> **Streamer-fan interaction**: In live social products with `KOL` or streamer-follow features, users can follow a streamer and then send private messages or a limited number of interactive messages.
 
-> **更多单聊场景**：`司机和乘客`、`1v1 教学`、`师生沟通`、`家校沟通`、`快递商家`、`...`
+> **Additional private chat scenarios**: `Driver and passenger`, `1v1 teaching`, `teacher-student communication`, `home-school communication`, `courier and customer`, and more.
 
-### 方案特点{#sp}
+### Features of the plan{#sp}
 
-> **关系方向**: 单项或双向好友关系，粉丝单项关注主播，好友人数可调至无人数限制
+> **Relationship model**: Supports one-way or mutual friend relationships. Fans can follow streamers independently, and the number of friends can scale as needed.
 
-> **在线状态**: 用户按需订阅好友或者关注人的在线状态，开发者应用层做更友好的提示或者业务匹配
+> **Online status**: Users can subscribe to the online status of friends or followed users on demand, enabling the application layer to provide richer prompts and more accurate business matching.
 
-> **黑白名单**: 双向黑白名单限制消息发送，加黑名单后发送消息提示说明，或加入白名单后才允许发送消息
+> **Allowlist and blocklist**: Two-way allowlist and blocklist controls can restrict or permit message sending. For example, adding a user to the blocklist prevents further messages, while adding a user to the allowlist explicitly permits communication.
 
-> **信息变更**: 用户的信息变更后，具备优雅的同步机制，自动告知给与自己有关系的用户
+> **Profile synchronization**: When user information changes, the system provides a seamless synchronization mechanism and automatically notifies related users.
 
-> **消息绑定用户信息**: 消息中包含用户的信息，便于客户端展示，降低集成复杂度
+> **User info embedded in messages**: Messages can include user information, simplifying client-side rendering and reducing integration complexity.
 
-### 相关文档{#doc}
+### Related documents{#doc}
 
->**基础文档**：[SDK 下载](../../../client/import)、[集成示例](../../../client/quickstart/ios)
+> **Basic documents**: [SDK Download](../../client/import.md), [Integration Example](../../client/quickstart/ios.md)
 
->**用户管理**：[用户注册](../../../server/user/register)、[更新信息](../../../server/user/updateuser)、[用户封禁](../../../server/user/addbanuser)、[禁言用户](../../../server/user/addblockuser)
+> **User management**: [User Registration](../../server/user/register.md), [Update Information](../../server/user/updateuser.md), [User Ban](../../server/user/addbanuser.md), [Ban User](../../server/user/addblockuser.md)
 
->**消息相关**：[消息结构](../../../client/sdkintro/msg/message)、[发送消息](../../../client/sdkintro/message/msg_send/send)、[接收消息](../../../client/sdkintro/watcher/message)、[获取历史消息](../../../client/sdkintro/message/histories/get_all)、[清空历史消息](../../../client/sdkintro/message/histories/clear)、[消息撤回](../../../client/sdkintro/message/operator/recall)、[消息已读](../../../client/sdkintro/message/operator/read)、[REST API 发送消息](../../../server/message/privatemsg)
+> **Message related**: [Message structure](../../client/sdkintro/msg/message.mdx), [Send message](../../client/sdkintro/message/msg_send/send.md), [Receive message](../../client/sdkintro/watcher/message.mdx), [Get historical messages](../../client/sdkintro/message/histories/get_all.md), [Clear historical messages](../../client/sdkintro/message/histories/clear.md), [Message recall](../../client/sdkintro/message/operator/recall.md), [Message read](../../client/sdkintro/message/operator/read.md), [REST API send message](../../server/message/privatemsg.md)
 
->**会话相关**：[会话结构](../../../client/sdkintro/conversation)、[获取会话列表](../../../client/sdkintro/conversation/get_all)、[会话置顶](../../../client/sdkintro/conversation/settop)、[免打扰](../../../client/sdkintro/conversation/disturb)、[获取未读总数](../../../client/sdkintro/conversation/get_total_unread)、[服务端获取会话列表](../../../server/convers/qryconvers)
+> **Session related**: [Session structure](../../client/sdkintro/conversation.mdx), [Get session list](../../client/sdkintro/conversation/get_all.md), [Session top](../../client/sdkintro/conversation/operator/settop.md), [Do not disturb](../../client/sdkintro/conversation/operator/disturb.md), [Get the total number of unreads](../../client/sdkintro/conversation/unread/get_total_unread.md), [Server gets the conversation list](../../server/convers/qryconvers.md)
 
->**状 态 码**：[Android 相关](../../../client/sdkintro/status_code/android)、[iOS 相关](../../../client/sdkintro/status_code/ios)、[Web 相关](../../../client/sdkintro/status_code/web)、[REST API 相关](../../../server/status)
+> **Status code**: [Android related](../../client/sdkintro/status_code/android.mdx), [iOS related](../../client/sdkintro/status_code/ios.mdx), [Web related](../../client/sdkintro/status_code/web.mdx), [REST API Related](../../server/status.md)

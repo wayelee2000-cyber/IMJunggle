@@ -1,36 +1,36 @@
 ---
-title: 添加好友
+title: add friend
 hide_title: true
 sidebar_position: 1
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-添加好友
+Add friends.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 times/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/friends/add
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/friends/add
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|user_id|string|是|用户的id||
-|friends.friend_id|string|是|好友的用户id||
-|friends.display_name|string |否|好友备注名||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameters           | Data type | Required | Description           |   |
+|:---------------------|:----------|:---------|:----------------------|---|
+| user_id              | string    | yes      | User’s ID             |   |
+| friends.friend_id    | string    | yes      | Friend’s user ID      |   |
+| friends.display_name | string    | no       | Friend’s display name |   |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /apigateway/friends/add HTTP/1.1
 appkey: appkey
@@ -40,24 +40,25 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "user_id":"userid1",
-  "friends":[
+  "user_id": "userid1",
+  "friends": [
     {
-      "friend_id":"userid2",
-      "display_name":"u2"
-    },{
-      "friend_id":"userid3",
-      "display_name":"u3"
+      "friend_id": "userid2",
+      "display_name": "u2"
+    },
+    {
+      "friend_id": "userid3",
+      "display_name": "u3"
     }
   ]
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

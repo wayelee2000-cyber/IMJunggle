@@ -1,35 +1,35 @@
 ---
-title: 搜索加入的群
+title: Search for groups to join
 hide_title: true
 sidebar_position: 6
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-搜索我加入过的群
+Search for groups I have joined.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api.md#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 times/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/groups/mygroups/search
+> **Request URL**: https://[request domain name](../api#api)/jim/groups/mygroups/search
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|keyword|string|是| 搜索关键词||
-|offset|string|否|分页偏移量，初次可以不填||
-|limit|int|否|一次返回数据条数||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameter | Data type | Required | Description |  |
+|:----------|:----------|:---------|:------------|:--|
+| keyword  | string    | Yes      | Search keyword |  |
+| offset   | string    | No       | Paging offset; leave blank for the first request |  |
+| limit    | int       | No       | Number of items returned per request |  |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /jim/groups/mygroups/search HTTP/1.1
 appkey: appkey
@@ -37,29 +37,29 @@ Authorization: xxxxxxxxxxxxxxxxxx
 Content-Type: application/json
 
 {
-  "keyword":"group",
-  "limit":100
+  "keyword": "group",
+  "limit": 100
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "items":[{
-      "group_id":"groupid1",
-      "group_name":"group1",
-      "group_portrait":"https://xxxxxx.png"
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "items": [{
+      "group_id": "groupid1",
+      "group_name": "group1",
+      "group_portrait": "https://xxxxxx.png"
     }],
-    "offset":"xxxx"
+    "offset": "xxxx"
   }
 }
 ```
 
-### 响应码
+### Response code
 
-|响应码|说明||
-|:--|:---|:--|
+| Response code | Description |  |
+|:--------------|:------------|:--|

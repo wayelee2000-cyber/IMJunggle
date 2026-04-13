@@ -1,5 +1,5 @@
 ---
-title: 消息订阅
+title: Message subscription
 hide_title: true
 sidebar_position: 6
 ---
@@ -15,67 +15,66 @@ values={[
 }>
 <TabItem value="android">
 
-> 敬请期待
+> Stay tuned
 
 </TabItem>
 <TabItem value="ios">
 
-> 敬请期待
+> Stay tuned
 
 </TabItem>
 <TabItem value="js">
 
-> 适用场景: 用户不在群组中可查看群内的实时消息，订阅成功后指定会话有新消息会通过消息监听返回
+> Applicable scenarios: Users who are not members of a group can view real-time messages within that group. After a successful subscription, new messages in the specified session will be delivered through message monitoring.
 
-> _使用此功能需提前在自己的打开配置私有 `IM 后台` -> `功能配置` -> `不进群获取历史消息`_
+> _To use this feature, you must first enable the private `IM background` in your account under `Function configuration` -> `Access historical messages without joining the group`._
 
 <br/>
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 必填   | 默认值  | 描述                                                         | 版本     |
-|--------------------------------|---------|--------|--------|--------------------------------------------------------------|----------|
-| conversation                   | Object  | 是     |        | 会话对象                                                      | 1.7.18    |
-| conversation.conversationType  | Number  | 是     |        | [会话类型](../../enum/web#conversation)                            | 1.7.18    |
-| conversation.conversationId    | String  | 是     |        | 会话 Id，会话类型是 `PRIVATE` 时，会话 Id 是接收方的 userId，会话类型是 `GROUP` 时是群组 Id | 1.7.18    |
+| Name | Type | Required | Default | Description | Version |
+|--------------------------------|---------|--------|--------|----------------------------------------------------------------|----------|
+| conversation | Object | Yes | | Conversation object | 1.7.18 |
+| conversation.conversationType | Number | Yes | | [Conversation Type](../../enum/web#conversation) | 1.7.18 |
+| conversation.conversationId | String | Yes | | Conversation ID. For `PRIVATE` conversations, this is the userId of the receiver; for `GROUP` conversations, it is the group ID. | 1.7.18 |
 
-**成功回调**
+**Success callback**
 
-无参数返回，回调触发表示成功
+No parameters are returned. The callback is triggered to indicate a successful subscription.
 
-**失败回调**
+**Failure callback**
 
-| 名称   | 类型    | 描述                                                      | 版本   |
-|--------|---------|-----------------------------------------------------------|--------|
-| error  | Object  | 发送失败后会有对应的状态码，可以直接查看 `error.msg`，或者查看 [状态码](../../status_code/web) | 1.7.18  |
+| Name | Type | Description | Version |
+|--------|---------|--------------------------------------------------------------|--------|
+| error | Object | Contains a status code if the subscription fails. You can check `error.msg` directly or refer to the [status code documentation](../../status_code/web). | 1.7.18 |
 
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType } = JIM;
 
-let convesation = {
+let conversation = {
   conversationType: ConversationType.GROUP,
   conversationId: 'group02',
 };
-// 订阅消息，若连接断开请主动调用 unsubscribeMessage 取消订阅
-jim.subscribeMessage(convesation).then(() => {
-  console.log('subscribeMsg successfully.')
+// Subscribe to messages. If the connection is disconnected, be sure to call unsubscribeMessage to cancel the subscription.
+jim.subscribeMessage(conversation).then(() => {
+  console.log('subscribeMsg successfully.');
 }, (error) => {
-  console.log(error)
+  console.log(error);
 });
 
-
-// 取消订阅
-jim.unsubscribeMessage(convesation).then(() => {
-  console.log('unsubscribeMsg successfully.')
+// Unsubscribe
+jim.unsubscribeMessage(conversation).then(() => {
+  console.log('unsubscribeMsg successfully.');
 }, (error) => {
-  console.log(error)
+  console.log(error);
 });
 ```
 </TabItem>
 <TabItem value="reactnative" label="ReactNative">
 
-> 敬请期待
+> Stay tuned
 
 </TabItem>
 </Tabs>

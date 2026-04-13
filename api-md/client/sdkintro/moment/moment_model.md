@@ -1,5 +1,5 @@
 ---
-title: 数据结构
+title: data structure
 hide_title: true
 sidebar_position: 0
 ---
@@ -16,234 +16,234 @@ values={[
 }>
 <TabItem value="android">
 
-**Moment 结构**
+**Moment structure**
 
-| 属性名                          | 类型         | 说明                                                | 版本   |
-|---------------------------------|--------------|-----------------------------------------------------|--------|
-| momentId                        | String       | 朋友圈 ID，全局唯一                                  | 1.8.30  |
-| content                   | String       | 朋友圈的文字内容                                        | 1.8.30  |
-| mediaList                  | `List<MomentMedia>`        | 朋友圈的媒体文件链接列表（图片/视频等），详细请参考下方 `MomentMedia` 结构                  | 1.8.30  |
-| userInfo                        | UserInfo       | 发布朋友圈的用户                                     | 1.8.30  |
-| commentList                    | `List<MomentComment>`        | 前 20 条评论列表，详细请参考下方 `MomentComment` 结构                  | 1.8.30  |  
-| reactionList                       | `List<MomentReaction>`        | 朋友圈的点赞或其他自定义交互列表，详细请参考下方 `MomentReaction` 结构 | 1.8.30  |
-| createTime                      | long       | 朋友圈创建时间, 单位: 毫秒                                       | 1.8.30  |  
+| Attribute name | Type | Description | Version |
+|----------------------------------|-------------|--------------------------------------------------------|--------|
+| momentId | String | Unique global identifier for the Moment | 1.8.30 |
+| content | String | Text content of the circle of friends | 1.8.30 |
+| mediaList | `List<MomentMedia>` | List of media file links (pictures/videos, etc.) in the circle of friends. See the `MomentMedia` structure below for details | 1.8.30 |
+| userInfo | UserInfo | User who posted the circle of friends | 1.8.30 |
+| commentList | `List<MomentComment>` | List of the first 20 comments. See the `MomentComment` structure below for details | 1.8.30 |
+| reactionList | `List<MomentReaction>` | List of likes or other custom interactions in the circle of friends. See the `MomentReaction` structure below for details | 1.8.30 |
+| createTime | long | Creation time of the Moment, in milliseconds | 1.8.30 |
 
-**MomentMedia 结构**
+**MomentMedia Structure**
 
-| 属性名        | 类型         | 说明                                                | 版本   |
+| Attribute name | Type | Description | Version |
 |---------------|--------------|-----------------------------------------------------|--------|
-| type          | MomentMediaType       | 朋友圈媒体类型                | 1.8.30  |
-| url           | String       | 图片朋友圈的原图链接或者视频链接                  | 1.8.30  |
-| snapshotUrl   | String       | 图片朋友圈的缩略图，视频朋友圈首帧缩略图                  | 1.8.30  |
-| height        | int       | 图片或者视频的高度                  | 1.8.30  |
-| width         | int       | 图片或者视频的宽度                  | 1.8.30  |
-| duration      | int       | 视频的时长，仅视频朋友圈时有效                  | 1.8.30  |
+| type | MomentMediaType | Type of media in the Moment | 1.8.30 |
+| url | String | Original image or video URL in the circle of friends | 1.8.30 |
+| snapshotUrl | String | Thumbnail image of the circle of friends; for videos, the first frame thumbnail | 1.8.30 |
+| height | int | Height of the image or video | 1.8.30 |
+| width | int | Width of the image or video | 1.8.30 |
+| duration | int | Duration of the video, valid only for video Moments | 1.8.30 |
 
-**MomentComment 结构**
+**MomentComment structure**
 
-| 属性名               | 类型         | 说明                                                | 版本   |
-|----------------------|--------------|-----------------------------------------------------|--------|
-| commentId            | String       | 评论唯一标识 Id                                      | 1.8.30  |
-| momentId             | String       | 朋友圈 Id                                      | 1.8.30  |
-| parentCommentId      | String       | 父评论 Id，回复评论时为回复的评论 Id，无父评论时为空字符串 | 1.8.30  |
-| content        | String       | 评论文本内容                                        | 1.8.30  |
-| userInfo           | UserInfo       | 评论用户信息               | 1.8.30  |
-| parentUserInfo           | UserInfo       | 父评论用户信息（无父评论时为空对象）                | 1.8.30  |
-| createTime          | long       | 评论发布时间, 单位: 毫秒                              | 1.8.30  |
+| Attribute name | Type | Description | Version |
+|------------------------|--------------|--------------------------------------------------------|--------|
+| commentId | String | Unique identifier for the comment | 1.8.30 |
+| momentId | String | Identifier of the Moment | 1.8.30 |
+| parentCommentId | String | Parent comment ID; when replying to a comment, this is the ID of the comment being replied to. Empty string if no parent comment | 1.8.30 |
+| content | String | Text content of the comment | 1.8.30 |
+| userInfo | UserInfo | Information about the user who made the comment | 1.8.30 |
+| parentUserInfo | UserInfo | Information about the parent comment's user (empty object if no parent comment) | 1.8.30 |
+| createTime | long | Timestamp when the comment was posted, in milliseconds | 1.8.30 |
 
-**MomentReaction 结构**
+**MomentReaction structure**
 
-| 属性名               | 类型         | 说明                                                | 版本   |
-|----------------------|--------------|-----------------------------------------------------|--------|
-| key                | String       | 点赞或自定义互动值，例如 `like`、`dislike`、`collect` 等 | 1.8.30  |
-| userList            | `List<UserInfo>`       | 点赞操作的用户列表                             | 1.8.30  |
+| Attribute name | Type | Description | Version |
+|------------------------|--------------|--------------------------------------------------------|--------|
+| key | String | Like or custom interaction type, e.g., `like`, `dislike`, `collect` | 1.8.30 |
+| userList | `List<UserInfo>` | List of users who performed the interaction | 1.8.30 |
 
 </TabItem>
 <TabItem value="ios">
 
-**JMoment 结构**
+**JMoment structure**
 
-| 属性名                          | 类型         | 说明                                                | 版本   |
-|---------------------------------|--------------|-----------------------------------------------------|--------|
-| momentId                        | NSString       | 朋友圈 ID，全局唯一                                  | 1.8.30  |
-| content                   | NSString       | 朋友圈的文字内容                                        | 1.8.30  |
-| mediaArray                  | `NSArray <JMomentMedia *>`        | 朋友圈的媒体文件链接列表（图片/视频等），详细请参考下方 `JMomentMedia` 结构                  | 1.8.30  |
-| userInfo                        | JUserInfo       | 发布朋友圈的用户                                     | 1.8.30  |
-| commentArray                    | `NSArray <JMomentComment *>`        | 前 20 条评论列表，详细请参考下方 `JMomentComment` 结构                  | 1.8.30  |  
-| reactionArray                       | `NSArray <JMomentReaction *>`        | 朋友圈的点赞或其他自定义交互列表，详细请参考下方 `JMomentReaction` 结构 | 1.8.30  |
-| createTime                      | long long     | 朋友圈创建时间, 单位: 毫秒                                       | 1.8.30  |  
+| Attribute name | Type | Description | Version |
+|----------------------------------|-------------|--------------------------------------------------------|--------|
+| momentId | NSString | Unique global identifier for the Moment | 1.8.30 |
+| content | NSString | Text content of the circle of friends | 1.8.30 |
+| mediaArray | `NSArray <JMomentMedia *>` | List of media file links (pictures/videos, etc.) in the circle of friends. See the `JMomentMedia` structure below for details | 1.8.30 |
+| userInfo | JUserInfo | User who posted the Moment | 1.8.30 |
+| commentArray | `NSArray <JMomentComment *>` | List of the first 20 comments. See the `JMomentComment` structure below for details | 1.8.30 |
+| reactionArray | `NSArray <JMomentReaction *>` | List of likes or other custom interactions in the circle of friends. See the `JMomentReaction` structure below for details | 1.8.30 |
+| createTime | long long | Creation time of the Moment, in milliseconds | 1.8.30 |
 
-**JMomentMedia 结构**
+**JMomentMedia structure**
 
-| 属性名        | 类型         | 说明                                                | 版本   |
+| Attribute name | Type | Description | Version |
 |---------------|--------------|-----------------------------------------------------|--------|
-| type          | JMomentMediaType       | 朋友圈媒体类型                | 1.8.30  |
-| url           | NSString       | 图片朋友圈的原图链接或者视频链接                  | 1.8.30  |
-| snapshotUrl   | NSString       | 图片朋友圈的缩略图，视频朋友圈首帧缩略图                  | 1.8.30  |
-| height        | int       | 图片或者视频的高度                  | 1.8.30  |
-| width         | int       | 图片或者视频的宽度                  | 1.8.30  |
-| duration      | int       | 视频的时长，仅视频朋友圈时有效                  | 1.8.30  |
+| type | JMomentMediaType | Type of media in the Moment | 1.8.30 |
+| url | NSString | Original image or video URL in the circle of friends | 1.8.30 |
+| snapshotUrl | NSString | Thumbnail image of the circle of friends; for videos, the first frame thumbnail | 1.8.30 |
+| height | int | Height of the image or video | 1.8.30 |
+| width | int | Width of the image or video | 1.8.30 |
+| duration | int | Duration of the video, valid only for video Moments | 1.8.30 |
 
-**JMomentComment 结构**
+**JMomentComment structure**
 
-| 属性名               | 类型         | 说明                                                | 版本   |
-|----------------------|--------------|-----------------------------------------------------|--------|
-| commentId            | NSString       | 评论唯一标识 Id                                      | 1.8.30  |
-| momentId             | NSString       | 朋友圈 Id                                      | 1.8.30  |
-| parentCommentId      | NSString       | 父评论 Id，回复评论时为回复的评论 Id，无父评论时为空字符串 | 1.8.30  |
-| content        | NSString       | 评论文本内容                                        | 1.8.30  |
-| userInfo           | JUserInfo       | 评论用户信息               | 1.8.30  |
-| parentUserInfo           | JUserInfo       | 父评论用户信息（无父评论时为空对象）                | 1.8.30  |
-| createTime          | long       | 评论发布时间, 单位: 毫秒                              | 1.8.30  |
+| Attribute name | Type | Description | Version |
+|------------------------|--------------|--------------------------------------------------------|--------|
+| commentId | NSString | Unique identifier for the comment | 1.8.30 |
+| momentId | NSString | Identifier of the Moment | 1.8.30 |
+| parentCommentId | NSString | Parent comment ID; when replying to a comment, this is the ID of the comment being replied to. Empty string if no parent comment | 1.8.30 |
+| content | NSString | Text content of the comment | 1.8.30 |
+| userInfo | JUserInfo | Information about the user who made the comment | 1.8.30 |
+| parentUserInfo | JUserInfo | Information about the parent comment's user (empty object if no parent comment) | 1.8.30 |
+| createTime | long | Timestamp when the comment was posted, in milliseconds | 1.8.30 |
 
-**JMomentReaction 结构**
+**JMomentReaction structure**
 
-| 属性名               | 类型         | 说明                                                | 版本   |
-|----------------------|--------------|-----------------------------------------------------|--------|
-| key                | NSString       | 点赞或自定义互动值，例如 `like`、`dislike`、`collect` 等 | 1.8.30  |
-| userArray            | `NSArray <JUserInfo *>`       | 点赞操作的用户列表                             | 1.8.30  |
+| Attribute name | Type | Description | Version |
+|------------------------|--------------|--------------------------------------------------------|--------|
+| key | NSString | Like or custom interaction type, e.g., `like`, `dislike`, `collect` | 1.8.30 |
+| userArray | `NSArray <JUserInfo *>` | List of users who performed the interaction | 1.8.30 |
 
 </TabItem>
 <TabItem value="flutter">
 
-**Moment 结构**
+**Moment structure**
 
-| 属性名                          | 类型         | 默认值       | 说明                                                | 版本   |
-|---------------------------------|--------------|--------------|-----------------------------------------------------|--------|
-| momentId                        | String       | ''           | 朋友圈 ID，全局唯一                                  | 0.0.66  |
-| content                    | String       | ''            | 朋友圈的文字内容                                        | 0.0.66  |
-| mediaList                  | `List<MomentMedia>`        | []           | 朋友圈的媒体文件链接列表（图片/视频等），详细请参考下方 `MomentMedia` 结构                  | 0.0.66  |
-| userInfo                         | UserInfo?       | -            | 发布朋友圈的用户                                   | 0.0.66  |
-| commentList                     | `List<MomentComment>`        | []           | 前 20 条评论列表，详细请参考下方 `MomentComment` 结构                  | 0.0.66  |  
-| reactionList                       | `List<MomentReaction>`        | []           | 朋友圈的点赞或其他自定义交互列表，详细请参考下方 `MomentReaction` 结构 | 0.0.66  |
-| createTime                      | int       | 0            | 朋友圈创建时间, 单位: 毫秒                                       | 0.0.66  |  
+| Property name | Type | Default value | Description | Version |
+|----------------------------------|-------------|--------------|--------------------------------------------------------|--------|
+| momentId | String | '' | Unique global identifier for the Moment | 0.0.66 |
+| content | String | '' | Text content of the circle of friends | 0.0.66 |
+| mediaList | `List<MomentMedia>` | [] | List of media file links in the Moment (pictures/videos, etc.). See the `MomentMedia` structure below for details | 0.0.66 |
+| userInfo | UserInfo? | - | User who posted the circle of friends | 0.0.66 |
+| commentList | `List<MomentComment>` | [] | List of the first 20 comments. See the `MomentComment` structure below for details | 0.0.66 |
+| reactionList | `List<MomentReaction>` | [] | List of likes or other custom interactions in the Moment. See the `MomentReaction` structure below for details | 0.0.66 |
+| createTime | int | 0 | Creation time of the Moment, in milliseconds | 0.0.66 |
 
-**MomentMedia 结构**
+**MomentMedia Structure**
 
-| 属性名        | 类型         | 默认值       | 说明                                                | 版本   |
-|---------------|--------------|--------------|-----------------------------------------------------|--------|
-| type          | int       | 0            | 0: IMAGE; 1: VIDEO                  | 0.0.66  |
-| url           | String       | ''            | 图片朋友圈的原图链接或者视频链接                  | 0.0.66  |
-| snapshotUrl   | String       | ''            | 图片朋友圈的缩略图，视频朋友圈首帧缩略图                  | 0.0.66  |
-| height        | int       | 0            | 图片或者视频的高度                  | 0.0.66  |
-| width         | int       | 0            | 图片或者视频的宽度                  | 0.0.66  |
-| duration      | int       | 0            | 视频的时长，仅视频朋友圈时有效                  | 0.0.66  |
+| Property name | Type | Default value | Description | Version |
+|---------------|--------------|--------------|--------------------------------------------------------|--------|
+| type | int | 0 | 0: IMAGE; 1: VIDEO | 0.0.66 |
+| url | String | '' | Original image or video URL in the circle of friends | 0.0.66 |
+| snapshotUrl | String | '' | Thumbnail image of the circle of friends; for videos, the first frame thumbnail | 0.0.66 |
+| height | int | 0 | Height of the image or video | 0.0.66 |
+| width | int | 0 | Width of the image or video | 0.0.66 |
+| duration | int | 0 | Duration of the video, valid only for video Moments | 0.0.66 |
 
-**MomentComment 结构**
+**MomentComment structure**
 
-| 属性名               | 类型         | 默认值       | 说明                                                | 版本   |
-|----------------------|--------------|--------------|-----------------------------------------------------|--------|
-| commentId            | String       | ''            | 评论唯一标识 Id                                      | 0.0.66  |
-| momentId             | String       | ''            | 朋友圈 Id                                      | 0.0.66  |
-| parentCommentId      | String       | ''           | 父评论 Id，回复评论时为回复的评论 Id，无父评论时为空字符串 | 0.0.66  |
-| content         | String       | ''            | 评论文本内容                                        | 0.0.66  |
-| userInfo           | UserInfo?       | -           | 评论用户信息              | 0.0.66  |
-| parentUserInfo           | UserInfo?       | -           | 父评论用户信息（无父评论时为空对象）                | 0.0.66  |
-| createTime          | int       | 0           | 评论发布时间, 单位: 毫秒                              | 0.0.66  |
+| Property name | Type | Default value | Description | Version |
+|----------------------|--------------|--------------|-------------------------------------------------------------|--------|
+| commentId | String | '' | Unique identifier for the comment | 0.0.66 |
+| momentId | String | '' | Identifier of the Moment | 0.0.66 |
+| parentCommentId | String | '' | Parent comment ID; when replying to a comment, this is the ID of the comment being replied to. Empty string if no parent comment | 0.0.66 |
+| content | String | '' | Text content of the comment | 0.0.66 |
+| userInfo | UserInfo? | - | Information about the user who made the comment | 0.0.66 |
+| parentUserInfo | UserInfo? | - | Information about the parent comment's user (empty object if no parent comment) | 0.0.66 |
+| createTime | int | 0 | Timestamp when the comment was posted, in milliseconds | 0.0.66 |
 
-**MomentReaction 结构**
+**MomentReaction structure**
 
-| 属性名               | 类型         | 默认值       | 说明                                                | 版本   |
-|----------------------|--------------|--------------|-----------------------------------------------------|--------|
-| key                | String       | ''           | 点赞或自定义互动值，例如 `like`、`dislike`、`collect` 等 | 0.0.66  |
-| userList          | `List<UserInfo>`       | []           | 点赞操作的用户列表                                     | 0.0.66  |
+| Property name | Type | Default value | Description | Version |
+|----------------------|--------------|--------------|-------------------------------------------------------------|--------|
+| key | String | '' | Like or custom interaction type, e.g., `like`, `dislike`, `collect` | 0.0.66 |
+| userList | `List<UserInfo>` | [] | List of users who performed the interaction | 0.0.66 |
 
 </TabItem>
 <TabItem value="reactnative">
 
-**Moment 结构**
+**Moment structure**
 
-| 属性名                          | 类型         | 默认值       | 说明                                                | 版本   |
-|---------------------------------|--------------|--------------|-----------------------------------------------------|--------|
-| momentId                        | string       | ''           | 朋友圈 ID，全局唯一                                  | -   |
-| content                    | string       | ''            | 朋友圈的文字内容                                        | -   |
-| mediaList                  | `MomentMedia[]`        | []           | 朋友圈的媒体文件链接列表（图片/视频等），详细请参考下方 `MomentMedia` 结构                  | -   |
-| userInfo                         | UserInfo?       | -            | 发布朋友圈的用户                                   | -   |
-| commentList                     | `MomentComment[]`        | []           | 前 20 条评论列表，详细请参考下方 `MomentComment` 结构                  | -   |
-| reactionList                       | `MomentReaction[]`        | []           | 朋友圈的点赞或其他自定义交互列表，详细请参考下方 `MomentReaction` 结构 | -   |
-| createTime                      | number       | 0            | 朋友圈创建时间, 单位: 毫秒                                       | -   |
+| Property name | Type | Default value | Description | Version |
+|----------------------------------|-------------|--------------|--------------------------------------------------------|--------|
+| momentId | string | '' | Unique global identifier for the Moment | - |
+| content | string | '' | Text content of the circle of friends | - |
+| mediaList | `MomentMedia[]` | [] | List of media file links in the Moment (pictures/videos, etc.). See the `MomentMedia` structure below for details | - |
+| userInfo | UserInfo? | - | User who posted the circle of friends | - |
+| commentList | `MomentComment[]` | [] | List of the first 20 comments. See the `MomentComment` structure below for details | - |
+| reactionList | `MomentReaction[]` | [] | List of likes or other custom interactions in the Moment. See the `MomentReaction` structure below for details | - |
+| createTime | number | 0 | Creation time of the Moment, in milliseconds | - |
 
-**MomentMedia 结构**
+**MomentMedia Structure**
 
-| 属性名        | 类型         | 默认值       | 说明                                                | 版本   |
-|---------------|--------------|--------------|-----------------------------------------------------|--------|
-| type          | number       | 0            | 0: IMAGE; 1: VIDEO                  | -   |
-| url           | string       | ''            | 图片朋友圈的原图链接或者视频链接                  | -   |
-| snapshotUrl   | string       | ''            | 图片朋友圈的缩略图，视频朋友圈首帧缩略图                  | -   |
-| height        | number       | 0            | 图片或者视频的高度                  | -   |
-| width         | number       | 0            | 图片或者视频的宽度                  | -   |
-| duration      | number       | 0            | 视频的时长，仅视频朋友圈时有效                  | -   |
+| Property name | Type | Default value | Description | Version |
+|---------------|--------------|--------------|--------------------------------------------------------|--------|
+| type | number | 0 | 0: IMAGE; 1: VIDEO | - |
+| url | string | '' | Original image or video URL in the circle of friends | - |
+| snapshotUrl | string | '' | Thumbnail image of the circle of friends; for videos, the first frame thumbnail | - |
+| height | number | 0 | Height of the image or video | - |
+| width | number | 0 | Width of the image or video | - |
+| duration | number | 0 | Duration of the video, valid only for video Moments | - |
 
-**MomentComment 结构**
+**MomentComment structure**
 
-| 属性名               | 类型         | 默认值       | 说明                                                | 版本   |
-|----------------------|--------------|--------------|-----------------------------------------------------|--------|
-| commentId            | string       | ''            | 评论唯一标识 Id                                      | -   |
-| momentId             | string       | ''            | 朋友圈 Id                                      | -   |
-| parentCommentId      | string       | ''           | 父评论 Id，回复评论时为回复的评论 Id，无父评论时为空字符串 | -   |
-| content         | string       | ''            | 评论文本内容                                        | -   |
-| userInfo           | UserInfo?       | -           | 评论用户信息              | -   |
-| parentUserInfo           | UserInfo?       | -           | 父评论用户信息（无父评论时为空对象）                | -   |
-| createTime          | number       | 0           | 评论发布时间, 单位: 毫秒                              | -   |
+| Property name | Type | Default value | Description | Version |
+|----------------------|--------------|--------------|-------------------------------------------------------------|--------|
+| commentId | string | '' | Unique identifier for the comment | - |
+| momentId | string | '' | Identifier of the Moment | - |
+| parentCommentId | string | '' | Parent comment ID; when replying to a comment, this is the ID of the comment being replied to. Empty string if no parent comment | - |
+| content | string | '' | Text content of the comment | - |
+| userInfo | UserInfo? | - | Information about the user who made the comment | - |
+| parentUserInfo | UserInfo? | - | Information about the parent comment's user (empty object if no parent comment) | - |
+| createTime | number | 0 | Timestamp when the comment was posted, in milliseconds | - |
 
-**MomentReaction 结构**
+**MomentReaction structure**
 
-| 属性名               | 类型         | 默认值       | 说明                                                | 版本   |
-|----------------------|--------------|--------------|-----------------------------------------------------|--------|
-| key                | string       | ''           | 点赞或自定义互动值，例如 `like`、`dislike`、`collect` 等 | -   |
-| userList          | `UserInfo[]`       | []           | 点赞操作的用户列表                                     | -   |
+| Property name | Type | Default value | Description | Version |
+|----------------------|--------------|--------------|-------------------------------------------------------------|--------|
+| key | string | '' | Like or custom interaction type, e.g., `like`, `dislike`, `collect` | - |
+| userList | `UserInfo[]` | [] | List of users who performed the interaction | - |
 
 </TabItem>
 <TabItem value="js">
 
-**Moment 结构**
+**Moment structure**
 
-| 属性名                          | 类型         | 默认值       | 说明                                                | 版本   |
-|---------------------------------|--------------|--------------|-----------------------------------------------------|--------|
-| momentId                        | String       | -            | 朋友圈 ID，全局唯一                                  | 1.9.6  |
-| content.text                    | String       | -            | 朋友圈的文字内容                                        | 1.9.6  |
-| content.medias                  | Array        | []           | 朋友圈的媒体文件链接列表（图片/视频等），详细请参考下方 `Media` 结构                  | 1.9.6  |
-| user.id                         | String       | -            | 发布朋友圈的用户 Id                                      | 1.9.6  |
-| user.avatar                     | String       | -            | 发布朋友圈的用户头像                                         | 1.9.6  |
-| user.name                       | String       | -            | 发布朋友圈的用户名                                         | 1.9.6  |
-| topComments                     | Array        | []           | 前 20 条评论列表，详细请参考下方 `Comment` 结构                  | 1.9.6  |  
-| reactions                       | Array        | []           | 朋友圈的点赞或其他自定义交互列表，详细请参考下方 `Reaction` 结构 | 1.9.6  |
-| momentTime                      | Number       | -            | 朋友圈创建时间, 单位: 毫秒                                       | 1.9.6  |  
+| Property name | Type | Default value | Description | Version |
+|----------------------------------|-------------|--------------|--------------------------------------------------------|--------|
+| momentId | String | - | Unique global identifier for the Moment | 1.9.6 |
+| content.text | String | - | Text content of the circle of friends | 1.9.6 |
+| content.medias | Array | [] | List of media file links in the Moment (pictures/videos, etc.). See the `Media` structure below for details | 1.9.6 |
+| user.id | String | - | User ID of the person who posted the circle of friends | 1.9.6 |
+| user.avatar | String | - | Avatar of the user who posted the Moment | 1.9.6 |
+| user.name | String | - | Name of the user who posted the Moment | 1.9.6 |
+| topComments | Array | [] | List of the top 20 comments. See the `Comment` structure below for details | 1.9.6 |
+| reactions | Array | [] | List of likes or other custom interactions in the Moment. See the `Reaction` structure below for details | 1.9.6 |
+| momentTime | Number | - | Creation time of the Moment, in milliseconds | 1.9.6 |
 
-**Media 结构**
+**Media Structure**
 
-| 属性名        | 类型         | 默认值       | 说明                                                | 版本   |
-|---------------|--------------|--------------|-----------------------------------------------------|--------|
-| type          | String       | -            | [朋友圈媒体类型](../../enum/web#moment_type)                  | 1.9.6  |
-| url           | String       | -            | 图片朋友圈的原图链接或者视频链接                  | 1.9.6  |
-| snapshotUrl   | String       | -            | 图片朋友圈的缩略图，视频朋友圈首帧缩略图                  | 1.9.6  |
-| height        | Number       | -            | 图片或者视频的高度                  | 1.9.6  |
-| width         | Number       | -            | 图片或者视频的宽度                  | 1.9.6  |
-| duration      | Number       | -            | 视频的时长，仅视频朋友圈时有效                  | 1.9.6  |
+| Property name | Type | Default value | Description | Version |
+|---------------|--------------|--------------|--------------------------------------------------------|--------|
+| type | String | - | [Moment media type](../../enum/web#moment_type) | 1.9.6 |
+| url | String | - | Original image or video URL in the circle of friends | 1.9.6 |
+| snapshotUrl | String | - | Thumbnail image of the circle of friends; for videos, the first frame thumbnail | 1.9.6 |
+| height | Number | - | Height of the image or video | 1.9.6 |
+| width | Number | - | Width of the image or video | 1.9.6 |
+| duration | Number | - | Duration of the video, valid only for video Moments | 1.9.6 |
 
-**Comment 结构**
+**Comment structure**
 
-| 属性名               | 类型         | 默认值       | 说明                                                | 版本   |
-|----------------------|--------------|--------------|-----------------------------------------------------|--------|
-| commentId            | String       | -            | 评论唯一标识 Id                                      | 1.9.6  |
-| momentId             | String       | -            | 朋友圈 Id                                      | 1.9.6  |
-| parentCommentId      | String       | ""           | 父评论 Id，回复评论时为回复的评论 Id，无父评论时为空字符串 | 1.9.6  |
-| content.text         | String       | -            | 评论文本内容                                        | 1.9.6  |
-| parentUser           | Object       | {}           | 父评论用户信息（无父评论时为空对象）                | 1.9.6  |
-| user.avatar          | String       | -            | 评论用户头像 URL                                    | 1.9.6  |
-| user.id              | String       | -            | 评论用户唯一标识 Id                                 | 1.9.6  |
-| user.name            | String       | -            | 评论用户名                                          | 1.9.6  |
-| commentTime          | Number       | -            | 评论发布时间, 单位: 毫秒                              | 1.9.6  |
+| Property name | Type | Default value | Description | Version |
+|----------------------|--------------|--------------|-------------------------------------------------------------|--------|
+| commentId | String | - | Unique identifier for the comment | 1.9.6 |
+| momentId | String | - | Identifier of the Moment | 1.9.6 |
+| parentCommentId | String | "" | Parent comment ID; when replying to a comment, this is the ID of the comment being replied to. Empty string if no parent comment | 1.9.6 |
+| content.text | String | - | Text content of the comment | 1.9.6 |
+| parentUser | Object | {} | Information about the parent comment's user (empty object if no parent comment) | 1.9.6 |
+| user.avatar | String | - | Avatar URL of the comment user | 1.9.6 |
+| user.id | String | - | Unique identifier of the comment user | 1.9.6 |
+| user.name | String | - | Username of the comment user | 1.9.6 |
+| commentTime | Number | - | Timestamp when the comment was posted, in milliseconds | 1.9.6 |
 
-**Reaction 结构**
+**Reaction structure**
 
-| 属性名               | 类型         | 默认值       | 说明                                                | 版本   |
-|----------------------|--------------|--------------|-----------------------------------------------------|--------|
-| value                | String       | -            | 点赞或自定义互动值，例如 `like`、`dislike`、`collect` 等 | 1.9.6  |
-| timestamp            | Number       | -            | 点赞操作时间戳, 单位: 毫秒                              | 1.9.6  |
-| user.avatar          | String       | -            | 点赞用户头像 URL                                    | 1.9.6  |
-| user.id              | String       | -            | 点赞用户 Id                                  | 1.9.6  |
-| user.name            | String       | -            | 点赞用户名                                          | 1.9.6  |
+| Property name | Type | Default value | Description | Version |
+|----------------------|--------------|--------------|-------------------------------------------------------------|--------|
+| value | String | - | Like or custom interaction type, e.g., `like`, `dislike`, `collect` | 1.9.6 |
+| timestamp | Number | - | Timestamp of the like operation, in milliseconds | 1.9.6 |
+| user.avatar | String | - | Avatar URL of the user who liked | 1.9.6 |
+| user.id | String | - | ID of the user who liked | 1.9.6 |
+| user.name | String | - | Username of the user who liked | 1.9.6 |
 
 </TabItem>
 </Tabs>

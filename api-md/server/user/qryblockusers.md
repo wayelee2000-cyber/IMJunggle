@@ -1,34 +1,34 @@
 ---
-title: 单聊禁言列表
+title: Single Chat Ban List
 hide_title: true
 sidebar_position: 8
 ---
 
-### 功能说明{#intro}
+### Function Description{#intro}
 
-查询当前应用下被禁止单聊私信的用户列表，支持分页查询。
+Query the list of users who are banned from single chat and private messages within the current application. Supports paginated queries.
 
-### 请求说明{#req}
+### Request Description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`GET`
+> **Request Type**: `GET`
 
-> **请求限频**：`100次/秒`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/users/blockusers/query
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/users/blockusers/query
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request Parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|user_id|string|是|查询单聊禁言的用户||
-|limit|int|否|分页参数，一页的数量||
-|offset|string|否|偏移量，用于分页||
+| Parameter   | Data Type | Required | Description                                  |
+|:------------|:----------|:---------|:---------------------------------------------|
+| user_id    | string    | Yes      | The user whose single chat ban list is queried |
+| limit      | int       | No       | Pagination parameter specifying the number of items per page |
+| offset     | string    | No       | Offset used for pagination                    |
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 GET /apigateway/users/blockusers/query?user_id=user1&limit=20&offset="" HTTP/1.1
 appkey: appkey
@@ -39,34 +39,33 @@ Content-Type: application/json
 
 ```
 
-### 响应参数{#res_param}
+### Response Parameters {#res_param}
 
-|参数|数据类型|参数说明||
-|:--|:------|:-----|:-------|
-|block_user_id|array|禁言的用户id列表||
-|created_time|number|添加封禁的时间||
-|offset|string|用于分页的偏移量||
+| Parameter      | Data Type | Description                  |
+|:---------------|:----------|:-----------------------------|
+| block_user_id  | array     | List of banned user IDs      |
+| created_time   | number    | Timestamp when the ban was added |
+| offset        | string    | Offset used for pagination    |
 
-### 响应示例{#res_demo}
+### Response Example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "user_id":"user1",
-    "items":[
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "user_id": "user1",
+    "items": [
       {
-        "block_user_id":"user2",
-        "created_time":1672233498000 
+        "block_user_id": "user2",
+        "created_time": 1672233498000 
       },
       {
-        "block_user_id":"user3",
-        "created_time":1672233498000
+        "block_user_id": "user3",
+        "created_time": 1672233498000
       }
     ],
-    "offset":"aaddcxx"
+    "offset": "aaddcxx"
   }
 }
 ```
-

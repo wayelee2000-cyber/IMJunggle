@@ -1,36 +1,36 @@
 ---
-title: 智能回复
+title: Smart Reply
 hide_title: true
 sidebar_position: 6
 ---
-### 功能说明{#intro}
+### Function Description{#intro}
 
-生成智能回复
+Generate smart replies.
 
-### 请求说明{#req}
+### Request Description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/assistants/answer
+> **Request URL**: https://[request domain name](../api.md#api)/jim/assistants/answer
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|conver_id|string|是|会话id||
-|channel_type|int|是|会话类型，1：单聊；2：群聊||
-|prompt_id |string|否|提示词id||
-|msgs|array|否|会话中最新的n条消息||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request Parameters {#param}
+
+| Parameter    | Data Type | Required | Description                              |   |
+|:-------------|:----------|:---------|:---------------------------------------|---|
+| conver_id    | string    | yes      | Session ID                             |   |
+| channel_type | int       | yes      | Conversation type: 1 for single chat; 2 for group chat |   |
+| prompt_id    | string    | no       | Prompt word ID                         |   |
+| msgs         | array     | no       | The latest n messages in the session  |   |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /jim/assistants/answer HTTP/1.1
 appkey: appkey
@@ -38,32 +38,32 @@ Authorization: xxxxxxxxxxxxxxxxxx
 Content-Type: application/json
 
 {
-  "conver_id":"xx",
-  "channel_type":1,
-  "prompt_id":"xxx",
-  "msgs":[
+  "conver_id": "xx",
+  "channel_type": 1,
+  "prompt_id": "xxx",
+  "msgs": [
     {
-      "sender_id":"xx",
-      "content":"xxxxx",
-      "msg_time":1741234567893
+      "sender_id": "xx",
+      "content": "xxxxx",
+      "msg_time": 1741234567893
     }
   ]
 }
 ```
 
-### 响应示例{#res_demo}
+### Response Example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "answer":"xxxxxxxxx"
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "answer": "xxxxxxxxx"
   }
 }
 ```
 
-### 响应码
+### Response Codes
 
-|响应码|说明||
-|:--|:---|:--|
+| Response Code | Description |   |
+|:--------------|:------------|---|

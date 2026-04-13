@@ -1,39 +1,39 @@
 ---
-title: 接口说明
+title: Interface description
 hide_title: true
 sidebar_position: 1
 ---
 
-IM RESTful API 提供给开发者 IM 业务的接口，客户端和服务端 API 能力对称，开发者可通过 API 接口实现`用户管理`、`群组管理` 等，详细请参考接口清单 [RESTful API](./apilist)
+The IM RESTful API provides developers with interfaces for IM business operations. The client and server API capabilities are symmetrical. Developers can implement features such as `user management` and `group management` through these API interfaces. For more details, please refer to the interface list in [RESTful API](./apilist).
 
-> 为了通信安全，API 通过自定义公共 [header](#header) 进行鉴权
+> For communication security, the API authenticates requests via a custom public [header](#header).
 
-### 格式说明{#api}
+### Format Description{#api}
 
 ```js
 https://$api/$version/$command
 ```
-| 参数      | 名称         | 描述                                         |    |
-|----------|--------------|---------------------------------------------|---|
-| $api      | 请求域名       | 私有云部署服务后可获得请求地址  |  |
-| $version  | 版本          | API 的版本号                                |   |
-| $command  | 请求指令       | 具体的接口地址                               |   |
+| Parameter  | Name             | Description                                         |       |
+|------------|------------------|-----------------------------------------------------|-------|
+| $api       | Request domain   | The request address, which can be obtained after private cloud deployment |       |
+| $version   | Version          | API version number                                  |       |
+| $command   | Request command  | Specific interface endpoint                         |       |
 
 
-### 请求头{#header}
+### Request header{#header}
 
-| 请求头      | 必填 | 描述                                 | 备注  |
-|------------|------|--------------------------------------|------|
-| appkey     | 是   | 应用的唯一标识 |      |
-| nonce      | 是   | 随机数字，长度 8 位                   |      |
-| timestamp  | 是   | 时间戳，精确到毫秒                   |      |
-| signature  | 是   | sha1 计算的签名，向严格按照 [签名](#signature) 计算规则 |      |
+| Request header | Required | Description                                         | Remarks |
+|----------------|----------|-----------------------------------------------------|---------|
+| appkey         | Yes      | The unique identifier of the application            |         |
+| nonce          | Yes      | Random number, 8 characters long                     |         |
+| timestamp      | Yes      | Timestamp, accurate to milliseconds                  |         |
+| signature      | Yes      | Signature calculated using SHA1, strictly following the [signature](#signature) calculation rules |         |
 
-### 签名计算{#signature}
+### Signature calculation {#signature}
 
-签名计算，需要与 appkey 对应的 appsecret 创建应用获取
+To calculate the signature, the appsecret corresponding to the appkey must be created and obtained by the application.
 
 ```js
-// 顺序必须必须严格按：appsecret -> nonce -> timestamp
+// The order must be strictly followed: appsecret -> nonce -> timestamp
 signature = SHA1({appsecret}{nonce}{timestamp})
 ```

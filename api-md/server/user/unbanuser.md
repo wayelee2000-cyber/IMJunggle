@@ -1,35 +1,35 @@
 ---
-title: 解禁用户
+title: Unban user
 hide_title: true
 sidebar_position: 3
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-解禁用户后可重新连接，支持按 `平台`、`设备`、`用户` 维度解禁用户，便于开发者灵活控制用户的权限校验。
+Users can be reconnected after being unbanned. Users can be unbanned by `platform`, `device`, or `user` dimensions, allowing developers to flexibly control user permission verification.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 times/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/users/banusers/unban
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/users/banusers/unban
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|user_id|string|是|需要解禁的用户id||
-|scope_key|string|否|按封禁范围解禁，不传时解禁所有范围。取值范围：default:该用户封禁；platform:该用户指定的平台类型封禁；device:该用户指定的设备封禁;ip:该用户指定的ip封禁；||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameters | Data type | Required | Parameter description |  |
+|:-----------|:----------|:---------|:----------------------|:--|
+| user_id   | string    | Yes      | The user ID to be unbanned |  |
+| scope_key | string    | No       | Specifies the scope of the unban. If omitted, all scopes are unbanned. Possible values: <br> - `default`: unban the user globally <br> - `platform`: unban the user on a specified platform <br> - `device`: unban the user on a specified device <br> - `ip`: unban the user on a specified IP address |  |
+
+
+### Request Example{#req_demo}
 
 ```js
 POST /apigateway/users/banusers/unban HTTP/1.1
@@ -51,11 +51,11 @@ Content-Type: application/json
   ]
 }
 ```
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

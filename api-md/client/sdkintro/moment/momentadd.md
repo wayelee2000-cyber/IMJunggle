@@ -1,5 +1,5 @@
 ---
-title: 添加朋友圈
+title: Add Moments
 hide_title: true
 sidebar_position: 2
 ---
@@ -16,21 +16,21 @@ values={[
 }>
 <TabItem value="android">
 
-添加朋友圈，支持发送文本、文字图片混排、文字视频混排、图片视频混排等多种符合形式。
+Adding a Moment supports sending text, mixed text and images, mixed text and videos, mixed images and videos, and more.
 
-**接口说明**
+**Interface Description**
 
 ```java
 /**
- * 发布朋友圈
- * @param content 朋友圈的文本内容
- * @param mediaList 朋友圈的媒体内容列表（图片或者视频）
- * @param callback 结果回调
+ * Post to Moments
+ * @param content Text content of the Moment
+ * @param mediaList List of media content (images or videos) in the Moment
+ * @param callback Result callback
  */
 void addMoment(String content, List<MomentMedia> mediaList, JIMConst.IResultCallback<Moment> callback);
 ```
 
-**代码示例**
+**Code Example**
 
 ```java
 MomentMedia media1 = new MomentMedia();
@@ -56,22 +56,22 @@ JIM.getInstance().getMomentManager().addMoment("Beautiful!", l, new JIMConst.IRe
 </TabItem>
 <TabItem value="ios">
 
-添加朋友圈，支持发送文本、文字图片混排、文字视频混排、图片视频混排等多种符合形式。
+Adding a Moment supports sending text, mixed text and images, mixed text and videos, mixed images and videos, and more.
 
-**接口说明**
+**Interface Description**
 
 ```objectivec
-/// 发布朋友圈
+/// Publish to Moments
 /// - Parameters:
-///   - content: 朋友圈的文本内容
-///   - mediaList: 朋友圈的媒体内容列表（图片或者视频）
-///   - completeBlock: 结果回调
+///   - content: Text content of the Moment
+///   - mediaList: List of media content (images or videos) in the Moment
+///   - completeBlock: Result callback
 - (void)addMoment:(nonnull NSString *)content
         mediaList:(nullable NSArray <JMomentMedia *> *)mediaList
          complete:(nullable void (^)(JErrorCode errorCode, JMoment * _Nullable moment))completeBlock;
 ```
 
-**代码示例**
+**Code Example**
 
 ```objectivec
 NSMutableArray *mediaList = [NSMutableArray array];
@@ -91,25 +91,24 @@ media2.duration = 100;
 }];
 ```
 
-
 </TabItem>
 <TabItem value="flutter">
 
-添加朋友圈，支持发送文本、文字图片混排、文字视频混排、图片视频混排等多种符合形式。
+Adding a Moment supports sending text, mixed text and images, mixed text and videos, mixed images and videos, and more.
 
-**接口说明**
+**Interface Description**
 
 ```dart
 /**
- * 发布朋友圈
- * @param content 朋友圈的文本内容
- * @param mediaList 朋友圈的媒体内容列表（图片或者视频）
- * return Moment 对象
+ * Post to Moments
+ * @param content Text content of the Moment
+ * @param mediaList List of media content (images or videos) in the Moment
+ * @return Moment object
  */
 Future<Result<Moment>> addMoment(String content, List<MomentMedia>? mediaList) async
 ```
 
-**代码示例**
+**Code Example**
 
 ```dart
 String content = 'Beautiful!';
@@ -133,26 +132,26 @@ Result<Moment> result = await JuggleIm.instance.addMoment(content, l);
 </TabItem>
 <TabItem value="reactnative">
 
-添加朋友圈，支持发送文本、文字图片混排、文字视频混排、图片视频混排等多种符合形式。
+Adding a Moment supports sending text, mixed text and images, mixed text and videos, mixed images and videos, and more.
 
-**接口说明**
+**Interface Description**
 
 ```typescript
 /**
- * 发布朋友圈
- * @param content 朋友圈的文本内容
- * @param mediaList 朋友圈的媒体内容列表（图片或者视频）
- * return Promise<Moment> 对象
+ * Post to Moments
+ * @param content Text content of the Moment
+ * @param mediaList List of media content (images or videos) in the Moment
+ * @return Promise<Moment> object
  */
 addMoment(content: string, mediaList?: MomentMedia[]): Promise<Moment>
 ```
 
-**代码示例**
+**Code Example**
 
 ```typescript
 import { JuggleIMMoment } from 'juggleim-rnsdk';
 
-const content = '今天是个好日子';
+const content = 'Today is a good day';
 const mediaList = [
   {
     type: 'image',
@@ -163,43 +162,43 @@ const mediaList = [
 ];
 
 const moment = await JuggleIMMoment.addMoment(content, mediaList);
-console.log('添加朋友圈成功', moment);
+console.log('Moment added successfully', moment);
 ```
 
 </TabItem>
 <TabItem value="js">
 
-添加朋友圈，支持发送文本、文字图片混排、文字视频混排、图片视频混排等多种符合形式。
+Adding a Moment supports sending text, mixed text and images, mixed text and videos, mixed images and videos, and more.
 
-**参数说明**
+**Parameter Description**
 
-| 名称          | 类型    | 必填                          | 默认值                               | 描述                                           | 版本     |
-|--------------|---------|-------------------------------|-------------------------------------|------------------------------------------------|----------|
-| params        | Object  | 是                            | -   | 朋友圈信息  | 1.9.6   |
-| params.text    | String  | `medias` 和 `text` 至少二选一 |  -   | 朋友圈文本内容，文本字数 500 字以内  | 1.9.6   |
-| params.medias    | Array  | `medias` 和 `text` 至少二选一 |  [] | 朋友圈媒体内容，每个元素为 [Media](../moment_model) 结构  | 1.9.6   |
+| Name         | Type   | Required                                | Default | Description                                                      | Version |
+|--------------|--------|---------------------------------------|---------|------------------------------------------------------------------|---------|
+| params       | Object | Yes                                   | -       | Moment information                                               | 1.9.6   |
+| params.text  | String | At least one of `medias` or `text` is required | -       | Text content of the Moment, limited to 500 characters           | 1.9.6   |
+| params.medias| Array  | At least one of `medias` or `text` is required | []      | Media content of the Moment; each element follows the [Media](../moment_model) structure | 1.9.6   |
 
-**回调说明**
+**Callback Description**
 
-| 属性            | 类型    | 描述                                           | 版本  |
-|-----------------|---------|------------------------------------------------|----------|
-| result          | Object  | 查询结果                                       | 1.9.6   |
-| result.moment | Array | 朋友圈数组，单个朋友圈对象结构请查看 [Moment](../moment.md) | 1.9.6   | 
+| Properties    | Type   | Description                                                                 | Version |
+|---------------|--------|-----------------------------------------------------------------------------|---------|
+| result        | Object | Query result                                                                | 1.9.6   |
+| result.moment | Array  | Array of Moments; see [Moment](../moment.md) for the structure of a single Moment object | 1.9.6   |
 
-**代码示例**
+**Code Example**
 
 ```js
-// 发布文本朋友圈
+// Post text to Moments
 let content = {
-  text: '这是一条文本朋友圈'
+  text: 'This is a text-only Moment'
 };
 jim.addMoment(content).then((result) => {
-  console.log('addMoment successfully', result)
+  console.log('addMoment succeeded', result);
 });
 
-// 发布图文组合朋友圈
+// Post a combination of images and text to Moments
 let content = {
-  text: '这是一条图文组合朋友圈',
+  text: 'This is a Moment combining images and text',
   medias: [
     {
       type: 'image',
@@ -208,7 +207,7 @@ let content = {
   ],
 };
 jim.addMoment(content).then((result) => {
-  console.log('addMoment successfully', result)
+  console.log('addMoment succeeded', result);
 });
 ```
 

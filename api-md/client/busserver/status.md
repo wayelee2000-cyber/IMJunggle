@@ -1,30 +1,29 @@
 ---
-title: 状态码
+title: status code
 hide_title: true
 sidebar_position: 100
 ---
 
-### 业务错误码{#appbus}
-| 错误码 | 说明 | |
-|:------|:-----|:-------|
-|17000|默认错误||
-|17001|appkey缺失||
-|17002|该应用不存在||
-|17003|请求不合法||
-|17004|内部超时||
-|17005|未登录||
-|17006|继续等待||
-|17007|二维码已过期||
-|17008|短信发送失败||
-|17009|验证码已过期||
-|17010||未开通翻译功能|
-|17011|用户已存在||
-|17012|用户不存在||
-|17013|账号/密码错误||
-|17100|好友相关默认错误||
-|17101|好友申请被拒绝||
-|17102|好友申请重复||
-|17103|好友申请已过期||
-|17200|群相关默认错误||
-|17201|群成员已存在||
-
+### Business Error Codes{#appbus}
+| Error Code | Description | |
+|:----------|:------------|:-------|
+|17000|Default error||
+|17001|App key missing||
+|17002|Application does not exist||
+|17003|Illegal request||
+|17004|Internal timeout||
+|17005|Not logged in||
+|17006|Please wait||
+|17007|QR code has expired||
+|17008|Failed to send SMS||
+|17009|Verification code has expired||
+|17010||Translation function is not enabled|
+|17011|User already exists||
+|17012|User does not exist||
+|17013|Incorrect account or password||
+|17100|Friend-related default error||
+|17101|Friend request rejected||
+|17102|Duplicate friend request||
+|17103|Friend request has expired||
+|17200|Group-related default error||
+|17201|Group members already exist||

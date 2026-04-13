@@ -1,39 +1,38 @@
 ---
-title: 设置群成员白名单
+title: Set Group Member Whitelist
 hide_title: true
 sidebar_position: 11
 ---
 
-### 功能说明{#intro}
+### Function Description{#intro}
 
-设置群组禁言后，如允许部分用户可以发送消息，可将指定用户加入群组白名单中。
+After enabling a group ban, if you want to allow certain users to send messages, you can add those users to the group whitelist.
 
-:::danger 优先级
-若开发者同时调用 `群组禁言`、`群成员禁言`、`群成白名单`，群成白名单优先级最高，白名单中的用户依然可以发送消息
+:::danger priority
+If the developer calls `Group ban`, `Group member ban`, and `Group whitelist` simultaneously, the group whitelist takes the highest priority, allowing users on the whitelist to continue sending messages.
 :::
 
-### 请求说明{#req}
+### Request Description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request Rate Limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/groups/groupmemberallow/set
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/groups/groupmemberallow/set
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request Parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|group_id|string|是|群组 Id||
-|member_ids|array|是|群成员 Id 列表||
-|is_allow|int|是|0:非白名单用户；1:白名单用户；||
+| Parameter   | Data Type | Required | Description                  |   |
+|:------------|:----------|:---------|:----------------------------|---|
+| group_id    | string    | Yes      | The group ID                |   |
+| member_ids  | array     | Yes      | A list of group member IDs |   |
+| is_allow    | int       | Yes      | 0: Non-whitelist user; 1: Whitelist user |   |
 
-
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/groups/groupmemberallow/set HTTP/1.1
 appkey: appkey
@@ -43,17 +42,17 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "group_id":"groupid1",
-  "member_ids":["member1","member2"]
-  "is_allow":1
+  "group_id": "groupid1",
+  "member_ids": ["member1", "member2"],
+  "is_allow": 1
 }
 ```
 
-### 响应示例{#res_demo}
+### Response Example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

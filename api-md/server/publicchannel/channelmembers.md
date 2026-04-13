@@ -1,36 +1,36 @@
 ---
-title: 公众号订阅列表
+title: Public Account Subscription List
 hide_title: true
 sidebar_position: 6
 ---
 
-### 功能说明{#intro}
+### Function Description{#intro}
 
-查询订阅公众号的用户列表
+Retrieve the list of users subscribed to a public account.
 
-### 请求说明{#req}
+### Request Description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`GET`
+> **Request Type**: `GET`
 
-> **请求限频**：`100次/秒`
+> **Request Rate Limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/publicchannel/members/list
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/publicchannel/members/list
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|channel_id|string|是|公众号id||
-|limit|int|否|分页参数||
-|offset|string|否|分页偏移量||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request Parameters {#param}
+
+| Parameter   | Data Type | Required | Description          |   |
+|:------------|:----------|:---------|:---------------------|---|
+| channel_id  | string    | Yes      | Public account ID    |   |
+| limit       | int       | No       | Pagination limit     |   |
+| offset      | string    | No       | Pagination offset    |   |
+
+
+### Request Example{#req_demo}
 ``` js
 GET /apigateway/publicchannel/members/list?channel_id=xxx&limit=50&offset=xxx HTTP/1.1
 appkey: appkey
@@ -41,20 +41,20 @@ Content-Type: application/json
 
 ```
 
-### 响应示例{#res_demo}
+### Response Example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"success",
-  "data":{
-    "members":[
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "members": [
       {
-        "member_id":"userid1",
-        "created_time":17312345678
+        "member_id": "userid1",
+        "created_time": 17312345678
       }
     ],
-    "offset":"xxxx"
+    "offset": "xxxx"
   }
 }
 ```

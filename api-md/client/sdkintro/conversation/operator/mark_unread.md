@@ -1,5 +1,5 @@
 ---
-title: 标记会话状态
+title: mark session status
 hide_title: true
 sidebar_position: 3
 ---
@@ -12,21 +12,21 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-标记指定会话未读状态，支持标记为 `未读` 状态，如需清理标记的未读状态，可调用 [清空单个会话未读数](../../unread/clear_unread) 接口，标记状态 SDK 自动同步至当前用户的多个设备。
+This method sets the unread status of a session and supports marking it as `unread`. To clear the unread status, you can call the [Clear Single Session Unread](../../unread/clear_unread) interface. The SDK will automatically synchronize the mark status across all devices of the current user.
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation | Conversation | 会话标识 | 1.3.0    |
-| callback     | ISimpleCallback | 结果回调 | 1.3.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------|----------|
+| conversation | Conversation | Conversation identifier | 1.3.0 |
+| callback | ISimpleCallback | Result callback | 1.3.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
 Conversation c = new Conversation(Conversation.ConversationType.GROUP, "groupId1");
@@ -46,17 +46,17 @@ JIM.getInstance().getConversationManager().setUnread(c, new IConversationManager
 </TabItem>
 <TabItem value="ios">
 
-标记指定会话未读状态，支持标记为 `未读` 状态，如需清理标记的未读状态，可调用 [清空单个会话未读数](../../unread/clear_unread) 接口，标记状态 SDK 自动同步至当前用户的多个设备。
+This method sets the unread status of a session and supports marking it as `unread`. To clear the unread status, you can call the [Clear Single Session Unread](../../unread/clear_unread) interface. The SDK will automatically synchronize the mark status across all devices of the current user.
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation | JConversation | 会话标识 | 1.3.0    |
-| successBlock     |  | 成功回调 | 1.3.0    |
-| errorBlock     |  | 失败回调 | 1.3.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------|----------|
+| conversation | JConversation | Session identifier | 1.3.0 |
+| successBlock | | Success callback | 1.3.0 |
+| errorBlock | | Failure callback | 1.3.0 |
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 JConversation *c = [[JConversation alloc] initWithConversationType:JConversationTypeGroup conversationId:@"groupId1"];
@@ -68,23 +68,21 @@ JConversation *c = [[JConversation alloc] initWithConversationType:JConversation
 }];
 ```
 
-
 </TabItem>
 <TabItem value="js">
 
-标记指定会话未读状态，支持标记为 `未读` 状态，如需清理标记的未读状态，可调用 [清空单个会话未读数](../../unread/clear_unread) 接口，标记状态 SDK 自动同步至当前用户的多个设备。
+This method sets the unread status of a session and supports marking it as `unread`. To clear the unread status, you can call the [Clear Single Session Unread](../../unread/clear_unread) interface. The SDK will automatically synchronize the mark status across all devices of the current user.
 
+**Parameter description**
 
-**参数说明**
+| Name | Type | Required | Default | Description | Version |
+|----------------|---------|-------|---|------------------------------------------------|----------|
+| conversation | Object | Yes | None | Conversation object | 1.5.0 |
+| conversation.conversationId | String | Yes | None | Conversation ID | 1.5.0 |
+| conversation.conversationType | Number | Yes | None | Conversation type | 1.5.0 |
+| conversation.unreadTag | Number | Yes | | [Conversation Tag Status](../../../enum/web#unreadtag) | 1.5.0 |
 
-| 名称           | 类型     | 必填   | 默认值  | 描述                                      | 版本     |
-|----------------|---------|-------|---|---------------------------------------------|----------|
-| conversation   | Object | 是     | 无 | 获取会话的对象 | 1.5.0    |
-| conversation.conversationId   | String | 是     | 无 | 会话 Id | 1.5.0    |
-| conversation.conversationType | Number | 是     | 无 | 会话类型 | 1.5.0    |
-| conversation.unreadTag        | Number | 是     |  | [会话标记状态](../../../enum/web#unreadtag)| 1.5.0    |
-
-**示例代码**
+**Sample Code**
 
 ```js
 jim.markUnread({
@@ -92,26 +90,25 @@ jim.markUnread({
   conversationType: 2,
   unreadTag: UnreadTag.UNREAD,
 }).then(() => {
-  console.log('markunread successfully')
+  console.log('Marked as unread successfully');
 }, (error) => {
-  console.log(error)
+  console.log(error);
 });
-
 ```
 </TabItem>
 
 <TabItem value="harmony">
 
-标记指定会话未读状态，支持标记为 `未读` 状态，如需清理标记的未读状态，可调用 [清空单个会话未读数](../../unread/clear_unread) 接口，标记状态 SDK 自动同步至当前用户的多个设备。
+This method sets the unread status of a session and supports marking it as `unread`. To clear the unread status, you can call the [Clear Single Session Unread](../../unread/clear_unread) interface. The SDK will automatically synchronize the mark status across all devices of the current user.
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation | Conversation | 会话标识 | 1.3.0    |
-| callback     | ISimpleCallback | 结果回调 | 1.3.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------|----------|
+| conversation | Conversation | Conversation identifier | 1.3.0 |
+| callback | ISimpleCallback | Result callback | 1.3.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
 let conver = new Conversation("userid1",1)
@@ -123,15 +120,15 @@ JuggleIm.instance.getConversationManager().setUnread(conver,(code)=>{
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-标记指定会话未读状态，支持标记为 `未读` 状态，如需清理标记的未读状态，可调用 [清空单个会话未读数](../../unread/clear_unread) 接口，标记状态 SDK 自动同步至当前用户的多个设备, 设置成功后会话变更事件会触发。
+This method sets the unread status of a session and supports marking it as `unread`. To clear the unread status, you can call the [Clear Single Session Unread](../../unread/clear_unread) interface. The SDK will automatically synchronize the mark status across all devices of the current user. After a successful update, a session change event will be triggered.
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation | Conversation | 会话标识 | 0.6.3    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------|----------|
+| conversation | Conversation | Conversation identifier | 0.6.3 |
 
-**示例代码**
+**Sample Code**
 
 ```dart
 Conversation conversation = Conversation(ConversationType.group, 'groupId1');
@@ -141,17 +138,17 @@ await JuggleIm.instance.setUnread(conversation);
 </TabItem>
 <TabItem value="reactnative">
 
-标记指定会话未读状态，支持标记为 `未读` 状态，如需清理标记的未读状态，可调用 [清空单个会话未读数](../../unread/clear_unread) 接口，标记状态 SDK 自动同步至当前用户的多个设备，设置成功后会话变更事件会触发。
+This method sets the unread status of a session and supports marking it as `unread`. To clear the unread status, you can call the [Clear Single Session Unread](../../unread/clear_unread) interface. The SDK will automatically synchronize the mark status across all devices of the current user. After a successful update, a session change event will be triggered.
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation | Object | 会话标识 | 0.6.3    |
-| conversationType | Number | 会话类型 | 0.6.3    |
-| conversationId | String | 会话ID | 0.6.3    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------|----------|
+| conversation | Object | Conversation identifier | 0.6.3 |
+| conversationType | Number | Conversation type | 0.6.3 |
+| conversationId | String | Session ID | 0.6.3 |
 
-**示例代码**
+**Sample Code**
 
 ```javascript
 import JuggleIM from 'juggleim-rnsdk';

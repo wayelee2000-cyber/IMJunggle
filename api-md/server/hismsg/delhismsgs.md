@@ -1,36 +1,36 @@
 ---
-title: 删除消息
+title: delete message
 hide_title: true
 sidebar_position: 1
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-根据消息 Id 删除消息，支持删除单项和双向，删除消息操作 **自动同步** 至当前用户各端。
+Deleting messages by message ID supports both single-item and two-way deletion. The deletion operation is **automatically synchronized** across all devices of the current user.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/hismsgs/del
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/hismsgs/del
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|from_id|string|否|单聊会话时，会话一方用户的 Id||
-|target_id|string|是|单聊会话时，会话另一方用户的 Id；群聊会话时，群 Id||
-|channel_type|int|是|会话类型，1:单聊；2:群聊||
-|del_scope|int|否|删除消息的范围，0: 代表只删除 fromid 视角的消息；1: 全视角消息删除，会话双方(或群里所有人)都将无法再查看消息；||
-|msgs|array|是|要删除的消息的 Id 列表||
+| Parameters   | Data type | Required | Description                                                                                                         |   |
+|:-------------|:----------|:---------|:--------------------------------------------------------------------------------------------------------------------|---|
+| from_id      | string    | No       | In a single chat session, the ID of the user in the conversation.                                                  |   |
+| target_id    | string    | Yes      | In a single chat session, the ID of the other user; in a group chat session, the group ID.                         |   |
+| channel_type | int       | Yes      | Conversation type: 1 for single chat; 2 for group chat.                                                             |   |
+| del_scope    | int       | No       | The scope of message deletion: 0 means deleting messages only from the perspective of `from_id`; 1 means deleting messages for all participants (both parties in a single chat or all members in a group) so that no one can view them. |   |
+| msgs         | array     | Yes      | A list of message IDs to be deleted.                                                                                |   |
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/hismsgs/del HTTP/1.1
 appkey: appkey
@@ -40,24 +40,23 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "from_id":"xxx",
-  "target_id":"xxx",
-  "channel_type":1,
-  "del_scope":0,
-  "msgs":[
+  "from_id": "xxx",
+  "target_id": "xxx",
+  "channel_type": 1,
+  "del_scope": 0,
+  "msgs": [
     {
-      "msg_id":"xxxxx"
+      "msg_id": "xxxxx"
     }
   ]
 }
-
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

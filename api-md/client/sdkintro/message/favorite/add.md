@@ -1,5 +1,5 @@
 ---
-title: 添加收藏
+title: add to favorites
 hide_title: true
 sidebar_position: 1
 ---
@@ -16,15 +16,15 @@ values={[
 }>
 <TabItem value="android">
 
-添加收藏，支持图片、文件、语音、视频等多种类型消息的收藏。
+Add messages to favorites to support collecting various types of content such as pictures, files, voice notes, videos, and more.
 
-**接口定义**
+**Interface definition**
 
 ```java
 /**
- * 添加消息收藏
- * @param messageIdList 待收藏的消息 id 列表
- * @param callback 结果回调
+ * Add messages to favorites
+ * @param messageIdList List of message IDs to be added to favorites
+ * @param callback Result callback
  */
 void addFavorite(List<String> messageIdList, ISimpleCallback callback);
 ```
@@ -32,16 +32,16 @@ void addFavorite(List<String> messageIdList, ISimpleCallback callback);
 </TabItem>
 <TabItem value="ios">
 
-添加收藏，支持图片、文件、语音、视频等多种类型消息的收藏。
+Add messages to favorites to support collecting various types of content such as pictures, files, voice notes, videos, and more.
 
-**接口定义**
+**Interface definition**
 
 ```objectivec
-/// 添加消息收藏
+/// Add messages to favorites
 /// - Parameters:
-///   - messageIdList: 待收藏的消息 id 列表
-///   - successBlock: 成功回调
-///   - errorBlock: 失败回调
+///   - messageIdList: List of message IDs to be added to favorites
+///   - successBlock: Success callback
+///   - errorBlock: Failure callback
 - (void)addFavorite:(NSArray <NSString *> *)messageIdList
             success:(void (^)(void))successBlock
               error:(void (^)(JErrorCode code))errorBlock;
@@ -50,32 +50,32 @@ void addFavorite(List<String> messageIdList, ISimpleCallback callback);
 </TabItem>
 <TabItem value="js">
 
-添加收藏，支持图片、文件、语音、视频等多种类型消息的收藏。
+Add messages to favorites to support collecting various types of content such as pictures, files, voice notes, videos, and more.
 
 ![](./add.png)
 
-**参数说明**
+**Parameter description**
 
-| 名称                                 | 类型    | 必填   | 默认值  | 描述                                                         | 版本     |
-|-------------------------------------|---------|--------|--------|--------------------------------------------------------------|----------|
-| params                              | Object  | 是     |        | 消息对象                                                      | 1.0.0    |
-| params.messages                     | Array   | 是     |        | 收藏消息列表                            | 1.0.0    |
-| params.messages[0].conversationType | Number  | 是     |        | [会话类型](../../enum/web#conversation) | 1.0.0    |
-| params.messages[0].conversationId   | String  | 是     |        | 会话 Id，会话类型是 `PRIVATE` 时，会话 Id 是接收方的 userId，会话类型是 `GROUP` 时是群组 Id | 1.0.0    |
-| params.messages[0].senderId         | String  | 是     |        | 消息发送人 Id，[Message.sender.id](../../../msg/message) 可获取| 1.0.0    |
-| params.messages[0].messageId        | String  | 是     |        | 消息 Id，[Message.messageId](../../../msg/message) 可获取| 1.0.0    |
+| Name | Type | Required | Default | Description | Version |
+|----------------------------------------|---------|--------|--------|---------------------------------------------------------|----------|
+| params | Object | Yes | | Message object | 1.0.0 |
+| params.messages | Array | Yes | | List of messages to be favorited | 1.0.0 |
+| params.messages[0].conversationType | Number | Yes | | [Conversation Type](../../enum/web.md#conversation) | 1.0.0 |
+| params.messages[0].conversationId | String | Yes | | Session ID. For `PRIVATE` conversations, this is the receiver's userId; for `GROUP` conversations, this is the group ID | 1.0.0 |
+| params.messages[0].senderId | String | Yes | | Message sender ID, see [Message.sender.id](../../../msg/message) | 1.0.0 |
+| params.messages[0].messageId | String | Yes | | Message ID, see [Message.messageId](../../../msg/message) | 1.0.0 |
 
-**成功回调**
+**Success callback**
 
-无参数返回，回调触发表示成功
+No parameters are returned. The callback is triggered to indicate success.
 
-**失败回调**
+**Failure callback**
 
-| 名称   | 类型    | 描述                                                      | 版本   |
-|--------|---------|-----------------------------------------------------------|--------|
-| error  | Object  | 发送失败后会有对应的状态码，可以直接查看 `error.msg`，或者查看 [状态码](../../../../sdkintro/status_code/web) | 1.0.0  |
+| Name | Type | Description | Version |
+|--------|---------|--------------------------------------------------------------|--------|
+| error | Object | Contains the error status code upon failure. You can check `error.msg` or refer to [Status Code](../../../../sdkintro/status_code/web) | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType } = JIM;
 
@@ -89,7 +89,7 @@ let params = {
 };
 
 jim.addFavoriteMessages(params).then(() => {
-  console.log('addFavoriteMessages successfully.')
+  console.log('addFavoriteMessages succeeded.');
 }, (error) => {
   console.log(error);
 });
@@ -97,14 +97,14 @@ jim.addFavoriteMessages(params).then(() => {
 </TabItem>
 <TabItem value="flutter">
 
-添加收藏，支持图片、文件、语音、视频等多种类型消息的收藏。
+Add messages to favorites to support collecting various types of content such as pictures, files, voice notes, videos, and more.
 
-**接口定义**
+**Interface definition**
 
 ```dart
-/// 添加消息收藏
+/// Add messages to favorites
 /// - Parameters:
-///   - messageIdList: 待收藏的消息 id 列表
+///   - messageIdList: List of message IDs to be added to favorites
 Future<int> addFavoriteMessages(List<String> messageIdList) async
 ```
 

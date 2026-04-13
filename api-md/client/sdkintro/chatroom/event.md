@@ -1,5 +1,5 @@
 ---
-title: 聊天室监听
+title: Chat room monitoring
 hide_title: true
 sidebar_position: 2
 ---
@@ -12,13 +12,13 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-聊天室消息通过统一的 [消息监听](../../watcher/message) 返回。
-聊天室加入退出监听，可以设置多个。
+Chat room messages are delivered through the unified [Message Listener](../../watcher/message).  
+You can configure monitoring for multiple chat rooms to join and leave.
 
 ```java
 JIM.getInstance().getChatroomManager().addListener("main", this);
@@ -54,27 +54,27 @@ public void onChatroomDestroy(String chatroomId) {
 }
 ```
 
-聊天室属性变更监听，可以设置多个。
+You can also monitor chat room attribute changes with multiple configurations.
 
 ```java
 JIM.getInstance().getChatroomManager().addAttributesListener("main", this);
 
 @Override
 public void onAttributesUpdate(String chatroomId, Map<String, String> attributes) {
-    Log.i("TAG", "onAttributesUpdate, chatroomId is " + chatroomId + ", count is " + attributes);
+    Log.i("TAG", "onAttributesUpdate, chatroomId is " + chatroomId + ", attributes are " + attributes);
 }
 
 @Override
 public void onAttributesDelete(String chatroomId, Map<String, String> attributes) {
-    Log.i("TAG", "onAttributesDelete, chatroomId is " + chatroomId + ", count is " + attributes);
+    Log.i("TAG", "onAttributesDelete, chatroomId is " + chatroomId + ", attributes are " + attributes);
 }
 ```
 
 </TabItem>
 <TabItem value="ios">
 
-聊天室消息通过统一的 [消息监听](../../watcher/message) 返回。
-聊天室加入退出监听，可以设置多个。
+Chat room messages are delivered through the unified [Message Listener](../../watcher/message).  
+You can configure monitoring for multiple chat rooms to join and leave.
 
 ```objectivec
 [JIM.shared.chatroomManager addDelegate:self];
@@ -104,7 +104,7 @@ public void onAttributesDelete(String chatroomId, Map<String, String> attributes
 }
 ```
 
-聊天室属性变更监听，可以设置多个。
+You can also monitor chat room attribute changes with multiple configurations.
 
 ```objectivec
 [JIM.shared.chatroomManager addAttributesDelegate:self];
@@ -116,180 +116,178 @@ public void onAttributesDelete(String chatroomId, Map<String, String> attributes
 - (void)attributesDidUpdate:(NSDictionary<NSString *,NSString *> *)attributes forChatroom:(NSString *)chatroomId {
     NSLog(@"attributesDidUpdate, count is %ld, chatroom is %@", attributes.count, chatroomId);
 }
-
 ```
 
 </TabItem>
 <TabItem value="flutter">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="js">
 
-聊天室监听包含 `属性变更` 和 `成员变更` 两大类监听，聊天室消息会通过统一 [消息监听](../../watcher/message) 返回
+Chat room monitoring includes two main types: `attribute changes` and `member changes`.  
+Chat room messages are delivered through the unified [Message Monitoring](../../watcher/message).
 
 ```js
-
-// 当前用户重新加入事件，断网恢复后 SDK 会自动重新加入聊天室
+// The current user rejoins the chat room. After a network disconnection and reconnection, the SDK will automatically rejoin the chat room.
 jim.on(Event.CHATROOM_USER_REJOINED, (user) => {
- // user => { id: '10002', name: 'xiaokele' }
+  // user => { id: '10002', name: 'xiaokele' }
 });
 
-// 当前用户加入房间
+// Current user joins the chat room
 jim.on(Event.CHATROOM_USER_JOINED, (user) => {
   // user => { id: '10002', name: 'xiaokele' }
 });
 
-// 当前用户退出房间
+// Current user leaves the chat room
 jim.on(Event.CHATROOM_USER_QUIT, (user) => {
   // user => { id: '10002', name: 'xiaokele' }
 });
 
-// 聊天室成员加入事件
+// Chat room member joined event
 jim.on(Event.CHATROOM_MEMBER_JOINED, (member) => {
   // member => { id: '10001', name: 'xiaoshan' }
 });
 
-// 聊天室成员退出事件
+// Chat room member left event
 jim.on(Event.CHATROOM_MEMBER_QUIT, (member) => {
   // member => { id: '10001', name: 'xiaoshan' }
 });
 
-// 聊天室销毁事件，通过 Server API 可销毁聊天室
+// Chat room destruction event. The chat room can be destroyed via the Server API.
 jim.on(Event.CHATROOM_DESTROYED, (chatroom) => {
   // chatroom => { id: 'chatroom1001' }
 });
 
-// 聊天室属性删除通知
+// Chat room attribute deletion notification
 jim.on(Event.CHATROOM_ATTRIBUTE_DELETED, (chatroom) => {
-  console.log('chatroom attributes deleted', chatroom);
+  console.log('Chat room attributes deleted', chatroom);
   /* 
     chatroom => 
       {
         id: 'chatroom1001',
-        attributes:[{ key: 'name' }]
+        attributes: [{ key: 'name' }]
       }
   */
 });
 
-// 聊天室属性更新通知
+// Chat room attribute update notification
 jim.on(Event.CHATROOM_ATTRIBUTE_UPDATED, (chatroom) => {
-  console.log('chatroom attributes updated', chatroom);
+  console.log('Chat room attributes updated', chatroom);
   /* 
     chatroom => 
       {
         id: 'chatroom1001',
-        attributes:[{ key: 'name', value: 'xiaoshan', userId: '更新 Key 的用户 Id' }]
+        attributes: [{ key: 'name', value: 'xiaoshan', userId: 'User ID who updated the key' }]
       }
   */
 });
-
 ```
 
 </TabItem>
 <TabItem value="reactnative">
 
-聊天室消息通过统一的 [消息监听](../../watcher/message) 返回。
-聊天室加入退出监听，可以设置多个。
+Chat room messages are delivered through the unified [Message Listener](../../watcher/message).  
+You can configure monitoring for multiple chat rooms to join and leave.
 
 ```ts
 import JuggleIM from 'juggleim-rnsdk';
 
-// 聊天室加入成功
+// Chat room joined successfully
 JuggleIM.onChatroomJoin = (chatroomId: string) => {
   console.log('onChatroomJoin, chatroomId is', chatroomId);
 };
 
-// 聊天室退出成功
+// Chat room exited successfully
 JuggleIM.onChatroomQuit = (chatroomId: string) => {
   console.log('onChatroomQuit, chatroomId is', chatroomId);
 };
 
-// 聊天室加入失败
+// Failed to join chat room
 JuggleIM.onChatroomJoinFail = (chatroomId: string, errorCode: number) => {
   console.log('onChatroomJoinFail, chatroomId is', chatroomId, ', errorCode is', errorCode);
 };
 
-// 聊天室退出失败
+// Failed to exit chat room
 JuggleIM.onChatroomQuitFail = (chatroomId: string, errorCode: number) => {
   console.log('onChatroomQuitFail, chatroomId is', chatroomId, ', errorCode is', errorCode);
 };
 
-// 聊天室被踢出
+// Kicked out of chat room
 JuggleIM.onChatroomKick = (chatroomId: string) => {
   console.log('onChatroomKick, chatroomId is', chatroomId);
 };
 
-// 聊天室销毁
+// Chat room destroyed
 JuggleIM.onChatroomDestroy = (chatroomId: string) => {
   console.log('onChatroomDestroy, chatroomId is', chatroomId);
 };
 ```
 
-聊天室属性变更监听，可以设置多个。
+You can also monitor chat room attribute changes with multiple configurations.
 
 ```ts
-// 聊天室属性更新
+// Chat room attributes updated
 JuggleIM.onChatroomAttributesUpdate = (chatroomId: string, attributes: Record<string, string>) => {
-  console.log('onAttributesUpdate, chatroomId is', chatroomId, ', attributes is', attributes);
+  console.log('onAttributesUpdate, chatroomId is', chatroomId, ', attributes are', attributes);
 };
 
-// 聊天室属性删除
+// Chat room attributes deleted
 JuggleIM.onChatroomAttributesDelete = (chatroomId: string, attributes: Record<string, string>) => {
-  console.log('onAttributesDelete, chatroomId is', chatroomId, ', attributes is', attributes);
+  console.log('onAttributesDelete, chatroomId is', chatroomId, ', attributes are', attributes);
 };
 ```
 
 </TabItem>
 <TabItem value="harmony">
 
-聊天室消息通过统一的 [消息监听](../../watcher/message) 返回。
-聊天室加入退出监听，可以设置多个。
+Chat room messages are delivered through the unified [Message Listener](../../watcher/message).  
+You can configure monitoring for multiple chat rooms to join and leave.
 
 ```js
-// 聊天室加入成功
+// Chat room joined successfully
 JuggleIm.instance.getChatroomManager().onChatroomJoin = (chatroomId) => {
   console.log('onChatroomJoin, chatroomId is', chatroomId);
 };
 
-// 聊天室退出成功
+// Chat room exited successfully
 JuggleIm.instance.getChatroomManager().onChatroomQuit = (chatroomId) => {
   console.log('onChatroomQuit, chatroomId is', chatroomId);
 };
 
-// 聊天室加入失败
+// Failed to join chat room
 JuggleIm.instance.getChatroomManager().onChatroomJoinFail = (chatroomId, errorCode) => {
   console.log('onChatroomJoinFail, chatroomId is', chatroomId, ', errorCode is', errorCode);
 };
 
-// 聊天室退出失败
+// Failed to exit chat room
 JuggleIm.instance.getChatroomManager().onChatroomQuitFail = (chatroomId, errorCode) => {
   console.log('onChatroomQuitFail, chatroomId is', chatroomId, ', errorCode is', errorCode);
 };
 
-// 聊天室被踢出
+// Kicked out of chat room
 JuggleIm.instance.getChatroomManager().onChatroomKick = (chatroomId) => {
   console.log('onChatroomKick, chatroomId is', chatroomId);
 };
 
-// 聊天室销毁
+// Chat room destroyed
 JuggleIm.instance.getChatroomManager().onChatroomDestroy = (chatroomId) => {
   console.log('onChatroomDestroy, chatroomId is', chatroomId);
 };
 ```
 
-聊天室属性变更监听，可以设置多个。
+You can also monitor chat room attribute changes with multiple configurations.
 
 ```js
-// 聊天室属性更新
+// Chat room attributes updated
 JuggleIm.instance.getChatroomManager().onAttributesUpdate = (chatroomId, attributes) => {
-  console.log('onAttributesUpdate, chatroomId is', chatroomId, ', attributes is', attributes);
+  console.log('onAttributesUpdate, chatroomId is', chatroomId, ', attributes are', attributes);
 };
 
-// 聊天室属性删除
+// Chat room attributes deleted
 JuggleIm.instance.getChatroomManager().onAttributesDelete = (chatroomId, attributes) => {
-  console.log('onAttributesDelete, chatroomId is', chatroomId, ', attributes is', attributes);
+  console.log('onAttributesDelete, chatroomId is', chatroomId, ', attributes are', attributes);
 };
 ```
 

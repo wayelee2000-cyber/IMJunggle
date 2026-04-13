@@ -1,35 +1,35 @@
 ---
-title: 好友列表
+title: friends list
 hide_title: true
 sidebar_position: 5
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-我的好友列表，默认按字母序排序
+My friends list, sorted alphabetically by default.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`GET`
+> **Request Type**: `GET`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/friends/list
+> **Request URL**: https://[request domain name](../api.md#api)/jim/friends/list
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|page|int|否|用于分页，起始页数，从1开始||
-|size|int|否|单页数量，默认20，最大不超过50||
-|order_tag|string|否|起始的拼音字母||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameter  | Data type | Required | Description                          |   |
+|:-----------|:----------|:---------|:-----------------------------------|---|
+| page       | int       | No       | Used for pagination; starting page number, beginning at 1 |   |
+| size       | int       | No       | Number of items per page; default is 20, maximum is 50   |   |
+| order_tag  | string    | No       | Starting Pinyin letter to filter results                   |   |
+
+
+### Request Example{#req_demo}
 ``` js
 GET /jim/friends/list?size=50&page=1&order_tag=a HTTP/1.1
 appkey: appkey
@@ -38,33 +38,34 @@ Content-Type: application/json
 
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "items":[
-        {
-            "user_id":"userid1",
-            "nickname":"user1",
-            "avatar":"https://file.juggle.im/abcdfafsdaf.png",
-            "pinyin":"u",
-            "friend_info":{
-              "is_friend":true,
-              "display_name":"displayname"
-            }
-        },{
-            "user_id":"userid2",
-            "nickname":"user2",
-            "avatar":"https://file.juggle.im/abcdfafsdaf.png",
-            "pinyin":"u",
-            "friend_info":{
-              "is_friend":true,
-              "display_name":"displayname"
-            }
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "items": [
+      {
+        "user_id": "userid1",
+        "nickname": "user1",
+        "avatar": "https://file.juggle.im/abcdfafsdaf.png",
+        "pinyin": "u",
+        "friend_info": {
+          "is_friend": true,
+          "display_name": "displayname"
         }
+      },
+      {
+        "user_id": "userid2",
+        "nickname": "user2",
+        "avatar": "https://file.juggle.im/abcdfafsdaf.png",
+        "pinyin": "u",
+        "friend_info": {
+          "is_friend": true,
+          "display_name": "displayname"
+        }
+      }
     ]
   }
 }

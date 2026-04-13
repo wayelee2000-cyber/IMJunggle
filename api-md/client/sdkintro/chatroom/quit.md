@@ -1,5 +1,5 @@
 ---
-title: 退出聊天室
+title: Exit chat room
 hide_title: true
 sidebar_position: 4
 ---
@@ -12,17 +12,17 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-退出聊天室，用户多设备登录时其中一个设备退出，所有设备都会退出，会触发 [聊天室监听](../event)
+Exit the chat room. When a user is logged in on multiple devices and one device exits, all devices will be logged out, and [Chat Room Monitoring](../event) will be triggered.
 
-**示例代码**
+**Sample Code**
 
 ```java
-//退出结果通过聊天室监听回调
+// The exit result is monitored through the chat room callback
 String chatroomId = "chatroomId1";
 JIM.getInstance().getChatroomManager().quitChatroom(chatroomId);
 ```
@@ -30,12 +30,12 @@ JIM.getInstance().getChatroomManager().quitChatroom(chatroomId);
 </TabItem>
 <TabItem value="ios">
 
-退出聊天室，用户多设备登录时其中一个设备退出，所有设备都会退出，会触发 [聊天室监听](../event)
+Exit the chat room. When a user is logged in on multiple devices and one device exits, all devices will be logged out, and [Chat Room Monitoring](../event) will be triggered.
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
-//退出结果通过聊天室监听回调
+// The exit result is monitored through the chat room callback
 NSString *chatroomId = @"chatroomId1";
 [JIM.shared.chatroomManager quitChatroom:chatroomId];
 ```
@@ -43,17 +43,16 @@ NSString *chatroomId = @"chatroomId1";
 </TabItem>
 <TabItem value="js">
 
-退出聊天室，用户多设备登录时其中一个设备退出，所有设备都会退出，会触发聊天室 [成员变更监听](../event)
+Exit the chat room. When a user is logged in on multiple devices and one device exits, all devices will be logged out, and the chat room [Member Change Monitoring](../event) will be triggered.
 
-**参数说明**
+**Parameter description**
 
-| 名称                    | 类型     | 必填   | 默认值  | 描述| 版本     |
-|-------------------------|---------|-------|---|----------|----------|
-| chatroom                | Object | 是     | 无 | 聊天室对象 | 1.6.0    |
-| chatroom.id             | String | 是     | 无 | 聊天室 ID | 1.6.0    |
+| Name       | Type   | Required | Default | Description     | Version |
+|------------|--------|----------|---------|-----------------|---------|
+| chatroom   | Object | Yes      | None    | Chatroom object | 1.6.0   |
+| chatroom.id| String | Yes      | None    | Chatroom ID     | 1.6.0   |
 
-
-**示例代码**
+**Sample Code**
 
 ```js
 let chatroom = {
@@ -61,18 +60,18 @@ let chatroom = {
 };
 
 jim.quitChatroom(chatroom).then(() => {
-  console.log('quit chatroom successfully');
+  console.log('Quit chatroom successfully');
 }, (error) => {
-  console.log('error', error);
+  console.log('Error', error);
 });
 ```
 
 </TabItem>
 <TabItem value="flutter">
 
-退出聊天室，用户多设备登录时其中一个设备退出，所有设备都会退出，会触发 [聊天室监听](../event)
+Exit the chat room. When a user is logged in on multiple devices and one device exits, all devices will be logged out, and [Chat Room Monitoring](../event) will be triggered.
 
-**示例代码**
+**Sample Code**
 
 ```dart
 String chatroomId = "chatroomId1";
@@ -82,9 +81,9 @@ await JuggleIm.instance.getChatroomManager().quitChatroom(chatroomId);
 </TabItem>
 <TabItem value="reactnative">
 
-退出聊天室，用户多设备登录时其中一个设备退出，所有设备都会退出，会触发 [聊天室监听](../event)
+Exit the chat room. When a user is logged in on multiple devices and one device exits, all devices will be logged out, and [Chat Room Monitoring](../event) will be triggered.
 
-**示例代码**
+**Sample Code**
 
 ```ts
 import JuggleIM from 'juggleim-rnsdk';
@@ -96,9 +95,9 @@ await JuggleIM.quitChatroom(chatroomId);
 </TabItem>
 <TabItem value="harmony">
 
-退出聊天室，用户多设备登录时其中一个设备退出，所有设备都会退出，会触发 [聊天室监听](../event)
+Exit the chat room. When a user is logged in on multiple devices and one device exits, all devices will be logged out, and [Chat Room Monitoring](../event) will be triggered.
 
-**示例代码**
+**Sample Code**
 
 ```js
 let chatroomId = "chatroomId1";

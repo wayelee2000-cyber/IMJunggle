@@ -1,5 +1,5 @@
 ---
-title: 删除朋友圈
+title: Delete Moments
 hide_title: true
 sidebar_position: 3
 ---
@@ -16,20 +16,20 @@ values={[
 }>
 <TabItem value="android">
 
-删除朋友圈。
+Delete Moments.
 
-**接口说明**
+**Interface Description**
 
 ```java
 /**
- * 删除朋友圈
- * @param momentId 朋友圈 id
- * @param callback 结果回调
+ * Delete Moments
+ * @param momentId Moment ID
+ * @param callback Result callback
  */
 void removeMoment(String momentId, IMessageManager.ISimpleCallback callback);
 ```
 
-**代码示例**
+**Code Example**
 
 ```java
 JIM.getInstance().getMomentManager().removeMoment("momentId", new IMessageManager.ISimpleCallback() {
@@ -43,48 +43,46 @@ JIM.getInstance().getMomentManager().removeMoment("momentId", new IMessageManage
 });
 ```
 
-
 </TabItem>
 <TabItem value="ios">
 
-删除朋友圈。
+Delete Moments.
 
-**接口说明**
+**Interface Description**
 
 ```objectivec
-/// 删除朋友圈
+/// Delete Moments
 /// - Parameters:
-///   - momentId: 朋友圈 id
-///   - completeBlock: 结果回调
+///   - momentId: Moment ID
+///   - completeBlock: Result callback
 - (void)removeMoment:(nonnull NSString *)momentId
             complete:(nullable void (^)(JErrorCode errorCode))completeBlock;
 ```
 
-**代码示例**
+**Code Example**
 
 ```objectivec
 [JIM.shared.momentManager removeMoment:@"momentId" complete:^(JErrorCode errorCode) {
 }];
 ```
 
-
 </TabItem>
 <TabItem value="flutter">
 
-删除朋友圈。
+Delete Moments.
 
-**接口说明**
+**Interface Description**
 
 ```dart
 /**
- * 删除朋友圈
- * @param momentId 朋友圈 id
- * return 错误码，0 表示成功
+ * Delete Moments
+ * @param momentId Moment ID
+ * @return Error code, 0 indicates success
  */
 Future<int> removeMoment(String momentId) async
 ```
 
-**代码示例**
+**Code Example**
 
 ```dart
 int removeResult = await JuggleIm.instance.removeMoment('momentId');
@@ -93,20 +91,20 @@ int removeResult = await JuggleIm.instance.removeMoment('momentId');
 </TabItem>
 <TabItem value="reactnative">
 
-删除朋友圈。
+Delete Moments.
 
-**接口说明**
+**Interface Description**
 
 ```typescript
 /**
- * 删除朋友圈
- * @param momentId 朋友圈 id
- * return Promise<void>
+ * Delete Moments
+ * @param momentId Moment ID
+ * @returns Promise<void>
  */
 removeMoment(momentId: string): Promise<void>
 ```
 
-**代码示例**
+**Code Example**
 
 ```typescript
 import { JuggleIMMoment } from 'juggleim-rnsdk';
@@ -117,23 +115,23 @@ await JuggleIMMoment.removeMoment('momentId');
 </TabItem>
 <TabItem value="js">
 
-删除朋友圈，支持批量删除。
+Delete Moments with support for batch deletion.
 
-**参数说明**
+**Parameter Description**
 
-| 名称          | 类型    | 必填                          | 默认值                               | 描述                                           | 版本     |
-|--------------|---------|-------------------------------|-------------------------------------|------------------------------------------------|----------|
-| params        | Object  | 是                           | -   | 朋友圈信息  | 1.9.6   |
-| params.momentIds    | Array  | 是                     |  -   | 要删除的朋友圈 ID 数组  | 1.9.6   | 
+| Name          | Type   | Required | Default | Description                         | Version |
+|---------------|--------|----------|---------|-----------------------------------|---------|
+| params        | Object | Yes      | -       | Moment information                | 1.9.6   |
+| params.momentIds | Array  | Yes      | -       | Array of moment IDs to be deleted | 1.9.6   |
 
-**代码示例**
+**Code Example**
 
 ```js
 let params = {
   momentIds: ['momentId'],
 };
 jim.removeMoment(params).then(() => {
-  console.log('removeMoment successfully')
+  console.log('removeMoment succeeded');
 });
 ```
 

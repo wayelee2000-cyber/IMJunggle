@@ -1,5 +1,5 @@
 ---
-title: 朋友圈列表
+title: Moments list
 hide_title: true
 sidebar_position: 4
 ---
@@ -16,29 +16,29 @@ values={[
 }>
 <TabItem value="android">
 
-获取所有好友的朋友圈列表，支持按指定时间前后分页获取。
+Retrieve the list of all friends' Moments, supporting pagination before and after a specified time.
 
-**GetMomentOption 结构**
+**GetMomentOption structure**
 
-| 名称          | 类型    |  描述                                           | 版本     |
+| Name | Type | Description | Version |
 |--------------|---------|------------------------------------------------|----------|
-| count  | int  | 获取指定数量的朋友圈，单次最多获取 20 条记录 | 1.8.30   |
-| direction | JIMConst.PullDirection  | 获取方向，支持按 `startTime` 获取更早的朋友圈或者更（四声）新的朋友圈| 1.8.30   |
-| startTime   | long  | 从指定时间点开始获取朋友圈，可以配合 `direction` 使用，传 0 时表示使用当前时间 | 1.8.30   |
-| userId   | String  | 获取指定用户发布的朋友圈列表，为空表示获取所有好友的朋友圈列表。只支持 getMomentList 接口；getCachedMomentList 接口不支持该参数| 1.8.44   |
+| count | int | Number of friend circles to retrieve, up to 20 records per request | 1.8.30 |
+| direction | JIMConst.PullDirection | Direction for retrieval; supports fetching earlier Moments or updating with newer Moments based on `startTime` | 1.8.30 |
+| startTime | long | Retrieve Moments starting from the specified time. Can be used with `direction`. Passing 0 uses the current time | 1.8.30 |
+| userId | String | Retrieve Moments published by the specified user. If empty, retrieves Moments from all friends. Supported only by `getMomentList`; `getCachedMomentList` does not support this parameter | 1.8.44 |
 
-**接口说明**
+**Interface description**
 
 ```java
 /**
- * 获取朋友圈列表
- * @param option 获取参数
- * @param callback 结果回调
+ * Retrieve the list of friends' Moments
+ * @param option Retrieval parameters
+ * @param callback Result callback
  */
 void getMomentList(GetMomentOption option, JIMConst.IResultListCallback<Moment> callback);
 ```
 
-**示例代码**
+**Sample Code**
 ```java
 GetMomentOption o = new GetMomentOption();
 o.setCount(10);
@@ -47,21 +47,23 @@ o.setDirection(JIMConst.PullDirection.OLDER);
 JIM.getInstance().getMomentManager().getMomentList(o, new JIMConst.IResultListCallback<Moment>() {
     @Override
     public void onSuccess(List<Moment> data, boolean isFinish) {
+        // Handle success
     }
 
     @Override
     public void onError(int errorCode) {
+        // Handle error
     }
 });
 ```
 
-**获取本地缓存的朋友圈列表**
+**Retrieve the locally cached list of friends' Moments**
 
 ```java
 /**
- * 获取缓存的朋友圈列表（缓存的数据不一定是最新版本，可用于第一时间渲染界面，优化用户体验）
- * @param option 获取参数
- * @return 缓存的朋友圈列表
+ * Retrieve the cached list of friends' Moments (cached data may not be the latest but can be used to render the interface immediately and improve user experience)
+ * @param option Retrieval parameters
+ * @return Cached list of friends' Moments
  */
 List<Moment> getCachedMomentList(GetMomentOption option);
 ```
@@ -77,44 +79,44 @@ List<Moment> momentList = JIM.getInstance().getMomentManager().getCachedMomentLi
 </TabItem>
 <TabItem value="ios">
 
+Retrieve the list of all friends' Moments, supporting pagination before and after a specified time.
 
-获取所有好友的朋友圈列表，支持按指定时间前后分页获取。
+**JGetMomentOption structure**
 
-**JGetMomentOption 结构**
-
-| 名称          | 类型    |  描述                                           | 版本     |
+| Name | Type | Description | Version |
 |--------------|---------|------------------------------------------------|----------|
-| count  | int  | 获取指定数量的朋友圈，单次最多获取 20 条记录 | 1.8.30   |
-| direction | JPullDirection  | 获取方向，支持按 `startTime` 获取更早的朋友圈或者更（四声）新的朋友圈| 1.8.30   |
-| startTime   | long long | 从指定时间点开始获取朋友圈，可以配合 `direction` 使用，传 0 时表示使用当前时间 | 1.8.30   |
-| userId   | NSString  | 获取指定用户发布的朋友圈列表，为空表示获取所有好友的朋友圈列表。只支持 getMomentList 接口；getCachedMomentList 接口不支持该参数| 1.8.44   |
+| count | int | Number of friend circles to retrieve, up to 20 records per request | 1.8.30 |
+| direction | JPullDirection | Direction for retrieval; supports fetching earlier Moments or updating with newer Moments based on `startTime` | 1.8.30 |
+| startTime | long long | Retrieve Moments starting from the specified time. Can be used with `direction`. Passing 0 uses the current time | 1.8.30 |
+| userId | NSString | Retrieve Moments published by the specified user. If empty, retrieves Moments from all friends. Supported only by `getMomentList`; `getCachedMomentList` does not support this parameter | 1.8.44 |
 
-**接口说明**
+**Interface description**
 
 ```objectivec
-/// 获取朋友圈列表
+/// Retrieve the list of friends' Moments
 /// - Parameters:
-///   - option: 获取参数
-///   - completeBlock: 结果回调
+///   - option: Retrieval parameters
+///   - completeBlock: Result callback
 - (void)getMomentList:(nonnull JGetMomentOption *)option
              complete:(nullable void (^)(JErrorCode errorCode, NSArray <JMoment *> * _Nullable momentList, BOOL isFinish))completeBlock;
 ```
 
-**示例代码**
+**Sample Code**
 ```objectivec
 JGetMomentOption *o = [JGetMomentOption new];
 o.startTime = 0;
 o.count = 10;
 o.direction = JPullDirectionOlder;
 [JIM.shared.momentManager getMomentList:o complete:^(JErrorCode errorCode, NSArray<JMoment *> * _Nullable momentList, BOOL isFinish) {
+    // Handle result
 }];
 ```
 
-**获取本地缓存的朋友圈列表**
+**Retrieve the locally cached list of friends' Moments**
 
 ```objectivec
-/// 获取缓存的朋友圈列表（缓存的数据不一定是最新版本，可用于第一时间渲染界面，优化用户体验）
-/// - Parameter option: 获取参数
+/// Retrieve the cached list of friends' Moments (cached data may not be the latest but can be used to render the interface immediately and improve user experience)
+/// - Parameter option: Retrieval parameters
 - (NSArray <JMoment *> *_Nonnull)getCachedMomentList:(nonnull JGetMomentOption *)option;
 ```
 
@@ -123,46 +125,46 @@ JGetMomentOption *o = [JGetMomentOption new];
 o.startTime = 0;
 o.count = 10;
 o.direction = JPullDirectionOlder;
-NSArray *r = [JIM.shared.momentManager getCachedMomentList:o];
+NSArray *cachedMoments = [JIM.shared.momentManager getCachedMomentList:o];
 ```
 
 </TabItem>
 <TabItem value="flutter">
 
-获取所有好友的朋友圈列表，支持按指定时间前后分页获取。
+Retrieve the list of all friends' Moments, supporting pagination before and after a specified time.
 
-**GetMomentOption 结构**
+**GetMomentOption structure**
 
-| 名称          | 类型    | 默认值                               | 描述                                           | 版本     |
-|--------------|---------|--------------------------------------|------------------------------------------------|----------|
-| count  | int  | 10                                   | 获取指定数量的朋友圈，单次最多获取 20 条记录 | 0.0.66   |
-| direction | int  | 1 | 获取方向(0 获取更新的记录，1 获取更早的数据)，支持按 `startTime` 获取更早的朋友圈或者更（四声）新的朋友圈| 0.0.66   |
-| startTime   | int  | 0                                    | 从指定时间点开始获取朋友圈，可以配合 `direction` 使用，传 0 时表示使用当前时间 | 0.0.66   |
+| name | type | default value | description | version |
+|--------------|---------|---------------|------------------------------------------------|----------|
+| count | int | 10 | Number of friend circles to retrieve, up to 20 records per request | 0.0.66 |
+| direction | int | 1 | Retrieval direction (0 for newer records, 1 for earlier records); supports fetching earlier Moments or updating with newer Moments based on `startTime` | 0.0.66 |
+| startTime | int | 0 | Retrieve Moments starting from the specified time. Can be used with `direction`. Passing 0 uses the current time | 0.0.66 |
 
-**接口说明**
+**Interface description**
 
 ```dart
 /**
- * 获取朋友圈列表
- * @param o 获取参数
- * return 朋友圈列表
+ * Retrieve the list of friends' Moments
+ * @param o Retrieval parameters
+ * @return List of friends' Moments
  */
 Future<ResultHasMore<List<Moment>>> getMomentList(GetMomentOption o) async
 ```
 
-**示例代码**
+**Sample Code**
 ```dart
 GetMomentOption o = GetMomentOption();
 ResultHasMore<List<Moment>> momentList = await JuggleIm.instance.getMomentList(o);
 ```
 
-**获取本地缓存的朋友圈列表**
+**Retrieve the locally cached list of friends' Moments**
 
 ```dart
 /**
- * 获取缓存的朋友圈列表（缓存的数据不一定是最新版本，可用于第一时间渲染界面，优化用户体验）
- * @param o 获取参数
- * @return 缓存的朋友圈列表
+ * Retrieve the cached list of friends' Moments (cached data may not be the latest but can be used to render the interface immediately and improve user experience)
+ * @param o Retrieval parameters
+ * @return Cached list of friends' Moments
  */
 Future<List<Moment>> getCachedMomentList(GetMomentOption o) async
 ```
@@ -175,29 +177,29 @@ List<Moment> cachedMomentList = await JuggleIm.instance.getCachedMomentList(o);
 </TabItem>
 <TabItem value="reactnative">
 
-获取所有好友的朋友圈列表，支持按指定时间前后分页获取。
+Retrieve the list of all friends' Moments, supporting pagination before and after a specified time.
 
-**GetMomentOption 结构**
+**GetMomentOption structure**
 
-| 名称          | 类型    | 默认值                               | 描述                                           | 版本     |
-|--------------|---------|--------------------------------------|------------------------------------------------|----------|
-| count  | number  | 10                                   | 获取指定数量的朋友圈，单次最多获取 20 条记录 | -   |
-| direction | number  | 1 | 获取方向(0 获取更新的记录，1 获取更早的数据)，支持按 `startTime` 获取更早的朋友圈或者更（四声）新的朋友圈| -   |
-| startTime   | number  | 0                                    | 从指定时间点开始获取朋友圈，可以配合 `direction` 使用，传 0 时表示使用当前时间 | -   |
-| userId   | string  |                                 | 获取指定用户发布的朋友圈列表，为空表示获取所有好友的朋友圈列表。只支持 getMomentList 接口；getCachedMomentList 接口不支持该参数 | 0.3.1  |
+| name | type | default value | description | version |
+|--------------|---------|---------------|------------------------------------------------|----------|
+| count | number | 10 | Number of friend circles to retrieve, up to 20 records per request | - |
+| direction | number | 1 | Retrieval direction (0 for newer records, 1 for earlier records); supports fetching earlier Moments or updating with newer Moments based on `startTime` | - |
+| startTime | number | 0 | Retrieve Moments starting from the specified time. Can be used with `direction`. Passing 0 uses the current time | - |
+| userId | string | | Retrieve Moments published by the specified user. If empty, retrieves Moments from all friends. Supported only by `getMomentList`; `getCachedMomentList` does not support this parameter | 0.3.1 |
 
-**接口说明**
+**Interface description**
 
 ```typescript
 /**
- * 获取朋友圈列表
- * @param option 获取参数
- * return Promise<{ list: Moment[], isFinished: boolean }>
+ * Retrieve the list of friends' Moments
+ * @param option Retrieval parameters
+ * @return Promise resolving to an object containing the list of Moments and a completion flag
  */
 getMomentList(option: GetMomentOption): Promise<{ list: Moment[], isFinished: boolean }>
 ```
 
-**示例代码**
+**Sample Code**
 
 ```typescript
 import { JuggleIMMoment } from 'juggleim-rnsdk';
@@ -210,13 +212,13 @@ const o = {
 const momentList = await JuggleIMMoment.getMomentList(o);
 ```
 
-**获取本地缓存的朋友圈列表**
+**Retrieve the locally cached list of friends' Moments**
 
 ```typescript
 /**
- * 获取缓存的朋友圈列表（缓存的数据不一定是最新版本，可用于第一时间渲染界面，优化用户体验）
- * @param option 获取参数
- * @return 缓存的朋友圈列表
+ * Retrieve the cached list of friends' Moments (cached data may not be the latest but can be used to render the interface immediately and improve user experience)
+ * @param option Retrieval parameters
+ * @return Cached list of friends' Moments
  */
 getCachedMomentList(option: GetMomentOption): Promise<Moment[]>
 ```
@@ -235,40 +237,40 @@ const cachedMomentList = await JuggleIMMoment.getCachedMomentList(o);
 </TabItem>
 <TabItem value="js">
 
-获取所有好友的朋友圈列表，支持按指定时间前后分页获取。
+Retrieve the list of all friends' Moments, supporting pagination before and after a specified time.
 
-**参数说明**
+**Parameter description**
 
-| 名称          | 类型    | 必填     | 默认值                               | 描述                                           | 版本     |
-|--------------|---------|----------|--------------------------------------|------------------------------------------------|----------|
-| option        | Object  | 否       |                                    |  | 1.9.6   |
-| option.count  | Number  | 否       | 50                                   | 获取指定数量的朋友圈，单次最多获取 20 条记录 | 1.9.6   |
-| option.order  | Number  | 否       | [获取方向](../../enum/web#moment_order) | 获取方向，支持按 `time` 获取更早的朋友圈或者更（四声）新的朋友圈| 1.9.6   |
-| option.time   | Number  | 否       | 0                                    | 从指定时间点开始获取朋友圈，可以配合 `order` 使用 | 1.9.6   |
-| option.userId   | String  | 否       | -                                    | 获取指定用户发布的朋友圈列表，为空表示获取所有好友的朋友圈列表。 | 1.9.8   |
+| Name | Type | Required | Default | Description | Version |
+|--------------|---------|----------|---------|------------------------------------------------|----------|
+| option | Object | No | | | 1.9.6 |
+| option.count | Number | No | 50 | Number of friend circles to retrieve, up to 20 records per request | 1.9.6 |
+| option.order | Number | No | [Get direction](../../enum/web#moment_order) | Retrieval direction; supports fetching earlier Moments or updating with newer Moments based on `time` | 1.9.6 |
+| option.time | Number | No | 0 | Retrieve Moments starting from the specified time. Can be used with `order` | 1.9.6 |
+| option.userId | String | No | - | Retrieve Moments published by the specified user. If empty, retrieves Moments from all friends. | 1.9.8 |
 
-**回调说明**
+**Callback description**
 
-| 属性            | 类型    | 描述                                           | 版本  |
-|-----------------|---------|------------------------------------------------|----------|
-| result          | Object  | 查询结果                                       | 1.9.6   |
-| result.moments | Array | 朋友圈数组，单个朋友圈对象结构请查看 [Moment](./moment.md) | 1.9.6   | 
-| result.isFinished | Boolean | 标志会话是否获取完成 | 1.9.6   |
+| Properties | Type | Description | Version |
+|------------------|----------|------------------------------------------------|----------|
+| result | Object | Query result | 1.9.6 |
+| result.moments | Array | Array of Moments. See [Moment](./moment.md) for the structure of a single Moment object | 1.9.6 |
+| result.isFinished | Boolean | Indicates whether the retrieval is complete | 1.9.6 |
 
-**示例代码**
+**Sample Code**
 ```js
 /* 
-  假设当前用户有 79 个朋友圈，每页获取 20 条，朋友圈列表按时间倒序排列，实现朋友圈列表分页逻辑如下：
-  1、加载第 1 页获取参数： { count: 20, time: 0 }
-  2、加载第 2 页获取参数： { count: 20, time: '获取第 1 页朋友圈数组中最小的 momentTime' }
-  3、加载第 3 页获取参数： { count: 20, time: '获取第 2 页朋友圈数组中最小的 momentTime' }  
-  4、加载第 4 页获取参数： { count: 20, time: '获取第 3 页朋友圈数组中最小的 momentTime' }
-  5、结束：isFinished 返回 true，停止加载
+Assuming the current user has 79 friend circles, and each page retrieves 20 items. The friend circle list is ordered in reverse chronological order. The pagination logic is as follows:
+1. Load page 1 with parameters: { count: 20, time: 0 }
+2. Load page 2 with parameters: { count: 20, time: 'Smallest momentTime from page 1's Moments array' }
+3. Load page 3 with parameters: { count: 20, time: 'Smallest momentTime from page 2's Moments array' }
+4. Load page 4 with parameters: { count: 20, time: 'Smallest momentTime from page 3's Moments array' }
+5. End when isFinished returns true and stop loading.
 */
 jim.getMoments().then((result) => {
   let { moments, isFinished } = result;
   console.log(isFinished, moments); 
-})
+});
 ```
 
 </TabItem>

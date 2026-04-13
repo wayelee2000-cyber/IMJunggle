@@ -1,29 +1,29 @@
 ---
-title: 删除评论
+title: Delete comment
 hide_title: true
 sidebar_position: 13
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-删除帖子评论
+Deletes post comments.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/posts/comments/del
+> **Request URL**: https://[request domain name](../api.md#api)/jim/posts/comments/del
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+
+### Request Example{#req_demo}
 ``` js
 POST /jim/posts/comments/del HTTP/1.1
 appkey: appkey
@@ -35,16 +35,16 @@ Content-Type: application/json
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```
 
-### 响应码
+### Response code
 
-|响应码|说明||
-|:--|:---|:--|
+| Response code | Description |  |
+|:-------------:|:-----------:|:--|

@@ -1,34 +1,34 @@
 ---
-title: 移除群成员
+title: Remove group members
 hide_title: true
 sidebar_position: 3
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-移除群成员
+Remove members from a group.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api.md#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request rate limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/groups/members/del
+> **Request URL**: https://[request domain name](../api#api)/jim/groups/members/del
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|group_id|string|是|群组id||
-|member_ids|array|是|邀请入群的用户id列表||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameter   | Data type | Required | Description                          |   |
+|:------------|:----------|:---------|:-----------------------------------|---|
+| group_id    | string    | yes      | The ID of the group                |   |
+| member_ids  | array     | yes      | List of user IDs to be removed from the group |   |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /jim/groups/members/del HTTP/1.1
 appkey: appkey
@@ -36,21 +36,21 @@ Authorization: xxxxxxxxxxxxxxxxxx
 Content-Type: application/json
 
 {
-  "group_id":"groupid1",
-  "member_ids":["userid1","userid2"]
+  "group_id": "groupid1",
+  "member_ids": ["userid1", "userid2"]
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```
 
-### 响应码
+### Response code
 
-|响应码|说明||
-|:--|:---|:--|
+| Response code | Description |   |
+|:--------------|:------------|---|

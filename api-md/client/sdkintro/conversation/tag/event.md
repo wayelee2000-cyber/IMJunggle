@@ -1,5 +1,5 @@
 ---
-title: 标签事件监听
+title: Label event listening
 hide_title: true
 sidebar_position: 1
 ---
@@ -7,52 +7,49 @@ sidebar_position: 1
 <Tabs
 groupId="sdks-language"
 values={[
-{ label: 'Android', value: 'android', },
-{ label: 'iOS', value: 'ios', },
-{ label: 'JavaScript', value: 'js', },
-{ label: 'Flutter', value: 'flutter', },
-{ label: 'ReactNative', value: 'reactnative', }
-]
-}>
+  { label: 'Android', value: 'android' },
+  { label: 'iOS', value: 'ios' },
+  { label: 'JavaScript', value: 'js' },
+  { label: 'Flutter', value: 'flutter' },
+  { label: 'ReactNative', value: 'reactnative' }
+]}
+>
 <TabItem value="android">
 
-可以设置多个监听。
+Multiple listeners can be registered.
 
 ```java
 JIM.getInstance().getConversationManager().addTagListener("main", new IConversationManager.IConversationTagListener() {
-  /// 标签中新增会话
+  /// Called when new conversations are added to the tag
   @Override
   public void onConversationsAddToTag(String tagId, List<Conversation> conversations) {
   }
 
-  /// 标签中删除会话
+  /// Called when conversations are removed from the tag
   @Override
   public void onConversationsRemoveFromTag(String tagId, List<Conversation> conversations) {
   }
 });
-
 ```
-
 
 </TabItem>
 <TabItem value="ios">
 
-可以设置多个代理。
+Multiple delegates can be registered.
 
 ```objectivec
 [JIM.shared.conversationManager addTagDelegate:self];
 
-/// 标签中新增会话
+/// Called when new conversations are added to the tag
 - (void)conversationsDidAddToTag:(NSString *)tagId
                    conversations:(NSArray <JConversation *> *)conversationList {
 }
 
-/// 标签中删除会话
+/// Called when conversations are removed from the tag
 - (void)conversationsDidRemoveFromTag:(NSString *)tagId
                         conversations:(NSArray <JConversation *> *)conversationList {
 }
 ```
-
 
 </TabItem>
 <TabItem value="js">
@@ -60,56 +57,55 @@ JIM.getInstance().getConversationManager().addTagListener("main", new IConversat
 ```js
 let { Event } = JIM;
 
-### 新增标签
+### Add new tag
 jim.on(Event.TAG_ADDED, ({ tags }) => {
-  /* tags =>  [{ id: 'tag_01', name: '我的关注' }, ... ] */
+  /* tags => [{ id: 'tag_01', name: 'My attention' }, ... ] */
 });
 
-### 销毁标签
+### Remove tag
 jim.on(Event.TAG_REMOVED, (notify) => {
-  /* tags =>  [{ id: 'tag_01' }, ... ] */
+  /* tags => [{ id: 'tag_01' }, ... ] */
 });
 
-### 标签变更
+### Tag updated
 jim.on(Event.TAG_CHANGED, (notify) => {
-  /* tags =>  [{ id: 'tag_01', name: '我的关注' }, ... ] */
+  /* tags => [{ id: 'tag_01', name: 'My attention' }, ... ] */
 });
 
-### 标签新增会话
+### Conversation added to tag
 jim.on(Event.TAG_CONVERSATION_ADDED, (notify) => {
-  /* tags =>  [{ id: 'tag_01', conversations: [ Conversation, ...] }, ... ] */
+  /* tags => [{ id: 'tag_01', conversations: [ Conversation, ... ] }, ... ] */
 });
 
-### 标签删除会话
+### Conversation removed from tag
 jim.on(Event.TAG_CONVERSATION_REMOVED, (notify) => {
-  /* tags =>  [{ id: 'tag_01', conversations: [ Conversation, ...] }, ... ] */
+  /* tags => [{ id: 'tag_01', conversations: [ Conversation, ... ] }, ... ] */
 });
 ```
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-
-> 暂未提供
+> Not yet available
 
 </TabItem>
 <TabItem value="reactnative">
 
-可以设置多个监听。
+Multiple listeners can be registered.
 
 ```javascript
 import JuggleIM from 'juggleim-rnsdk';
 
-// 标签中新增��话
+// Listen for conversations added to a tag
 const removeAddToTagListener = JuggleIM.addConversationsAddToTagListener((data) => {
-  console.log('conversations added to tag:', data);
+  console.log('Conversations added to tag:', data);
 });
 
-// 标签中删除会话
+// Listen for conversations removed from a tag
 const removeRemoveFromTagListener = JuggleIM.addConversationsRemoveFromTagListener((data) => {
-  console.log('conversations removed from tag:', data);
+  console.log('Conversations removed from tag:', data);
 });
 
-// 取消监听
+// Remove listeners
 removeAddToTagListener();
 removeRemoveFromTagListener();
 ```

@@ -1,40 +1,40 @@
 ---
-title: 更新群信息
+title: Update group information
 hide_title: true
 sidebar_position: 3
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-IM Server 存储群组信息，用于展示会话信息，当群组信息变更，需将变更后的信息调用此接口同步给 IM 服务。
+The IM Server stores group information, which is used to display session details. When group information changes, the updated data must be synchronized with the IM service by calling this interface.
 
-:::danger 群组信息同步时机
-群组信息更新后 IM 服务 **不会主动通知** 至客户端，当前群组有新消息后会 IM 服务会自动将最新的群组信息同步至客户端
+:::danger Group information synchronization timing
+After the group information is updated, the IM service **will not proactively notify** the client. Instead, when new messages arrive in the current group, the IM service will automatically synchronize the latest group information to the client.
 :::
 
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/groups/update
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/groups/update
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|group_id|string|是|需要更新的群id||
-|group_name|string|否|群昵称||
-|group_portrait|string|否|群头像||
-|ext_fields|map|否|扩展字段列表||
+| Parameter     | Data type | Required | Description               |   |
+|:--------------|:----------|:---------|:--------------------------|---|
+| group_id      | string    | Yes      | The ID of the group to update |   |
+| group_name    | string    | No       | Group nickname            |   |
+| group_portrait| string    | No       | Group avatar              |   |
+| ext_fields    | map       | No       | List of extended fields   |   |
 
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/groups/update HTTP/1.1
 appkey: appkey
@@ -44,21 +44,21 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "group_id":"group1",
-  "group_name":"group1",
-  "group_portrait":"xxx",
-  "ext_fields":{
-    "field1":"aaa",
-    "field2":"bbb"
+  "group_id": "group1",
+  "group_name": "group1",
+  "group_portrait": "xxx",
+  "ext_fields": {
+    "field1": "aaa",
+    "field2": "bbb"
   }
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

@@ -1,5 +1,5 @@
 ---
-title: 设置属性
+title: set attributes
 hide_title: true
 sidebar_position: 5
 ---
@@ -12,30 +12,30 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-设置聊天室属性，支持批量操作，设置指令会自动同步至聊天室全部成员，通过 [聊天室属性变更事件](../event) 返回
+Set chat room properties with support for batch operations. The settings will be automatically synchronized to all members of the chat room and returned through the [Chat Room Property Change Event](../event).
 
-**接口定义**
+**Interface definition**
 
 ```java
 /**
- * 设置聊天室属性
+ * Set chat room properties.
  *
- * @param chatroomId 聊天室 id
- * @param attributes 聊天室属性，key 和 value 都是字符串，最多支持设置 100 个不同的属性。
- *                   非当前用户设置的 key 在客户端不能进行操作（返回 JErrorCode.CHATROOM_KEY_UNAUTHORIZED）。
- * @param callback 完成回调
- *                 code 返回 JErrorCode.NONE 时表示所有属性都设置成功。
- *                 其它 code 表示存在设置失败的 key，所有设置失败的 key 都会回调，并返回对应的错误码，可以从 JErrorCode 的定义中找到对应的错误码。
+ * @param chatroomId The chat room ID.
+ * @param attributes Chat room attributes, where both keys and values are strings. Supports setting up to 100 different attributes.
+ *                   Keys set by users other than the current user cannot be modified on the client (returns JErrorCode.CHATROOM_KEY_UNAUTHORIZED).
+ * @param callback Completion callback.
+ *                 When the code returns JErrorCode.NONE, all properties have been set successfully.
+ *                 Other codes indicate that some keys failed to be set. All failed keys will be returned with their corresponding error codes, which can be found in the definition of JErrorCode.
  */
 void setAttributes(String chatroomId, Map<String, String> attributes, IChatroomAttributesUpdateCallback callback);
 ```
 
-**示例代码**
+**Sample Code**
 
 ```java
 Map<String, String> attributes = new HashMap<>();
@@ -44,7 +44,7 @@ attributes.put("key2", "value2");
 JIM.getInstance().getChatroomManager().setAttributes("chatroomId1", attributes, new IChatroomManager.IChatroomAttributesUpdateCallback() {
     @Override
     public void onComplete(int errorCode, Map<String, Integer> failedKeys) {
-
+        // Handle completion
     }
 });
 ```
@@ -52,86 +52,85 @@ JIM.getInstance().getChatroomManager().setAttributes("chatroomId1", attributes, 
 </TabItem>
 <TabItem value="ios">
 
-设置聊天室属性，支持批量操作，设置指令会自动同步至聊天室全部成员，通过 [聊天室属性变更事件](../event) 返回
+Set chat room properties with support for batch operations. The settings will be automatically synchronized to all members of the chat room and returned through the [Chat Room Property Change Event](../event).
 
-**接口定义**
+**Interface definition**
 
 ```objectivec
-/// 设置聊天室属性。
+/// Set chat room properties.
 /// - Parameters:
-///   - attributes: 聊天室属性，key 和 value 都是字符串，最多支持设置 100 个不同的属性。非当前用户设置的 key 在客户端不能进行操作（返回 JErrorCodeChatroomKeyUnauthorized）。
-///   - chatroomId: 聊天室 id
-///   - completeBlock: 完成回调。
-///                    code 返回 JErrorCodeNone 时表示所有属性都设置成功。
-///                    其它 code 表示存在设置失败的 key，所有设置失败的 key 都会回调，并返回对应的错误码，可以从 JErrorCode 的定义中找到对应的错误码。
+///   - attributes: Chat room attributes, where both keys and values are strings. Supports setting up to 100 different attributes. Keys set by users other than the current user cannot be modified on the client (returns JErrorCodeChatroomKeyUnauthorized).
+///   - chatroomId: Chat room ID.
+///   - completeBlock: Completion callback.
+///     Returns JErrorCodeNone when all properties are set successfully.
+///     Other codes indicate that some keys failed to be set. All failed keys will be returned with their corresponding error codes, which can be found in the definition of JErrorCode.
 - (void)setAttributes:(NSDictionary <NSString *, NSString *> *)attributes
           forChatroom:(NSString *)chatroomId
              complete:(void (^)(JErrorCode code, NSDictionary<NSString *, NSNumber *> *failedKeys))completeBlock;
 ```
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 NSDictionary <NSString *, NSString *> *attr = @{@"key1":@"value1", @"key2":@"value2"};
 [JIM.shared.chatroomManager setAttributes:attr
                               forChatroom:@"chatroomId1"
                                   complete:^(JErrorCode code, NSDictionary<NSString *,NSNumber *> *failedKeys) {
-    
+    // Handle completion
 }];
 ```
 
 </TabItem>
 <TabItem value="js">
 
+Set chat room properties with support for batch operations. The settings will be automatically synchronized to all members of the chat room and returned through the [Chat Room Property Change Event](../event).
 
-设置聊天室属性，支持批量操作，设置指令会自动同步至聊天室全部成员，通过 [聊天室属性变更事件](../event) 返回
+When setting attributes in batches, some settings may fail. For example, if a `key` has already been set by another member and `isForce` is not set to `true`, the operation will fail. Please refer to the corresponding [error codes](../../status_code/web) for details.
 
-批量设置属性时可能会设置失败，例如 `key` 已经被其他成员设置，没有设置 `isForce` 为 `true` 会提示失败，请查看对应 [错误码](../../status_code/web)
+**Parameter description**
 
-**参数说明**
+| Name               | Type   | Required | Default | Description          | Version |
+|--------------------|--------|----------|---------|----------------------|---------|
+| chatroom           | Object | Yes      | None    | Chatroom object      | 1.6.0   |
+| chatroom.id        | String | Yes      | None    | Chatroom ID          | 1.6.0   |
+| chatroom.attributes | Array  | Yes      | None    | List of attributes   | 1.6.0   |
 
-| 名称                    | 类型     | 必填   | 默认值  | 描述| 版本     |
-|-------------------------|---------|-------|---|----------|----------|
-| chatroom                | Object | 是     | 无 | 聊天室对象 | 1.6.0    |
-| chatroom.id             | String | 是     | 无 | 聊天室 ID | 1.6.0    |
-| chatroom.attributes     | Array  | 是     | 无 | 属性列表 | 1.6.0    |
+**_Description of each object in chatroom.attributes_**
 
-**_chatroom.attributes 每项对象说明_**
+| Name     | Type    | Required | Default | Description                                                                 | Version |
+|----------|---------|----------|---------|-----------------------------------------------------------------------------|---------|
+| key      | String  | Yes      | None    | Attribute key                                                               | 1.6.0   |
+| value    | String  | Yes      | None    | Attribute value                                                             | 1.6.0   |
+| isForce  | Boolean | No       | false   | Whether to force the setting                                                 | 1.6.0   |
+| isAutoDel| Boolean | No       | false   | Whether the attribute set by the user will be automatically deleted on exit | 1.6.0   |
 
-| 名称           | 类型     | 必填   | 默认值  | 描述| 版本     |
-|---------------|---------|-------|---|----------|----------|
-| key           | String | 是     | 无 | 聊天室对象 | 1.6.0    |
-| value         | String | 是     | 无 | 聊天室 ID | 1.6.0    |
-| isForce       | Boolean | 否    | false | 是否强制设置 | 1.6.0    |
-| isAutoDel     | Boolean | 否    | false | 设置属性的用户退出聊天室后是否自动删除 | 1.6.0    |
-
-**示例代码**
+**Sample Code**
 
 ```js
 let chatroom = {
   id: 'chatroom1001',
   attributes: [
-    { key: 'name', value: 'xiaoshan', isForce: true, isAutoDel },
-    { key: 'age',  value: 18 }
+    { key: 'name', value: 'xiaoshan', isForce: true, isAutoDel: false },
+    { key: 'age',  value: '18' }
   ]
 };
 
 jim.setChatroomAttributes(chatroom).then((result) => {
-  console.log('set chatroom attributes successfully');
+  console.log('Chatroom attributes set successfully');
   /* 
-    result => { success: [{ key: 'name' }], fail:[{ key: 'age', code: 14006 }] }
+    result => { success: [{ key: 'name' }], fail: [{ key: 'age', code: 14006 }] }
   */
 }, (error) => {
-  console.log('error', error);
+  console.log('Error:', error);
 });
 ```
 
 </TabItem>
 <TabItem value="flutter">
 
-设置聊天室属性，支持批量操作，设置指令会自动同步至聊天室全部成员，通过 [聊天室属性变更事件](../event) 返回
+Set chat room properties with support for batch operations. The settings will be automatically synchronized to all members of the chat room and returned through the [Chat Room Property Change Event](../event).
 
-**示例代码**
+**Sample Code**
 
 ```dart
 Map<String, String> attributes = {
@@ -144,9 +143,9 @@ await JuggleIm.instance.getChatroomManager().setAttributes("chatroomId1", attrib
 </TabItem>
 <TabItem value="reactnative">
 
-设置聊天室属性，支持批量操作，设置指令会自动同步至聊天室全部成员，通过 [聊天室属性变更事件](../event) 返回
+Set chat room properties with support for batch operations. The settings will be automatically synchronized to all members of the chat room and returned through the [Chat Room Property Change Event](../event).
 
-**示例代码**
+**Sample Code**
 
 ```ts
 import JuggleIM from 'juggleim-rnsdk';
@@ -161,9 +160,9 @@ await JuggleIM.setChatroomAttributes("chatroomId1", attributes);
 </TabItem>
 <TabItem value="harmony">
 
-设置聊天室属性，支持批量操作，设置指令会自动同步至聊天室全部成员���通过 [聊天室属性变更事件](../event) 返回
+Set chat room properties with support for batch operations. The settings will be automatically synchronized to all members of the chat room and returned through the [Chat Room Property Change Event](../event).
 
-**示例代码**
+**Sample Code**
 
 ```js
 let attributes = {

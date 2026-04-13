@@ -1,38 +1,38 @@
 ---
-title: 删除聊天室属性
+title: Delete chat room attributes
 hide_title: true
 sidebar_position: 2
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-在指定聊天室中删除自定义属性。
+Removes custom attributes from the specified chat room.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request rate limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../../api#api)/apigateway/chatrooms/atts/del
+> **Request URL**: https://[request domain name](../../../api#api)/apigateway/chatrooms/atts/del
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|from_id|string|是|发起属性设置的用户id||
-|chat_id|string|是|聊天室的id||
-|atts|array|是|要设置的属性列表||
-|atts[0].key|string|是|属性的key||
-|atts[0].is_force|bool|否|是否强制删除，默认false||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameter       | Data type | Required | Description                          |   |
+|:----------------|:----------|:---------|:-----------------------------------|---|
+| from_id         | string    | Yes      | The user ID of the attribute initiator |   |
+| chat_id         | string    | Yes      | The ID of the chat room             |   |
+| atts            | array     | Yes      | A list of attributes to delete     |   |
+| atts[0].key     | string    | Yes      | The key of the attribute            |   |
+| atts[0].is_force| bool      | No       | Whether to force deletion; defaults to false |   |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /apigateway/chatrooms/atts/del HTTP/1.1
 appkey: appkey
@@ -42,30 +42,30 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "from_id":"userid1",
-  "chat_id":"chatroom1",
-  "atts":[
+  "from_id": "userid1",
+  "chat_id": "chatroom1",
+  "atts": [
     {
-        "key":"k1",
-        "is_force":false
+      "key": "k1",
+      "is_force": false
     }
   ]
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "atts":[
-        {
-            "key":"k1",
-            "code":0,
-            "att_time":1732123445223
-        }
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "atts": [
+      {
+        "key": "k1",
+        "code": 0,
+        "att_time": 1732123445223
+      }
     ]
   }
 }

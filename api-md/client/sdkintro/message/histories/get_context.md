@@ -1,5 +1,5 @@
 ---
-title: 获取消息上下文
+title: Get message context
 hide_title: true
 sidebar_position: 7
 ---
@@ -16,54 +16,54 @@ values={[
 }>
 <TabItem value="android">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="ios">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="js">
 
-获取消息上下文: 指获取指定时间前后的消息列表，便于业务层展示上下文的消息，此接口适用于首次进入会话时使用，`向下` 或者 `向上` 获取更多的历史消息时，请使用 [获取历史消息](../get_all) 接口获取
+Retrieving the message context refers to obtaining the list of messages before and after a specified time, which facilitates displaying contextual messages in the business layer. This interface is suitable for use when entering a session for the first time. To load more historical messages in the `Down` or `Up` direction, please use the [Get Historical Messages](../get_all) interface.
 
-:::simple 使用场景
+:::simple usage scenarios
 
-> 进入会话定位到第一条未读消息，并显示未读消息前后的消息内容
+> When entering a conversation, locate the first unread message and display the messages before and after it.
 
-> 消息搜索后，点击搜索命中的消息定位到指定会话，展示当前消息的上下文
+> After searching for messages, click on a matched message to locate the corresponding conversation and display the context around that message.
 
 :::
 
 
-**参数说明**
+**Parameter description**
 
-| 名称                | 类型    | 必填  | 默认值           | 描述                                                                      | 版本   |
-|---------------------|---------|------|------------------|---------------------------------------------------------------------------|--------|
-| params              | Object  | 是   |                | 历史消息获取参数                                                           | 1.8.3  |
-| params.conversationType | Number  | 是   |                | [会话类型](../../../enum/web#conversation)                                       | 1.8.3  |
-| params.conversationId   | String  | 是   |                | 会话 Id，会话类型是 `PRIVATE` 时，会话 Id 是对方的 userId，会话类型是 `GROUP` 时是群组 Id | 1.8.3  |
-| params.time         | Number  | 否   | `第一条未读消息的时间`   | 获取上下文消息的起始时间           | 1.8.3  |
-| params.count        | Object  | 否   | 10               | 获取历史上下文消息的条数，会从指定 `time` 时间的前后各取 `count` 条消息，在 `frontMessages` 和 `backMessages` 返回, 范围 1 - 10   | 1.8.3  |
+| Name | Type | Required | Default | Description | Version |
+|---------------------|---------|------|------------------|------------------------------------------------------------------------------|--------|
+| params | Object | Yes | | Parameters for retrieving historical messages | 1.8.3 |
+| params.conversationType | Number | Yes | | [Conversation Type](../../../enum/web#conversation) | 1.8.3 |
+| params.conversationId | String | Yes | | Session ID. For `PRIVATE` sessions, this is the userId of the other party; for `GROUP` sessions, it is the group ID | 1.8.3 |
+| params.time | Number | No | `Time of the first unread message` | The starting time for retrieving context messages | 1.8.3 |
+| params.count | Number | No | 10 | Number of context messages to retrieve. `count` messages will be fetched before and after the specified `time` and returned in `frontMessages` and `backMessages`. Valid range is 1 - 10 | 1.8.3 |
 
-**成功回调**
+**Successful callback**
 
-| 名称                   | 类型    | 描述                                    | 版本   |
+| Name | Type | Description | Version |
 |------------------------|---------|-----------------------------------------|--------|
-| result                 | Object  |                                         | 1.8.3  |
-| result.frontMessages    | Object  | 消息数组，每条消息的属性，请查看 [Message](../../../msg/message) 结构 | 1.8.3  |
-| result.isFrontFinished  | Object  | `向前` 是否还有更多的历史消息没有获取 结构 | 1.8.3  |
-| result.backMessages     | Object  | 消息数组，每条消息的属性，请查看 [Message](../../../msg/message) 结构 | 1.8.3  |
-| result.isBackFinished   | Object  | `向后` 是否还有更多的历史消息没有获取 | 1.8.3  |
+| result | Object | | 1.8.3 |
+| result.frontMessages | Array | Array of messages before the specified time. See [Message](../../../msg/message) for message structure | 1.8.3 |
+| result.isFrontFinished | Boolean | Indicates whether there are more historical messages available before the specified time | 1.8.3 |
+| result.backMessages | Array | Array of messages after the specified time. See [Message](../../../msg/message) for message structure | 1.8.3 |
+| result.isBackFinished | Boolean | Indicates whether there are more historical messages available after the specified time | 1.8.3 |
 
-**失败回调**
+**Failure callback**
 
-| 名称   | 类型    | 描述                                                      | 版本   |
-|--------|---------|-----------------------------------------------------------|--------|
-| error  | Object  | 发送失败后会有对应的状态码，可以直接查看 `error.msg`，或者查看 [状态码](../../../status_code/web) | 1.8.3  |
+| Name | Type | Description | Version |
+|--------|---------|--------------------------------------------------------------|--------|
+| error | Object | Contains the error status code and message. You can view `error.msg` directly or refer to [status code](../../../status_code/web) | 1.8.3 |
 
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType } = JIM;
 
@@ -83,7 +83,7 @@ jim.getContextMessages(params).then((result) => {
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 </Tabs>

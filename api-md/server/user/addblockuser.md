@@ -1,33 +1,33 @@
 ---
-title: 设置单聊禁言
+title: Set Ban on Single Chat
 hide_title: true
 sidebar_position: 6
 ---
 
-### 功能说明{#intro}
+### Function Description{#intro}
 
-单聊禁言后用户将无法发送私信消息，发送群组消息、聊天室消息不受影响，例如开发者平台发现某些用户经常在平台私信导流或做违法操作，此时开发者可将当前用户的发私信能力禁用。
+After banning individual chats, users will no longer be able to send private messages. However, sending group messages and chat room messages will remain unaffected. For example, if the developer platform detects that certain users frequently divert private messages or engage in illegal activities, the developer can disable those users' ability to send private messages.
 
-### 请求说明{#req}
+### Request Description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This API requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request Frequency Limit**: `100 times/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/users/blockusers/block
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/users/blockusers/block
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request Parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|user_id|string|是|设置单聊禁言的用户||
-|block_user_ids|array|是|禁言的用户列表||
+| Parameter       | Data Type | Required | Description                      |   |
+|:----------------|:----------|:---------|:--------------------------------|---|
+| user_id         | string    | Yes      | The user who sets the single chat ban |   |
+| block_user_ids  | array     | Yes      | A list of users to be banned    |   |
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/users/blockusers/block HTTP/1.1
 appkey: appkey
@@ -37,17 +37,16 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "user_id":"user1",
-  "block_user_ids":["user2","user3"]
+  "user_id": "user1",
+  "block_user_ids": ["user2", "user3"]
 }
 ```
 
-
-### 响应示例{#res_demo}
+### Response Example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

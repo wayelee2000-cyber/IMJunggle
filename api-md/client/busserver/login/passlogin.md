@@ -1,43 +1,43 @@
 ---
-title: 账户密码登录
+title: Account and password login
 hide_title: true
 sidebar_position: 3
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-账户密码登录接口，用于 **账号/手机号/邮箱 + 密码** 登录。
+Account and password login interface, used for **account/mobile phone number/email + password** login.
 
-其中 `account`、`phone`、`email` 三选一即可。
+You can choose one from `account`, `phone`, or `email`.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：该接口为免登录接口，仅需携带 `appkey` 请求头；`Authorization` 不需要。登录成功后会在返回值中下发 `authorization`，供后续需要鉴权的接口使用。
+> **Request Authentication**: This interface does not require prior login and only needs to include the `appkey` request header; `Authorization` is not required. After a successful login, an `authorization` token will be returned for use with subsequent interfaces that require authentication.
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 times/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/login
+> **Request URL**: https://[request domain name](../api.md#api)/jim/login
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|account|string|否|账号，建议字母+数字组合，长度 **6~20** 位；注：`account`、`phone`、`email` 三选一即可||
-|phone|string|否|手机号||
-|email|string|否|邮箱地址||
-|password|string|是|账号密码（明文）||
+| Parameters | Data type | Required | Description |  |
+|:-----------|:----------|:---------|:------------|:--|
+| account   | string    | No       | Account identifier, recommended to be a combination of letters and numbers, length **6~20** characters; Note: choose one of `account`, `phone`, or `email` |  |
+| phone     | string    | No       | Mobile phone number |  |
+| email     | string    | No       | Email address |  |
+| password  | string    | Yes      | Account password (plain text) |  |
 
-#### password 使用规则{#password_rule}
+#### Password usage rules{#password_rule}
 
-- 客户端传 **明文密码**（例如 `123456`），服务端会执行 `SHA1(password)`（hex 小写）后与数据库中的 `LoginPass` 比对。
-- **不要**在客户端先对 `password` 做 `md5/sha1` 再传，否则服务端会再次 `SHA1()`，导致校验不通过。
+- The client sends the **plain text password** (e.g., `123456`), and the server applies `SHA1(password)` (hex lowercase) to compare it with the `LoginPass` stored in the database.
+- **Do not** apply `md5` or `sha1` hashing to the `password` on the client side before sending it; otherwise, the server will hash it again with `SHA1()`, causing verification to fail.
 
-示例：`SHA1("123456") = 7c4a8d09ca3762af61e59520943dc26494f8941b`（仅用于理解服务端校验方式；请求参数仍传明文 `123456`）。
+Example: `SHA1("123456") = 7c4a8d09ca3762af61e59520943dc26494f8941b` (provided only to illustrate the server-side verification method; the request parameter should still be sent as plain text `123456`).
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 
 ```js
 POST /jim/login HTTP/1.1
@@ -45,27 +45,27 @@ appkey: appkey
 Content-Type: application/json
 
 {
-  "account":"username",
-  "password":"123456"
+  "account": "username",
+  "password": "123456"
 }
 ```
 
-也可以使用 `curl` 调用：
+You can also use `curl` to call:
 
 ```bash
 curl -X POST 'https://$api/jim/login' \
-  -H 'appkey: <你的appkey>' \
-  -H 'Content-Type: application/json' \
-  -d '{"account":"username","password":"123456"}'
+-H 'appkey: <your appkey>' \
+-H 'Content-Type: application/json' \
+-d '{"account":"username","password":"123456"}'
 ```
 
-JS `fetch` 示例：
+JS `fetch` example:
 
 ```js
 await fetch("https://$api/jim/login", {
   method: "POST",
   headers: {
-    appkey: "<你的appkey>",
+    appkey: "<your appkey>",
     "Content-Type": "application/json",
   },
   body: JSON.stringify({
@@ -75,31 +75,30 @@ await fetch("https://$api/jim/login", {
 });
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "user_id":"userid1",
-    "authorization":"xxxxxxxxx",
-    "nickname":"user1",
-    "avatar":"xxxxxxxx",
-    "status":0,
-    "im_token":"xxxxxxxxx"
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "user_id": "userid1",
+    "authorization": "xxxxxxxxx",
+    "nickname": "user1",
+    "avatar": "xxxxxxxx",
+    "status": 0,
+    "im_token": "xxxxxxxxx"
   }
 }
 ```
 
-### 常见错误码{#errors}
+### Common error codes{#errors}
 
-|code|含义|典型触发条件|
-|:--|:--|:--|
-|17001|缺少 appkey|请求头未携带 `appkey`（在服务端鉴权中间件校验）|
-|17002|appkey 不存在/应用不存在|`appkey` 对应应用不存在，或服务端无法获取 IM SDK 实例|
-|17003|请求参数非法|JSON 解析失败；或 `password` 为空；或 `account/phone/email` 同时为空|
-|17012|用户不存在|按 `account/phone/email` 未找到用户|
-|17013|密码错误|服务端校验 `SHA1(password)` 与用户 `LoginPass` 不一致|
-|17004|内部服务超时/调用失败|服务端调用 IM Server 注册/换取 token 失败（网络/超时等）|
-
+| code  | Meaning                                | Typical trigger conditions                                                                 |
+|:------|:-------------------------------------|:-------------------------------------------------------------------------------------------|
+| 17001 | Missing appkey                        | The request header does not include `appkey` (verified by server-side authentication middleware) |
+| 17002 | appkey does not exist/application does not exist | The application corresponding to `appkey` does not exist, or the server cannot obtain the IM SDK instance |
+| 17003 | Illegal request parameter             | JSON parsing failed; or `password` is empty; or all of `account`, `phone`, and `email` are empty |
+| 17012 | User does not exist                   | User not found for the provided `account`, `phone`, or `email`                             |
+| 17013 | Password error                       | Server-side verification of `SHA1(password)` does not match the user's `LoginPass`        |
+| 17004 | Internal service timeout/call failure | Server failed to call IM Server to register or exchange token (network issues, timeout, etc.) |

@@ -1,41 +1,41 @@
 ---
-title: 创建群组
+title: Create group
 hide_title: true
 sidebar_position: 1
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-将开发者服务端创建的群组同步至 IM 服务，用于消息发送、会话列表展示和消息推送等，群组支持扩展信息，例如自定义群等级。
+Synchronize groups created by the developer server with the IM service for message sending, conversation list display, message push, and more. The group supports extended information, such as custom group levels.
 
-:::danger 群组创建通知
-群组创建成功后，IM 服务端 **不会** 发送创建群通知，开发者需要自定义通知消息发送至群里
+:::danger group creation notification
+After a group is successfully created, the IM server will **not** send a group creation notification. Developers need to implement custom notification messages to be sent to the group.
 :::
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This API requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request Rate Limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/groups/add
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/groups/add
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|group_id|string|是|群组id||
-|group_name|string|否|群组昵称||
-|member_ids|array|是|入群的用户id列表||
-|ext_fields|map|否|群组扩展信息，KV 格式||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameter   | Data type | Required | Description                          |   |
+|:------------|:----------|:---------|:-----------------------------------|---|
+| group_id    | string    | Yes      | Group ID                           |   |
+| group_name  | string    | No       | Group nickname                    |   |
+| member_ids  | array     | Yes      | List of user IDs joining the group |   |
+| ext_fields  | map       | No       | Group extension information in key-value format |   |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /apigateway/groups/add HTTP/1.1
 appkey: appkey
@@ -45,21 +45,21 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "group_id":"groupid1",
-  "group_name":"group1",
-  "member_ids":["userid1","userid2"],
-  "ext_fields":{
-    "k1":"v1",
-    "k2":"v2"
+  "group_id": "groupid1",
+  "group_name": "group1",
+  "member_ids": ["userid1", "userid2"],
+  "ext_fields": {
+    "k1": "v1",
+    "k2": "v2"
   }
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

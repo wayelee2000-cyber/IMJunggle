@@ -1,5 +1,5 @@
 ---
-title: 用户信息
+title: user information
 hide_title: true
 sidebar_position: 1
 ---
@@ -16,72 +16,71 @@ values={[
 }>
 <TabItem value="android">
 
-**用户信息结构**
+**User Information Structure**
 
-UserInfo 是 SDK 封装的用户信息对象。
+UserInfo is the user information object encapsulated by the SDK.
 
-| 属性名        | 类型          | 说明                       | 版本  |
+| Attribute name | Type | Description | Version |
 | ------------- | ------------- | -------------------------- | ----- |
-| userId  | String | 用户 id                | 1.0.0 |
-| userName | String      | 用户名字         | 1.0.0 |
-| portrait   | String           | 用户头像 URL           | 1.0.0 |
-| extra    | Map<String, String>   | 扩展字段 | 1.0.0 |
-| updatedTime         | long       | 更新时间戳                | 1.0.0 |
+| userId | String | User ID | 1.0.0 |
+| userName | String | User name | 1.0.0 |
+| portrait | String | User avatar URL | 1.0.0 |
+| extra | Map<String, String> | Extension field | 1.0.0 |
+| updatedTime | long | Update timestamp | 1.0.0 |
 
-**获取用户信息**
+**Get User Information**
 
 ```java
-//接口定义
+// Interface definition
 
 /**
- * 获取用户信息
- * @param userId 用户 id
- * @return 用户信息
+ * Get user information
+ * @param userId User ID
+ * @return User information
  */
 UserInfo getUserInfo(String userId);
 ```
 
 ```java
-//示例代码
+// Sample code
 UserInfo userInfo = JIM.getInstance().getUserInfoManager().getUserInfo("userId");
 ```
 
-**批量获取用户信息**
+**Get User Information in Batches**
 
 ```java
-//接口定义
+// Interface definition
 
 /**
- * 批量获取用户信息
- * @param userIdList 用户 id 列表
- * @return 用户信息列表
+ * Obtain user information in batches
+ * @param userIdList List of user IDs
+ * @return List of user information
  */
 List<UserInfo> getUserInfoList(List<String> userIdList);
 ```
 
 ```java
-//示例代码
+// Sample code
 List<String> userIdList = new ArrayList<>();
 userIdList.add("userId1");
 userIdList.add("userId2");
 List<UserInfo> userInfoList = JIM.getInstance().getUserInfoManager().getUserInfoList(userIdList);
 ```
 
-**从服务端获取最新的用户信息**
+**Get the Latest User Information from the Server**
 
 ```java
-//接口定义
+// Interface definition
 /**
- * 从服务端获取最新的用户信息
- * @param userId 用户 id
- * @param callback 结果回调
+ * Get the latest user information from the server
+ * @param userId User ID
+ * @param callback Result callback
  */
 void fetchUserInfo(String userId, JIMConst.IResultCallback<UserInfo> callback);
-
 ```
 
 ```java
-//示例代码
+// Sample code
 JIM.getInstance().getUserInfoManager().fetchUserInfo("userId", new JIMConst.IResultCallback<UserInfo>() {
     @Override
     public void onSuccess(UserInfo userInfo) {
@@ -95,70 +94,69 @@ JIM.getInstance().getUserInfoManager().fetchUserInfo("userId", new JIMConst.IRes
 });
 ```
 
-
 </TabItem>
 
 <TabItem value="ios">
 
-**用户信息结构**
+**User Information Structure**
 
-JUserInfo 是 SDK 封装的用户信息对象。
+JUserInfo is the user information object encapsulated by the SDK.
 
-| 属性名        | 类型          | 说明                       | 版本  |
+| Attribute name | Type | Description | Version |
 | ------------- | ------------- | -------------------------- | ----- |
-| userId  | NSString | 用户 id                | 1.0.0 |
-| userName | NSString      | 用户名字         | 1.0.0 |
-| portrait   | NSString           | 用户头像 URL           | 1.0.0 |
-| extraDic    | NSDictionary <NSString *, NSString *>   | 扩展字段 | 1.0.0 |
-| updatedTime         | long long      | 更新时间戳                | 1.0.0 |
+| userId | NSString | User ID | 1.0.0 |
+| userName | NSString | User name | 1.0.0 |
+| portrait | NSString | User avatar URL | 1.0.0 |
+| extraDic | NSDictionary <NSString *, NSString *> | Extension fields | 1.0.0 |
+| updatedTime | long long | Update timestamp | 1.0.0 |
 
-**获取用户信息**
+**Get User Information**
 
 ```objectivec
-//接口定义
+// Interface definition
 
-/// 获取用户信息
-/// - Parameter userId: 用户 id
+/// Get user information
+/// - Parameter userId: User ID
 - (JUserInfo *)getUserInfo:(NSString *)userId;
 ```
 
 ```objectivec
-//示例代码
+// Sample code
 JUserInfo *userInfo = [JIM.shared.userInfoManager getUserInfo:@"userId1"];
 ```
 
-**批量获取用户信息**
+**Get User Information in Batches**
 
 ```objectivec
-//接口定义
+// Interface definition
 
-/// 批量获取用户信息
-/// - Parameter userIdList: 用户 id 列表
+/// Get user information in batches
+/// - Parameter userIdList: List of user IDs
 - (NSArray <JUserInfo *> *)getUserInfoList:(NSArray <NSString *> *)userIdList;
 ```
 
 ```objectivec
-//示例代码
+// Sample code
 NSArray <JUserInfo *> *userInfoList = [JIM.shared.userInfoManager getUserInfoList:@[@"userId1", @"userId2"]];
 ```
 
-**从服务端获取最新的用户信息**
+**Get the Latest User Information from the Server**
 
 ```objectivec
-//接口定义
+// Interface definition
 
-/// 从服务端获取最新的用户信息
+/// Get the latest user information from the server
 /// - Parameters:
-///   - userId: 用户 id
-///   - successBlock: 成功回调
-///   - errorBlock: 失败回调
+///   - userId: User ID
+///   - successBlock: Success callback
+///   - errorBlock: Failure callback
 - (void)fetchUserInfo:(NSString *)userId
               success:(void (^)(JUserInfo *userInfo))successBlock
                 error:(void (^)(JErrorCode code))errorBlock;
 ```
 
 ```objectivec
-//示例代码
+// Sample code
 [JIM.shared.userInfoManager fetchUserInfo:@"userId"
                                   success:^(JUserInfo *userInfo) {
     
@@ -176,32 +174,32 @@ NSArray <JUserInfo *> *userInfoList = [JIM.shared.userInfoManager getUserInfoLis
 
 <TabItem value="flutter">
 
-**用户信息结构**
+**User Information Structure**
 
-UserInfo 是 SDK 封装的用户信息对象。
+UserInfo is the user information object encapsulated by the SDK.
 
-| 属性名        | 类型          | 说明                       | 版本  |
+| Attribute name | Type | Description | Version |
 | ------------- | ------------- | -------------------------- | ----- |
-| userId  | String | 用户 id                | 1.0.0 |
-| userName | String      | 用户名字         | 1.0.0 |
-| portrait   | String           | 用户头像 URL           | 1.0.0 |
-| extraMap    | Map<String, String>?   | 扩展字段 | 1.0.0 |
+| userId | String | User ID | 1.0.0 |
+| userName | String | User name | 1.0.0 |
+| portrait | String | User avatar URL | 1.0.0 |
+| extraMap | Map<String, String>? | Extension fields | 1.0.0 |
 
-**获取用户信息**
+**Get User Information**
 
 ```dart
-//接口定义
+// Interface definition
 
 /**
- * 获取用户信息
- * @param userId 用户 id
- * @return 用户信息
+ * Get user information
+ * @param userId User ID
+ * @return User information
  */
 Future<UserInfo?> getUserInfo(String userId) async
 ```
 
 ```dart
-//示例代码
+// Sample code
 UserInfo? userInfo = await JuggleIm.instance.getUserInfo("userId");
 ```
 

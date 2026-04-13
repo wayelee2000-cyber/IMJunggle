@@ -1,5 +1,5 @@
 ---
-title: 撤回消息
+title: Withdraw message
 hide_title: true
 sidebar_position: 2
 ---
@@ -12,22 +12,22 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', },
+{ label: 'Hongmeng', value: 'harmony', },
 ]
 }>
 <TabItem value="android">
 
-只允许撤回自己发送的消息。撤回成功后，对应会话中的其他用户会收到 onMessageRecall 回调（需要添加[消息监听](../../../watcher/message)）
+Only messages sent by yourself can be withdrawn. After a successful withdrawal, other users in the corresponding session will receive the onMessageRecall callback (requires adding [message listening](../../../watcher/message)).
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| messageId                   | String | 消息 id                        | 1.0.0    |
-|extras | ```Map<String, String>``` | 扩展信息 | 1.0.0 |
-| callback         | IRecallMessageCallback  | 回调 | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| messageId | String | Message ID | 1.0.0 |
+| extras | ```Map<String, String>``` | Extended information | 1.0.0 |
+| callback | IRecallMessageCallback | Callback | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
 Map<String, String> extras = new HashMap<>();
@@ -48,18 +48,18 @@ JIM.getInstance().getMessageManager().recallMessage("messageId1", extras, new IM
 </TabItem>
 <TabItem value="ios">
 
-只允许撤回自己发送的消息。撤回成功后，对应会话中的其他用户会收到 messageDidRecall: 回调（需要添加[消息监听](../../../watcher/message)）
+Only messages sent by yourself can be withdrawn. After a successful withdrawal, other users in the corresponding session will receive the messageDidRecall: callback (requires adding [message listening](../../../watcher/message)).
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| messageId                        | NSString  | 消息 id                           | 1.0.0    |
-|extras | ```NSDictionary <NSString *, NSString *>``` | 扩展信息，key 和 value 都必须为 NSString | 1.0.0 |
-| successBlock         |   | 成功回调 | 1.0.0    |
-| errorBlock                   |   | 失败回调 | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| messageId | NSString | Message ID | 1.0.0 |
+| extras | ```NSDictionary <NSString *, NSString *>``` | Extended information; both key and value must be NSString | 1.0.0 |
+| successBlock |  | Success callback | 1.0.0 |
+| errorBlock |  | Failure callback | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 NSMutableDictionary *extras = [NSMutableDictionary dictionary];
@@ -74,35 +74,34 @@ NSMutableDictionary *extras = [NSMutableDictionary dictionary];
 </TabItem>
 <TabItem value="js">
 
-只允许撤回自己发送的消息，群组管理员可以撤群内所有消息，A 撤回发给 B 的消息，撤回成功后，A 的其他设备和 B 会收到 [通知消息](../../../watcher/message#recall) 
+Only messages sent by yourself can be withdrawn. Group administrators can withdraw any message in the group. For example, user A withdraws a message sent to user B. After a successful withdrawal, A's other devices and B will receive a [notification message](../../../watcher/message#recall).
 
+**Parameter description**
 
-**参数说明**
+| Name | Type | Required | Description | Version |
+|----------------------------|----------|----------|--------------------------------------------------------|--------|
+| message | Object | Yes | Message object; messages can be obtained from [Historical Messages](../../histories/get_all) | 1.0.0 |
+| message.conversationType | Number | Yes | [Conversation Type](../../../../sdkintro/enum/web#conversation) | 1.0.0 |
+| message.conversationId | String | Yes | Session ID. For `PRIVATE` sessions, this is the receiver's userId; for `GROUP` sessions, this is the group ID | 1.0.0 |
+| message.messageId | String | Yes | ID of the message to be withdrawn | 1.0.0 |
+| message.sentTime | Number | Yes | Timestamp when the message was sent | 1.0.0 |
+| message.exts | Object | No | Extended information for recalling the message | 1.7.0 |
 
-| 名称                       | 类型     | 是否必需 | 描述                                                 | 版本   |
-|----------------------------|----------|----------|------------------------------------------------------|--------|
-| message                    | Object   | 是       | 消息对象，可在 [历史消息](../../histories/get_all) 获取消息| 1.0.0  |
-| message.conversationType   | Number   | 是       | [会话类型](../../../../sdkintro/enum/web#conversation)                   | 1.0.0  |
-| message.conversationId     | String   | 是       | 会话 Id，会话类型是 `PRIVATE` 时，会话 Id 是接收方的 userId，会话类型是 `GROUP` 时是群组 Id | 1.0.0  |
-| message.messageId          | String   | 是       | 被撤回的消息 Id                                       | 1.0.0  |
-| message.sentTime           | Number   | 是       | 被撤回的消息的发送时间                                | 1.0.0  |
-| message.exts               | Object   | 否       | 撤回消息时的扩展信息                                | 1.7.0  |
+**Success callback**
 
-**成功回调**
+No parameters are returned. The callback is triggered to indicate success.
 
-无参数返回，回调触发表示成功
+**Failure callback**
 
-**失败回调**
+| Name | Type | Description | Version |
+|--------|---------|--------------------------------------------------------------|--------|
+| error | Object | Contains a status code if the operation fails. You can check `error.msg` or refer to [Status Code](../../../../sdkintro/status_code/web) | 1.0.0 |
 
-| 名称   | 类型    | 描述                                                      | 版本   |
-|--------|---------|-----------------------------------------------------------|--------|
-| error  | Object  | 发送失败后会有对应的状态码，可以直接查看 `error.msg`，或者查看 [状态码](../../../../sdkintro/status_code/web) | 1.0.0  |
-
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType } = JIM;
 
-// 实际项目中，可以直接把 SDK 返回 message 对象传入 recallMessage 方法
+// In actual projects, you can directly pass the message object returned by the SDK into the recallMessage method
 let message = { 
   conversationType: ConversationType.PRIVATE, 
   conversationId: 'userid01',
@@ -111,12 +110,12 @@ let message = {
   exts: {
     name: 'xiaoshan',
     custom1: 'HaHa',
-    //... 更多自定义属性
+    //...more custom properties
   }
 };
 
-jim.recallMessage(message).then((result) => {
-  console.log('recall message successfully');
+jim.recallMessage(message).then(() => {
+  console.log('Message recalled successfully');
 }, (error) => {
   console.log(error);
 });
@@ -124,41 +123,41 @@ jim.recallMessage(message).then((result) => {
 </TabItem>
 <TabItem value="harmony">
 
-只允许撤回自己发送的消息。撤回成功后，对应会话中的其他用户会收到 onMessageRecall 回调（需要添加[消息监听](../../../watcher/message)）
+Only messages sent by yourself can be withdrawn. After a successful withdrawal, other users in the corresponding session will receive the onMessageRecall callback (requires adding [message listening](../../../watcher/message)).
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| conver     |  Conversation |  所属会话 | 1.0.0|
-| msgId                   | string | 消息 id                        | 1.0.0    |
-|extras | ```Map<string, string>``` | 扩展信息 | 1.0.0 |
-| callback         | IRecallMessageCallback  | 回调 | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| conver | Conversation | The associated session | 1.0.0 |
+| msgId | string | Message ID | 1.0.0 |
+| extras | ```Map<string, string>``` | Extended information | 1.0.0 |
+| callback | IRecallMessageCallback | Callback | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
-let conver = new Conversation("userid1",1)
-let extras:HashMap<string,string> = new HashMap()
-extras.set("key1","value1")
-JuggleIm.instance.getMessageManager().recallMessage(conver,"messageid",extras,(code,msg)=>{
+let conver = new Conversation("userid1", 1);
+let extras: HashMap<string, string> = new HashMap();
+extras.set("key1", "value1");
+JuggleIm.instance.getMessageManager().recallMessage(conver, "messageid", extras, (code, msg) => {
 
-})
+});
 ```
 
 </TabItem>
 <TabItem value="reactnative" label="ReactNative">
 
-只允许撤回自己发送的消息，群组管理员可以撤群内所有消息，A 撤回发给 B 的消息，撤回成功后，A 的其他设备和 B 会收到通知消息
+Only messages sent by yourself can be withdrawn. Group administrators can withdraw any message in the group. For example, user A withdraws a message sent to user B. After a successful withdrawal, A's other devices and B will receive notification messages.
 
-**参数说明**
+**Parameter description**
 
-| 名称      | 类型    | 描述          | 版本     |
-|-----------|---------|----------------|----------|
-| messageId | String  | 需要撤回的消息 Id  | 1.0.0    |
-| extras | Object | 扩展信息 | 1.0.0    |
+| Name | Type | Description | Version |
+|-----------|----------|----------------|----------|
+| messageId | String | The ID of the message to be recalled | 1.0.0 |
+| extras | Object | Extended information | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```typescript
 import JuggleIM from 'juggleim-rnsdk';

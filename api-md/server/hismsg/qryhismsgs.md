@@ -1,38 +1,37 @@
 ---
-title: 查询历史消息
+title: Query historical messages
 hide_title: true
 sidebar_position: 4
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-查询历史消息与客户端获取历史消息功能一致，用于开发者服务端查询指定人指定会话的历史消息。
+The function for querying historical messages aligns with the client's capability to retrieve past messages. It is used by the developer's server to fetch historical messages from the session specified by the given user.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`GET`
+> **Request Type**: `GET`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/hismsgs/query
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/hismsgs/query
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|from_id|string|否|单聊会话时，会话一方用户的id||
-|target_id|string|是|单聊会话时，会话另一方用户的id；群聊会话时，群id||
-|channel_type|int|是|会话类型，1:单聊；2:群聊||
-|start|int|是|查询历史消息时的开始时间戳||
-|count|int|否|分页查询，一页条数，默认20，最大不超过50||
-|order|int|否|查询历史消息时的顺序，0:按时间倒序(默认)；1:按时间正序||
+| Parameters   | Data type | Required | Description                                                                                  |   |
+|:-------------|:----------|:---------|:---------------------------------------------------------------------------------------------|---|
+| from_id      | string    | No       | In a single chat session, the ID of the user in the conversation                            |   |
+| target_id    | string    | Yes      | In a single chat session, the ID of the other user; in a group chat session, the group ID   |   |
+| channel_type | int       | Yes      | Conversation type: 1 for single chat; 2 for group chat                                     |   |
+| start        | int       | Yes      | The start timestamp for querying historical messages                                       |   |
+| count        | int       | No       | Number of items per page for pagination; default is 20, maximum is 50                       |   |
+| order        | int       | No       | Order of messages: 0 for reverse chronological (default); 1 for chronological              |   |
 
-
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 GET /apigateway/hismsgs/query?from_id=xxx&target_id=xxx&channel_type=1&start=xxxx&count=xx HTTP/1.1
 appkey: appkey
@@ -43,25 +42,25 @@ Content-Type: application/json
 
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "msgs":[
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "msgs": [
       {
-        "sender_id":"xxx",
-        "receiver_id":"xxx",
-        "channel_type":1,
-        "msg_id":"xxxxx",
-        "msg_time":1321122121223,
-        "msg_type":"xxx",
-        "msg_content":"xxxxxx"
+        "sender_id": "xxx",
+        "receiver_id": "xxx",
+        "channel_type": 1,
+        "msg_id": "xxxxx",
+        "msg_time": 1321122121223,
+        "msg_type": "xxx",
+        "msg_content": "xxxxxx"
       }
     ],
-    "is_finished":false
+    "is_finished": false
   }
 }
 ```

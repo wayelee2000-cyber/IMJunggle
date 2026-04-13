@@ -1,38 +1,37 @@
 ---
-title: 消息修改
+title: Message modification
 hide_title: true
 sidebar_position: 5
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-对已有的消息进行修改，可以修改消息类型和消息体，多设备同步
+Modify existing messages by updating the message type and content, with support for synchronizing across multiple devices.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request rate limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/hismsgs/modify
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/hismsgs/modify
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|from_id|string|否|单聊会话时，会话一方用户的 Id||
-|target_id|string|是|单聊会话时，会话另一方用户的 Id；群聊会话时，群 Id||
-|channel_type|int|是|会话类型，1:单聊；2:群聊||
-|msg_id|string|是|被修改消息的id||
-|msg_type|string|是|消息类型||
-|msg_content|string|是|消息内容，建议json结构||
+| Parameter    | Data type | Required | Description                                                                                  |   |
+|:-------------|:----------|:---------|:---------------------------------------------------------------------------------------------|---|
+| from_id     | string    | No       | In a single chat session, the ID of the user in the conversation                            |   |
+| target_id   | string    | Yes      | In a single chat session, the ID of the other user; in a group chat session, the group ID   |   |
+| channel_type| int       | Yes      | Conversation type: 1 for single chat; 2 for group chat                                     |   |
+| msg_id      | string    | Yes      | The ID of the message to be modified                                                       |   |
+| msg_type    | string    | Yes      | The type of the message                                                                    |   |
+| msg_content | string    | Yes      | The message content; JSON structure is recommended                                         |   |
 
-
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/hismsgs/modify HTTP/1.1
 appkey: appkey
@@ -42,21 +41,20 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "from_id":"xxx",
-  "target_id":"xxx",
-  "channel_type":1,
-  "msg_id":"xxxxxx",
-  "msg_type":"text",
-  "msg_content":"{\"content\":\"aabbcc\"}"
+  "from_id": "xxx",
+  "target_id": "xxx",
+  "channel_type": 1,
+  "msg_id": "xxxxxx",
+  "msg_type": "text",
+  "msg_content": "{\"content\":\"aabbcc\"}"
 }
-
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

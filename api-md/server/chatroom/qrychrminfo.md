@@ -1,36 +1,36 @@
 ---
-title: 查询聊天室信息
+title: Query chat room information
 hide_title: true
 sidebar_position: 3
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-查询聊天室的基本信息，包括聊天室的昵称，属性列表，成员数量和部分成员信息
+Retrieve the basic information of a chat room, including the chat room's nickname, attribute list, number of members, and some member details.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`GET`
+> **Request Type**: `GET`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/chatrooms/info
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/chatrooms/info
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|chat_id|string|是|聊天室的id||
-|order|int|否|聊天室成员的排序规则，0：倒序；1：正序||
-|count|int|否|查询聊天室成员的数量，默认100||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameters | Data type | Required | Description |  |
+|:-----------|:----------|:---------|:------------|:--|
+| chat_id    | string    | Yes      | The ID of the chat room |  |
+| order      | int       | No       | Sorting order of chat room members: 0 for descending order; 1 for ascending order |  |
+| count      | int       | No       | Number of chat room members to query; default is 100 |  |
+
+
+### Request Example{#req_demo}
 ``` js
 GET /apigateway/chatrooms/info?chat_id=xxx&order=0&count=100 HTTP/1.1
 appkey: appkey
@@ -41,31 +41,31 @@ Content-Type: application/json
 
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "chat_id":"xxx",
-    "chat_name":"xxx",
-    "is_mute":false,
-    "member_count":10000,
-    "members":[
-        {
-            "member_id":"xxx",
-            "member_name":"xxx",
-            "added_time":172987634564
-        }
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "chat_id": "xxx",
+    "chat_name": "xxx",
+    "is_mute": false,
+    "member_count": 10000,
+    "members": [
+      {
+        "member_id": "xxx",
+        "member_name": "xxx",
+        "added_time": 172987634564
+      }
     ],
-    "atts":[
-        {
-            "key":"k1",
-            "value":"v1",
-            "att_time":172345678345,
-            "user_id":"userid1"
-        }
+    "atts": [
+      {
+        "key": "k1",
+        "value": "v1",
+        "att_time": 172345678345,
+        "user_id": "userid1"
+      }
     ]
   }
 }

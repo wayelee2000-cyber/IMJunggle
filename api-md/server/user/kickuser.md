@@ -1,35 +1,35 @@
 ---
-title: 踢用户下线
+title: Kick user offline
 hide_title: true
 sidebar_position: 11
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-将已经连接至 IM 服务的用户踢下线，支持按 `平台`、`设备`、`用户` 维度踢用户下线，当前接口仅对当次连接有效，不影响用户后续连接，例如某个用户多个设备登录，在后登录的设备将其他设备踢掉线。
+Kick users offline who are currently connected to the IM service. Kicking users offline can be done by `Platform`, `Device`, or `User` dimensions. This interface only affects the current connection and does not impact the user's future connections. For example, if a user is logged in on multiple devices, the device that logs in later will kick the other devices offline.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`GET`
+> **Request Type**: `GET`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 times/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/users/kick
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/users/kick
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|user_id|string|是|要踢下线的用户 Id||
-|platforms|array|否|按指定设备类型来踢，这个字段非必填，不传时默认踢所有端||
-|device_ids|array|否|需要踢下线的设备唯一标识||
-|ext|string|否|扩展字段，该字段会在用户收到被踢通知时，由 SDK 返给业务层，可用于定制化提醒等||
+| Parameters  | Data type | Required | Description                                                                                      |   |
+|:------------|:----------|:---------|:------------------------------------------------------------------------------------------------|---|
+| user_id     | string    | Yes      | The ID of the user to be kicked offline                                                         |   |
+| platforms   | array     | No       | Kick users based on the specified device types. This field is optional. If omitted, all devices will be kicked offline by default. |   |
+| device_ids  | array     | No       | The unique identifiers of the devices to be kicked offline                                       |   |
+| ext         | string    | No       | Extension field. This value will be returned to the business layer by the SDK when the user receives the kick notification and can be used for custom reminders or other purposes. |   |
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 GET /apigateway/users/kick HTTP/1.1
 appkey: appkey
@@ -39,18 +39,16 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "user_id":"userid1",
-  "platforms":["iOS","Android"],
-  "device_ids":["xxxxx","yyyyy"]
+  "user_id": "userid1",
+  "platforms": ["iOS", "Android"],
+  "device_ids": ["xxxxx", "yyyyy"]
 }
-
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 ```json
 {
-  "code":0,
-  "message":"success"
+  "code": 0,
+  "message": "success"
 }
 ```
-

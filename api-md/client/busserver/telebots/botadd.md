@@ -1,29 +1,29 @@
 ---
-title: 添加Bot
+title: Add Bot
 hide_title: true
 sidebar_position: 2
 ---
-### 功能说明{#intro}
+### Function Description{#intro}
 
-添加 Telegram Bot
+Add a Telegram Bot.
 
-### 请求说明{#req}
+### Request Description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request Rate Limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/telegrambots/add
+> **Request URL**: https://[request domain name](../api.md#api)/jim/telegrambots/add
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request Parameters {#param}
+
+
+### Request Example{#req_demo}
 ``` js
 POST /jim/telegrambots/add HTTP/1.1
 appkey: appkey
@@ -36,17 +36,17 @@ Content-Type: application/json
 }
 ```
 
-### 响应示例{#res_demo}
+### Response Example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```
 
-### 响应码
+### Response Codes
 
-|响应码|说明||
-|:--|:---|:--|
-|17300|添加失败||
+| Response Code | Description  |  |
+|:-------------:|:------------|:--|
+| 17300         | Add failed  |  |

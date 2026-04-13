@@ -1,5 +1,5 @@
 ---
-title: 获取标签未读消息数
+title: Get the number of unread messages of the label
 hide_title: true
 sidebar_position: 4
 ---
@@ -17,15 +17,15 @@ values={[
 }>
 <TabItem value="android">
 
-获取标签下所有会话的未读消息总数。
+Retrieve the total number of unread messages across all conversations under the specified label.
 
-**接口定义**
+**Interface definition**
 
 ```java
 /**
- * 根据标签 id 获取消息未读总数
- * @param tagId 标签 id
- * @return 消息未读总数
+ * Get the total number of unread messages based on the tag ID.
+ * @param tagId The tag ID.
+ * @return The total number of unread messages.
  */
 int getUnreadCountWithTag(String tagId);
 ```
@@ -34,50 +34,50 @@ int getUnreadCountWithTag(String tagId);
 </TabItem>
 <TabItem value="ios">
 
-获取标签下的会话列表，支持分页获取。
+Retrieve the total number of unread messages based on the tag ID.
 
-**接口定义**
+**Interface definition**
 
 ```objectivec
-/// 根据标签 id 获取消息未读总数
-/// - Parameter tagId: 标签 id
+/// Get the total number of unread messages based on the tag ID.
+/// - Parameter tagId: The tag ID.
 - (int)getUnreadCountWithTag:(NSString *)tagId;
 ```
 
 </TabItem>
 <TabItem value="js">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="reactnative">
 
-获取标签下所有会话的未读消息总数。
+Retrieve the total number of unread messages across all conversations under the specified label.
 
-**接口定义**
+**Interface definition**
 
 ```typescript
 /**
- * 获取标签未读消息数
- * @param conversationTypes 会话类型列表，可选
+ * Get the number of unread messages for a tag.
+ * @param conversationTypes Optional list of conversation types.
  */
 getUnreadCountWithTypes(conversationTypes?: number[]): Promise<number>;
 ```
 
-**示例代码**
+**Sample Code**
 
 ```javascript
 import JuggleIM from 'juggleim-rnsdk';
 
-// 获取全部会话的未读总数
+// Get the total number of unread messages for all sessions
 const count = await JuggleIM.getUnreadCountWithTypes();
 
-// 获取指定类型会话的未读总数
+// Get the total number of unread messages for sessions of the specified type
 const count = await JuggleIM.getUnreadCountWithTypes([1]);
 ```
 

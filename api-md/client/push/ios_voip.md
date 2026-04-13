@@ -1,13 +1,14 @@
 ---
-title: iOS VoIP 推送
+title: iOS VoIP Push
 hide_title: true
 sidebar_position: 3
 ---
 
-从 iOS 13 开始，苹果基于安全考虑在使用 VoIP 推送时必须配合苹果 CallKit 使用，否则 iOS 系统将在收到 VoIP 推送后杀掉 App 进程。
-而由于工信部的要求，在中国区 App Store 上架的应用不允许使用苹果 CallKit 功能，请在中国区上架的开发者不要使用 VoIP 推送功能。
+Starting with iOS 13, Apple requires integration with CallKit when using VoIP push notifications for security reasons. Without this integration, the iOS system will terminate the app process upon receiving a VoIP push. 
 
-### 导入 PushKit 并设置 PKPushRegistry
+Due to regulations from the Ministry of Industry and Information Technology, apps listed on the App Store in China are prohibited from using Apple's CallKit functionality. Developers publishing in China are advised not to use the VoIP push feature.
+
+### Import PushKit and Set Up PKPushRegistry
 
 ```objectivec
 #import <PushKit/PushKit.h>
@@ -18,7 +19,7 @@ sidebar_position: 3
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // 初始化 PKPushRegistry
+    // Initialize PKPushRegistry
     PKPushRegistry *pushRegistry = [[PKPushRegistry alloc] initWithQueue:dispatch_get_main_queue()];
     pushRegistry.delegate = self;
     pushRegistry.desiredPushTypes = [NSSet setWithObject:PKPushTypeVoIP];
@@ -26,36 +27,36 @@ sidebar_position: 3
 }
 ```
 
-### 注册 VoIP 推送并处理回调
+### Register VoIP Push and Handle Callbacks
 
 ```objectivec
 #pragma mark - PKPushRegistryDelegate
 
-// 当 VoIP token 生成时调用
+// Called when the VoIP token is generated
 - (void)pushRegistry:(PKPushRegistry *)registry didUpdatePushCredentials:(PKPushCredentials *)credentials forType:(PKPushType)type {
-    // 调用 SDK 接口将 VoIP token 发送给 IM 服务器
-    [JIM.shared.connectionManager registerVoIPToken:pushCredentials.token];
+    // Use the SDK interface to send the VoIP token to the IM server
+    [JIM.shared.connectionManager registerVoIPToken:credentials.token];
 }
 
-// 当设备接收到 VoIP 推送时调用
+// Called when the device receives a VoIP push
 - (void)pushRegistry:(PKPushRegistry *)registry didReceiveIncomingPushWithPayload:(PKPushPayload *)payload forType:(PKPushType)type withCompletionHandler:(void (^)(void))completion {
-    NSLog(@"收到 VoIP 推送：%@", payload.dictionaryPayload);
+    NSLog(@"VoIP push received: %@", payload.dictionaryPayload);
 
-    // 根据推送内容处理业务逻辑，比如显示来电界面
+    // Handle business logic based on the push content, such as displaying the incoming call interface
     [self handleIncomingCallWithPayload:payload.dictionaryPayload];
 }
 
-// 处理来电
+// Handle incoming calls
 - (void)handleIncomingCallWithPayload:(NSDictionary *)payload {
-    // 解析推送内容并显示来电界面
+    // Parse the push content and display the incoming call interface
 
-    //通话 id
+    // Call ID
     NSString *callId = payload[@"room_id"];
-    //邀请者用户 id
+    // Inviter user ID
     NSString *inviterId = payload[@"inviter_id"];
-    //是否多人通话
+    // Is this a multi-person call?
     BOOL isMulti;
-    //通话类型
+    // Call type
     JCallMediaType mediaType;
     id obj = payload[@"is_multi"];
     if ([obj isKindOfClass:[NSNumber class]]) {
@@ -66,6 +67,6 @@ sidebar_position: 3
         mediaType = [(NSNumber *)obj integerValue];
     }
 
-    // TODO: 调用系统 CallKit 或自定义界面，显示来电通知
+    // TODO: Use system CallKit or a custom interface to display the incoming call notification
 }
 ```

@@ -1,38 +1,37 @@
 ---
-title: 消息撤回
+title: Message withdrawal
 hide_title: true
 sidebar_position: 2
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-服务端消息撤回功能无撤回时间限制，开发者服务端可通过此接口在任意时间以任意人的身份撤回消息，撤回操作的指令自动同步至各端，同时支持在撤回指令中增加扩展信息。
+The server-side message withdrawal function has no time limit for withdrawal. Developers can withdraw messages at any time and on behalf of any user through this interface. Withdrawal operation instructions are automatically synchronized to all clients. The interface also supports adding extended information to the withdrawal instructions.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/hismsgs/recall
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/hismsgs/recall
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|from_id|string|否|单聊会话时，会话一方用户的id||
-|target_id|string|是|单聊会话时，会话另一方用户的id；群聊会话时，群id||
-|channel_type|int|是|会话类型，1:单聊；2:群聊||
-|msg_id|string|是|要撤回消息的id||
-|msg_time|int|是| 要撤回消息的时间戳||
-|exts|map|否|可携带扩展数据，用于端上定制化展示||
+| Parameter    | Data type | Required | Description                                                                                  |   |
+|:-------------|:----------|:---------|:---------------------------------------------------------------------------------------------|---|
+| from_id     | string    | No       | In a single chat session, the ID of the user in the conversation                            |   |
+| target_id   | string    | Yes      | In a single chat session, the ID of the other user; in a group chat session, the group ID   |   |
+| channel_type| int       | Yes      | Conversation type: 1 for single chat; 2 for group chat                                      |   |
+| msg_id      | string    | Yes      | The ID of the message to be withdrawn                                                      |   |
+| msg_time    | int       | Yes      | The timestamp of the message to be withdrawn                                               |   |
+| exts        | map       | No       | Extended data for customized display on the client side                                    |   |
 
-
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/hismsgs/recall HTTP/1.1
 appkey: appkey
@@ -42,23 +41,22 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "from_id":"xxx",
-  "target_id":"xxx",
-  "channel_type":1,
-  "msg_id":"xxxx",
-  "msg_time":1569345643212,
-  "exts":{
-    "k1":"v1"
+  "from_id": "xxx",
+  "target_id": "xxx",
+  "channel_type": 1,
+  "msg_id": "xxxx",
+  "msg_time": 1569345643212,
+  "exts": {
+    "k1": "v1"
   }
 }
-
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

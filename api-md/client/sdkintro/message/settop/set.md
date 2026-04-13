@@ -1,5 +1,5 @@
 ---
-title: 设置置顶
+title: set to top
 hide_title: true
 sidebar_position: 1
 ---
@@ -16,17 +16,17 @@ values={[
 }>
 <TabItem value="android">
 
-设置消息置顶，支持将会话中的某条消息置于会话顶端用作提醒，`设置置顶` 和 `取消置顶` 通过 `isTop` 区分。
+Setting a message to the top allows you to pin a specific message at the top of the conversation as a reminder. The actions `Set to the top` and `Cancel the message to the top` are distinguished by the `isTop` parameter.
 
-**接口定义**
+**Interface definition**
 
 ```java
 /**
- * 设置置顶
- * @param messageId 消息 id
- * @param conversation 消息所属会话标识
- * @param isTop 是否置顶
- * @param callback 结果回调
+ * Set top
+ * @param messageId message id
+ * @param conversation conversation ID to which the message belongs
+ * @param isTop Whether to pin the message to the top
+ * @param callback result callback
  */
 void setTop(String messageId, Conversation conversation, boolean isTop, ISimpleCallback callback);
 ```
@@ -34,18 +34,18 @@ void setTop(String messageId, Conversation conversation, boolean isTop, ISimpleC
 </TabItem>
 <TabItem value="ios">
 
-设置消息置顶，支持将会话中的某条消息置于会话顶端用作提醒，`设置置顶` 和 `取消置顶` 通过 `isTop` 区分。
+Setting a message to the top allows you to pin a specific message at the top of the conversation as a reminder. The actions `Set to the top` and `Cancel the message to the top` are distinguished by the `isTop` parameter.
 
-**接口定义**
+**Interface definition**
 
 ```objectivec
-/// 设置置顶
+/// Set top
 /// - Parameters:
-///   - isTop: YES 表示置顶，NO 表示不置顶
-///   - messageId: 消息 id
-///   - conversation: 会话标识
-///   - successBlock: 成功回调
-///   - errorBlock: 失败回调
+///   - isTop: YES to pin the message to the top, NO to unpin
+///   - messageId: message id
+///   - conversation: conversation identifier
+///   - successBlock: success callback
+///   - errorBlock: failure callback
 - (void)setTop:(BOOL)isTop
      messageId:(NSString *)messageId
   conversation:(JConversation *)conversation
@@ -56,31 +56,31 @@ void setTop(String messageId, Conversation conversation, boolean isTop, ISimpleC
 </TabItem>
 <TabItem value="js">
 
-设置消息置顶，支持将会话中的某条消息置于会话顶端用作提醒，`设置置顶` 和 `取消置顶` 通过 `isTop` 区分。
+Setting a message to the top allows you to pin a specific message at the top of the conversation as a reminder. The actions `Set to the top` and `Cancel the message to the top` are distinguished by the `isTop` parameter.
 
 ![](./top.png)
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 必填   | 默认值  | 描述                                                         | 版本     |
-|--------------------------------|---------|--------|--------|--------------------------------------------------------------|----------|
-| message                        | Object  | 是     |        | 消息对象                                                      | 1.0.0    |
-| message.conversationType       | Number  | 是     |        | [会话类型](../../enum/web#conversation)                            | 1.0.0    |
-| message.conversationId         | String  | 是     |        | 会话 Id，会话类型是 `PRIVATE` 时，会话 Id 是接收方的 userId，会话类型是 `GROUP` 时是群组 Id | 1.0.0    |
-| message.messageId              | String  | 是    |         | 被置顶的消息 Id                                | 1.0.0  |
-| message.isTop                  | Boolean | 是    |         | 是否置顶  | 1.0.0  |
+| Name | Type | Required | Default | Description | Version |
+|--------------------------------|---------|--------|--------|----------------------------------------------------------------|----------|
+| message | Object | Yes | | Message object | 1.0.0 |
+| message.conversationType | Number | Yes | | [Conversation Type](../../enum/web.md#conversation) | 1.0.0 |
+| message.conversationId | String | Yes | | Session ID. For `PRIVATE` sessions, this is the receiver's userId; for `GROUP` sessions, it is the group ID | 1.0.0 |
+| message.messageId | String | Yes | | ID of the message to pin | 1.0.0 |
+| message.isTop | Boolean | Yes | | Whether to pin the message to the top | 1.0.0 |
 
-**成功回调**
+**Success callback**
 
-无参数返回，回调触发表示成功
+No parameters are returned. The callback is triggered to indicate success.
 
-**失败回调**
+**Failure callback**
 
-| 名称   | 类型    | 描述                                                      | 版本   |
-|--------|---------|-----------------------------------------------------------|--------|
-| error  | Object  | 发送失败后会有对应的状态码，可以直接查看 `error.msg`，或者查看 [状态码](../../../../sdkintro/status_code/web) | 1.0.0  |
+| Name | Type | Description | Version |
+|--------|---------|--------------------------------------------------------------|--------|
+| error | Object | Contains the status code if the operation fails. You can check `error.msg` or refer to [Status Code](../../../../sdkintro/status_code/web) | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType } = JIM;
 
@@ -92,26 +92,26 @@ let msg = {
 };
 
 jim.setTopMessage(msg).then(() => {
-  console.log('set message top successfully.')
+  console.log('Message pinned to top successfully.');
 }, (error) => {
-  console.log(error)
+  console.log(error);
 });
 ```
 </TabItem>
 
 <TabItem value="reactnative" label="ReactNative">
 
-设置消息置顶，支持将会话中的某条消息置于会话顶端用作提醒，`设置置顶` 和 `取消置顶` 通过 `isTop` 区分。
+Setting a message to the top allows you to pin a specific message at the top of the conversation as a reminder. The actions `Set to the top` and `Cancel the message to the top` are distinguished by the `isTop` parameter.
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 描述          | 版本     |
-|-------------------------------|---------|----------------|----------|
-| messageId   | String  | 消息 id     | 1.0.0    |
-| conversation | Conversation | 会话标识 | 1.0.0    |
-| isTop | boolean | 是否置顶  | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------------|----------|
+| messageId | String | Message ID | 1.0.0 |
+| conversation | Conversation | Conversation identifier | 1.0.0 |
+| isTop | boolean | Whether to pin the message to the top | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```typescript
 import JuggleIM from 'juggleim-rnsdk';

@@ -1,5 +1,5 @@
 ---
-title: 点赞列表
+title: Like list
 hide_title: true
 sidebar_position: 32
 ---
@@ -16,30 +16,31 @@ values={[
 }>
 <TabItem value="android">
 
+Retrieve the list of likes, including likes from a specific circle of friends or a customized interaction type list.
 
-获取点赞列表，获取某条朋友圈的点赞或者自定义的互动类型列表。
-
-**接口说明**
+**Interface description**
 
 ```java
 /**
- * 获取点赞列表
- * @param momentId 朋友圈 id
- * @param callback 结果回调
+ * Retrieve the like list
+ * @param momentId Moment ID
+ * @param callback Result callback
  */
 void getReactionList(String momentId, JIMConst.IResultListCallback<MomentReaction> callback);
 ```
 
-**代码示例**
+**Code Example**
 
 ```java
 JIM.getInstance().getMomentManager().getReactionList("momentId", new JIMConst.IResultListCallback<MomentReaction>() {
     @Override
     public void onSuccess(List<MomentReaction> data, boolean isFinish) {
+        // Handle success
     }
 
     @Override
     public void onError(int errorCode) {
+        // Handle error
     }
 });
 ```
@@ -47,67 +48,66 @@ JIM.getInstance().getMomentManager().getReactionList("momentId", new JIMConst.IR
 </TabItem>
 <TabItem value="ios">
 
+Retrieve the list of likes, including likes from a specific circle of friends or a customized interaction type list.
 
-获取点赞列表，获取某条朋友圈的点赞或者自定义的互动类型列表。
-
-**接口说明**
+**Interface description**
 
 ```objectivec
-/// 获取点赞列表
+/// Retrieve the like list
 /// - Parameters:
-///   - momentId: 朋友圈 id
-///   - completeBlock: 结果回调
+///   - momentId: Moment ID
+///   - completeBlock: Result callback
 - (void)getReactionList:(nonnull NSString *)momentId
                complete:(nullable void (^)(JErrorCode errorCode, NSArray <JMomentReaction *> * _Nullable reactionList))completeBlock;
 ```
 
-**代码示例**
+**Code Example**
 
 ```objectivec
 [JIM.shared.momentManager getReactionList:@"momentId" complete:^(JErrorCode errorCode, NSArray<JMomentReaction *> * _Nullable reactionList) {
+    // Handle result
 }];
 ```
 
 </TabItem>
 <TabItem value="flutter">
 
-获取点赞列表，获取某条朋友圈的点赞或者自定义的互动类型列表。
+Retrieve the list of likes, including likes from a specific circle of friends or a customized interaction type list.
 
-**接口说明**
+**Interface description**
 
 ```dart
 /**
- * 获取点赞列表
- * @param momentId 朋友圈 id
- * return 点赞列表
+ * Retrieve the like list
+ * @param momentId Moment ID
+ * @return Like list
  */
 Future<Result<List<MomentReaction>>> getMomentReactionList(String momentId) async
 ```
 
-**代码示例**
+**Code Example**
 
 ```dart
 Result<List<MomentReaction>> reactionList = await JuggleIm.instance.getMomentReactionList('momentId');
 ```
 
-
 </TabItem>
 <TabItem value="reactnative">
 
-获取点赞列表，获取某条朋友圈的点赞或者自定义的互动类型列表。
+Retrieve the list of likes, including likes from a specific circle of friends or a customized interaction type list.
 
-**接口说明**
+**Interface description**
 
 ```typescript
 /**
- * 获取点赞列表
- * @param momentId 朋友圈 id
- * return Promise<MomentReaction[]>
+ * Retrieve the like list
+ * @param momentId Moment ID
+ * @return Promise<MomentReaction[]>
  */
 getReactionList(momentId: string): Promise<MomentReaction[]>
 ```
 
-**代码示例**
+**Code Example**
 
 ```typescript
 import { JuggleIMMoment } from 'juggleim-rnsdk';
@@ -118,30 +118,30 @@ const reactionList = await JuggleIMMoment.getReactionList('momentId');
 </TabItem>
 <TabItem value="js">
 
-获取点赞列表，获取某条朋友圈的点赞或者自定义的互动类型列表。
+Retrieve the list of likes, including likes from a specific circle of friends or a customized interaction type list.
 
-**参数说明**
+**Parameter description**
 
-| 名称          | 类型    | 必填                          | 默认值      | 描述                                           | 版本     |
-|--------------|---------|-------------------------------|------------|------------------------------------------------|----------|
-| params        | Object  | 是                            | -   | 获取点赞列表参数  | 1.9.6   |
-| params.momentId    | String  | 是                            |  -   | 朋友圈 Id  | 1.9.6   |
+| Name           | Type   | Required | Default | Description                  | Version |
+|----------------|--------|----------|---------|------------------------------|---------|
+| params         | Object | Yes      | -       | Parameters for retrieving the like list | 1.9.6   |
+| params.momentId | String | Yes      | -       | Moment ID                    | 1.9.6   |
 
-**回调说明**
+**Callback description**
 
-| 名称          | 类型    | 描述                                           | 版本     |
-|--------------|---------|------------------------------------------------|----------|
-| result        | Object  | 获取点赞列表结果  | 1.9.6   |
-| result.reactions    | Array  | 互动类型列表，对象结构请查看 [Reaction](../moment_model) | 1.9.6   |
+| Name            | Type  | Description                                                                 | Version |
+|-----------------|-------|-----------------------------------------------------------------------------|---------|
+| result          | Object| Result of retrieving the like list                                          | 1.9.6   |
+| result.reactions| Array | List of interaction types; see the object structure [Reaction](../moment_model) | 1.9.6   |
 
-**代码示例**
+**Code Example**
 
 ```js
 jim.getReactions({
   momentId: 'momentId',
 }).then((result) => {
-  console.log('getReactions', result)
-})
+  console.log('getReactions', result);
+});
 ```
 </TabItem>
 </Tabs>

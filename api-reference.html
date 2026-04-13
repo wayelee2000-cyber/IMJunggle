@@ -305,12 +305,29 @@
 
   function openDoc(path, push) {
     if (!path) return;
-    fetch(path)
+    function loadDoc(fetchPath) {
+      return fetch(fetchPath).then(function (r) {
+        if (!r.ok) {
+          if (r.status === 404 && /\.mdx$/i.test(fetchPath)) {
+            return fetch(fetchPath.replace(/\.mdx$/i, '.md')).then(function (retry) {
+              if (!retry.ok) throw new Error('HTTP ' + retry.status);
+              return retry.text().then(function (text) {
+                return { text: text, resolvedPath: fetchPath.replace(/\.mdx$/i, '.md') };
+              });
+            });
+          }
+          throw new Error('HTTP ' + r.status);
+        }
+        return r.text().then(function (text) {
+          return { text: text, resolvedPath: fetchPath };
+        });
+      });
+    }
+
+    loadDoc(path)
       .then(function (r) {
-        if (!r.ok) throw new Error('HTTP ' + r.status);
-        return r.text();
-      })
-      .then(function (md) {
+        var md = r.text;
+        var resolvedPath = r.resolvedPath || path;
         var clean = stripFrontMatter(md || '');
         var html;
         try {
@@ -322,13 +339,13 @@
           html = '<p>No content was produced for this page.</p>';
         }
         content.innerHTML = html;
-        rewriteLinksAndMedia(path);
+        rewriteLinksAndMedia(resolvedPath);
         applySyntaxHighlighting();
         enhanceCodeBlocks();
         content.querySelectorAll('.api-code-viewer').forEach(updateCodeViewerState);
         var meta = docsByPath[path] || {};
         titleEl.textContent = meta.navLabel || meta.title || path;
-        current.textContent = path;
+        current.textContent = resolvedPath;
         scrollDocToTop();
       })
       .catch(function (err) {

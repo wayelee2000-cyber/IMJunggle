@@ -1,33 +1,33 @@
 ---
-title: 批量删除提示词
+title: Batch Delete Prompt Words
 hide_title: true
 sidebar_position: 4
 ---
-### 功能说明{#intro}
+### Function Description{#intro}
 
-批量删除提示词
+Batch delete prompt words.
 
-### 请求说明{#req}
+### Request Description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request Rate Limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/assistants/prompts/batchdel
+> **Request URL**: https://[request domain name](../api.md#api)/jim/assistants/prompts/batchdel
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|ids |array|是|提示词ID列表||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request Parameters {#param}
+
+| Parameter | Data Type | Required | Description           |   |
+|:----------|:----------|:---------|:----------------------|---|
+| ids       | array     | yes      | List of prompt word IDs |   |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /jim/assistants/prompts/batchdel HTTP/1.1
 appkey: appkey
@@ -35,21 +35,21 @@ Authorization: xxxxxxxxxxxxxxxxxx
 Content-Type: application/json
 
 {
-  "ids":["xxx","yyy"]
+  "ids": ["xxx", "yyy"]
 }
 ```
 
-### 响应示例{#res_demo}
+### Response Example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```
 
-### 响应码
+### Response Codes
 
-|响应码|说明||
-|:--|:---|:--|
-|17300|删除失败||
+| Response Code | Description      |   |
+|:--------------|:-----------------|---|
+| 17300         | Deletion failed  |   |

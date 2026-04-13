@@ -1,33 +1,33 @@
 ---
-title: 搜索用户
+title: Search user
 hide_title: true
 sidebar_position: 4
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-根据手机号搜索用户
+Search for users based on their mobile phone number.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/users/search
+> **Request URL**: https://[request domain name](../api.md#api)/jim/users/search
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|keyword|string|是|对方手机号，邮箱或账号||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameter | Data type | Required | Description                                      |   |
+|:----------|:----------|:---------|:------------------------------------------------|---|
+| keyword   | string    | yes      | The other party’s mobile phone number, email address, or account number |   |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /jim/users/search HTTP/1.1
 appkey: appkey
@@ -35,30 +35,30 @@ Authorization: xxxxxxxxxxxxxxxxxx
 Content-Type: application/json
 
 {
-  "keyword":"13812345678"
+  "keyword": "13812345678"
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "items":[
-        {
-            "user_id":"userid1",
-            "nickname":"user1",
-            "avatar":"xxxxxxx",
-            "is_friend":false
-        }
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "items": [
+      {
+        "user_id": "userid1",
+        "nickname": "user1",
+        "avatar": "xxxxxxx",
+        "is_friend": false
+      }
     ]
   }
 }
 ```
 
-### 响应码
+### Response code
 
-|响应码|说明||
-|:--|:---|:--|
+| Response code | Description |   |
+|:--------------|:------------|---|

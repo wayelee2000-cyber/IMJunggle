@@ -1,5 +1,5 @@
 ---
-title: 删除属性
+title: delete attribute
 hide_title: true
 sidebar_position: 6
 ---
@@ -12,29 +12,29 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-删除聊天室属性，支持批量操作，删除指令会自动同步至聊天室全部成员，通过 [聊天室属性变更事件](../event) 返回
+Deleting chat room attributes supports batch operations. The deletion command is automatically synchronized to all members of the chat room and delivered through the [Chat Room Attribute Change Event](../event).
 
-**接口定义**
+**Interface definition**
 
 ```java
 /**
- * 删除聊天室属性
+ * Delete chat room attributes
  *
- * @param chatroomId 聊天室 id
- * @param keys 待删除的属性 key 列表。非当前用户设置的 key 不能删除。
- * @param callback 完成回调。
- *                 code 返回 JErrorCode.NONE 时表示所有属性都删除成功。
- *                 其它 code 表示存在删除失败的 key，所有删除失败的 key 都会回调，并返回对应的错误码，可以从 JErrorCode 的定义中找到对应的错误码。
+ * @param chatroomId Chat room ID
+ * @param keys List of attribute keys to be deleted. Keys set by users other than the current user cannot be deleted.
+ * @param callback Completion callback.
+ *                 When the code returns JErrorCode.NONE, it means all attributes were deleted successfully.
+ *                 Other codes indicate that some keys failed to be deleted. All keys that failed deletion will be returned with their corresponding error codes. Refer to the definition of JErrorCode for details.
  */
 void removeAttributes(String chatroomId, List<String> keys, IChatroomAttributesUpdateCallback callback);
 ```
 
-**示例代码**
+**Sample Code**
 
 ```java
 List<String> keys = new ArrayList<>();
@@ -50,24 +50,24 @@ JIM.getInstance().getChatroomManager().removeAttributes("chatroomId1", keys, new
 </TabItem>
 <TabItem value="ios">
 
-删除聊天室属性，支持批量操作，删除指令会自动同步至聊天室全部成员，通过 [聊天室属性变更事件](../event) 返回
+Deleting chat room attributes supports batch operations. The deletion command is automatically synchronized to all members of the chat room and delivered through the [Chat Room Attribute Change Event](../event).
 
-**接口定义**
+**Interface definition**
 
 ```objectivec
-/// 删除聊天室属性
+/// Delete chat room attributes
 /// - Parameters:
-///   - keys: 待删除的属性 key 列表。非当前用户设置的 key 不能删除。
-///   - chatroomId: 聊天室 id
-///   - completeBlock: 完成回调。
-///                    code 返回 JErrorCodeNone 时表示所有属性都删除成功。
-///                    其它 code 表示存在删除失败的 key，所有删除失败的 key 都会回调，并返回对应的错误码，可以从 JErrorCode 的定义中找到对应的错误码。
+///   - keys: List of attribute keys to be deleted. Keys set by users other than the current user cannot be deleted.
+///   - chatroomId: Chat room ID
+///   - completeBlock: Completion callback.
+///     Returns JErrorCodeNone to indicate all attributes were deleted successfully.
+///     Other codes indicate some keys failed to be deleted. All failed keys will be returned with their corresponding error codes. Refer to the definition of JErrorCode for details.
 - (void)removeAttributes:(NSArray <NSString *> *)keys
              forChatroom:(NSString *)chatroomId
                 complete:(void (^)(JErrorCode code, NSDictionary<NSString *, NSNumber *> *failedKeys))completeBlock;
 ```
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 NSArray <NSString *> *keys = @[@"key1"];
@@ -82,27 +82,27 @@ NSArray <NSString *> *keys = @[@"key1"];
 </TabItem>
 <TabItem value="js">
 
-删除聊天室属性，支持批量操作，删除指令会自动同步至聊天室全部成员，通过 [聊天室属性删除事件](../event) 返回
+Deleting chat room attributes supports batch operations. The deletion command is automatically synchronized to all members of the chat room and delivered through the [Chat Room Attribute Deletion Event](../event).
 
-批量删除属性时可能会删除失败，例如 `key` 已经被其他成员设置，没有设置 `isForce` 为 `true` 会提示失败
+Batch deletion may fail for some attributes. For example, if a `key` was set by another member and `isForce` is not set to `true`, the deletion will fail.
 
-**参数说明**
+**Parameter description**
 
-| 名称                    | 类型     | 必填   | 默认值  | 描述| 版本     |
+| Name | Type | Required | Default | Description | Version |
 |-------------------------|---------|-------|---|----------|----------|
-| chatroom                | Object | 是     | 无 | 聊天室对象 | 1.6.0    |
-| chatroom.id             | String | 是     | 无 | 聊天室 ID | 1.6.0    |
-| chatroom.attributes     | Array  | 是     | 无 | 删除的属性列表 | 1.6.0    |
+| chatroom | Object | Yes | None | Chatroom object | 1.6.0 |
+| chatroom.id | String | Yes | None | Chatroom ID | 1.6.0 |
+| chatroom.attributes | Array | Yes | None | List of attributes to remove | 1.6.0 |
 
-**_chatroom.attributes 每项对象说明_**
+**_Description of each object in chatroom.attributes_**
 
-| 名称           | 类型     | 必填   | 默认值  | 描述| 版本     |
-|---------------|---------|-------|---|----------|----------|
-| key           | String | 是     | 无 | 聊天室对象 | 1.6.0    |
-| value         | String | 是     | 无 | 聊天室 ID | 1.6.0    |
-| isForce       | Boolean | 否    | false | 是否强制删除 | 1.6.0    |
+| Name | Type | Required | Default | Description | Version |
+|---------------|----------|-------|---|----------|----------|
+| key | String | Yes | None | Attribute key | 1.6.0 |
+| value | String | Yes | None | Attribute value | 1.6.0 |
+| isForce | Boolean | No | false | Whether to force deletion | 1.6.0 |
 
-**示例代码**
+**Sample Code**
 
 ```js
 let chatroom = {
@@ -114,21 +114,21 @@ let chatroom = {
 };
 
 jim.removeChatroomAttributes(chatroom).then((result) => {
-  console.log('remove chatroom attributes successfully');
+  console.log('Chatroom attributes removed successfully');
   /* 
     result => { success: [{ key: 'name' }], fail:[{ key: 'age', code: 14006 }] }
   */
 }, (error) => {
-  console.log('error', error);
+  console.log('Error', error);
 });
 ```
 
 </TabItem>
 <TabItem value="flutter">
 
-删除聊天室属性，支持批量操作，删除指令会自动同步至聊天室全部成员，通过 [聊天室属性变更事件](../event) 返回
+Deleting chat room attributes supports batch operations. The deletion command is automatically synchronized to all members of the chat room and delivered through the [Chat Room Attribute Change Event](../event).
 
-**示例代码**
+**Sample Code**
 
 ```dart
 List<String> keys = ["key1"];
@@ -138,9 +138,9 @@ await JuggleIm.instance.getChatroomManager().removeAttributes("chatroomId1", key
 </TabItem>
 <TabItem value="reactnative">
 
-删除聊天室属性，支持批量操作，删除指令会自动同步至聊天室全部成员，通过 [聊天室属性变更事件](../event) 返回
+Deleting chat room attributes supports batch operations. The deletion command is automatically synchronized to all members of the chat room and delivered through the [Chat Room Attribute Change Event](../event).
 
-**示例代码**
+**Sample Code**
 
 ```ts
 import JuggleIM from 'juggleim-rnsdk';
@@ -152,9 +152,9 @@ await JuggleIM.removeChatroomAttributes("chatroomId1", keys);
 </TabItem>
 <TabItem value="harmony">
 
-删除聊天室属性，支持批量操作，删除指令会自动同步至聊天室全部成员，通过 [聊天室属性变更事件](../event) 返回
+Deleting chat room attributes supports batch operations. The deletion command is automatically synchronized to all members of the chat room and delivered through the [Chat Room Attribute Change Event](../event).
 
-**示例代码**
+**Sample Code**
 
 ```js
 let keys = ["key1"];

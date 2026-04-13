@@ -1,33 +1,33 @@
 ---
-title: 设置聊天室全局禁言
+title: Set Global Ban on Chat Room
 hide_title: true
 sidebar_position: 4
 ---
 
-### 功能说明{#intro}
+### Function Description{#intro}
 
-设置聊天室全局禁言后，当前聊天室所有成员将无法向发送消息，白名单用户除外。**Server API 发送消息不受禁言影响**。
+After enabling a global ban on a chat room, all members of that chat room will be prevented from sending messages, except for users on the whitelist. **Messages sent via the Server API are not affected by the ban**.
 
-### 请求说明{#req}
+### Request Description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request Rate Limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../../api#api)/apigateway/chatrooms/chrmmute/set
+> **Request URL**: https://[request domain name](../../../api#api)/apigateway/chatrooms/chrmmute/set
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request Parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|chat_id|string|是|聊天室id||
-|is_mute|int|是|0:未禁言；1:禁言；||
+| Parameter | Data Type | Required | Description |  |
+|:----------|:----------|:---------|:------------|:--|
+| chat_id   | string    | yes      | Chat room ID |  |
+| is_mute   | int       | yes      | 0: unmuted; 1: muted |  |
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/chatrooms/chrmmute/set HTTP/1.1
 appkey: appkey
@@ -37,16 +37,16 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "chat_id":"chatroomid1",
-  "is_mute":1
+  "chat_id": "chatroomid1",
+  "is_mute": 1
 }
 ```
 
-### 响应示例{#res_demo}
+### Response Example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

@@ -1,317 +1,310 @@
 ---
-title: 历史版本
+title: Version history
 hide_title: true
 sidebar_position: 2
 ---
-
 ### v1.8.9
 
-下载地址：[v1.8.8下载](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.9.tar.gz)
+Download link: [v1.8.9 download](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.9.tar.gz)
 
-:::info-tip 更新内容
+:::info-tip Release notes
 
-**更新日期**: 2026-02-07
+**Updated date**: 2026-02-07
 
-**新增功能**:
-1. 新增用户设置会话分组(标签)功能；
+**NEW FEATURES**:
+1. Added user session grouping (label) functionality;
 
-**问题修复**:
-1. 优化群定向消息存储；
-2. 优化订阅号推送能力；
-3. 其他一些已知优化；
+**Bug fixes**:
+1. Optimized group-directed message storage;
+2. Improved push subscription account capabilities;
+3. Various other known optimizations;
 
 :::
 
 ### v1.8.8
 
-下载地址：[v1.8.8下载](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.8.tar.gz)
+Download link: [v1.8.8 download](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.8.tar.gz)
 
-:::info-tip 更新内容
+:::info-tip Release notes
 
-**更新日期**: 2025-12-14
+**Updated date**: 2025-12-14
 
-**新增功能**:
-1. 增加朋友圈；
+**NEW FEATURES**:
+1. Added Moments (social feed);
 
-**问题修复**:
-1. 优化命令消息数量控制；
-2. 优化敏感词过滤功能；
-3. 更新业务服务；
+**Bug fixes**:
+1. Improved command message quantity control;
+2. Enhanced sensitive word filtering functionality;
+3. Updated business services;
 
 :::
 
 ### v1.8.7
 
-下载地址：[v1.8.7下载](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.7.tar.gz)
+Download link: [v1.8.7 download](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.7.tar.gz)
 
-:::info-tip 更新内容
+:::info-tip Release notes
 
-**更新日期**: 2025-11-16
+**Updated date**: 2025-11-16
 
-**新增功能**:
-1. 增加查询指定用户封禁状态接口；
-2. 增加服务端查询用户会话列表接口；
+**NEW FEATURES**:
+1. Added an interface to query the ban status of specified users;
+2. Added a server-side API to query user session lists;
 
-**问题修复**:
-1. 优化推送参数；
-2. 优化封禁接口；
-3. 优化封禁用户后，踢用户下线的错误码；
+**Bug fixes**:
+1. Optimized push parameters;
+2. Improved ban interface;
+3. Refined error codes for kicking users offline after banning;
 
 :::
 
 ### v1.8.6
 
-下载地址：[v1.8.6下载](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.6.tar.gz)
+Download link: [v1.8.6 download](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.6.tar.gz)
 
-:::info-tip 更新内容
+:::info-tip Release notes
 
-**更新日期**: 2025-11-02
+**Updated date**: 2025-11-02
 
-**新增功能**:
-1. 优化管理后台，增加用户和群组管理；
-2. 新增单聊已读时间；
-3. 优化会话最后一条消息变更逻辑；
+**NEW FEATURES**:
+1. Enhanced management backend with user and group management;
+2. Added single chat read time;
+3. Optimized logic for updating the last message in sessions;
 
-
-**问题修复**:
-1. 修复一些已知的bug；
+**Bug fixes**:
+1. Fixed various known bugs;
 
 :::
 
 ### v1.8.5
 
-下载地址：[v1.8.5下载](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.5.tar.gz)
+Download link: [v1.8.5 download](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.5.tar.gz)
 
-:::info-tip 更新内容
+:::info-tip Release notes
 
-**更新日期**: 2025-09-08
+**Updated date**: 2025-09-08
 
-**新增功能**:
-1. 音视频支持声网；
-2. 支持群内定向消息能力；
-3. 音视频房间支持与会话绑定；
-4. 支持主动加入音视频通话；
-5. 增加消息端到端加密基础能力；
+**NEW FEATURES**:
+1. Added Agora support for audio and video;
+2. Enabled targeted messaging within groups;
+3. Audio and video rooms now support session binding;
+4. Support for active participation in audio and video calls;
+5. Added basic end-to-end message encryption capabilities;
 
-
-**问题修复**:
-1. 优化音视频房间创建和销毁逻辑；
-2. 优化管理后台集成方式；
-3. 修复一些已知的db'操作异常；
-4. 引用消息优化；
-5. 其他一些已知的bug修复；
+**Bug fixes**:
+1. Optimized audio and video room creation and destruction logic;
+2. Improved management backend integration methods;
+3. Fixed known database operation anomalies;
+4. Enhanced quotation message handling;
+5. Various other bug fixes;
 
 :::
 
 ### v1.8.4
 
-下载地址：[v1.8.4下载](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.4.tar.gz)
+Download link: [v1.8.4 download](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.4.tar.gz)
 
-:::info-tip 更新内容
+:::info-tip Release notes
 
-**更新日期**: 2025-07-25
+**Updated date**: 2025-07-25
 
-**新增功能**:
-1. 支持会话内频道能力；
-2. ECDH支持链路加密；
-3. 支持消息定时删除，阅后即焚能力；
-4. 音视频邀请信令新增自定义扩展字段；
+**NEW FEATURES**:
+1. Added support for intra-session channel capabilities;
+2. ECDH now supports link encryption;
+3. Added scheduled message deletion and burn-after-reading features;
+4. Added custom extension fields to audio and video invitation signaling;
 
-
-**问题修复**:
-1. 优化错误信息日志；
-2. 修复消息引用bug；
-3. 消息操作时，优化权限校验；
+**Bug fixes**:
+1. Improved error message logging;
+2. Fixed message reference bug;
+3. Enhanced permission verification during message operations;
 
 :::
 
 ### v1.8.3
 
-下载地址：[v1.8.3下载](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.3.tar.gz)
+Download link: [v1.8.3 download](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.3.tar.gz)
 
-:::info-tip 更新内容
+:::info-tip Release notes
 
-**更新日期**: 2025-07-09
+**Updated date**: 2025-07-09
 
-**新增功能**:
-1. 内置业务服务器；
-2. 新增短验登录，邮箱验证码登录；
-3. 增加链路加密支持；
-4. 单聊消息增加好友关系校验开关；
+**NEW FEATURES**:
+1. Integrated built-in business server;
+2. Added short verification login and email verification code login;
+3. Added link encryption support;
+4. Added friend relationship verification toggle for single chat messages;
 
-
-**问题修复**:
-1. 优化单聊集群分发逻辑；
-2. 优化SQL语句，增加好友备注字段；
-3. 修复一些已知问题；
+**Bug fixes**:
+1. Optimized single chat cluster distribution logic;
+2. Improved SQL statements and added friend notes fields;
+3. Fixed various known issues;
 
 :::
 
 ### v1.8.2
 
-下载地址：[v1.8.2下载](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.2.tar.gz)
+Download link: [v1.8.2 download](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.2.tar.gz)
 
-:::info-tip 更新内容
+:::info-tip Release notes
 
-**更新日期**: 2025-05-20
+**Updated date**: 2025-05-20
 
-**新增功能**:
-1. 新增音视频服务；
-2. 增加置顶操作的服务端API接口；
+**NEW FEATURES**:
+1. Added new audio and video services;
+2. Added server-side API for pin operations;
 
-
-**问题修复**:
-1. 优化日志输出格式；
-2. 优化管理后台中，服务端日志查询功能；
-3. 优化配置文件加载方式；
-4. 过滤不合法的重定向；
-5. 优化shutdown操作；
-6. 修复潜在的SQL注入；
-7. 修复一些已知问题；
+**Bug fixes**:
+1. Improved log output format;
+2. Enhanced server log query functionality in the management backend;
+3. Optimized configuration file loading;
+4. Filtered illegal redirects;
+5. Improved shutdown operations;
+6. Fixed potential SQL injection vulnerabilities;
+7. Resolved various known issues;
 
 :::
 
-
 ### v1.8.1
 
-下载地址：[v1.8.1下载](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.1.tar.gz)
+Download link: [v1.8.1 download](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.1.tar.gz)
 
-:::info-tip 更新内容
+:::info-tip Release notes
 
-**更新日期**: 2025-04-23
+**Updated date**: 2025-04-23
 
-**新增功能**:
-1. 支持鸿蒙Next SDK；
+**NEW FEATURES**:
+1. Added support for Hongmeng Next SDK;
 
-**问题修复**:
-1. 优化聊天室相关逻辑；
-2. 修复一些已知问题；
+**Bug fixes**:
+1. Optimized chat room related logic;
+2. Fixed various known issues;
 
 :::
 
 ### v1.8.0
 
-下载地址：[v1.8.0下载](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.0.tar.gz)
+Download link: [v1.8.0 download](https://downloads.juggle.im/server/linux/amd64/juggleim-1.8.0.tar.gz)
 
-:::info-tip 更新内容
+:::info-tip Release notes
 
-**更新日期**: 2025-02-26
+**Updated date**: 2025-02-26
 
-**新增功能**:
-1. 增加 reaction 功能；
-2. 增加 AI 机器人对接,能对接主流AI Agent平台；
-3. 集成内置业务服务器，支持好友，群管理等能力；
-4. 支持消息的服务端回调拦截；
-5. 新增消息翻译；
-6. 借助AI，增加消息自动回复能力；
+**NEW FEATURES**:
+1. Added reaction functionality;
+2. Integrated AI robot docking to connect with mainstream AI Agent platforms;
+3. Integrated built-in business server supporting friends, group management, and more;
+4. Added server-side callback interception for messages;
+5. Added message translation;
+6. Enhanced automatic message reply capabilities using AI;
 
-**问题修复**:
-1. 优化万人以上大群，消息控速逻辑；
-2. 优化会话列表数据缓存；
-3. 优化会话标签数据的存储；
+**Bug fixes**:
+1. Optimized message speed control logic for large groups exceeding 10,000 members;
+2. Improved session list data caching;
+3. Enhanced storage of session tag data;
 
 :::
 
 ### v1.7.6
 
-:::info-tip 更新内容
+:::info-tip Release notes
 
-**更新日期**: 2024-10-12
+**Updated date**: 2024-10-12
 
-**新增功能**：
-1. 消息扩展；
-2. 支持FCM推送；
-3. 新增会话自定义标签能力；
-4. Server API 发消息支持指定推送相关内容；
-5. Server API 发消息可返回消息ID；
+**NEW FEATURES**:
+1. Message expansion;
+2. Added support for FCM push notifications;
+3. Added customizable session labels;
+4. Server API message sending supports specifying push-related content;
+5. Server API returns message ID upon sending;
 
-**问题修复**：
-1. 消息单向删除优化；
-2. 大群消息分发优化；
-3. @消息重复存储问题优化；
-4. 管理后台：客户端日志上报流程优化；
-5. 管理后台：消息量统计优化；
+**Bug fixes**:
+1. Optimized one-way message deletion;
+2. Improved large group message distribution;
+3. Fixed duplicate storage of @messages;
+4. Optimized client log reporting process in management backend;
+5. Enhanced message volume statistics in management backend;
 
 :::
 
 ### v1.7.4
 
-:::info-tip 更新内容
+:::info-tip Release notes
 
-**更新日期**: 2024-9-13
+**Updated date**: 2024-09-13
 
-**新增功能**：
-1. 增加链接注销接口，关闭推送；
-2. 单聊支持@消息；
-3. 安装部署工具，支持指定外部中间件；
+**NEW FEATURES**:
+1. Added link logout interface and push disable option;
+2. Single chat now supports @messages;
+3. Added installation and deployment tools with support for specified external middleware;
 
-**问题修复**：
-1. 修复历史消息清空功能；
-2. 携程模型优化，提高吞吐率；
-3. 离线状态通知优化；
+**Bug fixes**:
+1. Fixed historical message clearing functionality;
+2. Optimized Ctrip model to improve throughput;
+3. Improved offline status notifications;
 
 :::
 
 ### v1.7.3
 
-:::info-tip 更新内容
+:::info-tip Release notes
 
-**更新日期**: 2024-9-11
+**Updated date**: 2024-09-11
 
-**新增功能**：
-1. 后台增加链接日志排查能力；
-2. 后台增加API接口调试功能；
-3. 后台增加客户端日志上报能力；
-4. 发送群消息时，ack增加当前群成员数量；
+**NEW FEATURES**:
+1. Added link log troubleshooting in the backend;
+2. Added API interface debugging in the backend;
+3. Added client log reporting capabilities in the backend;
+4. Group message acknowledgments now include current group member count;
 
-**问题修复**：
-1. 优化@消息列表接口；
-2. 优化链接断开响应码；
+**Bug fixes**:
+1. Optimized @message list interface;
+2. Improved link disconnection response codes;
 
 :::
 
 ### v1.7.2
 
-:::info-tip 更新内容
+:::info-tip Release notes
 
-**更新日期**: 2024-9-06
+**Updated date**: 2024-09-06
 
-**新增功能**：
-1. 支持人数无上限直播聊天室场景；
-2. 聊天室增加加入/退出多设备同步，新增聊天室销毁事件；
-3. 新增消息/用户相关统计；
+**NEW FEATURES**:
+1. Support for live chat rooms with unlimited participants;
+2. Added multi-device synchronization for joining/exiting chat rooms and chat room destruction events;
+3. Added new message and user-related statistics;
 
-**问题修复**：
-1. 优化链接相关逻辑，新增链接关闭错误码；
-2. 修复聊天室重复创建问题；
+**Bug fixes**:
+1. Optimized link-related logic and added link closing error codes;
+2. Fixed repeated chat room creation issue;
 
 :::
 
 ### v1.7.0
 
-:::info-tip 更新内容
+:::info-tip Release notes
 
-**更新日期**: 2024-8-30
+**Updated date**: 2024-08-30
 
-**新增功能**：
-1. App切后台后，强制开启远程推送；
-2. 增加instanceid，用于区分同设备上多开的应用；
-3. 聊天室增加属性等功能；
+**NEW FEATURES**:
+1. Remote push is forcibly enabled when the app moves to the background;
+2. Added instance ID to distinguish multiple applications on the same device;
+3. Added attributes and other features to chat rooms;
 
-**问题修复**：
-1. 优化置顶会话查询接口；
-2. 优化用户信息缓存逻辑；
+**Bug fixes**:
+1. Optimized top session query interface;
+2. Improved user information caching logic;
 
 :::
 
 ### v1.6.0
 
-:::info-tip 更新内容
+:::info-tip Release notes
 
-**更新日期**: 2024-8-23
+**Updated date**: 2024-08-23
 
-**新增功能**：新增聊天室相关功能
+**NEW FEATURES**: Added new chat room-related features
 
-**问题修复**：优化会话，未读数等相关逻辑
+**Bug fixes**: Optimized session, unread, and related logic
 
 :::

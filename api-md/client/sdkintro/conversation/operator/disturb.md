@@ -1,5 +1,5 @@
 ---
-title: 设置单个会话免打扰
+title: Set Do Not Disturb for a Single Session
 hide_title: true
 sidebar_position: 6
 ---
@@ -12,22 +12,22 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-设置会话免打扰，多端同步，设置免打扰后移动端将不再接收离线推送，设置成功后，SDK 会自动更新会话的 mute 属性。
+Set the session to Do Not Disturb and synchronize this setting across multiple devices. After enabling Do Not Disturb for the session, the mobile device will no longer receive offline push notifications. Once the setting is successful, the SDK will automatically update the mute attribute of the session.
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation                    | Conversation | 会话标识 | 1.0.0    |
-| isMute   | boolean | YES 表示静音，NO 表示解除静音 | 1.0.0    |
-| callback     | ISimpleCallback | 结果回调 | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------|----------|
+| conversation | Conversation | Conversation identifier | 1.0.0 |
+| isMute | boolean | `true` to mute, `false` to unmute | 1.0.0 |
+| callback | ISimpleCallback | Result callback | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```java
 Conversation conversation = new Conversation(Conversation.ConversationType.PRIVATE, "userId1");
 JIM.getInstance().getConversationManager().setMute(conversation, true, new IConversationManager.ISimpleCallback() {
@@ -45,18 +45,18 @@ JIM.getInstance().getConversationManager().setMute(conversation, true, new IConv
 </TabItem>
 <TabItem value="ios">
 
-设置会话免打扰，多端同步，设置免打扰后移动端将不再接收离线推送，设置成功后，SDK 会自动更新会话的 mute 属性。
+Set the session to Do Not Disturb and synchronize this setting across multiple devices. After enabling Do Not Disturb for the session, the mobile device will no longer receive offline push notifications. Once the setting is successful, the SDK will automatically update the mute attribute of the session.
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| isMute   | BOOL | YES 表示静音，NO 表示解除静音 | 1.0.0    |
-| conversation | JConversation | 会话标识 | 1.0.0    |
-| successBlock     |  | 成功回调 | 1.0.0    |
-| errorBlock     |  | 失败回调 | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------|----------|
+| isMute | BOOL | `YES` to mute, `NO` to unmute | 1.0.0 |
+| conversation | JConversation | Session identifier | 1.0.0 |
+| successBlock | Block | Success callback | 1.0.0 |
+| errorBlock | Block | Failure callback | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 JConversation *conversation = [[JConversation alloc] initWithConversationType:JConversationTypePrivate conversationId:@"userId1"];
@@ -72,18 +72,18 @@ JConversation *conversation = [[JConversation alloc] initWithConversationType:JC
 </TabItem>
 <TabItem value="js">
 
-设置会话免打扰，多端同步，设置免打扰后移动端将不再接收离线推送，设置成功后，SDK 会自动更新会话的 undisturbType 属性。
+Set the session to Do Not Disturb and synchronize this setting across multiple devices. After enabling Do Not Disturb, the mobile device will no longer receive offline push notifications. Once the setting is successful, the SDK will automatically update the `undisturbType` attribute of the session.
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 必填   | 默认值  | 描述| 版本     |
-|---------------------------------|---------|-------|--------|----------|----------|
-| conversation                    | Object | 是     | 无 | 会话对象 | 1.0.0    |
-| conversation.conversationType   | Number | 是     | 无 | 会话类型 | 1.0.0    |
-| conversation.conversationId     | String | 是     | 无 | 会话 Id | 1.0.0    |
-| conversation.undisturbType      | Number | 是     | 无 | [免打扰类型](../../../enum/web#disturb) | 1.0.0    |
+| Name | Type | Required | Default | Description | Version |
+|----------------------------------|----------|-------|--------|----------|----------|
+| conversation | Object | Yes | None | Conversation object | 1.0.0 |
+| conversation.conversationType | Number | Yes | None | Conversation type | 1.0.0 |
+| conversation.conversationId | String | Yes | None | Conversation ID | 1.0.0 |
+| conversation.undisturbType | Number | Yes | None | [DND Type](../../../enum/web#disturb) | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType, UndisturbType } = JIM;
 
@@ -94,43 +94,43 @@ let conversation = {
 };
 
 jim.disturbConversation(conversation).then(() => {
-  console.log('set conversation disturb successfully');
+  console.log('Set conversation to Do Not Disturb successfully');
 });
 ```
 </TabItem>
 
 <TabItem value="harmony">
 
-设置会话免打扰，多端同步，设置免打扰后移动端将不再接收离线推送，设置成功后，SDK 会自动更新会话的 undisturbType 属性。
+Set the session to Do Not Disturb and synchronize this setting across multiple devices. After enabling Do Not Disturb, the mobile device will no longer receive offline push notifications. Once the setting is successful, the SDK will automatically update the `undisturbType` attribute of the session.
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation                    | Conversation | 会话标识 | 1.0.0    |
-| isMute   | boolean | YES 表示静音，NO 表示解除静音 | 1.0.0    |
-| callback     | CommonCallback | 结果回调 | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------|----------|
+| conversation | Conversation | Conversation identifier | 1.0.0 |
+| isMute | boolean | `true` to mute, `false` to unmute | 1.0.0 |
+| callback | CommonCallback | Result callback | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```java
-let conver = new Conversation("userid1",1)
-JuggleIm.instance.getConversationManager().setMute(conver,true,(code)=>{
+let conver = new Conversation("userid1", 1);
+JuggleIm.instance.getConversationManager().setMute(conver, true, (code) => {
   
-})
+});
 ```
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-设置会话免打扰，免打扰状态支出同步到当前的用户其他设备，设置免打扰后移动端将不再接收离线推送，设置成功后，SDK 会自动更新会话的 `mute` 属性。
+Set the session to Do Not Disturb, and synchronize the Do Not Disturb status across all devices of the current user. After enabling Do Not Disturb, the mobile device will no longer receive offline push notifications. Once the setting is successful, the SDK will automatically update the `mute` attribute of the session.
 
-**参数��明**
+**Parameter Description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation                    | Conversation | 会话标识 | 0.6.3    |
-| isMute                          | bool | `true` 表示静音，`false` 表示解除静音 | 0.6.3    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------|----------|
+| conversation | Conversation | Conversation identifier | 0.6.3 |
+| isMute | bool | `true` to mute, `false` to unmute | 0.6.3 |
 
-**示例代码**
+**Sample Code**
 
 ```dart
 Conversation conversation = Conversation(ConversationType.private, 'userId1');
@@ -140,18 +140,18 @@ Result result = await JuggleIm.instance.setMute(conversation, true);
 </TabItem>
 <TabItem value="reactnative">
 
-设置会话免打扰，多端同步，设置免打扰后移动端将不再接收离线推送，设置成功后，SDK 会自动更新会话的 `mute` 属性。
+Set the session to Do Not Disturb and synchronize this setting across multiple devices. After enabling Do Not Disturb, the mobile device will no longer receive offline push notifications. Once the setting is successful, the SDK will automatically update the `mute` attribute of the session.
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation                    | Object | 会话标识 | 0.6.3    |
-| conversationType                | Number | 会话类型 | 0.6.3    |
-| conversationId                  | String | 会话ID | 0.6.3    |
-| isMute                          | Boolean | `true` 表示静音，`false` 表示解除静音 | 0.6.3    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------|----------|
+| conversation | Object | Conversation identifier | 0.6.3 |
+| conversationType | Number | Conversation type | 0.6.3 |
+| conversationId | String | Session ID | 0.6.3 |
+| isMute | Boolean | `true` to mute, `false` to unmute | 0.6.3 |
 
-**示例代码**
+**Sample Code**
 
 ```javascript
 import JuggleIM from 'juggleim-rnsdk';

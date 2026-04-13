@@ -1,32 +1,32 @@
 ---
-title: 发送聊天室广播消息
+title: Send chat room broadcast message
 hide_title: true
 sidebar_position: 7
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-聊天室广播消息，即向平台当前正活跃的所有聊天室发送消息
+Chat room broadcast messages allow you to send messages to all chat rooms currently active on the platform.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request Rate Limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/messages/chatroom/broadcast
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/messages/chatroom/broadcast
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|sender_id|string|是|消息发送者id||
-|msg_type|string|是|消息类型标识||
-|msg_content|string|是|消息内容，建议json格式||
+### Request parameters {#param}
+| Parameter   | Data type | Required | Description                     |
+|:------------|:----------|:---------|:-------------------------------|
+| sender_id   | string    | yes      | ID of the message sender       |
+| msg_type    | string    | yes      | Message type identifier        |
+| msg_content | string    | yes      | Message content; JSON format is recommended |
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/messages/chatroom/broadcast HTTP/1.1
 appkey: appkey
@@ -36,23 +36,22 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "sender_id":"userid1",
-  "msg_type":"text",
-  "msg_content":"{\"content\":\"aabbcc\"}"
+  "sender_id": "userid1",
+  "msg_type": "text",
+  "msg_content": "{\"content\":\"aabbcc\"}"
 }
 ```
 
-### 响应参数{#res_param}
+### Response parameters {#res_param}
 
-|参数|数据类型|参数说明||
-|:--|:------|:-----|:-------|
+| Parameter | Data type | Description |
+|:----------|:----------|:------------|
 
-
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

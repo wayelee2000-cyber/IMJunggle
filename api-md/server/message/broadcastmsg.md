@@ -1,33 +1,33 @@
 ---
-title: 发送广播消息
+title: Send broadcast message
 hide_title: true
 sidebar_position: 5
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-向应用下所有注册用户广播消息
+Broadcast a message to all registered users within the application.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request rate limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/messages/broadcast/send
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/messages/broadcast/send
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|sender_id|string|是|消息发送者 Id||
-|msg_type|string|是|消息类型标识||
-|msg_content|string|是|消息内容，格式是 `JSON` 字符串||
+| Parameters  | Data type | Required | Description                          |  |
+|:------------|:----------|:---------|:-----------------------------------|:--|
+| sender_id   | string    | yes      | ID of the message sender            |   |
+| msg_type    | string    | yes      | Identifier for the message type     |   |
+| msg_content | string    | yes      | Message content in JSON string format |   |
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/messages/broadcast/send HTTP/1.1
 appkey: appkey
@@ -37,17 +37,17 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "sender_id":"userid1",
-  "msg_type":"text",
-  "msg_content":"{\"content\":\"aabbcc\"}",
+  "sender_id": "userid1",
+  "msg_type": "text",
+  "msg_content": "{\"content\":\"aabbcc\"}"
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

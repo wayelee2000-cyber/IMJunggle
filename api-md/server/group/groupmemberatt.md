@@ -1,36 +1,35 @@
 ---
-title: 设置群成员属性
+title: Set group member attributes
 hide_title: true
 sidebar_position: 13
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-为群成员设置在本群内的属性，例如群昵称，群徽章等。
+Set attributes for group members within a group, such as group nickname, group badge, and more.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/groups/members/update
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/groups/members/update
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|group_id|string|是|群组 Id||
-|member_id|string|是|群成员 Id||
-|grp_display_name|string|否|该成员在本群的备注昵称||
-|ext_fields|map|否|该成员在本群的扩展字段||
+| Parameters      | Data type | Required | Description                        |   |
+|:----------------|:----------|:---------|:---------------------------------|---|
+| group_id        | string    | Yes      | Group ID                         |   |
+| member_id       | string    | Yes      | Group member ID                  |   |
+| grp_display_name| string    | No       | Member’s nickname within the group |   |
+| ext_fields      | map       | No       | Extended fields for the member within the group |   |
 
-
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/groups/members/update HTTP/1.1
 appkey: appkey
@@ -40,21 +39,21 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "group_id":"groupid1",
-  "member_id":"member1",
-  "grp_display_name":"群昵称",
-  "ext_fields":{
-    "k1":"v1",
-    "k2":"v2"
+  "group_id": "groupid1",
+  "member_id": "member1",
+  "grp_display_name": "Group Nickname",
+  "ext_fields": {
+    "k1": "v1",
+    "k2": "v2"
   }
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

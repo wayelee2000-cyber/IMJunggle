@@ -1,5 +1,5 @@
 ---
-title: 获取标签列表
+title: Get the label list
 hide_title: true
 sidebar_position: 1
 ---
@@ -16,47 +16,47 @@ values={[
 }>
 <TabItem value="android">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="ios">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="js">
 
-获取当前用户创建的标签列表
+Retrieve the list of tags created by the current user.
 
 ![](./tag.png)
 
-**成功回调**
+**Success Callback**
 
-无参数返回，回调触发表示成功
+No parameters are returned; the callback is triggered to indicate success.
 
-**失败回调**
+**Failure Callback**
 
-| 名称   | 类型    | 描述                                                      | 版本   |
-|--------|---------|-----------------------------------------------------------|--------|
-| error  | Object  | 发送失败后会有对应的状态码，可以直接查看 `error.msg`，或者查看 [状态码](../../../../sdkintro/status_code/web) | 1.0.0  |
+| Name  | Type   | Description                                                                                  | Version |
+|-------|--------|----------------------------------------------------------------------------------------------|---------|
+| error | Object | Contains a status code if the request fails. You can access the error message via `error.msg`, or refer to [Status Code](../../../../sdkintro/status_code/web) for details. | 1.0.0   |
 
-**示例代码**
+**Sample Code**
 ```js
 jim.getConversationTags().then(({ tags }) => {
-  /* tags =>  [{ id: 'tag_01', name: '我的关注' }, ... ] */
+  /* tags => [{ id: 'tag_01', name: 'My attention' }, ... ] */
 }, (error) => {
-  console.log(error)
+  console.log(error);
 });
 ```
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="reactnative">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 </Tabs>

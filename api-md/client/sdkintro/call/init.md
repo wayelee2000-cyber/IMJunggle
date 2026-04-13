@@ -1,5 +1,5 @@
 ---
-title: 初始化
+title: initialization
 hide_title: true
 sidebar_position: 0
 ---
@@ -16,7 +16,7 @@ values={[
 }>
 <TabItem value="android">
 
-初始化音视频通话需要导入即构的库文件。打开根目录下的 setting.gradle（Project 视图）。
+To initialize audio and video calls, import the pre-built library file. Open `settings.gradle` (Project view) in the root directory.
 
 ```
   dependencyResolutionManagement {
@@ -29,7 +29,7 @@ values={[
   }
 ```
 
-在应用的 build.gradle 中，添加下面依赖。
+In your application's `build.gradle`, add the following dependencies:
 
 ```
 api 'com.juggle.im:juggle:1.8.13.2'
@@ -37,8 +37,7 @@ api 'com.juggle.call.zego:juggle:1.8.13.2'
 api 'im.zego:express-video:3.17.3'
 ```
 
-
-使用即构的 appId 对音视频引擎进行初始化。
+Use your constructed `appId` to initialize the audio and video engine:
 
 ```java
 JIM.getInstance().getCallManager().initZegoEngine(appId, context);
@@ -47,24 +46,22 @@ JIM.getInstance().getCallManager().initZegoEngine(appId, context);
 </TabItem>
 <TabItem value="ios">
 
-初始化音视频通话需要引入新的依赖，在 Podfile 中添加下面代码。
+To initialize audio and video calls, add the following dependency to your Podfile:
 
 ```
 pod 'JZegoCall', '1.8.13.1'
 ```
 
-使用即构的 appId 对音视频引擎进行初始化。
+Use your constructed `appId` to initialize the audio and video engine:
 
 ```objectivec
 [JIM.shared.callManager initZegoEngineWith:xxx appSign:nil];
 ```
 
-
-
 </TabItem>
 <TabItem value="js">
 
-使用即构的 AppId 对音视频引擎进行初始化和下载即构 [RTC SDK](https://doc-zh.zego.im/sdk-download/3209)
+Use your constructed `appId` to initialize and download the audio and video engine [RTC SDK](https://doc-zh.zego.im/sdk-download/3209):
 
 ```javascript
 import JuggleCall from "jugglecall-sdk";
@@ -72,28 +69,26 @@ import JuggleCall from "jugglecall-sdk";
 let juggle = JIM.init({
   appkey: appkey,
 });
-let zg = new ZegoExpressEngine('即构的 AppId');
+let zg = new ZegoExpressEngine('Zego App ID');
 let client = juggle.install({ name: 'call' });
-let juggleCall = JuggleCall.init({ client, engine: zg  });
+let juggleCall = JuggleCall.init({ client, engine: zg });
 ```
 
 </TabItem>
 
 <TabItem value="flutter">
 
-使用即构的 appId 和 appSign 对音视频引擎进行初始化。
+Use your constructed `appId` and `appSign` to initialize the audio and video engine:
 
 ```dart
 Future<void> initZegoEngine(int appId, String appSign) async
 ```
 
-
-
 </TabItem>
 
 <TabItem value="reactnative">
 
-使用即构的 appId 对音视频引擎进行初始化。
+Use your constructed `appId` to initialize the audio and video engine:
 
 ```typescript
 import JuggleIMCall from 'juggleim-rnsdk';
@@ -101,7 +96,7 @@ import JuggleIMCall from 'juggleim-rnsdk';
 JuggleIMCall.initZegoEngine(appId);
 ```
 
-使用 LiveKit 进行初始化。
+To initialize with LiveKit, use:
 
 ```typescript
 import JuggleIMCall from 'juggleim-rnsdk';
@@ -109,7 +104,7 @@ import JuggleIMCall from 'juggleim-rnsdk';
 JuggleIMCall.initLiveKitEngine();
 ```
 
-使用声网 Agora 的 appId 对音视频引擎进行初始化。
+To initialize the audio and video engine with Agora, use your Agora `appId`:
 
 ```typescript
 import JuggleIMCall from 'juggleim-rnsdk';

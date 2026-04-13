@@ -1,33 +1,33 @@
 ---
-title: 检查扫码状态
+title: Check scan code status
 hide_title: true
 sidebar_position: 8
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-检查二维码是否已被扫码
+Check whether the QR code has been scanned.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 times/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/qrcode/check
+> **Request URL**: https://[request domain name](../api.md#api)/jim/qrcode/check
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|id|string|是|要检查的二维码id， 建议每3秒检查一次，扫码成功即可返回登录信息||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameters | Data type | Required | Parameter description |  |
+|:-----------|:----------|:---------|:----------------------|:--|
+| id         | string    | yes      | The QR code ID to be checked. It is recommended to check every 3 seconds. If the code is successfully scanned, the login information will be returned. | |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /jim/qrcode/check HTTP/1.1
 appkey: appkey
@@ -39,25 +39,25 @@ Content-Type: application/json
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "user_id":"userid1",
-    "authorization":"xxxxxxxxx",
-    "nickname":"user1",
-    "avatar":"xxxxxxxx",
-    "status":0,
-    "im_token":"xxxxxxxxx"
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "user_id": "userid1",
+    "authorization": "xxxxxxxxx",
+    "nickname": "user1",
+    "avatar": "xxxxxxxx",
+    "status": 0,
+    "im_token": "xxxxxxxxx"
   }
 }
 ```
-### 响应码
+### Response code
 
-|响应码|说明||
-|:--|:---|:--|
-|17006|还未被扫码，继续检查||
-|17007|二维码已过期||
+| Response code | Description                          |  |
+|:--------------|:-----------------------------------|:--|
+| 17006         | The code has not been scanned yet; continue checking. | |
+| 17007         | The QR code has expired.            | |

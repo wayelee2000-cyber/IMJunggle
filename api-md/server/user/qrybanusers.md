@@ -1,33 +1,33 @@
 ---
-title: 查询封禁列表
+title: Query ban list
 hide_title: true
 sidebar_position: 4
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-查询已封禁用户列表，支持分页查询。
+Retrieve the list of banned users with support for paginated queries.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`GET`
+> **Request Type**: `GET`
 
-> **请求限频**：`100次/秒`
+> **Request rate limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/users/banusers/query
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/users/banusers/query
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|limit|int|否|分页参数，每页的数量||
-|offset|string|否|偏移量，用于分页||
+| Parameter | Data type | Required | Description           |   |
+|:----------|:----------|:---------|:----------------------|---|
+| limit    | int       | No       | Pagination parameter specifying the number of items per page |   |
+| offset   | string    | No       | Offset value used for pagination |   |
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 
 ```js
 GET /apigateway/users/banusers/query?limit=20&offset="" HTTP/1.1
@@ -39,33 +39,33 @@ Content-Type: application/json
 
 ```
 
-### 响应参数{#res_param}
+### Response parameters {#res_param}
 
-|参数|数据类型|参数说明||
-|:--|:------|:-----|:-------|
-|user_id|string|封禁用户id||
-|created_time|number|添加封禁的时间||
-|end_time|number|结束封禁的时间(ms)，为0时表示永久封禁||
+| Parameter    | Data type | Description                              |   |
+|:-------------|:----------|:---------------------------------------|---|
+| user_id     | string    | ID of the banned user                   |   |
+| created_time| number    | Timestamp when the ban was added        |   |
+| end_time   | number    | Timestamp when the ban ends (in ms). A value of 0 indicates a permanent ban |   |
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "items":[
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "items": [
       {
-        "user_id":"user1",
-        "created_time":1672233498000 
+        "user_id": "user1",
+        "created_time": 1672233498000
       },
       {
-        "user_id":"user2",
-        "created_time":1672233498000, 
-        "end_time":1723455443563 
+        "user_id": "user2",
+        "created_time": 1672233498000,
+        "end_time": 1723455443563
       }
     ],
-    "offset":"aabbcc"
+    "offset": "aabbcc"
   }
 }
 ```

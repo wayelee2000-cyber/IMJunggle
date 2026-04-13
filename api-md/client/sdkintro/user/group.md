@@ -1,5 +1,5 @@
 ---
-title: 群组信息
+title: group information
 hide_title: true
 sidebar_position: 2
 ---
@@ -16,82 +16,80 @@ values={[
 }>
 <TabItem value="android">
 
-**群组信息结构**
+**Group Information Structure**
 
-GroupInfo 是 SDK 封装的群组信息对象。
+GroupInfo is the group information object encapsulated by the SDK.
 
-| 属性名        | 类型          | 说明                       | 版本  |
+| Attribute name | Type | Description | Version |
 | ------------- | ------------- | -------------------------- | ----- |
-| groupId  | String | 群组 id                | 1.0.0 |
-| groupName | String      | 群组名字         | 1.0.0 |
-| portrait   | String           | 群组头像 URL           | 1.0.0 |
-| extra    | Map<String, String>   | 扩展字段 | 1.0.0 |
-| updatedTime         | long       | 更新时间戳                | 1.0.0 |
+| groupId | String | Group ID | 1.0.0 |
+| groupName | String | Group name | 1.0.0 |
+| portrait | String | Group avatar URL | 1.0.0 |
+| extra | Map<String, String> | Extension fields | 1.0.0 |
+| updatedTime | long | Update timestamp | 1.0.0 |
 
-**获取群组信息**
+**Get Group Information**
 
 ```java
-//接口定义
+// Interface definition
 
 /**
- * 获取群组信息
- * @param groupId 群组 id
- * @return 群组信息
+ * Get group information
+ * @param groupId Group ID
+ * @return Group information
  */
 GroupInfo getGroupInfo(String groupId);
 ```
 
 ```java
-//示例代码
+// Sample code
 GroupInfo groupInfo = JIM.getInstance().getUserInfoManager().getGroupInfo("groupId");
 ```
 
-**批量获取群组信息**
+**Get Group Information in Batches**
 
 ```java
-//接口定义
+// Interface definition
 
 /**
- * 批量获取群组信息
- * @param groupIdList 群组 id 列表
- * @return 群组信息列表
+ * Get group information in batches
+ * @param groupIdList List of group IDs
+ * @return List of group information
  */
 List<GroupInfo> getGroupInfoList(List<String> groupIdList);
 ```
 
 ```java
-//示例代码
-GroupInfo groupInfo = JIM.getInstance().getUserInfoManager().getGroupInfo("groupId");
+// Sample code
 List<String> groupIdList = new ArrayList<>();
 groupIdList.add("groupId1");
 groupIdList.add("groupId2");
 List<GroupInfo> groupInfoList = JIM.getInstance().getUserInfoManager().getGroupInfoList(groupIdList);
 ```
 
-**从服务端获取最新的群组信息**
+**Fetch the Latest Group Information from the Server**
 
 ```java
-//接口定义
+// Interface definition
 /**
- * 从服务端获取最新的群组信息
- * @param groupId 群组 id
- * @param callback 结果回调
+ * Fetch the latest group information from the server
+ * @param groupId Group ID
+ * @param callback Result callback
  */
 void fetchGroupInfo(String groupId, JIMConst.IResultCallback<GroupInfo> callback);
-
 ```
 
 ```java
-//示例代码
+// Sample code
 JIM.getInstance().getUserInfoManager().fetchGroupInfo("groupId", new JIMConst.IResultCallback<GroupInfo>() {
     @Override
     public void onSuccess(GroupInfo groupInfo) {
-        
+        // Handle success
     }
 
     @Override
     public void onError(int errorCode) {
-
+        // Handle error
     }
 });
 ```
@@ -100,70 +98,70 @@ JIM.getInstance().getUserInfoManager().fetchGroupInfo("groupId", new JIMConst.IR
 
 <TabItem value="ios">
 
-**群组信息结构**
+**Group Information Structure**
 
-JGroupInfo 是 SDK 封装的群组信息对象。
+JGroupInfo is the group information object encapsulated by the SDK.
 
-| 属性名        | 类型          | 说明                       | 版本  |
+| Attribute name | Type | Description | Version |
 | ------------- | ------------- | -------------------------- | ----- |
-| groupId  | NSString | 群组 id                | 1.0.0 |
-| groupName | NSString      | 群组名字         | 1.0.0 |
-| portrait   | NSString           | 群组头像 URL           | 1.0.0 |
-| extraDic    | NSDictionary <NSString *, NSString *>  | 扩展字段 | 1.0.0 |
-| updatedTime         | long long       | 更新时间戳                | 1.0.0 |
+| groupId | NSString | Group ID | 1.0.0 |
+| groupName | NSString | Group name | 1.0.0 |
+| portrait | NSString | Group avatar URL | 1.0.0 |
+| extraDic | NSDictionary<NSString *, NSString *> | Extension fields | 1.0.0 |
+| updatedTime | long long | Update timestamp | 1.0.0 |
 
-**获取群组信息**
+**Get Group Information**
 
 ```objectivec
-//接口定义
+// Interface definition
 
-/// 获取群组信息
-/// - Parameter groupId: 群组 id
+/// Get group information
+/// - Parameter groupId: Group ID
 - (JGroupInfo *)getGroupInfo:(NSString *)groupId;
 ```
 
 ```objectivec
-//示例代码
+// Sample code
 JGroupInfo *groupInfo = [JIM.shared.userInfoManager getGroupInfo:@"groupId"];
 ```
 
-**批量获取群组信息**
+**Get Group Information in Batches**
 
 ```objectivec
-//接口定义
+// Interface definition
 
-/// 批量获取群组信息
-/// - Parameter groupIdList: 群组 id 列表
-- (NSArray <JGroupInfo *> *)getGroupInfoList:(NSArray <NSString *> *)groupIdList;
+/// Get group information in batches
+/// - Parameter groupIdList: List of group IDs
+- (NSArray<JGroupInfo *> *)getGroupInfoList:(NSArray<NSString *> *)groupIdList;
 ```
 
 ```objectivec
-//示例代码
-NSArray <JGroupInfo *> *groupInfoList = [JIM.shared.userInfoManager getGroupInfoList:@[@"groupId1", @"groupId2"]];
+// Sample code
+NSArray<JGroupInfo *> *groupInfoList = [JIM.shared.userInfoManager getGroupInfoList:@[@"groupId1", @"groupId2"]];
 ```
 
-**从服务端获取最新的群组信息**
+**Fetch the Latest Group Information from the Server**
 
 ```objectivec
-//接口定义
+// Interface definition
 
-/// 从服务端获取最新的群组信息
+/// Fetch the latest group information from the server
 /// - Parameters:
-///   - groupId: 群组 id
-///   - successBlock: 成功回调
-///   - errorBlock: 失败回调
+///   - groupId: Group ID
+///   - successBlock: Success callback
+///   - errorBlock: Failure callback
 - (void)fetchGroupInfo:(NSString *)groupId
                success:(void (^)(JGroupInfo *groupInfo))successBlock
                  error:(void (^)(JErrorCode code))errorBlock;
 ```
 
 ```objectivec
-//示例代码
+// Sample code
 [JIM.shared.userInfoManager fetchGroupInfo:@"groupId"
                                    success:^(JGroupInfo *groupInfo) {
-    
+    // Handle success
 } error:^(JErrorCode code) {
-    
+    // Handle error
 }];
 ```
 
@@ -176,32 +174,32 @@ NSArray <JGroupInfo *> *groupInfoList = [JIM.shared.userInfoManager getGroupInfo
 
 <TabItem value="flutter">
 
-**群组信息结构**
+**Group Information Structure**
 
-GroupInfo 是 SDK 封装的群组信息对象。
+GroupInfo is the group information object encapsulated by the SDK.
 
-| 属性名        | 类型          | 说明                       | 版本  |
+| Attribute name | Type | Description | Version |
 | ------------- | ------------- | -------------------------- | ----- |
-| groupId  | String | 群组 id                | 1.0.0 |
-| groupName | String      | 群组名字         | 1.0.0 |
-| portrait   | String           | 群组头像 URL           | 1.0.0 |
-| extraMap    | Map<String, String>?   | 扩展字段 | 1.0.0 |
+| groupId | String | Group ID | 1.0.0 |
+| groupName | String | Group name | 1.0.0 |
+| portrait | String | Group avatar URL | 1.0.0 |
+| extraMap | Map<String, String>? | Extension fields | 1.0.0 |
 
-**获取群组信息**
+**Get Group Information**
 
 ```dart
-//接口定义
+// Interface definition
 
 /**
- * 获取群组信息
- * @param groupId 群组 id
- * @return 群组信息
+ * Get group information
+ * @param groupId Group ID
+ * @return Group information
  */
 Future<GroupInfo?> getGroupInfo(String groupId) async
 ```
 
 ```dart
-//示例代码
+// Sample code
 GroupInfo? groupInfo = await JuggleIm.instance.getGroupInfo("groupId");
 ```
 

@@ -1,34 +1,34 @@
 ---
-title: 查询提示词
+title: query prompt word
 hide_title: true
 sidebar_position: 5
 ---
-### 功能说明{#intro}
+### Function Description{#intro}
 
-查询提示词列表
+Retrieve a list of query prompt words.
 
-### 请求说明{#req}
+### Request Description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request Rate Limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/assistants/prompts/list
+> **Request URL**: https://[request domain name](../api.md#api)/jim/assistants/prompts/list
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|offset |string|否|分页参数||
-|count|int|否|一页数量，默认20||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request Parameters {#param}
+
+| Parameter | Data Type | Required | Description          |   |
+|:----------|:----------|:---------|:---------------------|---|
+| offset   | string    | No       | Pagination parameter |   |
+| count    | int       | No       | Number of items to return, default is 20 |   |
+
+
+### Request Example{#req_demo}
 ``` js
 GET /jim/assistants/prompts/list HTTP/1.1
 appkey: appkey
@@ -37,27 +37,27 @@ Content-Type: application/json
 
 ```
 
-### 响应示例{#res_demo}
+### Response Example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "items":[
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "items": [
       {
-        "id":"xx",
-        "prompts":"xxxxxxxx",
-        "created_time":1722345674321
+        "id": "xx",
+        "prompts": "xxxxxxxx",
+        "created_time": 1722345674321
       }
     ],
-    "offset":"xxx"
+    "offset": "xxx"
   }
 }
 ```
 
-### 响应码
+### Response Codes
 
-|响应码|说明||
-|:--|:---|:--|
-|17300|失败||
+| Response Code | Description |   |
+|:--------------|:------------|---|
+| 17300         | Failed      |   |

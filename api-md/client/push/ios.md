@@ -1,10 +1,10 @@
 ---
-title: iOS 普通推送
+title: iOS normal push
 hide_title: true
 sidebar_position: 2
 ---
 
-### 请求权限{#setting}
+### Request permission{#setting}
 
 ```objectivec
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -32,9 +32,9 @@ sidebar_position: 2
 }
 ```
 
-### 设置推送Token{#device}
+### Set push token{#device}
 
-在 application:didRegisterForRemoteNotificationsWithDeviceToken: 回调中把 Device Token 设置给 SDK。
+Set the device token in the SDK within the `application:didRegisterForRemoteNotificationsWithDeviceToken:` callback.
 
 ```objectivec
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {

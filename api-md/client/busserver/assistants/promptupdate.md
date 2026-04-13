@@ -1,34 +1,34 @@
 ---
-title: 更新提示词
+title: Update Prompt Word
 hide_title: true
 sidebar_position: 2
 ---
-### 功能说明{#intro}
+### Function Description{#intro}
 
-更新提示词
+Update a prompt word.
 
-### 请求说明{#req}
+### Request Description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/assistants/prompts/update
+> **Request URL**: https://[request domain name](../api.md#api)/jim/assistants/prompts/update
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|id |string|是|提示词ID||
-|prompts|string|是|提示词内容(prompt)||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request Parameters {#param}
+
+| Parameter | Data Type | Required | Description               |   |
+|:----------|:----------|:---------|:--------------------------|---|
+| id        | string    | yes      | Prompt word ID            |   |
+| prompts   | string    | yes      | Prompt word content (prompt) |   |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /jim/assistants/prompts/update HTTP/1.1
 appkey: appkey
@@ -36,22 +36,22 @@ Authorization: xxxxxxxxxxxxxxxxxx
 Content-Type: application/json
 
 {
-  "id":"xxx",
-  "prompts":"xxxxxxxxxxxx"
+  "id": "xxx",
+  "prompts": "xxxxxxxxxxxx"
 }
 ```
 
-### 响应示例{#res_demo}
+### Response Example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```
 
-### 响应码
+### Response Codes
 
-|响应码|说明||
-|:--|:---|:--|
-|17300|更新失败||
+| Response Code | Description    |   |
+|:--------------|:---------------|---|
+| 17300         | Update failed  |   |

@@ -1,33 +1,33 @@
 ---
-title: 设置群禁言
+title: Set Group Ban
 hide_title: true
 sidebar_position: 5
 ---
 
-### 功能说明{#intro}
+### Function Description{#intro}
 
-设置群组禁言后，当前群组所有成员将无法向群内发送消息，**Server API 发送消息不受群禁言影响**。
+After enabling a group ban, all members of the specified group will be prevented from sending messages to the group. **Messages sent via the Server API are not affected by the group ban**.
 
-### 请求说明{#req}
+### Request Description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request Rate Limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/groups/groupmute/set
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/groups/groupmute/set
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request Parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|group_id|string|是|群组id||
-|is_mute|int|是|0:未禁言；1:禁言；||
+| Parameter  | Data Type | Required | Description                  |   |
+|:-----------|:----------|:---------|:----------------------------|---|
+| group_id  | string    | yes      | The ID of the group         |   |
+| is_mute   | int       | yes      | 0: unmuted; 1: muted        |   |
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/groups/groupmute/set HTTP/1.1
 appkey: appkey
@@ -37,16 +37,16 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "group_id":"groupid1",
-  "is_mute":1
+  "group_id": "groupid1",
+  "is_mute": 1
 }
 ```
 
-### 响应示例{#res_demo}
+### Response Example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

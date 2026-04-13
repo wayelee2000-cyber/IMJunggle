@@ -1,5 +1,5 @@
 ---
-title: 从标签里删除会话
+title: Delete conversation from label
 hide_title: true
 sidebar_position: 2
 ---
@@ -17,16 +17,16 @@ values={[
 }>
 <TabItem value="android">
 
-从标签内删除会话，删除会话动作自动同步当前用户的多设备。
+Remove a conversation from a label. This action automatically synchronizes across all devices of the current user.
 
-**接口定义**
+**Interface definition**
 
 ```java
 /**
- * 将会话从标签中删除
- * @param conversations 会话列表
- * @param tagId 标签 id
- * @param callback 结果回调
+ * Remove conversation from label
+ * @param conversations List of conversations
+ * @param tagId Tag ID
+ * @param callback Result callback
  */
 void removeConversationsFromTag(List<Conversation> conversations, String tagId, ISimpleCallback callback);
 ```
@@ -34,17 +34,17 @@ void removeConversationsFromTag(List<Conversation> conversations, String tagId, 
 </TabItem>
 <TabItem value="ios">
 
-从标签内删除会话，删除会话动作自动同步当前用户的多设备。
+Remove a conversation from a label. This action automatically synchronizes across all devices of the current user.
 
-**接口定义**
+**Interface definition**
 
 ```objectivec
-/// 将会话从标签中移除
+/// Remove conversations from a label
 /// - Parameters:
-///   - conversationList: 待移除的会话列表
-///   - tagId: 标签 id
-///   - successBlock: 成功回调
-///   - errorBlock: 失败回调
+///   - conversationList: List of conversations to be removed
+///   - tagId: Tag ID
+///   - successBlock: Success callback
+///   - errorBlock: Failure callback
 - (void)removeConversationList:(NSArray <JConversation *> *)conversationList
                        fromTag:(NSString *)tagId
                        success:(void (^)(void))successBlock
@@ -53,27 +53,27 @@ void removeConversationsFromTag(List<Conversation> conversations, String tagId, 
 </TabItem>
 <TabItem value="js">
 
-从标签内删除会话，删除会话动作自动同步当前用户的多设备。
+Remove a conversation from a label. This action automatically synchronizes across all devices of the current user.
 
-**参数说明**
+**Parameter description**
 
-| 名称          | 类型    | 必填   | 默认值  | 描述                                       | 版本     |
-|--------------|---------|--------|--------|--------------------------------------------|----------|
-| tag          | Object  | 是     |        | Tag 对象                                   | 1.7.5    |
-| tag.id       | String  | 是     |        | 标签 ID，开发者可自定义，最大长度 64 个字符     | 1.7.5    |
-| tag.conversations       | Array  | 是     |        | 会话列表，详见代码示例     | 1.7.5    |
+| Name | Type | Required | Default | Description | Version |
+|--------------|---------|--------|--------|-----------------------------------------------|----------|
+| tag | Object | Yes | | Tag object | 1.7.5 |
+| tag.id | String | Yes | | Tag ID, customizable by the developer, maximum length 64 characters | 1.7.5 |
+| tag.conversations | Array | Yes | | List of conversations, see code example | 1.7.5 |
 
-**成功回调**
+**Success callback**
 
-无参数返回，回调触发表示成功
+No parameters are returned. The callback is triggered to indicate success.
 
-**失败回调**
+**Failure callback**
 
-| 名称   | 类型    | 描述                                                      | 版本   |
-|--------|---------|-----------------------------------------------------------|--------|
-| error  | Object  | 发送失败后会有对应的状态码，可以直接查看 `error.msg`，或者查看 [状态码](../../../../sdkintro/status_code/web) | 1.0.0  |
+| Name | Type | Description | Version |
+|--------|---------|--------------------------------------------------------------|--------|
+| error | Object | Contains a status code if the operation fails. You can access `error.msg` directly or refer to [Status Code](../../../../sdkintro/status_code/web) | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType } = JIM;
 
@@ -85,28 +85,28 @@ let tag = {
 };
 
 jim.removeConversationsFromTag(tag).then(() => {
-  console.log('removeConversationsFromTag successfully')
+  console.log('removeConversationsFromTag succeeded');
 }, (error) => {
-  console.log(error)
+  console.log(error);
 });
 ```
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="reactnative">
 
-从标签内删除会话，删除会话动作自动同步当前用户的多设备。
+Remove a conversation from a label. This action automatically synchronizes across all devices of the current user.
 
-**接口定义**
+**Interface definition**
 
 ```typescript
 /**
- * 从标签里删除会话
- * @param tagId 标签ID
- * @param conversations 会话列表
+ * Remove conversation from label
+ * @param tagId Tag ID
+ * @param conversations List of conversations
  */
 removeConversationsFromTag(tagId: string, conversations: Array<{
   conversationType: number;
@@ -114,7 +114,7 @@ removeConversationsFromTag(tagId: string, conversations: Array<{
 }>): Promise<void>;
 ```
 
-**示例代码**
+**Sample Code**
 
 ```javascript
 import JuggleIM from 'juggleim-rnsdk';

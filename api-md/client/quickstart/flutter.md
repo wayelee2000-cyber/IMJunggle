@@ -4,25 +4,25 @@ hide_title: true
 sidebar_position: 3
 ---
 
-### 前期准备{#pre}
+### Preparation{#pre}
 
-1、在 `开发者后台` 创建应用获取 `AppKey` 和 `Secret`。
+1. Create an application in the `Developer Backstage` to obtain your `AppKey` and `Secret`.
 
 ![](./assets/appkey_secret.png)
 
-2、自己调用服务端 API 获取 Token 或在开发者后台的 -> 选择应用-> 开发工具 -> API -> 用户相关中，调用用户注册接口，获取两个测试 Token。
+2. Call the server API to obtain the token yourself, or in the developer backend, navigate to Select Application -> Development Tools -> API -> User Related, and call the user registration interface to obtain two test tokens.
 
 ![](./assets/token.png)
 
-3、根据集成文档逐步集成。
+3. Follow the integration steps as outlined in the integration document.
 
-### 使用流程{#flow}
+### Usage Process{#flow}
 
 ![](assets/flow.png)
 
-### 添加依赖{#install}
+### Add Dependencies {#install}
 
-导入 SDK 之外，还需要额外添加下面依赖。
+In addition to importing the SDK, you need to add the following dependency:
 
 ```sh
 # pubspec.yaml
@@ -30,28 +30,28 @@ dependencies:
   juggle_im: 0.0.63
 ```
 
-### 示例代码{#code}
+### Sample Code{#code}
 
 ```dart
-await JuggleIm.instance.setServers(["wss://ws.im.com"]);// "wss://ws.im.com" 替换成部署好的 server url
+await JuggleIm.instance.setServers(["wss://ws.im.com"]); // Replace "wss://ws.im.com" with your deployed server URL
 await JuggleIm.instance.init("appkey");
-JuggleIm.instance.onConnectionStatusChange = (int connectionStatus, int code, String extra){
-  if(connectionStatus == SDKConnectionStatus.CONNECTED){
-    // 连接成功
+JuggleIm.instance.onConnectionStatusChange = (int connectionStatus, int code, String extra) {
+  if (connectionStatus == SDKConnectionStatus.CONNECTED) {
+    // Connection successful
   }
-  if(connectionStatus == SDKConnectionStatus.CONNECTING){
-    // 连接中
+  if (connectionStatus == SDKConnectionStatus.CONNECTING) {
+    // Connecting
   }
-  if(connectionStatus == SDKConnectionStatus.DISCONNECTED){
-    // 连接断开
+  if (connectionStatus == SDKConnectionStatus.DISCONNECTED) {
+    // Connection lost
   }
-  if(connectionStatus == SDKConnectionStatus.FAILURE){
-    // 连接失败 ，code 为错误码，extra 为错误信息
+  if (connectionStatus == SDKConnectionStatus.FAILURE) {
+    // Connection failed; 'code' is the error code, 'extra' is the error message
   }
 };
 await JuggleIm.instance.connect("token");
 ```
 
 :::simple
-连接失败时，`code` 详细说明请查看 [连接错误码](../../client/sdkintro/status_code/ios.mdx) 
+If the connection fails, please refer to [Connection Error Code](../sdkintro/status_code/ios.mdx) for a detailed description of the `code`.
 :::

@@ -1,5 +1,5 @@
 ---
-title: 获取会话草稿
+title: Get conversation draft
 hide_title: true
 sidebar_position: 1
 ---
@@ -12,31 +12,31 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', },
+{ label: 'Hongmeng', value: 'harmony', },
 ]
 }>
 <TabItem value="android">
 
-每个会话包含 `draft` 属性，获取会话列表时会一起返回，详细请参看 [会话对象](../../../conversation)
+Each session includes a `draft` attribute, which is returned when retrieving the session list. For more details, please refer to the [Session Object](../../../conversation).
 </TabItem>
 <TabItem value="ios">
 
-每个会话包含 `draft` 属性，获取会话列表时会一起返回，详细请参看 [会话对象](../../../conversation)
+Each session includes a `draft` attribute, which is returned when retrieving the session list. For more details, please refer to the [Session Object](../../../conversation).
 
 </TabItem>
 <TabItem value="js">
 
-会话列表展示草稿状态，无需调用此方法，每个会话包含 `draft` 属性，获取会话列表时会一起返回，详细请参看 [会话对象](../../../conversation)
+The session list displays the draft status, so calling this method is generally unnecessary. Each session includes a `draft` attribute, which is returned when retrieving the session list. For more details, please refer to the [Session Object](../../../conversation).
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 必填   | 默认值  | 描述| 版本     |
-|---------------------------------|---------|-------|---|----------|----------|
-| conversation                    | Object | 是     | 无 | 会话对象 | 1.0.0    |
-| conversation.conversationType   | Number | 是     | 无 | 会话类型 | 1.0.0    |
-| conversation.conversationId     | String | 是     | 无 | 会话 Id | 1.0.0    |
+| Name | Type | Required | Default | Description | Version |
+|----------------------------------|----------|-------|---|----------|----------|
+| conversation | Object | Yes | None | Conversation object | 1.0.0 |
+| conversation.conversationType | Number | Yes | None | Conversation type | 1.0.0 |
+| conversation.conversationId | String | Yes | None | Conversation ID | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType } = JIM;
 
@@ -46,22 +46,22 @@ let conversation = {
 };
 
 jim.getDraft(conversation).then((draft) => {
-  console.log('get conversation draft successfully', draft);
+  console.log('Successfully retrieved conversation draft', draft);
 });
 ```
 </TabItem>
 <TabItem value="harmony">
 
-每个会话包含 `draft` 属性，获取会话列表时会一起返回，详细请参看 [会话对象](../../../conversation)
+Each session includes a `draft` attribute, which is returned when retrieving the session list. For more details, please refer to the [Session Object](../../../conversation).
 </TabItem>
 <TabItem value="flutter">
 
-每个会话包含 `draft` 属性，获取会话列表时会一起返回，详细请参看 [会话对象](../../../conversation)
+Each session includes a `draft` attribute, which is returned when retrieving the session list. For more details, please refer to the [Session Object](../../../conversation).
 
 </TabItem>
 <TabItem value="reactnative">
 
-每个会话包含 `draft` 属性，获取会话列表时会一起返回，详细请参看 [会话对象](../../../conversation)
+Each session includes a `draft` attribute, which is returned when retrieving the session list. For more details, please refer to the [Session Object](../../../conversation).
 
 </TabItem>
 </Tabs>

@@ -1,5 +1,5 @@
 ---
-title: 清空会话未读总数
+title: Clear the total number of unread sessions
 hide_title: true
 sidebar_position: 8
 ---
@@ -12,23 +12,23 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-**示例代码**
+**Sample Code**
 
 ```java
 JIM.getInstance().getConversationManager().clearTotalUnreadCount(new IConversationManager.ISimpleCallback() {
     @Override
     public void onSuccess() {
-        
+        // Successfully cleared total unread count
     }
 
     @Override
     public void onError(int errorCode) {
-
+        // Handle error
     }
 });
 ```
@@ -36,29 +36,29 @@ JIM.getInstance().getConversationManager().clearTotalUnreadCount(new IConversati
 </TabItem>
 <TabItem value="ios">
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 [JIM.shared.conversationManager clearTotalUnreadCount:^{
-    
+    // Successfully cleared total unread count
 } error:^(JErrorCode code) {
-    
+    // Handle error
 }];
 ```
 
 </TabItem>
 <TabItem value="js">
 
-**示例代码**
+**Sample Code**
 ```js
-jim.clearTotalUnreadcount().then(() => {
-  console.log('clear total unreadcount successfully');
-})
+jim.clearTotalUnreadCount().then(() => {
+  console.log('Successfully cleared total unread count');
+});
 ```
 </TabItem>
 <TabItem value="flutter">
 
-**示例代码**
+**Sample Code**
 
 ```dart
 Result result = await JuggleIm.instance.clearTotalUnreadCount();
@@ -67,7 +67,7 @@ Result result = await JuggleIm.instance.clearTotalUnreadCount();
 </TabItem>
 <TabItem value="reactnative">
 
-**示例代码**
+**Sample Code**
 
 ```javascript
 import JuggleIM from 'juggleim-rnsdk';
@@ -78,12 +78,12 @@ await JuggleIM.clearTotalUnreadCount();
 </TabItem>
 <TabItem value="harmony">
 
-**示例代码**
+**Sample Code**
 
 ```java
-JuggleIm.instance.getConversationManager().clearTotalUnreadCount((code)=>{
-
-})
+JuggleIm.instance.getConversationManager().clearTotalUnreadCount((code) -> {
+    // Handle callback
+});
 ```
 
 </TabItem>

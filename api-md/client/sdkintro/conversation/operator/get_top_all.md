@@ -1,5 +1,5 @@
 ---
-title: 获取置顶会话
+title: Get the pinned conversation
 hide_title: true
 sidebar_position: 4
 ---
@@ -12,20 +12,20 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-**参数说明**
+**Parameter Description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| count | int | 拉取数量 | 1.0.0    |
-| timestamp     | long | 时间戳，以毫秒为单位，0 表示当前时间 | 1.0.0    |
-| direction | JIMConst.PullDirection | 拉取方向 | 1.0.0    |
+| Name      | Type                 | Description                          | Version |
+|-----------|----------------------|------------------------------------|---------|
+| count     | int                  | Number of items to pull             | 1.0.0   |
+| timestamp | long                 | Timestamp in milliseconds; 0 means current time | 1.0.0   |
+| direction | JIMConst.PullDirection | Direction of pull                   | 1.0.0   |
 
-**示例代码**
+**Sample Code**
 
 ```java
 List<ConversationInfo> list = JIM.getInstance().getConversationManager().getTopConversationInfoList(100, 0, JIMConst.PullDirection.OLDER);
@@ -34,15 +34,15 @@ List<ConversationInfo> list = JIM.getInstance().getConversationManager().getTopC
 </TabItem>
 <TabItem value="ios">
 
-**参数说明**
+**Parameter Description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| count | int | 拉取数量 | 1.0.0    |
-| timestamp     | long long | 时间戳，以毫秒为单位，0 表示当前时间 | 1.0.0    |
-| direction | JPullDirection | 拉取方向 | 1.0.0    |
+| Name      | Type                 | Description                          | Version |
+|-----------|----------------------|------------------------------------|---------|
+| count     | int                  | Number of items to pull             | 1.0.0   |
+| timestamp | long long            | Timestamp in milliseconds; 0 means current time | 1.0.0   |
+| direction | JPullDirection       | Direction of pull                   | 1.0.0   |
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 NSArray <JConversationInfo *> *conversationList = [JIM.shared.conversationManager getTopConversationInfoListByCount:100 timestamp:0 direction:JPullDirectionOlder];
@@ -51,59 +51,61 @@ NSArray <JConversationInfo *> *conversationList = [JIM.shared.conversationManage
 </TabItem>
 <TabItem value="js">
 
-**回调说明**
+**Callback Description**
 
-| 属性            | 类型    | 描述                                           | 版本  |
-|-----------------|---------|------------------------------------------------|----------|
-| result          | Object  | 查询结果                                       | 1.0.0    |
-| result.conversations | Array | 会话数组，单个会话对象结构请查看 [Conversation](../../conversation.mdx) | 1.0.0    |
-| result.isFinished | Boolean | 标志会话是否获取完成 | 1.0.0    |
+| Property           | Type    | Description                                                                 | Version |
+|--------------------|---------|-----------------------------------------------------------------------------|---------|
+| result             | Object  | Query result                                                                | 1.0.0   |
+| result.conversations | Array   | Array of conversations. See [Conversation](../../conversation.mdx) for the structure of a single conversation object | 1.0.0   |
+| result.isFinished  | Boolean | Indicates whether the session retrieval is complete                        | 1.0.0   |
 
-**示例代码**
+**Sample Code**
+
 ```js
 jim.getTopConversations().then((result) => {
   let { conversations, isFinished } = result;
   console.log(isFinished, conversations);
 })
 ```
+
 </TabItem>
 <TabItem value="harmony">
 
-**参数说明**
+**Parameter Description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| sortType | TopConverSortType | 枚举值。ByTopTime:按置顶时间排序；BySortTime:按会话时间排序|1.0.0|
-| start | number |起始时间戳，以毫秒为单位，0 表示当前时间 | 1.0.0    |
-| isPositive | boolean | 是否正向拉取 | 1.0.0    |
+| Name      | Type               | Description                                                      | Version |
+|-----------|--------------------|------------------------------------------------------------------|---------|
+| sortType  | TopConverSortType  | Enumeration value: ByTopTime (sort by top time); BySortTime (sort by session time) | 1.0.0   |
+| start     | number             | Starting timestamp in milliseconds; 0 means current time         | 1.0.0   |
+| isPositive| boolean            | Whether to pull forward                                           | 1.0.0   |
 
-**示例代码**
+**Sample Code**
 
 ```java 
-JuggleIm.instance.getConversationManager().getTopConversations(TopConverSortType.ByTopTime,0,true,(convers)=>{
+JuggleIm.instance.getConversationManager().getTopConversations(TopConverSortType.ByTopTime, 0, true, (convers) => {
 
-})
+});
 ```
 
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="reactnative">
 
-获取置顶会话列表。
+Retrieve the list of pinned conversations.
 
-**参数说明**
+**Parameter Description**
 
-| 名称          | 类型    | 必填     | 默认值       | 描述                                           | 版本     |
-|--------------|---------|----------|------------|------------------------------------------------|----------|
-| count  | Number     | 否       | 100         | 拉取数量 | 0.6.3    |
-| timestamp  | Number  | 否       | 0       | 时间戳，以毫秒为单位，0 表示当前时间 | 0.6.3    |
-| direction  | Number  | 否       | 1      | 拉取方向，0: 拉取 timestamp 之后的会话，1: 拉取 timestamp 之前的会话 | 0.6.3    |
+| Name      | Type   | Required | Default | Description                                                                 | Version |
+|-----------|--------|----------|---------|-----------------------------------------------------------------------------|---------|
+| count     | Number | No       | 100     | Number of items to pull                                                      | 0.6.3   |
+| timestamp | Number | No       | 0       | Timestamp in milliseconds; 0 means current time                             | 0.6.3   |
+| direction | Number | No       | 1       | Pull direction: 0 pulls sessions after the timestamp; 1 pulls sessions before the timestamp | 0.6.3   |
 
-**示例代码**
+**Sample Code**
 
 ```javascript
 import JuggleIM from 'juggleim-rnsdk';

@@ -1,33 +1,32 @@
 ---
-title: 查询群信息
+title: Query group information
 hide_title: true
 sidebar_position: 4
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-查询单个群组信息，用作和开发者服务端用群组信息对比，以开发者服务端群组信息为准，开发者服务端群组信息变更后需及时同步至 IM 服务端。
+Query the information of a single group to compare it with the group information used on the developer server. The group information on the developer server takes precedence. After any changes are made to the group information on the developer server, it must be synchronized to the IM server promptly.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`GET`
+> **Request Type**: `GET`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/groups/info
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/groups/info
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|group_id|string|是|群组id||
+| Parameter  | Data type | Required | Description   |  |
+|:-----------|:----------|:---------|:--------------|:--|
+| group_id   | string    | yes      | Group ID      |  |
 
-
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 GET /apigateway/groups/info?group_id=group1 HTTP/1.1
 appkey: appkey
@@ -38,28 +37,28 @@ Content-Type: application/json
 
 ```
 
-### 响应参数{#res_param}
+### Response parameters {#res_param}
 
-|参数|数据类型|参数说明||
-|:--|:------|:-----|:-------|
-|group_id|string|群组id||
-|group_name|string|群组的昵称||
-|is_mute|int|0:未禁言；1:禁言；||
-|ext_fields|map|群扩展字段||
+| Parameter   | Data type | Description                  |  |
+|:------------|:----------|:-----------------------------|:--|
+| group_id    | string    | Group ID                    |  |
+| group_name  | string    | Group nickname              |  |
+| is_mute    | int       | 0: not muted; 1: muted       |  |
+| ext_fields  | map       | Group extension fields      |  |
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "group_id":"group1",
-    "group_name":"group1",
-    "is_mute":0,
-    "ext_fields":{
-      "field1":"aaa",
-      "field2":"bbb"
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "group_id": "group1",
+    "group_name": "group1",
+    "is_mute": 0,
+    "ext_fields": {
+      "field1": "aaa",
+      "field2": "bbb"
     }
   }
 }

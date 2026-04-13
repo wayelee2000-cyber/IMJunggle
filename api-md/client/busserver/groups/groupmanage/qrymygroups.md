@@ -1,34 +1,34 @@
 ---
-title: 查询加入的群列表
+title: Query the list of joined groups
 hide_title: true
 sidebar_position: 5
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-查询我加入过的群列表
+Retrieve the list of groups I have joined.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api.md#header).
 
-> **请求类型**：`GET`
+> **Request Type**: `GET`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/groups/mygroups
+> **Request URL**: https://[request domain name](../api#api)/jim/groups/mygroups
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|offset|string|否|分页偏移量，初次可以不填||
-|count|int|否|一次返回数据条数||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameter | Data type | Required | Description |  |
+|:----------|:----------|:---------|:------------|:--|
+| offset   | string    | No       | Paging offset; leave blank for the first request |  |
+| count    | int       | No       | Number of items to return per request |  |
+
+
+### Request Example{#req_demo}
 ``` js
 GET /jim/groups/mygroups?count=100 HTTP/1.1
 appkey: appkey
@@ -37,24 +37,24 @@ Content-Type: application/json
 
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "items":[{
-      "group_id":"groupid1",
-      "group_name":"group1",
-      "group_portrait":"https://xxxxxx.png"
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "items": [{
+      "group_id": "groupid1",
+      "group_name": "group1",
+      "group_portrait": "https://xxxxxx.png"
     }],
-    "offset":"xxxx"
+    "offset": "xxxx"
   }
 }
 ```
 
-### 响应码
+### Response code
 
-|响应码|说明||
-|:--|:---|:--|
+| Response code | Description |  |
+|:--------------|:------------|:--|

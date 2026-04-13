@@ -1,5 +1,5 @@
 ---
-title: 添加评论
+title: add comment
 hide_title: true
 sidebar_position: 20
 ---
@@ -16,25 +16,25 @@ values={[
 }>
 <TabItem value="android">
 
-添加评论，同时支持回复某个人的评论。
+Add a comment or reply to an existing comment.
 
-**接口说明**
+**Interface description**
 
 ```java
 /**
- * 发布评论
- * @param momentId 评论的朋友圈 id
- * @param parentCommentId 父级评论 id，可以为空
- * @param content 评论内容
- * @param callback 结果回调
+ * Post a comment
+ * @param momentId The ID of the moment to comment on
+ * @param parentCommentId The ID of the parent comment, can be empty
+ * @param content The content of the comment
+ * @param callback Result callback
  */
 void addComment(String momentId, String parentCommentId, String content, JIMConst.IResultCallback<MomentComment> callback);
 ```
 
-**代码示例**
+**Code Example**
 
 ```java
-// "parentCommentId" 可以为空
+// "parentCommentId" can be empty
 JIM.getInstance().getMomentManager().addComment("momentId", "parentCommentId", "Good picture!", new JIMConst.IResultCallback<MomentComment>() {
     @Override
     public void onSuccess(MomentComment data) {
@@ -50,27 +50,27 @@ JIM.getInstance().getMomentManager().addComment("momentId", "parentCommentId", "
 </TabItem>
 <TabItem value="ios">
 
-添加评论，同时支持回复某个人的评论。
+Add a comment or reply to an existing comment.
 
-**接口说明**
+**Interface description**
 
 ```objectivec
-/// 发布评论
+/// Post a comment
 /// - Parameters:
-///   - momentId: 评论的朋友圈 id
-///   - parentCommentId: 父级评论 id
-///   - content: 评论内容
-///   - completeBlock: 结果回调
+///   - momentId: The ID of the moment to comment on
+///   - parentCommentId: The ID of the parent comment
+///   - content: The content of the comment
+///   - completeBlock: Result callback
 - (void)addComment:(nonnull NSString *)momentId
    parentCommentId:(nullable NSString *)parentCommentId
            content:(nonnull NSString *)content
           complete:(nullable void (^)(JErrorCode errorCode, JMomentComment * _Nullable comment))completeBlock;
 ```
 
-**代码示例**
+**Code Example**
 
 ```objectivec
-// "parentCommentId" 可以为空
+// "parentCommentId" can be empty
 [JIM.shared.momentManager addComment:@"momentId"
                      parentCommentId:@"parentCommentId"
                              content:@"Good picture!"
@@ -81,25 +81,25 @@ JIM.getInstance().getMomentManager().addComment("momentId", "parentCommentId", "
 </TabItem>
 <TabItem value="flutter">
 
-添加评论，同时支持回复某个人的评论。
+Add a comment or reply to an existing comment.
 
-**接口说明**
+**Interface description**
 
 ```dart
 /**
- * 发布评论
- * @param momentId 评论的朋友圈 id
- * @param content 评论内容
- * @param parentCommentId 父级评论 id，可以为空
- * return MomentComment 对象
+ * Post a comment
+ * @param momentId The ID of the moment to comment on
+ * @param content The content of the comment
+ * @param parentCommentId The ID of the parent comment, can be empty
+ * @return MomentComment object
  */
 Future<Result<MomentComment>> addMomentComment(String momentId, String content, [String? parentCommentId]) async
 ```
 
-**代码示例**
+**Code Example**
 
 ```dart
-// "parentCommentId" 可以为空
+// "parentCommentId" can be empty
 Result<MomentComment> comment = await JuggleIm.instance.addMomentComment('momentId', 'Good picture!', 'parentCommentId');
 ```
 
@@ -107,25 +107,25 @@ Result<MomentComment> comment = await JuggleIm.instance.addMomentComment('moment
 </TabItem>
 <TabItem value="reactnative">
 
-添加评论，同时支持回复某个人的评论。
+Add a comment or reply to an existing comment.
 
-**接口说明**
+**Interface description**
 
 ```typescript
 /**
- * 发布评论
- * @param momentId 评论的朋友圈 id
- * @param content 评论内容
- * @param parentCommentId 父级评论 id，可以为空
- * return Promise<MomentComment> 对象
+ * Post a comment
+ * @param momentId The ID of the moment to comment on
+ * @param content The content of the comment
+ * @param parentCommentId The ID of the parent comment, can be empty
+ * @return Promise<MomentComment> object
  */
 addComment(momentId: string, content: string, parentCommentId?: string): Promise<MomentComment>
 ```
 
-**代码示例**
+**Code Example**
 
 ```typescript
-// "parentCommentId" 可以为空
+// "parentCommentId" can be empty
 import { JuggleIMMoment } from 'juggleim-rnsdk';
 
 const comment = await JuggleIMMoment.addComment('momentId', 'Good picture!', 'parentCommentId');
@@ -135,49 +135,49 @@ const comment = await JuggleIMMoment.addComment('momentId', 'Good picture!', 'pa
 </TabItem>
 <TabItem value="js">
 
-添加评论，同时支持回复某个人的评论。
+Add a comment or reply to an existing comment.
 
-**参数说明**
+**Parameter description**
 
-| 名称          | 类型    | 必填                          | 默认值                               | 描述                                           | 版本     |
-|--------------|---------|-------------------------------|-------------------------------------|------------------------------------------------|----------|
-| params        | Object  | 是                            | -   | 评论信息  | 1.9.6   |
-| params.momentId    | String  | 是                            |  -   | 朋友圈 ID  | 1.9.6   |
-| params.parentCommentId    | String  | 否                            |  -   | 回复的评论 ID，回复根评论时为空字符串  | 1.9.6   |
-| params.content    | Object  | 是                            |  -   | 评论内容  | 1.9.6   |
+| Name | Type | Required | Default | Description | Version |
+|--------------|---------|----------|---------|------------------------------------------------|----------|
+| params | Object | Yes | - | Comment information | 1.9.6 |
+| params.momentId | String | Yes | - | Moment ID | 1.9.6 |
+| params.parentCommentId | String | No | - | The ID of the comment being replied to; empty string when replying to the root comment | 1.9.6 |
+| params.content | Object | Yes | - | Comment content | 1.9.6 |
 
-**回调说明**
+**Callback description**
 
-| 属性            | 类型    | 描述                                           | 版本  |
-|-----------------|---------|------------------------------------------------|----------|
-| result          | Object  | 查询结果                                       | 1.9.6   |
-| result.comment | Object | 评论对象，结构请查看 [Comment](../moment_model) | 1.9.6   | 
+| Properties | Type | Description | Version |
+|------------------|----------|------------------------------------------------|----------|
+| result | Object | Query result | 1.9.6 |
+| result.comment | Object | Comment object; see [Comment](../moment_model) for structure | 1.9.6 |
 
-**代码示例**
+**Code Example**
 
 ```js
-// 回复评论
+// Reply to root comment
 let comment = {
   momentId: 'momentId',
   parentCommentId: '',
   content: {
-    text: '这是一条回复根评论'
+    text: 'This is a reply to the root comment'
   }
 };
 jim.addComment(comment).then((result) => {
-  console.log('addComment successfully', result)
+  console.log('addComment succeeded', result);
 });
 
-// 回复子评论
+// Reply to a sub-comment
 let content = {
-  text: '这是一条回复子评论'
+  text: 'This is a reply to a sub-comment'
 };
 jim.addComment({
   momentId: 'momentId',
   parentCommentId: 'parentCommentId',
   content
 }).then((result) => {
-  console.log('addComment successfully', result)
+  console.log('addComment succeeded', result);
 });
 ```
 

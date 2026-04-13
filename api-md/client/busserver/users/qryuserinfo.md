@@ -1,33 +1,33 @@
 ---
-title: 获取用户信息
+title: Get user information
 hide_title: true
 sidebar_position: 1
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-获取用户信息
+Retrieve user information.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`GET`
+> **Request Type**: `GET`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/users/info
+> **Request URL**: https://[request domain name](../api.md#api)/jim/users/info
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|user_id|string|是|用户id||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameter | Data type | Required | Description |  |
+|:----------|:----------|:---------|:------------|:--|
+| user_id   | string    | yes      | User ID     |    |
+
+
+### Request Example{#req_demo}
 ``` js
 GET /jim/users/info?user_id=xxx HTTP/1.1
 appkey: appkey
@@ -36,24 +36,24 @@ Content-Type: application/json
 
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "user_id":"userid1",
-    "nickname":"user1",
-    "avatar":"https://file.juggle.im/abcdfafsdaf.png",
-    "phone":"xxxx",
-    "status":1,
-    "is_friend":false,
-    "settings":{
-        "language":"zh_CN",
-        "friend_verify_type":1,//0:不需要验证；1：需要验证；2：拒绝被加好友；
-        "grp_verify_type":1,//0：不需要吧严重；2：需要验证；3：拒绝被拉入群；
-        "undisturb":"{\"switch\":true,\"timezone\":\"shanghai\",\"rules\":[]}"
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "user_id": "userid1",
+    "nickname": "user1",
+    "avatar": "https://file.juggle.im/abcdfafsdaf.png",
+    "phone": "xxxx",
+    "status": 1,
+    "is_friend": false,
+    "settings": {
+        "language": "zh_CN",
+        "friend_verify_type": 1, // 0: No verification required; 1: Verification required; 2: Refuse friend requests;
+        "grp_verify_type": 1,    // 0: No verification required; 2: Verification required; 3: Refuse group invitations;
+        "undisturb": "{\"switch\":true,\"timezone\":\"shanghai\",\"rules\":[]}"
     }
   }
 }

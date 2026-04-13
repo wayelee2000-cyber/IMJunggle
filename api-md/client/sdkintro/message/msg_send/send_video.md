@@ -1,5 +1,5 @@
 ---
-title: 发送视频
+title: Send video
 hide_title: true
 sidebar_position: 1
 ---
@@ -16,22 +16,22 @@ values={[
 }>
 <TabItem value="android">
 
-**接口定义**
+**Interface definition**
 
 ```java
 /**
- * 发送媒体消息（先上传媒体，再发送消息）
- * @param content 媒体消息实体
- * @param conversation 会话
- * @param callback 发送回调
- * @return 消息对象
+ * Send media messages (upload media first, then send messages)
+ * @param content media message entity
+ * @param conversation conversation
+ * @param callback Send callback
+ * @return message object
  */
 Message sendMediaMessage(MediaMessageContent content,
                           Conversation conversation,
                           ISendMediaMessageCallback callback);
 ```
 
-**示例代码**
+**Sample Code**
 
 ```java
 VideoMessage video = new VideoMessage();
@@ -71,17 +71,17 @@ Log.i("TAG", "after send, clientMsgNo is " + message.getClientMsgNo());
 </TabItem>
 <TabItem value="ios">
 
-**接口定义**
+**Interface definition**
 
 ```objectivec
-/// 发送媒体消息（先上传媒体，再发送消息）
+/// Send media message (upload media first, then send message)
 /// - Parameters:
-///   - content: 媒体消息实体
-///   - conversation: 会话
-///   - progressBlock: 上传进度回调
-///   - successBlock: 成功回调
-///   - errorBlock: 失败回调
-///   - cancelBlock: 用户取消上传回调
+///   - content: media message entity
+///   - conversation: conversation
+///   - progressBlock: upload progress callback
+///   - successBlock: success callback
+///   - errorBlock: failure callback
+///   - cancelBlock: user cancels upload callback
 - (JMessage *)sendMediaMessage:(JMediaMessageContent *)content
                 inConversation:(JConversation *)conversation
                       progress:(void (^)(int progress, JMessage *message))progressBlock
@@ -90,13 +90,13 @@ Log.i("TAG", "after send, clientMsgNo is " + message.getClientMsgNo());
                         cancel:(void (^)(JMessage *message))cancelBlock;
 ```
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
-//视频消息
+// Video message
 JConversation *conversation = [[JConversation alloc] initWithConversationType:JConversationTypePrivate conversationId:@"userid2"];
 JVideoMessage *video = [JVideoMessage videoWithData:videoFileData];
-JMessage *m = [JIM.shared.messageManager sendMediaMessage:voice
+JMessage *m = [JIM.shared.messageManager sendMediaMessage:video
                                            inConversation:conversation
                                                  progress:^(int progress, JMessage *message) {
   
@@ -113,49 +113,49 @@ NSLog(@"after send, m.clientMsgNo is %lld", m.clientMsgNo);
 </TabItem>
 <TabItem value="js">
 
-开发者只需传入 File 对象，发送视频方法会自动截取视频首帧作为封面，更多包含属性请参考 [视频消息](../../../msg/video)
+Developers only need to pass in the File object; the send video method will automatically extract the first frame of the video as the cover image. For more attributes, please refer to [Video Message](../../../msg/video).
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 必填   | 默认值  | 描述                                                         | 版本     |
-|--------------------------------|---------|--------|--------|--------------------------------------------------------------|----------|
-| message                        | Object  | 是     |        | 消息对象                                                      | 1.0.0    |
-| message.conversationType       | Number  | 是     |        | [会话类型](../../../enum/web#conversation)                            | 1.0.0    |
-| message.conversationId         | String  | 是     |        | 会话 Id，会话类型是 `PRIVATE` 时，会话 Id 是接收方的 userId，会话类型是 `GROUP` 时是群组 Id | 1.0.0    |
-| message.content                | Object  | 是     |        |                                                              | 1.0.0    |
-| message.content.file           | File    | 是     |        | 视频对象               | 1.0.0    |
-| message.mentionInfo            | Object  | 否     |  无    | conversationType 为 `GROUP` 时有效，设置 mentionInfo 表示本条消息是 @ 消息 | 1.0.0    |
-| mentionInfo.mentionType        | Number  | 否     |  无    | @ 类型，详细可查看 [@ 消息枚举](../../../enum/web#mention) 说明         | 1.0.0    |
-| mentionInfo.targetIds          | Array   | 否     |  无    | @ 指定人列表，SDK 会优先根据 mentionType 判断消息的 @ 类型         | 1.0.0    |
-| lifeTime                   | Number    | 否    |  0    |消息的销毁时间段，必须大于 `0`, 单位 `ms`, 例如 60s: `1 * 60 * 1000`   | 1.9.0    |
-| lifeTimeAfterRead             | Number    | 否    |  0    |消息的阅后即焚的时间段，必须大于 0, 单位 `ms`, 例如 60s: `1 * 60 * 1000`  | 1.9.0    |
+| Name | Type | Required | Default | Description | Version |
+|--------------------------------|---------|--------|--------|----------------------------------------------------------------|----------|
+| message | Object | Yes | | Message object | 1.0.0 |
+| message.conversationType | Number | Yes | | [Conversation Type](../../../enum/web#conversation) | 1.0.0 |
+| message.conversationId | String | Yes | | Session ID. When the session type is `PRIVATE`, the session ID is the userId of the receiver; when the session type is `GROUP`, it is the group ID | 1.0.0 |
+| message.content | Object | Yes | | | 1.0.0 |
+| message.content.file | File | Yes | | Video file object | 1.0.0 |
+| message.mentionInfo | Object | No | None | Valid when conversationType is `GROUP`. Setting mentionInfo indicates this message is an @ message | 1.0.0 |
+| mentionInfo.mentionType | Number | No | None | @ type, see [@ message enumeration](../../../enum/web#mention) for details | 1.0.0 |
+| mentionInfo.targetIds | Array | No | None | List of specified @ recipients. The SDK prioritizes determining the @ type based on mentionType | 1.0.0 |
+| lifeTime | Number | No | 0 | Message destruction time period, must be greater than `0`, unit: `ms`. For example, 60s: `1 * 60 * 1000` | 1.9.0 |
+| lifeTimeAfterRead | Number | No | 0 | Time period for the message to disappear after being read, must be greater than 0, unit: `ms`. For example, 60s: `1 * 60 * 1000` | 1.9.0 |
 
-**callbacks 参数说明**
+**Callbacks parameter description**
 
-| 名称                           | 类型    | 必填   | 默认值  | 描述                                                         | 版本     |
-|--------------------------------|---------|--------|--------|--------------------------------------------------------------|----------|
-| callbacks                      | Object  | 否     |        | 回调对象                                                      | 1.0.0    |
-| callbacks.onbefore             | Function| 否     |        | 消息发送前回调，此方法触发后会返回临时消息标识 `tid`，可向页面渲染消息，消息发送成功后台根据 `tid` 更新消息状态| 1.0.0    |
-| callbacks.onprogress           | Function| 否     |        | 文件上传进度回调 | 1.0.0    |
-| callbacks.onerror              | Function| 否     |        | 文件上传失败，会返回具体的异常说明，消息将会停止发送 | 1.0.0    |
+| Name | Type | Required | Default | Description | Version |
+|--------------------------------|---------|--------|--------|----------------------------------------------------------------|----------|
+| callbacks | Object | No | | Callback object | 1.0.0 |
+| callbacks.onbefore | Function | No | | Callback before the message is sent. After this method is triggered, it returns a temporary message ID `tid`, which can be used to render the message on the page. If the message is sent successfully, the backend will update the message status based on `tid` | 1.0.0 |
+| callbacks.onprogress | Function | No | | File upload progress callback | 1.0.0 |
+| callbacks.onerror | Function | No | | If the file upload fails, a specific error description is returned and the message sending stops | 1.0.0 |
 
-**成功回调**
+**Successful callback**
 
-| 名称      | 类型    | 描述                                                                      | 版本   |
-|-----------|---------|---------------------------------------------------------------------------|--------|
-| message   | Object  | 发送成功后返回带 `messageId` 和 `sentTime` 消息对象，消息结构请查看 [Message](../../../msg/message) | 1.0.0  |
+| Name | Type | Description | Version |
+|-----------|----------|-------------------------------------------------------------------------------|--------|
+| message | Object | After successful sending, a message object with `messageId` and `sentTime` is returned. See the message structure [Message](../../../msg/message) | 1.0.0 |
 
-**失败回调**
+**Failure callback**
 
-| 名称   | 类型    | 描述                                                      | 版本   |
-|--------|---------|-----------------------------------------------------------|--------|
-| result | Object  | 发送失败后会返回对象中包含 `tid` 属性信息，同时包含 `error` 信息，可以直接查看 `error.msg`，或者查看 [状态码](../../../status_code/web) | 1.0.0  |
+| Name | Type | Description | Version |
+|--------|---------|--------------------------------------------------------------|--------|
+| result | Object | After failure to send, the returned object contains `tid` and `error` information. You can view `error.msg` directly or refer to [status code](../../../status_code/web) | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType } = JIM;
 
-// 通过 <input type="file"> onchange 获取 file 对象
+// Get the file object through <input type="file"> onchange
 let file = e.target.files[0];
 
 let message = {
@@ -169,7 +169,7 @@ let message = {
 jim.sendVideoMessage(message, {
   onbefore: (message) => {
     /* 
-      message.tid  此时可将消息渲染至页面，可通过 message.tid 做唯一标识，onprogress 触发后通过 message.tid 更新进度条
+message.tid can be used to render the message on the page. It uniquely identifies the message. After onprogress is triggered, the progress bar can be updated using message.tid.
     */
   },
   onprogress: ({ percent, message }) => {
@@ -182,7 +182,7 @@ jim.sendVideoMessage(message, {
   console.log('send video message successfully', msg)
 }, (result) => {
   let { error, tid } = result;
-  // 可根据 tid 修改消息发送失败的状态, Web 端消息失败仅在 SDK 内存中保存，刷新后将无法获取到发送失败的消息
+  // You can update the message sending failure status based on tid. On the web, failed messages are only saved in SDK memory and will be lost after refreshing.
   console.log(tid, error);
 });
 ```
@@ -190,17 +190,17 @@ jim.sendVideoMessage(message, {
 </TabItem>
 <TabItem value="reactnative" label="ReactNative">
 
-由于发送消息是异步的，调用 `sendMediaMessage` 会同步返回 `message` 对象，此时可优先向页面展示消息，
+Since sending messages is asynchronous, calling `sendMediaMessage` returns the `message` object synchronously. At this point, the message can be displayed on the page immediately.
 
-并用 `message.clientMsgNo` 做唯一标识，`callback` 触发后可根据 `clientMsgNo` 做消息状态更新，如上传进度。
+Use `message.clientMsgNo` as a unique identifier. After the `callback` is triggered, the message status can be updated based on `clientMsgNo`, such as upload progress.
 
-SDK 内置文件上传功能，只需将本地文件路径赋值给 `VideoMessage.localPath`，SDK 会自动上传文件并返回文件 URL。
+The SDK includes a built-in file upload function. Simply assign the local file path to `VideoMessage.localPath`, and the SDK will automatically upload the file and return the file URL.
 
-> 注意：发送文件、图片、视频等消息时，需要先在私有开发者后台配置文件存储 `OSS`。
+> Note: When sending messages such as files, pictures, videos, etc., you must first configure file storage `OSS` in the private developer backend.
 
 <p/>
 
-**示例代码**
+**Sample Code**
 
 ```typescript
 import JuggleIM from 'juggleim-rnsdk';
@@ -241,17 +241,17 @@ JuggleIM.sendMediaMessage(videoMessage, callback).then((message) => {
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-由于发送消息是异步的，调用 `sendMessage` 会同步返回 `message` 对象，此时可优先向页面展示消息，
+Since sending messages is asynchronous, calling `sendMessage` returns the `message` object synchronously. At this point, the message can be displayed on the page immediately.
 
-并用 `message.clientMsgNo` 做唯一标识，`callback` 触发后可根据 `clientMsgNo` 做消息状态更新，如上传进度。
+Use `message.clientMsgNo` as a unique identifier. After the `callback` is triggered, the message status can be updated based on `clientMsgNo`, such as upload progress.
 
-SDK 内置文件上传功能，只需将本地文件路径赋值给 `ImageMessage.localPath`，SDK 会自动上传文件并返回文件 URL。
+The SDK includes a built-in file upload function. Simply assign the local file path to `ImageMessage.localPath`, and the SDK will automatically upload the file and return the file URL.
 
-> 注意：发送文件、图片、视频等消息时，需要先在私有开发者后台配置文件存储 `OSS`。
+> Note: When sending messages such as files, pictures, videos, etc., you must first configure file storage `OSS` in the private developer backend.
 
 <p/>
 
-**示例代码**
+**Sample Code**
 
 ```dart
 Conversation conversation = Conversation(ConversationType.group, 'groupId1');
@@ -270,7 +270,7 @@ DataCallback<Message> callback = (m, errorCode) {
   }
 };
 
-//progress 取值范围 0～100
+// Progress value range: 0–100
 SendMessageProgressCallback progressCallback = (message, progress) {
   print('sendMediaMessage onProgress, progress is $progress');
 };

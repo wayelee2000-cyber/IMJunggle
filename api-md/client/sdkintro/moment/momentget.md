@@ -1,5 +1,5 @@
 ---
-title: 获取朋友圈
+title: Get Moments
 hide_title: true
 sidebar_position: 4
 ---
@@ -16,20 +16,20 @@ values={[
 }>
 <TabItem value="android">
 
-获取单个朋友圈信息
+Retrieve information about a single circle of friends
 
-**接口说明**
+**Interface description**
 
 ```java
 /**
- * 获取朋友圈详情
- * @param momentId 朋友圈 id
- * @param callback 结果回调
+ * Retrieve details of a Moment
+ * @param momentId Moment ID
+ * @param callback result callback
  */
 void getMoment(String momentId, JIMConst.IResultCallback<Moment> callback);
 ```
 
-**代码示例**
+**Code Example**
 
 ```java
 JIM.getInstance().getMomentManager().getMoment("momentId", new JIMConst.IResultCallback<Moment>() {
@@ -43,24 +43,23 @@ JIM.getInstance().getMomentManager().getMoment("momentId", new JIMConst.IResultC
 });
 ```
 
-
 </TabItem>
 <TabItem value="ios">
 
-获取单个朋友圈信息
+Retrieve information about a single circle of friends
 
-**接口说明**
+**Interface description**
 
 ```objectivec
-/// 获取朋友圈详情
+/// Retrieve details of a Moment
 /// - Parameters:
-///   - momentId: 朋友圈 id
-///   - completeBlock: 结果回调
+///   - momentId: Moment ID
+///   - completeBlock: result callback
 - (void)getMoment:(nonnull NSString *)momentId
          complete:(nullable void (^)(JErrorCode errorCode, JMoment * _Nullable moment))completeBlock;
 ```
 
-**代码示例**
+**Code Example**
 
 ```objectivec
 [JIM.shared.momentManager getMoment:@"momentId" complete:^(JErrorCode errorCode, JMoment * _Nullable moment) {
@@ -70,20 +69,20 @@ JIM.getInstance().getMomentManager().getMoment("momentId", new JIMConst.IResultC
 </TabItem>
 <TabItem value="flutter">
 
-获取单个朋友圈信息
+Retrieve information about a single circle of friends
 
-**接口说明**
+**Interface description**
 
 ```dart
 /**
- * 获取朋友圈详情
- * @param momentId 朋友圈 id
- * return Moment 对象
+ * Retrieve details of a Moment
+ * @param momentId Moment ID
+ * @return Moment object
  */
 Future<Result<Moment>> getMoment(String momentId) async
 ```
 
-**代码示例**
+**Code Example**
 
 ```dart
 Result<Moment> moment = await JuggleIm.instance.getMoment('momentId');
@@ -92,20 +91,20 @@ Result<Moment> moment = await JuggleIm.instance.getMoment('momentId');
 </TabItem>
 <TabItem value="reactnative">
 
-获取单个朋友圈信息
+Retrieve information about a single circle of friends
 
-**接口说明**
+**Interface description**
 
 ```typescript
 /**
- * 获取朋友圈详情
- * @param momentId 朋友圈 id
- * return Promise<Moment> 对象
+ * Retrieve details of a Moment
+ * @param momentId Moment ID
+ * @return Promise<Moment> object
  */
 getMoment(momentId: string): Promise<Moment>
 ```
 
-**代码示例**
+**Code Example**
 
 ```typescript
 import { JuggleIMMoment } from 'juggleim-rnsdk';
@@ -116,29 +115,29 @@ const moment = await JuggleIMMoment.getMoment('momentId');
 </TabItem>
 <TabItem value="js">
 
-获取单个朋友圈信息
+Retrieve information about a single circle of friends
 
-**参数说明**
+**Parameter description**
 
-| 名称          | 类型    | 必填                          | 默认值                               | 描述                                           | 版本     |
-|--------------|---------|-------------------------------|-------------------------------------|------------------------------------------------|----------|
-| params        | Object  | 是                            | -   | 朋友圈信息  | 1.9.6   |
-| params.momentId    | String  | 是                            |  -   | 朋友圈 ID  | 1.9.6   |
+| Name           | Type   | Required | Default | Description           | Version |
+|----------------|--------|----------|---------|-----------------------|---------|
+| params         | Object | Yes      | -       | Moment information    | 1.9.6   |
+| params.momentId | String | Yes      | -       | Moment ID             | 1.9.6   |
 
-**回调说明**
+**Callback description**
 
-| 属性            | 类型    | 描述                                           | 版本  |
-|-----------------|---------|------------------------------------------------|----------|
-| result          | Object  | 查询结果                                       | 1.9.6   |
-| result.moment | Object | 朋友圈对象，结构请查看 [Moment](../moment.md) | 1.9.6   | 
+| Properties     | Type   | Description                                              | Version |
+|----------------|--------|----------------------------------------------------------|---------|
+| result         | Object | Query result                                             | 1.9.6   |
+| result.moment  | Object | Moment object; see the [Moment](../moment.md) structure | 1.9.6   |
 
-**代码示例**
+**Code Example**
 
 ```js
-// 获取单个朋友圈信息
+// Retrieve information about a single circle of friends
 let momentId = '';
 jim.getMoment({ momentId }).then((result) => {
-  console.log('getMoment successfully', result)
+  console.log('getMoment succeeded', result);
 });
 ```
 

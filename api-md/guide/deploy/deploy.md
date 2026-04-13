@@ -1,32 +1,32 @@
 ---
-title: 部署模式
+title: deployment mode
 hide_title: true
 sidebar_position: 1
 ---
 
-### 模式介绍{#intro}
+### Pattern introduction{#intro}
 
-IM 支持两种部署模式 **托管云** 和 **私有云**，两种模式支持的 IM 能力一致，数据存储、管理后台和计费模式有区别。
+IM supports two deployment modes: **Hosted Cloud** and **Private Cloud**. Both modes offer the same IM capabilities, but differ in data storage, management backend, and billing models.
 
-> **选择托管云模式**：托管云模式官方提供部署能力，部署后官方后，开发者按照文档各端开始集成，无需关心 IM 服务的部署和运维，通常对业务数据存储位置 _不敏感_ 的开发者选择较多。
+> **Choose the managed cloud model**: The managed cloud model provides official deployment services. After deployment, developers can begin integration following the documentation for each platform. There is no need to manage the deployment or maintenance of IM services. This option is ideal for developers who are generally not concerned about the physical location of their business data.
 
 <br/>
 
-> **选择私有云模式**：私有云模式创建应用后需要优先 [部署 IM 服务](../../download/server/deploy)，部署完成后参考各端集成文档对接，通常对业务数据存储位置 _敏感_ 的开发者选择较多。
+> **Choose private cloud mode**: After creating an application in private cloud mode, you must first [deploy the IM service](../../download/server/deploy). Once deployment is complete, refer to the integration documentation for each platform to proceed. This option is suitable for developers who are _sensitive_ to the storage location of their business data and require more control.
 
-### 功能对比{#feature}
+### Function comparison{#feature}
 
-| 服务名称                   | 托管云部署         | 私有云部署      |
-|-----------------------|----------------------|----------------|
-| 服务器资源提供方        | IM 官方              | 开发者            |
-| 是否独立资源           | ✓                    | ✓              |
-| 独立管理后台           | x                    | ✓              |
-| 注册用户数             | 无限制                | 无限制         |
-| 单聊                   | ✓                    | ✓              |
-| 群聊                   | ✓                    | ✓              |
-| 聊天室                 | ✓                    | ✓              |
-| 历史消息云端存储       | ✓                    | ✓              |
-| 加入群数量             | 无限制                | 无限制         |
-| 单个群人数上限         | 3000                 | 5000           |
-| REST API 限频          | 100 次/秒             | 无限制         |
-| 技术支持群             | ✓                    | ✓              |
+| Service Name                      | Managed Cloud Deployment | Private Cloud Deployment |
+|----------------------------------|--------------------------|-------------------------|
+| Server resource provider          | IM official              | Developer               |
+| Independent resource             | ✓                        | ✓                       |
+| Independent management backend    | ✗                        | ✓                       |
+| Number of registered users        | Unlimited                | Unlimited               |
+| Single chat                      | ✓                        | ✓                       |
+| Group chat                      | ✓                        | ✓                       |
+| Chat Room                       | ✓                        | ✓                       |
+| Historical message cloud storage  | ✓                        | ✓                       |
+| Number of groups to join          | Unlimited                | Unlimited               |
+| Maximum number of people in a single group | 3000           | 5000                    |
+| REST API frequency limit          | 100 requests/second      | Unlimited               |
+| Technical Support Group           | ✓                        | ✓                       |

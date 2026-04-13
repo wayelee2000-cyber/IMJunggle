@@ -1,5 +1,5 @@
 ---
-title: 发起通话
+title: Initiate a call
 hide_title: true
 sidebar_position: 4
 ---
@@ -16,52 +16,52 @@ values={[
 }>
 <TabItem value="android">
 
-请在 IM 连接成功的状态下，传入对方的 `userId` 进行呼叫。开发者需要提前向用户申请麦克风和摄像头权限。
+After the IM connection is established, enter the other party's `userId` to initiate a call. Developers must request microphone and camera permissions from users in advance.
 
 ```java
-//发起单人视频呼叫
+// Make a single-person video call
 ICallSession callSession = JIM.getInstance().getCallManager().startSingleCall(userId, CallConst.CallMediaType.VIDEO, null);
 
-//发起单人音频呼叫
+// Make a single audio call
 ICallSession callSession = JIM.getInstance().getCallManager().startSingleCall(userId, CallConst.CallMediaType.VOICE, null);
 ```
 
-可以同时传入多个的 `userId` 进行多人呼叫。同样需要提前向用户申请麦克风和摄像头权限。
+You can also pass multiple `userId`s simultaneously to initiate a multi-person call. Remember to request microphone and camera permissions from users beforehand.
 
 ```java
-//发起多人视频呼叫
+// Initiate a multi-person video call
 ICallSession callSession = JIM.getInstance().getCallManager().startMultiCall(userIdList, CallConst.CallMediaType.VIDEO, null);
 
-//发起多人音频呼叫
+// Make a multi-person audio call
 ICallSession callSession = JIM.getInstance().getCallManager().startMultiCall(userIdList, CallConst.CallMediaType.VOICE, null);
 ```
 
 </TabItem>
 <TabItem value="ios">
 
-请在 IM 连接成功的状态下，传入对方的 `userId` 进行单人呼叫。开发者需要提前向用户申请麦克风和摄像头权限。
+After the IM connection is established, pass the other party's `userId` to initiate a single call. Developers must request microphone and camera permissions from users in advance.
 
 ```objectivec
-//发起单人视频呼叫
+// Make a single-person video call
 id<JCallSession> session = [JIM.shared.callManager startSingleCall:@"userId1"
                                                          mediaType:JCallMediaTypeVideo
                                                           delegate:self];
 
-//发起单人音频呼叫
+// Make a single audio call
 id<JCallSession> session = [JIM.shared.callManager startSingleCall:@"userId1"
                                                          mediaType:JCallMediaTypeVoice
                                                           delegate:self];
 ```
 
-可以同时传入多个的 `userId` 进行多人呼叫。同样需要提前向用户申请麦克风和摄像头权限。
+You can also pass multiple `userId`s simultaneously to initiate a multi-person call. Be sure to request microphone and camera permissions from users beforehand.
 
 ```objectivec
-//发起多人视频呼叫
+// Initiate a multi-person video call
 id<JCallSession> session = [JIM.shared.callManager startMultiCall:@[@"userId1", @"userId2"]
                                                         mediaType:JCallMediaTypeVideo
                                                          delegate:self];
 
-//发起多人音频呼叫
+// Make a multi-person audio call
 id<JCallSession> session = [JIM.shared.callManager startMultiCall:@[@"userId1", @"userId2"]
                                                         mediaType:JCallMediaTypeVoice
                                                          delegate:self];
@@ -70,52 +70,52 @@ id<JCallSession> session = [JIM.shared.callManager startMultiCall:@[@"userId1", 
 </TabItem>
 <TabItem value="js">
 
-请在 IM 连接成功的状态下，传入对方的 `userId` 进行呼叫。开发者需要提前向用户申请麦克风和摄像头权限。
+After the IM connection is established, enter the other party's `userId` to initiate a call. Developers must request microphone and camera permissions from users in advance.
 
 ```javascript
-// 发起二人通话
+// Initiate a two-person call
 let callSession = juggleCall.create();
 callSession.startSingleCall({ memberId: '1y0mce0MrHm' }).catch((error) => {
   console.log('startcall error', error)
 });
 ```
 
-可以同时传入多个的 `userId` 进行多人呼叫。同样需要提前向用户申请麦克风和摄像头权限。
+You can also pass multiple `userId`s simultaneously to initiate a multi-person call. Remember to request microphone and camera permissions from users beforehand.
 
 ```javascript
-// 发起多人通话
+// Initiate a multi-person call
 let callSession = juggleCall.create();
 callSession.startMultiCall({ memberIds: ['1y0mce0MrHm'] });
 ```
 </TabItem>
 <TabItem value="flutter">
 
-请在 IM 连接成功的状态下，传入对方的 `userId` 进行呼叫。开发者需要提前向用户申请麦克风和摄像头权限。
+After the IM connection is established, enter the other party's `userId` to initiate a call. Developers must request microphone and camera permissions from users in advance.
 
 ```dart
-//发起单人视频呼叫
+// Make a single-person video call
 CallSession callSession = await JuggleIm.instance.startSingleCall(
     'userId1',
     1
 );
 
-//发起单人音频呼叫
+// Make a single audio call
 CallSession callSession = await JuggleIm.instance.startSingleCall(
     'userId1',
     0
 );
 ```
 
-可以同时传入多个的 `userId` 进行多人呼叫。同样需要提前向用户申请麦克风和摄像头权限。
+You can also pass multiple `userId`s simultaneously to initiate a multi-person call. Be sure to request microphone and camera permissions from users beforehand.
 
 ```dart
-//发起多人视频呼叫
+// Initiate a multi-person video call
 CallSession callSession = await JuggleIm.instance.startMultiCall(
     ['userId1', 'userId2'],
     1
 );
 
-//发起多人音频呼叫
+// Make a multi-person audio call
 CallSession callSession = await JuggleIm.instance.startMultiCall(
     ['userId1', 'userId2'],
     0
@@ -126,25 +126,25 @@ CallSession callSession = await JuggleIm.instance.startMultiCall(
 
 <TabItem value="reactnative">
 
-请在 IM 连接成功的状态下，传入对方的 `userId` 进行单人呼叫。开发者需要提前向用户申请麦克风和摄像头权限。
+After the IM connection is established, pass the other party's `userId` to initiate a single call. Developers must request microphone and camera permissions from users in advance.
 
 ```typescript
 import JuggleIMCall, { CallMediaType } from 'juggleim-rnsdk';
 
-//发起单人视频呼叫
+// Make a single-person video call
 const callSession = await JuggleIMCall.startSingleCall('userId1', CallMediaType.VIDEO);
 
-//发起单人音频呼叫
+// Make a single audio call
 const callSession = await JuggleIMCall.startSingleCall('userId1', CallMediaType.VOICE);
 ```
 
-可以同时传入多个的 `userId` 进行多人呼叫。同样需要提前向用户申请麦克风和摄像头权限。
+You can also pass multiple `userId`s simultaneously to initiate a multi-person call. Remember to request microphone and camera permissions from users beforehand.
 
 ```typescript
-//发起多人视频呼叫
+// Initiate a multi-person video call
 const callSession = await JuggleIMCall.startMultiCall(['userId1', 'userId2'], CallMediaType.VIDEO);
 
-//发起多人音频呼叫
+// Make a multi-person audio call
 const callSession = await JuggleIMCall.startMultiCall(['userId1', 'userId2'], CallMediaType.VOICE);
 ```
 

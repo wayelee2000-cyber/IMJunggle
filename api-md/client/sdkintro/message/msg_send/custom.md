@@ -1,5 +1,5 @@
 ---
-title: 发送自定义消息
+title: Send custom message
 hide_title: true
 sidebar_position: 4
 ---
@@ -16,20 +16,20 @@ values={[
 }>
 <TabItem value="android">
 
-**创建自定义消息**
+**Create a custom message**
 
-自定义消息需要继承自 MessageContent，并实现下面的方法。
+Custom messages must inherit from `MessageContent` and implement the following methods.
 
 ```java
 public class CustomMessage extends MessageContent {
-    //必须实现默认的构造方法，并指定 contentType。
-    //contentType 是消息类型的标识符，请保证全局唯一性。
-    //SDK 内部保留了 "jg:" 开头的所有标识符，您可以指定除此开头外的任意字符串。
+    // The default constructor must be implemented and the contentType specified.
+    // contentType is the identifier of the message type; please ensure global uniqueness.
+    // All identifiers starting with "jg:" are reserved internally by the SDK, so you can specify any string except those.
     public CustomMessage() {
         mContentType = "my:custom";
     }
 
-    //重写父类的 encode 方法，将消息内的所有字段转换成 json。
+    // Override the encode method of the parent class to convert all fields in the message into JSON.
     @Override
     public byte[] encode() {
         JSONObject jsonObject = new JSONObject();
@@ -43,7 +43,7 @@ public class CustomMessage extends MessageContent {
         return jsonObject.toString().getBytes(StandardCharsets.UTF_8);
     }
 
-    //重写父类的 decode 方法，将 json 转换成消息内的有效字段。
+    // Override the decode method of the parent class to convert JSON into valid fields in the message.
     @Override
     public void decode(byte[] data) {
         if (data == null) {
@@ -62,7 +62,7 @@ public class CustomMessage extends MessageContent {
         }
     }
 
-    //会话列表中显示的消息摘要，非必要实现
+    // Message summary displayed in the conversation list, optional implementation
     @Override
     public String conversationDigest() {
         if (!TextUtils.isEmpty(mValue)) {
@@ -77,22 +77,20 @@ public class CustomMessage extends MessageContent {
 
     private String mValue;
 }
-
 ```
 
+**Register the custom message**
 
-**注册自定义消息**
-
-调用 SDK 的注册接口，使 SDK 在收发消息的时候，知道如何序列化和反序列化自定义消息。
-注册接口调用一次即可。
+Call the SDK's registration interface so the SDK knows how to serialize and deserialize custom messages when sending and receiving them.  
+You only need to call the registration interface once.
 
 ```java
 JIM.getInstance().getMessageManager().registerContentType(CustomMessage.class);
 ```
 
-**发送自定义消息**
+**Send a custom message**
 
-构造自定义消息对象，并调用 SDK 的 sendMessage 接口进行发送。
+Create a custom message object and call the SDK's `sendMessage` interface to send it.
 
 ```java
 CustomMessage c = new CustomMessage();
@@ -111,15 +109,14 @@ IMessageManager.ISendMessageCallback callback = new IMessageManager.ISendMessage
 };
 Message message = JIM.getInstance().getMessageManager().sendMessage(c, conversation, callback);
 Log.i("TAG", "after send, clientMsgNo is " + message.getClientMsgNo());
-
 ```
 
 </TabItem>
 <TabItem value="ios">
 
-**创建自定义消息**
+**Create a custom message**
 
-自定义消息需要继承自 MessageContent，并实现下面的方法。
+Custom messages must inherit from `MessageContent` and implement the following methods.
 
 ```objectivec
 @interface CustomMessage : JMessageContent
@@ -127,46 +124,45 @@ Log.i("TAG", "after send, clientMsgNo is " + message.getClientMsgNo());
 @end
 
 @implementation CustomMessage
-//contentType 是消息类型的标识符，请保证全局唯一性。
-//SDK 内部保留了 "jg:" 开头的所有标识符，您可以指定除此开头外的任意字符串。
+// contentType is the identifier of the message type; please ensure global uniqueness.
+// All identifiers starting with "jg:" are reserved internally by the SDK, so you can specify any string except those.
 + (NSString *)contentType {
     return @"my:custom";
 }
 
-//重写父类的 encode 方法，将消息内的所有字段转换成 NSData。
+// Override the encode method of the parent class to convert all fields in the message into NSData.
 - (NSData *)encode {
-    NSDictionary * dic = @{@"value":self.value?:@""};
+    NSDictionary * dic = @{@"value":self.value ?: @""};
     NSData *data = [NSJSONSerialization dataWithJSONObject:dic options:kNilOptions error:nil];
     return data;
 }
 
-//重写父类的 decode 方法，将 NSData 转换成消息内的有效字段
+// Override the decode method of the parent class to convert NSData into valid fields in the message.
 - (void)decode:(NSData *)data {
     NSDictionary * json = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
-    self.value = json["value"]?:@"";
+    self.value = json[@"value"] ?: @"";
 }
 
-//会话列表中显示的消息摘要，非必要实现
+// Message summary displayed in the conversation list, optional implementation
 - (NSString *)conversationDigest {
-    return self.content?:@"";
+    return self.content ?: @"";
 }
 
 @end
 ```
 
+**Register the custom message**
 
-**注册自定义消息**
-
-调用 SDK 的注册接口，使 SDK 在收发消息的时候，知道如何序列化和反序列化自定义消息。
-注册接口调用一次即可。
+Call the SDK's registration interface so the SDK knows how to serialize and deserialize custom messages when sending and receiving them.  
+You only need to call the registration interface once.
 
 ```objectivec
 [JIM.shared.messageManager registerContentType:[CustomMessage class]];
 ```
 
-**发送自定义消息**
+**Send a custom message**
 
-构造自定义消息对象，并调用 SDK 的 sendMessage 接口进行发送。
+Create a custom message object and call the SDK's `sendMessage` interface to send it.
 
 ```objectivec
 JConversation *conversation = [[JConversation alloc] initWithConversationType:JConversationTypePrivate conversationId:@"userid2"];
@@ -180,79 +176,79 @@ JMessage *m = [JIM.shared.messageManager sendMessage:c
         NSLog(@"sendMessage error");
     }];
 NSLog(@"after send, m.clientMsgNo is %lld", m.clientMsgNo);
-
 ```
-
 
 </TabItem>
 <TabItem value="js">
 
-自定义消息支持的发送参数与 [发送消息](./send.md) 一致，区别在发送之前消息之前需要注册自定义消息，将消息是否计数和存储告知 SDK，自定义消息只需注册一次，可以放在 [SDK 初始化后](../../init.mdx) 执行注册代码
+The parameters supported by custom messages for sending are consistent with [Send Message](./send.md). The difference is that before sending a custom message, you need to register it and inform the SDK whether the message should be counted and stored.  
+Custom messages only need to be registered once, and the registration code can be placed in [After SDK initialization](../../init.mdx).
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 必填   | 默认值  | 描述                                                         | 版本     |
-|--------------------------------|---------|--------|--------|--------------------------------------------------------------|----------|
-| message                        | Object  | 是     |        | 消息对象                                                      | 1.0.0    |
-| message.conversationType       | Number  | 是     |        | [会话类型](../../../enum/web#conversation)                            | 1.0.0    |
-| message.conversationId         | String  | 是     |        | 会话 Id，会话类型是 `PRIVATE` 时，会话 Id 是接收方的 userId，会话类型是 `GROUP` 时是群组 Id | 1.0.0    |
-| message.name                   | String  | 是     |        | 消息名称，根据实际需要发送不同消息类型，详细枚举请查看 [MessageType](../../../enum/web#message) | 1.0.0    |
-| message.content                | Object  | 是     |        | 消息内容，构建 `message.name` 消息                              | 1.0.0    |
-| message.mentionInfo            | Object  | 否     |  无    | conversationType 为 `GROUP` 时有效，设置 mentionInfo 表示本条消息是 @ 消息 | 1.0.0    |
-| mentionInfo.mentionType        | Number  | 否     |  无    | @ 类型，详细可查看 [@ 消息枚举](../../../enum/web#mention) 说明         | 1.0.0    |
-| mentionInfo.targetIds          | Array   | 否     |  无    | @ 指定人列表，SDK 会优先根据 mentionType 判断消息的 @ 类型         | 1.0.0    |
+| Name | Type | Required | Default | Description | Version |
+|--------------------------------|---------|--------|--------|----------------------------------------------------------------|----------|
+| message | Object | Yes | | Message object | 1.0.0 |
+| message.conversationType | Number | Yes | | [Conversation Type](../../../enum/web#conversation) | 1.0.0 |
+| message.conversationId | String | Yes | | Session ID. When the session type is `PRIVATE`, the session ID is the userId of the receiver; when the session type is `GROUP`, it is the group ID | 1.0.0 |
+| message.name | String | Yes | | Message name. Different message types are sent according to actual needs. For detailed enumeration, see [MessageType](../../../enum/web#message) | 1.0.0 |
+| message.content | Object | Yes | | Message content, constructed according to the `message.name` message type | 1.0.0 |
+| message.mentionInfo | Object | No | None | Valid when conversationType is `GROUP`. Setting mentionInfo indicates this message is an @ message | 1.0.0 |
+| mentionInfo.mentionType | Number | No | None | @ type. See [@ message enumeration](../../../enum/web#mention) for details | 1.0.0 |
+| mentionInfo.targetIds | Array | No | None | List of specified @ recipients. The SDK prioritizes the @ type of the message based on mentionType | 1.0.0 |
 
-**成功回调**
+**Success callback**
 
-| 名称      | 类型    | 描述                                                                      | 版本   |
-|-----------|---------|---------------------------------------------------------------------------|--------|
-| message   | Object  | 发送成功后返回带 `messageId` 和 `sentTime` 消息对象，消息结构请查看 [Message](../../../msg/message) | 1.0.0  |
+| Name | Type | Description | Version |
+|-----------|----------|-------------------------------------------------------------------------------|--------|
+| message | Object | After successful sending, returns a message object with `messageId` and `sentTime`. See the message structure [Message](../../../msg/message) | 1.0.0 |
 
-**失败回调**
+**Failure callback**
 
-| 名称   | 类型    | 描述                                                      | 版本   |
-|--------|---------|-----------------------------------------------------------|--------|
-| result | Object  | 发送失败后会返回对象中包含 `tid` 属性信息，同时包含 `error` 信息，可以直接查看 `error.msg`，或者查看 [状态码](../../../status_code/web) | 1.0.0  |
+| Name | Type | Description | Version |
+|--------|---------|--------------------------------------------------------------|--------|
+| result | Object | After failure to send, the returned object contains `tid` and `error` information. You can view `error.msg` directly or refer to [status code](../../../status_code/web) | 1.0.0 |
 
-**示例代码**
+**Sample Code**
+
 ```js
 let { ConversationType } = JIM;
 
-/** 第一步：注册自定义消息,全局注册一次 ***********/ 
+/** Step 1: Register a custom message globally ***********/
 let MSG_NAME = {
   TEST_MSG_NAME: 'test:msgname'
 };
 let msgs = [
-  // isCount: 表示对方收到消息后会话是否未读数 +1
-  // isStorage： 表示消息是否存入历史消息
+  // isCount: whether the session's unread count increases by 1 when the other party receives the message
+  // isStorage: whether the message is stored in history
   { name: MSG_NAME.TEST_MSG_NAME,  isCount: true, isStorage: true },
 ];
-jim.registerMessage(msgs)
+jim.registerMessage(msgs);
 
-/** 第二步：发送自定消息 ***********/ 
+/** Step 2: Send a custom message ***********/
 let msg = {
   conversationType: ConversationType.GROUP,
   conversationId: 'groupid1',
   name: MSG_NAME.TEST_MSG_NAME,
   content: {
-    // text 属性可根据多端实际约定自行定义
+    // The text attribute can be defined according to actual multi-end conventions.
     text: 'Hello JIM'
   }
 };
 jim.sendMessage(msg).then((message) => {
   console.log(message);
 }, (error) => {
-   let { error, tid } = result;
-  // 可根据 tid 修改消息发送失败的状态, Web 端消息失败仅在 SDK 内存中保存，刷新后将无法获取到发送失败的消息
+  let { error, tid } = error;
+  // You can handle message sending failure status based on tid. On the web, failed messages are only saved in SDK memory and will be lost after refreshing.
   console.log(tid, error);
 });
 ```
 </TabItem>
 <TabItem value="reactnative" label="ReactNative">
 
-**创建自定义消息**
+**Create a custom message**
 
-自定义消息需要继承自 MessageContent，并实现下面的方法。
+Custom messages must implement the `CustomMessageContent` interface and the following methods.
 
 ```typescript
 import JuggleIM from 'juggleim-rnsdk';
@@ -261,16 +257,16 @@ class CustomMessage implements CustomMessageContent {
   contentType = 'my:custom';
   value: string = '';
 
-  //contentType 是消息类型的标识符，请保证全局唯一性。
-  //SDK 内部保留了 "jg:" 开头的所有标识符，您可以指定除此开头外的任意字符串。
+  // contentType is the identifier of the message type; please ensure global uniqueness.
+  // All identifiers starting with "jg:" are reserved internally by the SDK, so you can specify any string except those.
 
-  //重写父类的 encode 方法，将消息内的所有字段转换成 json。
+  // Override the encode method to convert all fields in the message into JSON.
   encode(): string {
     const map = { "value": this.value };
     return JSON.stringify(map);
   }
 
-  //重写父类的 decode 方法，将 json 转换成消息内的有效字段。
+  // Override the decode method to convert JSON into valid fields in the message.
   decode(jsonStr: string): void {
     const map = JSON.parse(jsonStr);
     this.value = map['value'] || '';
@@ -278,19 +274,18 @@ class CustomMessage implements CustomMessageContent {
 }
 ```
 
+**Register the custom message**
 
-**注册自定义消息**
-
-调用 SDK 的注册接口，使 SDK 在收发消息的时候，知道如何序列化和反序列化自定义消息。
-注册接口调用一次即可。
+Call the SDK's registration interface so the SDK knows how to serialize and deserialize custom messages when sending and receiving them.  
+You only need to call the registration interface once.
 
 ```typescript
 JuggleIM.registerCustomMessageType('my:custom', CustomMessage);
 ```
 
-**发送自定义消息**
+**Send a custom message**
 
-构造自定义消息对象，并调用 SDK 的 sendMessage 接口进行发送。
+Create a custom message object and call the SDK's `sendMessage` interface to send it.
 
 ```typescript
 const customMessage = new CustomMessage();
@@ -318,9 +313,9 @@ JuggleIM.sendMessage({
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-**创建自定义消息**
+**Create a custom message**
 
-自定义消息需要继承自 MessageContent，并实现下面的方法。
+Custom messages must inherit from `MessageContent` and implement the following methods.
 
 ```dart
 class CustomMessage extends MessageContent {
@@ -328,45 +323,43 @@ class CustomMessage extends MessageContent {
 
     CustomMessage();
 
-    //contentType 是消息类型的标识符，请保证全局唯一性。
-    //SDK 内部保留了 "jg:" 开头的所有标识符，您可以指定除此开头外的任意字符串。
+    // contentType is the identifier of the message type; please ensure global uniqueness.
+    // All identifiers starting with "jg:" are reserved internally by the SDK, so you can specify any string except those.
     @override
     String getContentType() {
         return "my:custom";
     }
 
-    //重写父类的 encode 方法，将消息内的所有字段转换成 json。
+    // Override the encode method to convert all fields in the message into JSON.
     @override
     String encode() {
         Map map = {"value": value};
         return json.encode(map);
     }
 
-    //重写父类的 decode 方法，将 json 转换成消息内的有效字段。
+    // Override the decode method to convert JSON into valid fields in the message.
     @override
     void decode(String string) {
         Map map = json.decode(string);
         value = map['value'] ?? '';
     }
 }
-
 ```
 
+**Register the custom message**
 
-**注册自定义消息**
-
-调用 SDK 的注册接口，使 SDK 在收发消息的时候，知道如何序列化和反序列化自定义消息。
-注册接口调用一次即可。
+Call the SDK's registration interface so the SDK knows how to serialize and deserialize custom messages when sending and receiving them.  
+You only need to call the registration interface once.
 
 ```dart
 JuggleIm.instance.registerMessageType(() => CustomMessage());
 ```
 
-**发送自定义消息**
+**Send a custom message**
 
-构造自定义消息对象，并调用 SDK 的 sendMessage 接口进行发送。
+Create a custom message object and call the SDK's `sendMessage` interface to send it.
 
-```java
+```dart
 CustomMessage c = CustomMessage();
 c.value = 'This is value';
 Conversation conversation = Conversation(ConversationType.private, 'groupId1');

@@ -1,5 +1,5 @@
 ---
-title: 获取全部属性
+title: Get all attributes
 hide_title: true
 sidebar_position: 8
 ---
@@ -12,42 +12,42 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-获取聊天室全部属性
+Retrieve all properties of a chat room
 
-**接口定义**
+**Interface definition**
 
 ```java
 /**
- * 获取聊天室所有属性
+ * Retrieve all properties of a chat room
  *
- * @param chatroomId 聊天室 id
- * @param callback 完成回调
+ * @param chatroomId The chat room ID
+ * @param callback Completion callback
  */
 void getAllAttributes(String chatroomId, IChatroomAttributesCallback callback);
 
 interface IChatroomAttributesCallback {
     /**
-     * 完成回调
+     * Completion callback
      *
-     * @param errorCode 返回 JErrorCode.NONE 时表示获取成功
-     * @param attributes 获取回来的属性列表
+     * @param errorCode Returns JErrorCode.NONE to indicate successful retrieval
+     * @param attributes The list of attributes returned
      */
     void onComplete(int errorCode, Map<String, String> attributes);
 }
 ```
 
-**示例代码**
+**Sample Code**
 
 ```java
 JIM.getInstance().getChatroomManager().getAllAttributes("chatroomId1", new IChatroomManager.IChatroomAttributesCallback() {
     @Override
     public void onComplete(int errorCode, Map<String, String> attributes) {
-
+        // Handle the result here
     }
 });
 ```
@@ -55,53 +55,53 @@ JIM.getInstance().getChatroomManager().getAllAttributes("chatroomId1", new IChat
 </TabItem>
 <TabItem value="ios">
 
-获取聊天室全部属性
+Retrieve all properties of a chat room
 
-**接口定义**
+**Interface definition**
 
 ```objectivec
-/// 获取聊天室所有属性
+/// Retrieve all properties of the chat room
 /// - Parameters:
-///   - chatroomId: 聊天室 id
-///   - completeBlock: 完成回调，JErrorCodeNone 表示获取成功。
+///   - chatroomId: The chat room ID
+///   - completeBlock: Completion callback; JErrorCodeNone indicates successful retrieval.
 - (void)getAllAttributesFromChatroom:(NSString *)chatroomId
-                            complete:(void (^)(JErrorCode code, NSDictionary <NSString *, NSString *> *attributes))completeBlock;
+                            complete:(void (^)(JErrorCode code, NSDictionary<NSString *, NSString *> *attributes))completeBlock;
 ```
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 [JIM.shared.chatroomManager getAllAttributesFromChatroom:@"chatroomId1" complete:^(JErrorCode code, NSDictionary<NSString *,NSString *> * _Nonnull attributes) {
-        
+    // Handle the result here
 }];
 ```
 
 </TabItem>
 <TabItem value="flutter">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="js">
 
-获取聊天室全部属性，需要在加入聊天室成功后调用，未加入聊天室获取属性 SDK 会返回空数据。
+To retrieve all properties of a chat room, call this method after successfully joining the chat room. If you attempt to get the properties without joining, the SDK will return empty data.
 
-**参数说明**
+**Parameter description**
 
-| 名称              | 类型     | 必填   | 默认值  | 描述| 版本     |
-|------------------|---------|-------|---|----------|----------|
-| chatroom         | Object | 是     | 无 | 聊天室对象 | 1.6.0    |
-| chatroom.id      | String | 是     | 无 | 聊天室 ID | 1.6.0    |
+| Name | Type | Required | Default | Description | Version |
+|------------------|----------|-------|---|----------|----------|
+| chatroom | Object | Yes | None | Chatroom object | 1.6.0 |
+| chatroom.id | String | Yes | None | Chatroom ID | 1.6.0 |
 
-**回调说明**
+**Callback description**
 
-| 属性                 | 类型    | 描述                               | 版本  |
+| Properties | Type | Description | Version |
 |---------------------|---------|-----------------------------------|----------|
-| chatroom            | Object  | 会话对象                            | 1.6.0    |
-| chatroom.id         | String  | 聊天室 ID                           | 1.6.0    |
-| chatroom.attributes | Array   | 聊天室全部属性，数据结构请参考示例代码   | 1.6.0    |
+| chatroom | Object | Chatroom object | 1.6.0 |
+| chatroom.id | String | Chatroom ID | 1.6.0 |
+| chatroom.attributes | Array | All attributes of the chat room; see sample code for data structure | 1.6.0 |
 
-**示例代码**
+**Sample Code**
 
 ```js
 let chatroom = {
@@ -118,17 +118,16 @@ jim.getAllChatRoomAttributes(chatroom).then((chatroom) => {
       ]
   */
 }, (error) => {
-  console.log('error', error)
+  console.log('error', error);
 });
 ```
-
 
 </TabItem>
 <TabItem value="reactnative">
 
-获取聊天室全部属性
+Retrieve all properties of a chat room
 
-**示例代码**
+**Sample Code**
 
 ```ts
 import JuggleIM from 'juggleim-rnsdk';
@@ -139,9 +138,9 @@ const attributes = await JuggleIM.getChatroomAttributes("chatroomId1");
 </TabItem>
 <TabItem value="harmony">
 
-获取聊天室全部属性
+Retrieve all properties of a chat room
 
-**示例代码**
+**Sample Code**
 
 ```js
 const attributes = await JuggleIm.instance.getChatroomManager().getAllAttributes("chatroomId1");

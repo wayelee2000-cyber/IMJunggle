@@ -1,5 +1,5 @@
 ---
-title: 插入指定会话
+title: Insert the specified session
 hide_title: true
 sidebar_position: 3
 ---
@@ -13,22 +13,22 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-插入会话，SDK 自动向本地和云端插入，支持多端同步。
+When inserting a session, the SDK automatically inserts it locally and in the cloud, supporting multi-end synchronization.
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation | Conversation | 会话标识 | 1.0.0    |
-| callback     | ICreateConversationInfoCallback | 结果回调 | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------|----------|
+| conversation | Conversation | Conversation identifier | 1.0.0 |
+| callback | ICreateConversationInfoCallback | Result callback | 1.0.0 |
 
 
-**示例代码**
+**Sample Code**
 
 ```java
 Conversation conversation = new Conversation(Conversation.ConversationType.PRIVATE, "userid1");
@@ -48,17 +48,17 @@ JIM.getInstance().getConversationManager().createConversationInfo(conversation, 
 </TabItem>
 <TabItem value="ios">
 
-插入会话，SDK 自动向本地和云端插入，支持多端同步。
+When inserting a session, the SDK automatically inserts it locally and in the cloud, supporting multi-end synchronization.
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation | JConversation | 会话标识 | 1.0.0    |
-| successBlock |  | 成功回调 | 1.0.0    |
-| errorBlock   |  | 失败回调 | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------|----------|
+| conversation | JConversation | Session identifier | 1.0.0 |
+| successBlock | | Success callback | 1.0.0 |
+| errorBlock | | Failure callback | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 JConversation *conversation = [[JConversation alloc] initWithConversationType:JConversationTypePrivate conversationId:@"userId1"];
@@ -73,34 +73,34 @@ JConversation *conversation = [[JConversation alloc] initWithConversationType:JC
 </TabItem>
 <TabItem value="js">
 
-插入会话，SDK 自动向本地和云端插入，支持多端同步，若插入会话已存在，原会话将会**被覆盖**
+When inserting a session, the SDK automatically inserts it locally and in the cloud, supporting multi-end synchronization. If the session already exists, the original session will be **overwritten**.
 
-:::info 会话信息
+:::info session information
 
-> Web 中依赖用户注册获取 Token 时传入的用户信息或创建群组时指定的头像和群昵称，如果没有注册或创建群组并设置群组信息，则没有会话信息
+> The Web SDK relies on the user information provided during registration to obtain a token, or on the avatar and group nickname specified when creating a group. If there is no registration or group creation with group information set, session information will not be available.
 
-> Electron 中遵循 Web 原则，但指定 `conversationTitle` 和 `conversationPortrait` 会保存在本地数据库，获取会话会列表会返回
+> Electron follows the Web SDK principles, but specifying `conversationTitle` and `conversationPortrait` will save them in the local database, and retrieving the session list will return these values.
 :::
 
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 必填   | 默认值  | 描述| 版本     |
-|---------------------------------|---------|-------|--------|----------|----------|
-| conversation                    | Object | 是     | 无 | 会话对象 | 1.0.0    |
-| conversation.conversationId     | String | 是     | 无 | 会话 Id | 1.0.0    |
-| conversation.conversationType   | Number | 是     | 无 | 会话类型 | 1.0.0    |
-| conversation.conversationTitle    | String| 否    |  无 | 会话名称 | 1.0.0    |
-| conversation.conversationPortrait | String| 否    |  无 | 会话头像 | 1.0.0    |
+| Name | Type | Required | Default | Description | Version |
+|----------------------------------|----------|-------|--------|----------|----------|
+| conversation | Object | Yes | None | Conversation object | 1.0.0 |
+| conversation.conversationId | String | Yes | None | Conversation ID | 1.0.0 |
+| conversation.conversationType | Number | Yes | None | Conversation type | 1.0.0 |
+| conversation.conversationTitle | String| No | None | Conversation name | 1.0.0 |
+| conversation.conversationPortrait | String| No | None | Conversation portrait | 1.0.0 |
 
-**回调说明**
+**Callback description**
 
-| 属性            | 类型    | 描述                                           | 版本  |
-|-----------------|---------|------------------------------------------------|----------|
-| result          | Object  | 查询结果                                       | 1.0.0    |
-| result.conversation | Object | [会话对象](../../../conversation)，包含用户或群组信息 | 1.0.0    |
+| Properties | Type | Description | Version |
+|------------------|----------|------------------------------------------------|----------|
+| result | Object | Query result | 1.0.0 |
+| result.conversation | Object | [Conversation object](../../../conversation), containing user or group information | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType } = JIM;
 
@@ -118,15 +118,15 @@ jim.insertConversation(conversation).then((result) => {
 
 <TabItem value="flutter" label="Flutter">
 
-插入会话，自动向本地和云端插入，同时支持同步到当前用户的的其他设备，若插入会话已存在，不会覆盖原会话，插入成功后会触发会话监听事件。
+Insert sessions automatically into local and cloud storage, supporting synchronization across the current user's devices. If the session already exists, the original session will not be overwritten. After a successful insertion, the session listening event will be triggered.
 
-**参数说明**
+**Parameter description**
 
-| 名称          | 类型     | 描述| 版本     |
+| Name | Type | Description | Version |
 |--------------|---------|----------|----------|
-| conversation | Conversation | 会话标识 | 0.6.3 |
+| conversation | Conversation | Conversation identifier | 0.6.3 |
 
-**示例代码**
+**Sample Code**
 
 ```dart
 Conversation conversation = Conversation(ConversationType.private, 'userid1');
@@ -136,17 +136,17 @@ Result<ConversationInfo> result = await JuggleIm.instance.createConversationInfo
 </TabItem>
 <TabItem value="reactnative">
 
-插入会话，自动向本地和云端插入，同时支持同步到当前用户的的其他设备，若插入会话已存在，不会覆盖原会话，插入成功后会触发会话监听事件。
+Insert sessions automatically into local and cloud storage, supporting synchronization across the current user's devices. If the session already exists, the original session will not be overwritten. After a successful insertion, the session listening event will be triggered.
 
-**参数说明**
+**Parameter description**
 
-| 名称          | 类型     | 描述| 版本     |
+| Name | Type | Description | Version |
 |--------------|---------|----------|----------|
-| conversation | Object | 会话标识 | 0.6.3 |
-| conversationType | Number | 会话类型 | 0.6.3 |
-| conversationId | String | 会话ID | 0.6.3 |
+| conversation | Object | Conversation identifier | 0.6.3 |
+| conversationType | Number | Conversation type | 0.6.3 |
+| conversationId | String | Session ID | 0.6.3 |
 
-**示例代码**
+**Sample Code**
 
 ```javascript
 import JuggleIM from 'juggleim-rnsdk';
@@ -160,31 +160,31 @@ const result = await JuggleIM.createConversationInfo({
 </TabItem>
 <TabItem value="harmony">
 
-插入会话，自动向本地和云端插入，同时支持同步到当前用户的的其他设备，若插入会话已存在，不会覆盖原会话。
+Insert sessions automatically into local and cloud storage, supporting synchronization across the current user's devices. If the session already exists, the original session will not be overwritten.
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation | Conversation | 会话标识 | 1.0.0    |
-| callback     | ConversationInsertCallback | 结果回调 | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------|----------|
+| conversation | Conversation | Conversation identifier | 1.0.0 |
+| callback | ConversationInsertCallback | Result callback | 1.0.0 |
 
-**接口定义**
+**Interface definition**
 
 ```java
-//callback 定义
-export type ConversationInsertCallback = (code:number,conver:ConversationInfo)=>void
+// Callback definition
+export type ConversationInsertCallback = (code: number, conver: ConversationInfo) => void;
 
-insertConversation(conver:Conversation,callback:ConversationInsertCallback)
+insertConversation(conver: Conversation, callback: ConversationInsertCallback);
 ```
 
-**示例代码**
+**Sample Code**
 
 ```java
-let conver = new Conversation("userid1",1)
-JuggleIm.instance.getConversationManager().insertConversation(conver,(converInfo)=>{
+let conver = new Conversation("userid1", 1);
+JuggleIm.instance.getConversationManager().insertConversation(conver, (converInfo) => {
   
-})
+});
 ```
 
 </TabItem>

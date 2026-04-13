@@ -1,5 +1,5 @@
 ---
-title: 置顶监听
+title: Top monitoring
 hide_title: true
 sidebar_position: 1
 ---
@@ -16,14 +16,14 @@ values={[
 }>
 <TabItem value="android">
 
-消息置顶的回调合并在[消息监听](../../../watcher/message)。
+The callback for message pinning is integrated into the [Message Listener](../../../watcher/message).
 
 ```java
 JIM.getInstance().getMessageManager().addListener("main", new IMessageManager.IMessageListener() {
-    /// 消息置顶的回调
-    /// message: 对应的消息
-    /// operator: 操作置顶的用户
-    /// isTop: true false 表示取消置顶
+    /// Callback for message pinning
+    /// message: the corresponding message
+    /// operator: the user performing the pin operation
+    /// isTop: true means pinned, false means unpinned
     void onMessageSetTop(Message message, UserInfo operator, boolean isTop) {
 
     }
@@ -33,16 +33,16 @@ JIM.getInstance().getMessageManager().addListener("main", new IMessageManager.IM
 </TabItem>
 <TabItem value="ios">
 
-消息置顶的回调合并在[消息监听](../../../watcher/message)。
+The callback for message pinning is integrated into the [Message Listener](../../../watcher/message).
 
 ```objectivec
 [JIM.shared.messageManager addDelegate:self];
 
-/// 消息置顶的回调
+/// Callback for message pinning
 /// - Parameters:
-///   - isTop: YES 表示置顶，NO 表示取消置顶
-///   - message: 对应的消息
-///   - userInfo: 操作置顶的用户
+///   - isTop: YES means pinned, NO means unpinned.
+///   - message: the corresponding message
+///   - userInfo: the user who performed the pin operation
 - (void)messageDidSetTop:(BOOL)isTop
                  message:(JMessage *)message
                     user:(JUserInfo *)userInfo {
@@ -53,7 +53,7 @@ JIM.getInstance().getMessageManager().addListener("main", new IMessageManager.IM
 </TabItem>
 <TabItem value="js">
 
-置顶消息回调，会话内消息被置顶后触发，会话中自己和会话内其他人置顶消息都会触发置顶监听，在监听中可处理 UI 置顶逻辑。
+The pinned message callback is triggered after a message in the session is pinned or unpinned. Pinning actions performed by yourself or others in the session will trigger this event, allowing you to handle UI updates accordingly.
 
 ![](./top.png)
 
@@ -62,13 +62,13 @@ let { Event } = JIM;
 
 jim.on(Event.MESSAGE_SET_TOP, ({ message, isTop, operator, createdTime }) => {
   
-  // message => 被置顶或取消置顶的原始消息，想系可查看 Message 对象
+  // message => The original message that was pinned or unpinned. You can inspect the Message object if needed.
   
-  // isTop => 是否置顶
+  // isTop => Indicates whether the message is pinned (true) or unpinned (false)
   
-  // operator => 操作人 { id: '', name: '', portrait: '' }
+  // operator => The user who performed the operation { id: '', name: '', portrait: '' }
   
-  // createdTime => 操作时间
+  // createdTime => The time when the operation occurred
 
 });
 ```
@@ -76,13 +76,13 @@ jim.on(Event.MESSAGE_SET_TOP, ({ message, isTop, operator, createdTime }) => {
 </TabItem>
 <TabItem value="flutter">
 
-消息置顶的回调合并在[消息监听](../../../watcher/message)。
+The callback for message pinning is integrated into the [Message Listener](../../../watcher/message).
 
 ```dart
-/// 消息置顶的回调
-/// message: 对应的消息
-/// operator: 操作置顶的用户
-/// isTop: true false 表示取消置顶
+/// Callback for message pinning
+/// message: the corresponding message
+/// operator: the user performing the pin operation
+/// isTop: true means pinned, false means unpinned
 JuggleIm.instance.onMessageSetTop = (message, operator, isTop) {
 
 };

@@ -1,35 +1,35 @@
 ---
-title: 添加好友备注
+title: Add friend notes
 hide_title: true
 sidebar_position: 6
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-添加好友备注
+Add notes for a friend.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/friends/setdisplayname
+> **Request URL**: https://[request domain name](../api.md#api)/jim/friends/setdisplayname
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|friend_id|string|是|好友的用户id||
-|friend_display_name|string|是|好友备注||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameter            | Data type | Required | Description          |   |
+|:---------------------|:----------|:---------|:---------------------|---|
+| friend_id            | string    | Yes      | Friend’s user ID     |   |
+| friend_display_name  | string    | Yes      | Friend's note or remark |   |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /jim/friends/setdisplayname HTTP/1.1
 appkey: appkey
@@ -37,16 +37,16 @@ Authorization: xxxxxxxxxxxxxxxxxx
 Content-Type: application/json
 
 {
-  "friend_id":"friend1",
-  "friend_display_name":"displayname"
+  "friend_id": "friend1",
+  "friend_display_name": "displayname"
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

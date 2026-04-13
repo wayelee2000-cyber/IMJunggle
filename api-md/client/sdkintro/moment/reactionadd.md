@@ -1,5 +1,5 @@
 ---
-title: 添加点赞
+title: add likes
 hide_title: true
 sidebar_position: 30
 ---
@@ -16,23 +16,21 @@ values={[
 }>
 <TabItem value="android">
 
+Add likes, such as liking a specific circle of friends or customizing interaction types.
 
-添加点赞，给某条朋友圈点赞或者自定义的互动类型。
-
-**接口说明**
+**Interface description**
 
 ```java
 /**
- * 添加点赞
- * @param momentId 朋友圈 id
- * @param key 点赞类型
- * @param callback 结果回调
+ * Add likes
+ * @param momentId Moment ID
+ * @param key Like type
+ * @param callback Result callback
  */
 void addReaction(String momentId, String key, IMessageManager.ISimpleCallback callback);
 ```
 
-
-**代码示例**
+**Code Example**
 
 ```java
 JIM.getInstance().getMomentManager().addReaction("momentId", "like", new IMessageManager.ISimpleCallback() {
@@ -49,49 +47,46 @@ JIM.getInstance().getMomentManager().addReaction("momentId", "like", new IMessag
 </TabItem>
 <TabItem value="ios">
 
-添加点赞，给某条朋友圈点赞或者自定义的互动类型。
+Add likes, such as liking a specific circle of friends or customizing interaction types.
 
-**接口说明**
+**Interface description**
 
 ```objectivec
-/// 添加点赞
+/// Add likes
 /// - Parameters:
-///   - momentId: 朋友圈 id
-///   - key: 点赞类型
-///   - completeBlock: 结果回调
+///   - momentId: Moment ID
+///   - key: Like type
+///   - completeBlock: Result callback
 - (void)addReaction:(nonnull NSString *)momentId
                 key:(nonnull NSString *)key
            complete:(nullable void (^)(JErrorCode errorCode))completeBlock;
 ```
 
-
-**代码示例**
+**Code Example**
 
 ```objectivec
 [JIM.shared.momentManager addReaction:@"momentId" key:@"like" complete:^(JErrorCode errorCode) {
 }];
 ```
 
-
 </TabItem>
 <TabItem value="flutter">
 
-添加点赞，给某条朋友圈点赞或者自定义的互动类型。
+Add likes, such as liking a specific circle of friends or customizing interaction types.
 
-**接口说明**
+**Interface description**
 
 ```dart
 /**
- * 添加点赞
- * @param momentId 朋友圈 id
- * @param key 点赞类型
- * return 结果码，0 表示成功
+ * Add likes
+ * @param momentId Moment ID
+ * @param key Like type
+ * @return Result code, 0 indicates success
  */
 Future<int> addMomentReaction(String momentId, String key) async
 ```
 
-
-**代码示例**
+**Code Example**
 
 ```dart
 int addReactionResult = await JuggleIm.instance.addMomentReaction('momentId', 'like');
@@ -100,21 +95,21 @@ int addReactionResult = await JuggleIm.instance.addMomentReaction('momentId', 'l
 </TabItem>
 <TabItem value="reactnative">
 
-添加点赞，给某条朋友圈点赞或者自定义的互动类型。
+Add likes, such as liking a specific circle of friends or customizing interaction types.
 
-**接口说明**
+**Interface description**
 
 ```typescript
 /**
- * 添加点赞
- * @param momentId 朋友圈 id
- * @param key 点赞类型
- * return Promise<void>
+ * Add likes
+ * @param momentId Moment ID
+ * @param key Like type
+ * @returns Promise<void>
  */
 addReaction(momentId: string, key: string): Promise<void>
 ```
 
-**代码示例**
+**Code Example**
 
 ```typescript
 import { JuggleIMMoment } from 'juggleim-rnsdk';
@@ -125,20 +120,19 @@ await JuggleIMMoment.addReaction('momentId', 'like');
 </TabItem>
 <TabItem value="js">
 
-添加点赞，给某条朋友圈点赞或者自定义的互动类型。
+Add likes, such as liking a specific circle of friends or customizing interaction types.
 
-**参数说明**
+**Parameter description**
 
-| 名称          | 类型    | 必填                          | 默认值      | 描述                                           | 版本     |
-|--------------|---------|-------------------------------|------------|------------------------------------------------|----------|
-| params        | Object  | 是                            | -   | 添加点赞参数  | 1.9.6   |
-| params.momentId    | String  | 是                            |  -   | 朋友圈 Id  | 1.9.6   |
-| params.reaction    | Object  | 是                            |  -   | 互动类型 | 1.9.6   |
-| params.reaction.key    | String  | 是                            |  -   | 互动类型 key, 详见代码示例 | 1.9.6   |  
-| params.reaction.value    | String  | 是                            |  -   | 互动类型 value, 详见代码示例 | 1.9.6   |  
+| Name               | Type   | Required | Default | Description                                  | Version |
+|--------------------|--------|----------|---------|----------------------------------------------|---------|
+| params             | Object | Yes      | -       | Parameters for adding a like                  | 1.9.6   |
+| params.momentId     | String | Yes      | -       | Moment ID                                     | 1.9.6   |
+| params.reaction     | Object | Yes      | -       | Interaction type                              | 1.9.6   |
+| params.reaction.key | String | Yes      | -       | Interaction type key (see code example)      | 1.9.6   |
+| params.reaction.value | String | Yes    | -       | Interaction type value (see code example)    | 1.9.6   |
 
-
-**代码示例**
+**Code Example**
 
 ```js
 jim.addReaction({
@@ -149,7 +143,7 @@ jim.addReaction({
   },
 }).then(() => {
   console.log('addReaction successfully');
-})
+});
 ```
 </TabItem>
 </Tabs>

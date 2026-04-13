@@ -1,37 +1,37 @@
 ---
-title: 添加聊天室成员封禁
+title: Add chat room member ban
 hide_title: true
 sidebar_position: 1
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-将聊天室成员设置成封禁状态，被封禁的成员将被踢出该聊天室，且不允许再进入。
+Set chat room members to banned status. Banned members will be removed from the chat room and prevented from re-entering.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../../api#api)/apigateway/chatrooms/banmembers/add
+> **Request URL**: https://[request domain name](../../../api#api)/apigateway/chatrooms/banmembers/add
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|chat_id|string|是|聊天室的id||
-|member_ids|array|是|被封禁的聊天室成员id列表||
-|end_time|number|结束封禁的时间(ms)，为0时表示永久封禁||
-|end_time_offset|number|否|单位：毫秒。当不指定end_time时，服务端使用end_time_offset+当前时间来计算end_time||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameter     | Data type | Required | Description                                                                 |  |
+|:--------------|:----------|:---------|:----------------------------------------------------------------------------|--|
+| chat_id       | string    | Yes      | The ID of the chat room                                                     |  |
+| member_ids    | array     | Yes      | List of chat room member IDs to be banned                                  |  |
+| end_time      | number    | No       | Ban expiration time in milliseconds. A value of 0 indicates a permanent ban |  |
+| end_time_offset | number  | No       | Duration in milliseconds. If `end_time` is not specified, the server calculates `end_time` as current time plus `end_time_offset` |  |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /apigateway/chatrooms/banmembers/add HTTP/1.1
 appkey: appkey
@@ -41,16 +41,16 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "chat_id":"chatroom1",
-  "member_ids":["member1","member2"]
+  "chat_id": "chatroom1",
+  "member_ids": ["member1", "member2"]
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

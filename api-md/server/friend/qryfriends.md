@@ -1,37 +1,37 @@
 ---
-title: 查询好友列表
+title: Query friends list
 hide_title: true
 sidebar_position: 3
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-查询好友列表
+Retrieve the list of friends.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`GET`
+> **Request Type**: `GET`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/friends/query
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/friends/query
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|user_id|string|是|用户的id||
-|order|int|否|好友列表的排序规则，0：倒序；1：正序||
-|limit|int|否|一次查询好友列表的数量，默认100||
-|offset|string|否|分页偏移量||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameter  | Data type | Required | Description                                  |   |
+|:-----------|:----------|:---------|:---------------------------------------------|---|
+| user_id   | string    | Yes      | User’s ID                                   |   |
+| order     | int       | No       | Sorting order of the friend list: 0 for descending; 1 for ascending |   |
+| limit     | int       | No       | Number of friends to retrieve per request, default is 100 |   |
+| offset    | string    | No       | Pagination offset                            |   |
+
+
+### Request Example{#req_demo}
 ``` js
 GET /apigateway/friends/query?user_id=userid1&limit=100 HTTP/1.1
 appkey: appkey
@@ -42,20 +42,20 @@ Content-Type: application/json
 
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "items":[
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "items": [
       {
-        "friend_id":"userid2",
-        "display_name":"xxx"
+        "friend_id": "userid2",
+        "display_name": "xxx"
       }
     ],
-    "offset":"xxxx"
+    "offset": "xxxx"
   }
 }
 ```

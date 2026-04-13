@@ -1,5 +1,5 @@
 ---
-title: 回应事件监听
+title: Respond to event monitoring
 hide_title: true
 sidebar_position: 1
 ---
@@ -16,23 +16,23 @@ values={[
 }>
 <TabItem value="android">
 
-消息回应是指针对消息通过表情或特殊符号进行回复，例如 `点赞`、`苦笑` 等。
+Message reactions refer to replying to a message using emoticons or special symbols, such as `like`, `wry smile`, etc.
 
-消息回应的回调合并在[消息监听](../../../watcher/message)。
+The message reaction callbacks are integrated into the [Message Listener](../../../watcher/message).
 
 ```java
 JIM.getInstance().getMessageManager().addListener("main", new IMessageManager.IMessageListener() {
-    /// 新增消息回应的回调
-    /// conversation: 所属会话
-    /// reaction: 新增的消息回应
+    /// Callback for adding a message reaction
+    /// conversation: the conversation to which it belongs
+    /// reaction: the new message reaction
     @Override
     public void onMessageReactionAdd(Conversation conversation, MessageReaction reaction) {
 
     }
 
-    /// 删除消息回应的回调
-    /// conversation: 所属会话
-    /// reaction: 删除的消息回应
+    /// Callback for removing a message reaction
+    /// conversation: the conversation to which it belongs
+    /// reaction: the removed message reaction
     void onMessageReactionRemove(Conversation conversation, MessageReaction reaction) {
 
     }
@@ -40,75 +40,72 @@ JIM.getInstance().getMessageManager().addListener("main", new IMessageManager.IM
 
 ```
 
-
 </TabItem>
 <TabItem value="ios">
 
-消息回应是指针对消息通过表情或特殊符号进行回复，例如 `点赞`、`苦笑` 等。
+Message reactions refer to replying to a message using emoticons or special symbols, such as `like`, `wry smile`, etc.
 
-消息回应的回调合并在[消息监听](../../../watcher/message)。
+The message reaction callbacks are integrated into the [Message Listener](../../../watcher/message).
 
 ```objectivec
 [JIM.shared.messageManager addDelegate:self];
 
-/// 新增消息回应的回调
-/// - Parameter reaction: 新增的消息回应
-/// - Parameter conversation: 所属会话
+/// Callback for adding a message reaction
+/// - Parameter reaction: the new message reaction
+/// - Parameter conversation: the conversation to which it belongs
 - (void)messageReactionDidAdd:(JMessageReaction *)reaction
                inConversation:(JConversation *)conversation {
 
 }
 
-/// 删除消息回应的回调
-/// - Parameter reaction: 删除的消息回应
-/// - Parameter conversation: 所属会话
+/// Callback for removing a message reaction
+/// - Parameter reaction: the removed message reaction
+/// - Parameter conversation: the conversation to which it belongs
 - (void)messageReactionDidRemove:(JMessageReaction *)reaction
                   inConversation:(JConversation *)conversation {
   
 }
 ```
 
-
 </TabItem>
 <TabItem value="js">
 
-消息回应是指针对消息通过表情或特殊符号进行回复，例如 `点赞`、`苦笑` 等，设置消息回应后，消息中会自动携带 `reactions` 属性，所有人针对当前消息的回应都在数组中体现，
-开发者通过 `reactions` 属性展示 UI 即可，如下图所示
+Message reactions refer to replying to a message using emoticons or special symbols, such as `like`, `wry smile`, etc. After setting a message reaction, the message will automatically include the `reactions` attribute, which reflects everyone's responses to the current message in an array. Developers can display the UI using the `reactions` attribute, as shown below:
 
 ![](./reaction_web.png)
 
-消息回应有两处可获取：`历史消息` 和 `消息回应事件`，区别如下：
+There are two ways to obtain message reactions: `Historical messages` and `Message reaction events`. The differences are as follows:
 
-> **历史消息**: 获取是全量的消息回应最新列表，用户不在线时云端会自动更新维护
+> **Historical Messages**: Retrieves the latest complete list of message reactions. The cloud automatically updates and maintains this list when the user is offline.
 
-> **回应事件**: 用户在线时增量同步变更，有用户增加或移除回应会触发，_自己增加或删除回应 `不触发` 回应事件_
+> **Reaction Events**: Incremental synchronization of changes while the user is online. If a user adds or removes a reaction, an event is triggered. _Adding or deleting a reaction by yourself does not trigger a reaction event._
 
-**示例代码**
+**Sample Code**
 
 ```js
 let { Event } = JIM;
 
-// 全局只需注册一次，与消息监听位置一致即可，放到此处方便阅读
+// Register this globally once; it can be placed alongside message listeners for consistency. Here it is shown for clarity.
 
 jim.on(Event.MESSAGE_REACTION_CHANGED, (notify) => {
   /* 
-    处理逻辑：开发者只需更新内存中的消息回应，云端和本地 SDK 会自动更新，再次获取历史消息会返回最新的回应数据
-    notify 示例:
+Processing logic: Developers only need to update the message reactions in memory. The cloud and local SDK will update automatically, and retrieving historical messages will return the latest reaction data.
+Example notify object:
       {
-        conversationId: "qEqA0i9C2pg"
-        conversationType: 2
+        conversationId: "qEqA0i9C2pg",
+        conversationType: 2,
         messageId: "nxe3swhgabukvd8k",
         reactions: [
           {
             isRemove: false,
-            //新增或删除时的 Key
-            key: ':simle',
-            value: '用户 Id',
-            timestamp: 1740177311973
+            // Key for adding or deleting
+            key: ':smile',
+            value: 'User Id',
+            timestamp: 1740177311973,
             user: {
-              id: '用户 Id',
-              name: '昵称',
-              portrait: '头像'
+              id: 'User ID',
+              name: 'nickname',
+              portrait: 'avatar'
             }
           }
         ]
@@ -122,26 +119,25 @@ jim.on(Event.MESSAGE_REACTION_CHANGED, (notify) => {
 
 <TabItem value="flutter">
 
-消息回应是指针对消息通过表情或特殊符号进行回复，例如 `点赞`、`苦笑` 等。
+Message reactions refer to replying to a message using emoticons or special symbols, such as `like`, `wry smile`, etc.
 
-消息回应的回调合并在[消息监听](../../../watcher/message)。
+The message reaction callbacks are integrated into the [Message Listener](../../../watcher/message).
 
 ```java
-/// 新增消息回应的回调
-/// conversation: 所属会话
-/// reaction: 新增的消息回应
+/// Callback for adding a message reaction
+/// conversation: the conversation to which it belongs
+/// reaction: the new message reaction
 JuggleIm.instance.onMessageReactionAdd = (conversation, reaction) {
 
 };
-/// 删除消息回应的回调
-/// conversation: 所属会话
-/// reaction: 删除的消息回应
+/// Callback for removing a message reaction
+/// conversation: the conversation to which it belongs
+/// reaction: the removed message reaction
 JuggleIm.instance.onMessageReactionRemove = (conversation, reaction) {
 
 };
 
 ```
-
 
 </TabItem>
 </Tabs>

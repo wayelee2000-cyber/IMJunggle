@@ -1,59 +1,59 @@
 ---
-title: Electorn 集成
+title: Electron Integration
 hide_title: true
 sidebar_position: 4
 ---
 
-:::tip 提示
-在 Electron 中提供了消息存储模块，便于离线使用和提升用户体验，可以简单理解成将集成了 JavaScript SDK 的 HTML 嵌入到 Electron 中
-便可得到 PC 端应用程序。
+:::tip Tips
+Electron provides a message storage module to support offline usage and enhance user experience. Essentially, it embeds HTML integrated with the JavaScript SDK into Electron.
+You can obtain the PC application.
 
-本篇教程会使用 Electron 框架结合 IM SDK 构建一个极简版的 PC IM 应用程序，让我们开始吧～
+This tutorial demonstrates how to build a minimalist PC IM application by combining the Electron framework with the IM SDK. Let's get started~
 :::
 
-### 前期准备{#pre}
+### Preparation{#pre}
 
-1、在 `开发者后台` 创建应用获取 `AppKey` 和 `Secret`。
+1. Create an application in the `Developer Backstage` to obtain your `AppKey` and `Secret`.
 
 ![](../assets/appkey_secret.png)
 
-2、自己调用服务端 API 获取 Token 或在开发者后台的 -> 选择应用-> 开发工具 -> API -> 用户相关中，调用用户注册接口，获取两个测试 Token。
+2. Call the server API to obtain tokens yourself, or use the developer backend -> Select Application -> Development Tools -> API -> User Related, and call the user registration interface to get two test tokens.
 
 ![](../assets/token.png)
 
-3、下载 [juggleim-dev-1.9.0.zip](./juggleim-dev-1.9.0.zip) , 将 `juggleim-dev-1.9.0.js` 放在 `index.html` **同级目录**
+3. Download [juggleim-dev-1.9.0.zip](./juggleim-dev-1.9.0.zip) and place `juggleim-dev-1.9.0.js` in the same directory as `index.html`.
 
-4、根据集成文档逐步集成。
+4. Follow the integration steps as outlined in the integration documentation.
 
-### 集成 Electron{#electron}
+### Integrate Electron{#electron}
 
-请参考 Electron 官方 [快速集成](https://www.electronjs.org/zh/docs/latest/tutorial/quick-start) 文档完成第一个极简的 HelloWorld 应用，如下图所示
+Please refer to the official Electron [Quick Start](https://www.electronjs.org/zh/docs/latest/tutorial/quick-start) guide to create a minimal HelloWorld application, as shown below:
 
 ![](../assets/electron-helloworld.png)
 
-成功运行 HelloWorld 应用程序后，会得到以下几个文件
+After successfully running the HelloWorld application, you will have the following files:
 
-> **main.js** 程序主进程入口
+> **main.js** — Main process entry point
 
-> **preload.js** 暴露给渲染进程的 API 方法，在此文件里与主进程进行通信
+> **preload.js** — Exposes API methods to the renderer process and handles communication with the main process
 
-> **index.html** Demo 页面
+> **index.html** — Demo page
 
-> **package.json** 项目的依赖包及命令指令
+> **package.json** — Project dependencies and scripts
 
-### 引入 IM SDK{#import}
+### Import IM SDK{#import}
 
-在 Electron 中 SDK 会自动检测并切换至本地存储模式，引入 IM SDK 有两步操作
+In Electron, the SDK automatically detects and switches to local storage mode. There are two steps to integrate the IM SDK:
 
-**第一步：** 在 Web 页面中引入集成 JavaScript SDK，参考文档：[Web 集成](./quickstart.md)，将集成 Demo 页面内容替换到 HelloWorld 应用项目 `index.html` 中
+**Step 1:** Include the integrated JavaScript SDK in the web page. Refer to the [Web Integration](./quickstart.md) guide, and replace the demo page content in your HelloWorld application's `index.html`.
 
-**第二步：** 
+**Step 2:**
 
 ```js
-// （1）按装依赖 
+// (1) Install dependencies
 npm install jim-electron --save
 
-// （2）在 mian.js 中引入
+// (2) Import in main.js
 const JMain = require('jim-electron/main');
 
 app.whenReady().then(() => {
@@ -61,45 +61,45 @@ app.whenReady().then(() => {
     width: 800,
     height: 600,
     webPreferences: {
-      // 【重要】一定设置为 true
+      // [Important] Must be set to true
       nodeIntegration: true,
       preload: path.join(__dirname, 'preload.js')
     }
-  })
+  });
   win.loadFile('index.html');
 
-  //打开调试工具
+  // Open developer tools
   win.webContents.openDevTools();
   JMain.init();
 });
 
-// （3）在 preload.js 中引入，无需其他操作
+// (3) Import in preload.js, no additional operations required
 require('jim-electron/render');
 ```
 
-### 完整代码{#code}
+### Complete code{#code}
 
-按装依赖包成功后，复制以下代码至 `index.html`、`preload.js`、`main.js` 文件中，最后在项目根目录执行 `npm run start` 预览
+After installing the dependency package, copy the following code into the `index.html`, `preload.js`, and `main.js` files respectively. Then run `npm run start` from the project root directory to preview.
 
 <Tabs
 groupId="sdks-language"
 values={[
-{ label: 'index.html', value: 'index.html', },
-{ label: 'preload.js', value: 'preload.js', },
-{ label: 'main.js', value: 'main.js', },
-]
-}>
+  { label: 'index.html', value: 'index.html' },
+  { label: 'preload.js', value: 'preload.js' },
+  { label: 'main.js', value: 'main.js' },
+]}
+>
 <TabItem value="index.html">
 
 ```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>IM</title>
   <script src="./juggleim-dev-1.9.0.js"></script>
   <style>
-    .container{
+    .container {
       height: 200px;
       width: 600px;
       background-color: rgb(119, 128, 226);
@@ -114,46 +114,49 @@ values={[
   </style>
 </head>
 <body>
-  <div class="container">请打开浏览器控制台查看结果</div>
+  <div class="container">Please open the browser console to view the results</div>
   <script>
-    // 准备基础信息
+    // Prepare basic information
     let appkey = 'Your AppKey';
     let token = 'Your Token';
-    // 私有化部署后的 WebSocket 域名或 IP
+    // WebSocket domain or IP after private deployment
     let serverList = [
       'https://demo.im.com',
       'http://demo.im.com',
       'http://10.23.31.111:8080',
     ];
-    // 步骤 1: 初始化 SDK, 全局只需初始化一次
+    // Step 1: Initialize SDK, only once globally
     let jim = JIM.init({ appkey, serverList });
     let { Event, ConnectionState, ConversationType, MessageType } = JIM;
 
-    // 步骤 2: 设置状态监听，全局只需设置一次
+    // Step 2: Set up status monitoring globally
     jim.on(Event.STATE_CHANGED, ({ state, user }) => {
-      if(ConnectionState.CONNECTING == state){
-        console.log('im is connecting');
+      if (ConnectionState.CONNECTING === state) {
+        console.log('IM is connecting');
       }
-      if(ConnectionState.CONNECTED == state){
+      if (ConnectionState.CONNECTED === state) {
         // user => { id: 'xxx' }
-        console.log('im is connected', user);
+        console.log('IM is connected', user);
       }
-      if(ConnectionState.DISCONNECTED == state){
-        console.log('im is disconnected');
+      if (ConnectionState.DISCONNECTED === state) {
+        console.log('IM is disconnected');
       }
     });
 
-    // 步骤 3: 设置消息监听，全局只需设置一次
+    // Step 3: Set up message monitoring globally
     jim.on(Event.MESSAGE_RECEIVED, (message) => {
       console.log(message);
     });
 
-    // 步骤 4: 连接，全局只需调用一次，消息相关、会话相关接口必须连接成功后才可调用
-    jim.connect({ token }).then((result) => {
-      console.log(result)
-    }, (error) => {
-      console.log(error)
-    });
+    // Step 4: Connect once globally. Message and session interfaces can only be called after successful connection.
+    jim.connect({ token }).then(
+      (result) => {
+        console.log(result);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   </script>
 </body>
 </html>
@@ -168,39 +171,39 @@ require('jim-electron/render');
 <TabItem value="main.js">
 
 ```js
-const { app, BrowserWindow } = require('electron/main')
-const path = require('node:path')
-const JGMain = require('jim-electron/main');
-function createWindow () {
+const { app, BrowserWindow } = require('electron/main');
+const path = require('node:path');
+const JMain = require('jim-electron/main');
+
+function createWindow() {
   const win = new BrowserWindow({
     width: 800,
     height: 600,
     webPreferences: {
       nodeIntegration: true,
-      preload: path.join(__dirname, 'preload.js')
-    }
-  })
+      preload: path.join(__dirname, 'preload.js'),
+    },
+  });
 
-  win.loadFile('index.html')
+  win.loadFile('index.html');
   win.webContents.openDevTools();
 }
 
 app.whenReady().then(() => {
-  createWindow()
-  JGMain.init();
-})
+  createWindow();
+  JMain.init();
+});
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') {
-    app.quit()
+    app.quit();
   }
-})
+});
 ```
 </TabItem>
 </Tabs>
 
-
-### 预览项目{#preview}
+### Preview project{#preview}
 
 ```bash
 npm run start

@@ -1,5 +1,5 @@
 ---
-title: 创建标签
+title: create label
 hide_title: true
 sidebar_position: 1
 ---
@@ -16,60 +16,60 @@ values={[
 }>
 <TabItem value="android">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="ios">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="js">
 
-添加会话标签，会话标签仅对当前用户有效，`SDK` 会自动将标签同步值当前用的多设备。 
+Add a session tag. The session tag is valid only for the current user. The `SDK` will automatically synchronize the tag value across multiple devices currently in use.
 
 ![](./tag.png)
 
-**参数说明**
+**Parameter Description**
 
-| 名称          | 类型    | 必填   | 默认值  | 描述                                       | 版本     |
-|--------------|---------|--------|--------|--------------------------------------------|----------|
-| tag          | Object  | 是     |        | Tag 对象                                   | 1.7.5    |
-| tag.id       | String  | 是     |        | 标签 ID，开发者可自定义，最大长度 64 个字符     | 1.7.5    |
-| tag.name     | String  | 是     |        | 表情名称，开发者自定义，最大长度 64 个字符      | 1.7.5    |
+| Name     | Type   | Required | Default | Description                                                      | Version |
+|----------|--------|----------|---------|------------------------------------------------------------------|---------|
+| tag      | Object | Yes      |         | Tag object                                                      | 1.7.5   |
+| tag.id   | String | Yes      |         | Tag ID, customizable by the developer, with a maximum length of 64 characters | 1.7.5   |
+| tag.name | String | Yes      |         | Tag name, defined by the developer, with a maximum length of 64 characters | 1.7.5   |
 
-**成功回调**
+**Success Callback**
 
-无参数返回，回调触发表示成功
+No parameters are returned. The callback is triggered to indicate success.
 
-**失败回调**
+**Failure Callback**
 
-| 名称   | 类型    | 描述                                                      | 版本   |
-|--------|---------|-----------------------------------------------------------|--------|
-| error  | Object  | 发送失败后会有对应的状态码，可以直接查看 `error.msg`，或者查看 [状态码](../../../../sdkintro/status_code/web) | 1.0.0  |
+| Name  | Type   | Description                                                                                  | Version |
+|-------|--------|----------------------------------------------------------------------------------------------|---------|
+| error | Object | Contains a corresponding status code when the operation fails. You can check `error.msg` or refer to [Status Code](../../../../sdkintro/status_code/web) | 1.0.0   |
 
-**示例代码**
+**Sample Code**
 ```js
 let tag = {
   id: 'tag_01',
-  name: '我的关注'
+  name: 'My attention'
 };
 
 jim.createConversationTag(tag).then(() => {
-  console.log('createConversationTag successfully')
+  console.log('createConversationTag successfully');
 }, (error) => {
-  console.log(error)
+  console.log(error);
 });
 ```
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 <TabItem value="reactnative">
 
-> 暂未提供
+> Not yet provided
 
 </TabItem>
 </Tabs>

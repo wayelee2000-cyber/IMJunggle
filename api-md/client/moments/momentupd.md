@@ -1,29 +1,29 @@
 ---
-title: 更新朋友圈
+title: Update Moments
 hide_title: true
 sidebar_position: 2
 ---
-### 功能说明{#intro}
+### Function Description{#intro}
 
-更新朋友圈
+Update Moments.
 
-### 请求说明{#req}
+### Request Description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/momentgateway/moments/update
+> **Request URL**: https://[request domain name](../api#api)/momentgateway/moments/update
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request Parameters {#param}
+
+
+### Request Example{#req_demo}
 ``` js
 POST /momentgateway/moments/update HTTP/1.1
 appkey: appkey
@@ -31,39 +31,40 @@ Authorization: xxxxxxxxxxxxxxxxxx
 Content-Type: application/json
 
 {
-  "moment_id":"xxxxxxx",
-  "content":{
-    "text":"朋友圈文本",
-    "medias":[
+  "moment_id": "xxxxxxx",
+  "content": {
+    "text": "Moments text",
+    "medias": [
       {
-        "type":"image",
-        "url":"xxx",
-        "snapshot_url":"xxxx",
-        "height":100,
-        "width":100
-      },{
-        "type":"video",
-        "url":"xxxx",
-        "snapshot_url":"xxxx",
-        "duration":10,
-        "height":100,
-        "width":100
+        "type": "image",
+        "url": "xxx",
+        "snapshot_url": "xxxx",
+        "height": 100,
+        "width": 100
+      },
+      {
+        "type": "video",
+        "url": "xxxx",
+        "snapshot_url": "xxxx",
+        "duration": 10,
+        "height": 100,
+        "width": 100
       }
     ]
   }
 }
 ```
 
-### 响应示例{#res_demo}
+### Response Example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```
 
-### 响应码
+### Response Codes
 
-|响应码|说明||
-|:--|:---|:--|
+| Response Code | Description |
+|:-------------:|:-----------:|

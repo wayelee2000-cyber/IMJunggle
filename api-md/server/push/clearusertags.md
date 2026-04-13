@@ -1,25 +1,25 @@
 ---
-title: 清空用户标签
+title: clear user label
 hide_title: true
 sidebar_position: 3
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-删除用户标签
+Delete user labels.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/usertags/clear
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/usertags/clear
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/usertags/clear HTTP/1.1
 appkey: appkey
@@ -29,29 +29,29 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-    "user_ids":["userid1","userid2"]
+    "user_ids": ["userid1", "userid2"]
 }
 ```
 
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|user_ids|array|是|清空标签的用户id列表||
-
-### 响应参数{#res_param}
-
-|参数|数据类型|参数说明||
-|:--|:------|:-----|:-------|
+| Parameters | Data type | Required | Parameter description               |
+|:-----------|:----------|:---------|:----------------------------------|
+| user_ids  | array     | yes      | List of user IDs for which tags will be cleared |
 
 
-### 响应示例{#res_demo}
+### Response parameters {#res_param}
+
+| Parameters | Data type | Parameter description |
+|:-----------|:----------|:----------------------|
+
+
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```
-

@@ -1,34 +1,34 @@
 ---
-title: 短验登录
+title: Short verification login
 hide_title: true
 sidebar_position: 4
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-使用手机号和短信验证码登录
+Log in using a mobile phone number and SMS verification code.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/sms/login
+> **Request URL**: https://[request domain name](../api.md#api)/jim/sms/login
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|phone|string|是|手机号||
-|code|string|是|收到的短信验证码||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameters | Data type | Required | Description               |   |
+|:-----------|:----------|:---------|:--------------------------|---|
+| phone      | string    | yes      | Mobile phone number       |   |
+| code       | string    | yes      | Received SMS verification code |   |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /jim/sms/login HTTP/1.1
 appkey: appkey
@@ -36,24 +36,24 @@ Authorization: xxxxxxxxxxxxxxxxxx
 Content-Type: application/json
 
 {
-  "phone":"15212345678",
-  "code":"000000"
+  "phone": "15212345678",
+  "code": "000000"
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "user_id":"userid1",
-    "authorization":"xxxxxxxxx",
-    "nickname":"user1",
-    "avatar":"xxxxxxxx",
-    "status":0,
-    "im_token":"xxxxxxxxx"
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "user_id": "userid1",
+    "authorization": "xxxxxxxxx",
+    "nickname": "user1",
+    "avatar": "xxxxxxxx",
+    "status": 0,
+    "im_token": "xxxxxxxxx"
   }
 }
 ```

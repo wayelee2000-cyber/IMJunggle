@@ -1,5 +1,5 @@
 ---
-title: 评论列表
+title: Comment list
 hide_title: true
 sidebar_position: 22
 ---
@@ -16,29 +16,29 @@ values={[
 }>
 <TabItem value="android">
 
-获取朋友圈的评论列表，支持按指定时间前后分页获取。
+Retrieve the comment list of Moments, supporting pagination before and after a specified time.
 
-**GetMomentCommentOption 结构**
+**GetMomentCommentOption structure**
 
-| 名称          | 类型    | 描述                                           | 版本     |
+| Name | Type | Description | Version |
 |--------------|---------|------------------------------------------------|----------|
-| momentId  | String  | 朋友圈 ID | 1.8.30   |
-| count  | int  | 获取指定数量的评论，单次最多获取 20 条记录 | 1.8.30   |
-| direction  | JIMConst.PullDirection  | 获取方向，支持按 `startTime` 获取更早的评论或者更（四声）新的评论| 1.8.30   | 
-| startTime   | long  | 从指定时间点开始获取评论，可以配合 `direction` 使用，传 0 时表示使用当前时间 | 1.8.30   |
+| momentId | String | Moment ID | 1.8.30 |
+| count | int | Number of comments to retrieve, up to 20 records per request | 1.8.30 |
+| direction | JIMConst.PullDirection | Direction for retrieval; supports using `startTime` to fetch earlier or newer comments | 1.8.30 |
+| startTime | long | Starting point in time for fetching comments; can be used with `direction`. Passing 0 uses the current time | 1.8.30 |
 
-**接口说明**
+**Interface description**
 
 ```java
 /**
- * 获取评论列表
- * @param option 获取参数
- * @param callback 结果回调
+ * Retrieve the list of comments
+ * @param option Retrieval parameters
+ * @param callback Result callback
  */
 void getCommentList(GetMomentCommentOption option, JIMConst.IResultListCallback<MomentComment> callback);
 ```
 
-**示例代码**
+**Sample Code**
 ```java
 GetMomentCommentOption o = new GetMomentCommentOption();
 o.setCount(20);
@@ -47,10 +47,12 @@ o.setMomentId("momentId");
 JIM.getInstance().getMomentManager().getCommentList(o, new JIMConst.IResultListCallback<MomentComment>() {
     @Override
     public void onSuccess(List<MomentComment> data, boolean isFinish) {
+        // Handle success
     }
 
     @Override
     public void onError(int errorCode) {
+        // Handle error
     }
 });
 ```
@@ -58,29 +60,29 @@ JIM.getInstance().getMomentManager().getCommentList(o, new JIMConst.IResultListC
 </TabItem>
 <TabItem value="ios">
 
-获取朋友圈的评论列表，支持按指定时间前后分页获取。
+Retrieve the comment list of Moments, supporting pagination before and after a specified time.
 
-**JGetMomentCommentOption 结构**
+**JGetMomentCommentOption structure**
 
-| 名称          | 类型    | 描述                                           | 版本     |
+| Name | Type | Description | Version |
 |--------------|---------|------------------------------------------------|----------|
-| momentId  | NSString  | 朋友圈 ID | 1.8.30   |
-| count  | int  | 获取指定数量的评论，单次最多获取 20 条记录 | 1.8.30   |
-| direction  | JPullDirection  | 获取方向，支持按 `startTime` 获取更早的评论或者更（四声）新的评论| 1.8.30   | 
-| startTime   | long long  | 从指定时间点开始获取评论，可以配合 `direction` 使用，传 0 时表示使用当前时间 | 1.8.30   |
+| momentId | NSString | Moment ID | 1.8.30 |
+| count | int | Number of comments to retrieve, up to 20 records per request | 1.8.30 |
+| direction | JPullDirection | Direction for retrieval; supports using `startTime` to fetch earlier or newer comments | 1.8.30 |
+| startTime | long long | Starting point in time for fetching comments; can be used with `direction`. Passing 0 uses the current time | 1.8.30 |
 
-**接口说明**
+**Interface description**
 
 ```objectivec
-/// 获取评论列表
+/// Retrieve the list of comments
 /// - Parameters:
-///   - option: 获取参数
-///   - completeBlock: 结果回调
+///   - option: Retrieval parameters
+///   - completeBlock: Result callback
 - (void)getCommentList:(nonnull JGetMomentCommentOption *)option
               complete:(nullable void (^)(JErrorCode errorCode, NSArray <JMomentComment *> * _Nullable commentList, BOOL isFinish))completeBlock;
 ```
 
-**示例代码**
+**Sample Code**
 ```objectivec
 JGetMomentCommentOption *o = [[JGetMomentCommentOption alloc] init];
 o.momentId = @"momentId";
@@ -88,37 +90,36 @@ o.count = 10;
 o.direction = JPullDirectionOlder;
 [JIM.shared.momentManager getCommentList:o
                                 complete:^(JErrorCode errorCode, NSArray<JMomentComment *> * _Nullable commentList, BOOL isFinish) {
+    // Handle result
 }];
 ```
-
-
 
 </TabItem>
 <TabItem value="flutter">
 
-获取朋友圈的评论列表，支持按指定时间前后分页获取。
+Retrieve the comment list of Moments, supporting pagination before and after a specified time.
 
-**GetMomentCommentOption 结构**
+**GetMomentCommentOption structure**
 
-| 名称          | 类型    | 默认值 | 描述                                           | 版本     |
-|--------------|---------| ------| ------------------------------------------------|----------|
-| momentId  | String  | '' | 朋友圈 ID | 0.0.66   |
-| count  | int  | 10 | 获取指定数量的评论，单次最多获取 20 条记录 | 0.0.66   |
-| direction  | int | 1 | 获取方向(0 获取更新的记录，1 获取更早的数据)，支持按 `startTime` 获取更早的朋友圈或者更（四声）新的评论| 0.0.66   | 
-| startTime   | int  | 0 | 从指定时间点开始获取评论，可以配合 `direction` 使用，传 0 时表示使用当前时间 | 0.0.66   |
+| name | type | default value | description | version |
+|--------------|---------| ------| --------------------------------------------------|----------|
+| momentId | String | '' | Moment ID | 0.0.66 |
+| count | int | 10 | Number of comments to retrieve, up to 20 records per request | 0.0.66 |
+| direction | int | 1 | Direction for retrieval (0 for newer records, 1 for earlier records); supports using `startTime` to fetch earlier or newer comments | 0.0.66 |
+| startTime | int | 0 | Starting point in time for fetching comments; can be used with `direction`. Passing 0 uses the current time | 0.0.66 |
 
-**接口说明**
+**Interface description**
 
 ```dart
 /**
- * 获取评论列表
- * @param o 获取参数
- * return 评论列表
+ * Retrieve the list of comments
+ * @param o Retrieval parameters
+ * @return List of comments
  */
 Future<ResultHasMore<List<MomentComment>>> getMomentCommentList(GetMomentCommentOption o) async
 ```
 
-**示例代码**
+**Sample Code**
 ```dart
 GetMomentCommentOption commentOption = GetMomentCommentOption();
 commentOption.momentId = 'momentId';
@@ -128,29 +129,29 @@ ResultHasMore<List<MomentComment>> commentList = await JuggleIm.instance.getMome
 </TabItem>
 <TabItem value="reactnative">
 
-获取朋友圈的评论列表，支持按指定时间前后分页获取。
+Retrieve the comment list of Moments, supporting pagination before and after a specified time.
 
-**GetMomentCommentOption 结构**
+**GetMomentCommentOption structure**
 
-| 名称          | 类型    | 默认值 | 描述                                           | 版本     |
-|--------------|---------| ------| ------------------------------------------------|----------|
-| momentId  | string  | '' | 朋友圈 ID | -   |
-| count  | number  | 10 | 获取指定数量的评论，单次最多获取 20 条记录 | -   |
-| direction  | number | 1 | 获取方向(0 获取更新的记录，1 获取更早的数据)，支持按 `startTime` 获取更早的朋友圈或者更（四声）新的评论| -   |
-| startTime   | number  | 0 | 从指定时间点开始获取评论，可以配合 `direction` 使用，传 0 时表示使用当前时间 | -   |
+| name | type | default value | description | version |
+|--------------|---------| ------| --------------------------------------------------|----------|
+| momentId | string | '' | Moment ID | - |
+| count | number | 10 | Number of comments to retrieve, up to 20 records per request | - |
+| direction | number | 1 | Direction for retrieval (0 for newer records, 1 for earlier records); supports using `startTime` to fetch earlier or newer comments | - |
+| startTime | number | 0 | Starting point in time for fetching comments; can be used with `direction`. Passing 0 uses the current time | - |
 
-**接口说明**
+**Interface description**
 
 ```typescript
 /**
- * 获取评论列表
- * @param option 获取参数
- * return Promise<{ list: MomentComment[], isFinished: boolean }>
+ * Retrieve the list of comments
+ * @param option Retrieval parameters
+ * @return Promise<{ list: MomentComment[], isFinished: boolean }>
  */
 getCommentList(option: GetMomentCommentOption): Promise<{ list: MomentComment[], isFinished: boolean }>
 ```
 
-**示例代码**
+**Sample Code**
 
 ```typescript
 import { JuggleIMMoment } from 'juggleim-rnsdk';
@@ -164,39 +165,39 @@ const commentList = await JuggleIMMoment.getCommentList(commentOption);
 </TabItem>
 <TabItem value="js">
 
-获取朋友圈的评论列表，支持按指定时间前后分页获取。
+Retrieve the comment list of Moments, supporting pagination before and after a specified time.
 
-**参数说明**
+**Parameter description**
 
-| 名称          | 类型    | 必填     | 默认值                               | 描述                                           | 版本     |
-|--------------|---------|----------|--------------------------------------|------------------------------------------------|----------|
-| option        | Object  | 否       |                                    |  | 1.9.6   |
-| option.count  | Number  | 否       | 50                                   | 获取指定数量的评论，单次最多获取 20 条记录 | 1.9.6   |
-| option.order  | Number  | 否       | [获取方向](../../enum/web#comment_order) | 获取方向，支持按 `time` 获取更早的评论或者更（四声）新的评论| 1.9.6   | 
-| option.time   | Number  | 否       | 0                                    | 从指定时间点开始获取评论，可以配合 `order` 使用 | 1.9.6   |
+| Name | Type | Required | Default | Description | Version |
+|--------------|---------|----------|---------|------------------------------------------------|----------|
+| option | Object | No | | Retrieval options | 1.9.6 |
+| option.count | Number | No | 50 | Number of comments to retrieve, up to 20 records per request | 1.9.6 |
+| option.order | Number | No | [Get direction](../../enum/web#comment_order) | Direction for retrieval; supports using `time` to fetch earlier or newer comments | 1.9.6 |
+| option.time | Number | No | 0 | Starting point in time for fetching comments; can be used with `order` | 1.9.6 |
 
-**回调说明**
+**Callback description**
 
-| 属性            | 类型    | 描述                                           | 版本  |
-|-----------------|---------|------------------------------------------------|----------|
-| result          | Object  | 查询结果                                       | 1.9.6   |
-| result.comments | Array | 评论数组，单个评论对象结构请查看 [Comment](../moment_model) | 1.9.6   | 
-| result.isFinished | Boolean | 标志会话是否获取完成 | 1.9.6   |
+| Properties | Type | Description | Version |
+|------------------|----------|------------------------------------------------|----------|
+| result | Object | Query result | 1.9.6 |
+| result.comments | Array | Array of comments; see [Comment](../moment_model) for the structure of a single comment object | 1.9.6 |
+| result.isFinished | Boolean | Indicates whether all comments have been retrieved | 1.9.6 |
 
-**示例代码**
+**Sample Code**
 ```js
 /* 
-  假设当前用户有 79 个评论，每页获取 20 条，评论列表按时间倒序排列，实现评论列表分页逻辑如下：  
-  1、加载第 1 页获取参数： { count: 20, time: 0 }
-  2、加载第 2 页获取参数： { count: 20, time: '获取第 1 页评论数组中最小的 commentTime' }
-  3、加载第 3 页获取参数： { count: 20, time: '获取第 2 页评论数组中最小的 commentTime' }  
-  4、加载第 4 页获取参数： { count: 20, time: '获取第 3 页评论数组中最小的 commentTime' }
-  5、结束：isFinished 返回 true，停止加载
+Assuming the current user has 79 comments, with 20 comments retrieved per page. The comments are ordered in reverse chronological order. The pagination logic is as follows:
+1. Load page 1 with parameters: { count: 20, time: 0 }
+2. Load page 2 with parameters: { count: 20, time: 'Smallest commentTime from page 1 comments' }
+3. Load page 3 with parameters: { count: 20, time: 'Smallest commentTime from page 2 comments' }
+4. Load page 4 with parameters: { count: 20, time: 'Smallest commentTime from page 3 comments' }
+5. End when isFinished returns true and stop loading.
 */
 jim.getComments().then((result) => {
   let { comments, isFinished } = result;
   console.log(isFinished, comments);
-})
+});
 ```
 
 </TabItem>

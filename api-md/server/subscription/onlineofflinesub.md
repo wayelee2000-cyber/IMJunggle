@@ -1,33 +1,32 @@
 ---
-title: 上下线订阅
+title: Online and offline subscription
 hide_title: true
 sidebar_position: 1
 ---
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **推送鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Push Authentication**: The interface requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **推送结果**：业务方收到推送，需保证相应状态码200视为接收推送成功。
+> **Push Result**: When the business party receives the push, it must ensure the corresponding status code is 200 to confirm successful receipt.
 
-> **机制说明**: 消息抄送会尝试推送3次， 每次间隔100ms， 如果3次都失败， 视为一次推送失败。推送采用Google自适应的熔断机制，如果滑动时间窗口内失败过多会触发熔断机制，暂时停止向业务抄送。
+> **Mechanism description**: The message CC will attempt to push 3 times, with a 100ms interval between each attempt. If all 3 attempts fail, the push is considered unsuccessful. The push mechanism uses Google's adaptive circuit breaker. If there are too many failures within the sliding time window, the circuit breaker will be triggered, temporarily suspending pushes from CC to the business.
 
+### Parameter description{#params}
 
-### 参数说明{#params}
+| Parameters     | Data type | Required | Parameter description                                                                                  |
+| -------------- | --------- | -------- | ---------------------------------------------------------------------------------------------------- |
+| type           | int       | yes      | 1 means online, 0 means offline                                                                       |
+| user_id        | string    | yes      | User UID                                                                                            |
+| device_id      | string    | yes      | Device code                                                                                         |
+| platform       | string    | no       | Optional values: iOS, Android, iPad, web                                                            |
+| client_ip      | string    | yes      | Client IP address                                                                                     |
+| session_id     | string    | yes      | Unique identifier of this long connection                                                           |
+| timestamp      | int       | yes      | Timestamp (in milliseconds)                                                                          |
+| connection_ext | string    | yes      | Custom extension carried during connection                                                           |
+| instance_id    | string    | no       | Used to identify an instance in web/PC multi-open scenarios; leave empty if no multi-open on mobile |
 
-|参数|数据类型|是否必填|参数说明|
-| ---- | ---- | ---- | ---- |
-|type|int|是|1表示上线，0表示下线|
-|user_id|string|是|用户uid|
-|device_id|string|是|设备码|
-|platform|string|是|可选值为iOS、Android、iPad、web|
-|client_ip|string|是|客户端IP地址|
-|session_id|string|是|此次长连接的唯一标识|
-|timestamp|int|是|时间戳（毫秒级）|
-|connection_ext|string|是|链接时携带的自定义扩展|
-|instance_id|string|否|针对web/pc多开情况，用于标识一个实例；移动端无多开情况，此字段为空|
-
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 
 ```js
 POST /onlinestatus/notification HTTP/1.1;
@@ -38,19 +37,19 @@ timestamp: 1672568121910;
 Content-Type: application/json;
 
 {
-  "event_type": "online", //事件类型 message, online
-  "timestamp": 1713456000000, //毫秒时间戳
+  "event_type": "online", // Event type message, online
+  "timestamp": 1713456000000, // Millisecond timestamp
   "payload": [
     {
-      "type": 0, //1上线 0下线
-      "user_id": "userid1", //用户uid
-      "device_id": "1fsdf1", // 设备码
-      "platform": "web", //iOS,Android,iPad,web
+      "type": 0, // 1 for online, 0 for offline
+      "user_id": "userid1", // User UID
+      "device_id": "1fsdf1", // Device code
+      "platform": "web", // iOS, Android, iPad, web
       "client_ip": "192.116.1.1",
-      "session_id": "123",//此次长连接的唯一标识
+      "session_id": "123", // Unique identifier of this long connection
       "timestamp": 1713456000000,
-      "connection_ext":"ext",//链接时携带的自定义扩展
-      "instance_id":"instance_id" //针对web/pc多开情况，用于标识一个实例。注：移动端无多开情况，此字段为空
+      "connection_ext": "ext", // Custom extension carried during connection
+      "instance_id": "instance_id" // For web/PC multi-open scenarios, identifies an instance. Note: No multi-open on mobile, so this field is empty.
     }
   ]
 }

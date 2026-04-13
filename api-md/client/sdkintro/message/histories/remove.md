@@ -1,5 +1,5 @@
 ---
-title: 删除历史消息
+title: Delete historical messages
 hide_title: true
 sidebar_position: 4
 ---
@@ -12,22 +12,22 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-删除本地和云端的己方历史消息，自己的多设备会同步删除，接口调用成功后不影响对方或群里的其他成员继续查看消息，支持批量删除同一会话的多条消息。
+Delete your own historical messages locally and in the cloud; the deletion will be synchronized across all your devices. After the interface is called successfully, it will not affect the other party or other group members' ability to continue viewing messages. Batch deletion of multiple messages within the same conversation is supported.
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| conversation                   | Conversation  | 会话标识                          | 1.0.0    |
-|clientMsgNoList| List[] | 本端消息唯一编号列表| 1.0.0|
-|callback | IMessageManager.ISimpleCallback| 结果回调| 1.0.0|
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| conversation | Conversation | Conversation identifier | 1.0.0 |
+| clientMsgNoList | List[] | List of local message unique numbers | 1.0.0 |
+| callback | IMessageManager.ISimpleCallback | Result callback | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
 Conversation conversation = new Conversation(Conversation.ConversationType.GROUP, "groupId1");
@@ -51,18 +51,18 @@ JIM.getInstance().getMessageManager().deleteMessagesByClientMsgNoList(conversati
 </TabItem>
 <TabItem value="ios">
 
-删除本地和云端的己方历史消息，自己的多设备会同步删除，接口调用成功后不影响对方或群里的其他成员继续查看消息，支持批量删除同一会话的多条消息。
+Delete your own historical messages locally and in the cloud; the deletion will be synchronized across all your devices. After the interface is called successfully, it will not affect the other party or other group members' ability to continue viewing messages. Batch deletion of multiple messages within the same conversation is supported.
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| conversation                   | JConversation  | 会话标识                          | 1.0.0    |
-|clientMsgNoList| ```NSArray <NSNumber *>``` | 本端消息唯一编号列表| 1.0.0|
-|successBlock | | 成功回调| 1.0.0|
-|errorBlock | | 失败回调| 1.0.0|
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| conversation | JConversation | Session identifier | 1.0.0 |
+| clientMsgNoList | ```NSArray <NSNumber *>``` | List of local message unique numbers | 1.0.0 |
+| successBlock |  | Success callback | 1.0.0 |
+| errorBlock |  | Failure callback | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 JConversation *conversation = [[JConversation alloc] initWithConversationType:JConversationTypeGroup conversationId:@"groupId1"];
@@ -79,35 +79,35 @@ NSArray <NSNumber *> *clientMsgNoList = @[@(111), @(222), @(333)];
 </TabItem>
 <TabItem value="js">
 
-删除本地和云端的己方历史消息，自己的多设备会同步删除，接口调用成功后**不影响**对方或群里的其他成员继续查看消息，支持批量删除同一会话的多条消息，参数 _messages_ 是消息数组，每一项 `message` 说明如下：
+Delete your own historical messages locally and in the cloud; the deletion will be synchronized across all your devices. After the interface is called successfully, it will not affect the other party or other group members' ability to continue viewing messages. Batch deletion of multiple messages within the same session is supported. The parameter _messages_ is an array of message objects, each with the following properties:
 
-**参数说明**
+**Parameter description**
 
-| 名称                     | 类型    | 是否必需 | 默认值 | 描述                                                  | 版本   |
-|--------------------------|---------|----------|--------|-------------------------------------------------------|--------|
-| message                   | Object  | 是       | -      | 清理历史消息                                           | 1.0.0  |
-| message.conversationType  | Number  | 是       | -      | [会话类型](../../../enum/web#conversation)                    | 1.0.0  |
-| message.conversationId    | String  | 是       | -      | 会话 Id，会话类型是 `PRIVATE` 时，会话 Id 是接收方的 userId，会话类型是 `GROUP` 时是群组 Id | 1.0.0  |
-| message.messageIndex      | Number  | 是       | -      | 消息的索引，可在 [Message](../../../msg/message) 中获取 | 1.0.0  |
-| message.sentTime          | Number  | 是       | -      | 消息的发送时间，可在 [Message](../../../msg/message) 中获取 | 1.0.0  |
-| message.tid         | String  | 是       | -      | 消息的 ID ，可在 [Message](../../../msg/message) 中获取 | 1.0.0  |
-| message.messageId         | String  | 是       | -      | 消息的唯一 ID ，可在 [Message](../../../msg/message) 中获取 | 1.0.0  |
+| Name | Type | Required | Default | Description | Version |
+|--------------------------|---------|----------|--------|----------------------------------------------------------|--------|
+| message | Object | Yes | - | Object representing the message to delete | 1.0.0 |
+| message.conversationType | Number | Yes | - | [Conversation Type](../../../enum/web#conversation) | 1.0.0 |
+| message.conversationId | String | Yes | - | Session ID. For `PRIVATE` sessions, this is the receiver's userId; for `GROUP` sessions, it is the group ID | 1.0.0 |
+| message.messageIndex | Number | Yes | - | Message index, available in [Message](../../../msg/message) | 1.0.0 |
+| message.sentTime | Number | Yes | - | Message sending time, available in [Message](../../../msg/message) | 1.0.0 |
+| message.tid | String | Yes | - | Message ID, available in [Message](../../../msg/message) | 1.0.0 |
+| message.messageId | String | Yes | - | Unique message ID, available in [Message](../../../msg/message) | 1.0.0 |
 
-**成功回调**
+**Success callback**
 
-无参数返回，回调触发表示成功
+No parameters are returned. The callback is triggered to indicate success.
 
-**失败回调**
+**Failure callback**
 
-| 名称   | 类型    | 描述                                                      | 版本   |
-|--------|---------|-----------------------------------------------------------|--------|
-| error  | Object  | 发送失败后会有对应的状态码，可以直接查看 `error.msg`，或者查看 [状态码](../status_code/web) | 1.0.0  |
+| Name | Type | Description | Version |
+|--------|---------|--------------------------------------------------------------|--------|
+| error | Object | Contains the corresponding status code if the operation fails. You can view `error.msg` or refer to [status code](../status_code/web) | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType } = JIM;
 
-// 示例为模拟数据，实际调用可从历史消息接口中获取
+// The example uses simulated data; actual calls can obtain this from the historical message interface
 let messages = [
   {
     conversationType: ConversationType.PRIVATE, 
@@ -121,49 +121,48 @@ let messages = [
 ];
 
 jim.removeMessages(messages).then(() => {
-  console.log('remove messages successfully.')
+  console.log('Messages removed successfully.');
 });
 ```
 </TabItem>
 <TabItem value="harmony">
 
-删除本地和云端的己方历史消息，自己的多设备会同步删除，接口调用成功后不影响对方或群里的其他成员继续查看消息，支持批量删除同一会话的多条消息。
+Delete your own historical messages locally and in the cloud; the deletion will be synchronized across all your devices. After the interface is called successfully, it will not affect the other party or other group members' ability to continue viewing messages. Batch deletion of multiple messages within the same conversation is supported.
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| conver                   | Conversation  | 会话标识                          | 1.0.0    |
-|msgIds| string[] | 本端消息唯一编号列表| 1.0.0|
-|delScope|number|0:只删除自己一侧；1:双向删除，会话中其他用户也无法看到|1.0.0|
-|callback | CommonCallback| 结果回调| 1.0.0|
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| conver | Conversation | Session ID | 1.0.0 |
+| msgIds | string[] | List of local message unique numbers | 1.0.0 |
+| delScope | number | 0: Delete only on one side; 1: Delete in both directions so other users in the session cannot see the messages | 1.0.0 |
+| callback | CommonCallback | Result callback | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
-let conver = new Conversation("userid1",1)
-JuggleIm.instance.getMessageManager().delMessages(conver,["message_id1","message_id2"],1,(code)=>{})
+let conver = new Conversation("userid1",1);
+JuggleIm.instance.getMessageManager().delMessages(conver, ["message_id1", "message_id2"], 1, (code) => {});
 ```
 
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-**参数说明**
+**Parameter description**
 
-| 名称                | 类型    | 必填  | 默认值           | 描述                                       | 版本   |
-|---------------------|---------|------|------------------|-----------------------------------------|--------|
-| conversation        | Conversation  | 是   |         | 会话对象，会话类型是 `private` 时，会话 Id 是对方的 userId，会话类型是 `group` 时是群组 Id | 0.6.3  |
-| startTime           | int  | 是   |         | 时间戳，比这个时间更早的消息将被删除。0 表示默认的当前时间 | 0.6.3  |
-| forAllUsers         | bool  | 否   | false  | 删除消息作用域，`true` 删除所有用户的历史消息，`false` 仅删除当前用户的历史消息 | 0.6.3  |
+| Name | Type | Required | Default | Description | Version |
+|---------------------|---------|----------|---------|------------------------------------------|--------|
+| conversation | Conversation | Yes |  | Conversation object. For `private` conversations, the conversation ID is the other party's userId. For `group` conversations, it is the group ID. | 0.6.3 |
+| startTime | int | Yes |  | Timestamp; messages older than this time will be deleted. 0 represents the current time by default. | 0.6.3 |
+| forAllUsers | bool | No | false | Scope of deletion. `true` deletes historical messages for all users; `false` deletes only the current user's historical messages. | 0.6.3 |
 
-**forAllUsers 适用场景**
+**Applicable scenarios for forAllUsers**
 
-> 群组场景：分权限控制删除按钮，例如管理员可显示删除全员历史消息，普通成员仅可显示删除自己的历史消息。
+> Group scenario: Control the delete button based on permissions. For example, administrators can display and delete historical messages of all members, while regular members can only display and delete their own messages.
 
-> 单聊场景：通常会显示仅删除自己和对方的历史消息
+> Single chat scenario: Typically, only the historical messages of yourself and the other party are deleted.
 
-
-**示例代码**
+**Sample Code**
 
 ```dart
 Conversation conversation = Conversation(2, 'groupId1');

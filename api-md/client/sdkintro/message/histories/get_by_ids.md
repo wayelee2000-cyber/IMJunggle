@@ -1,5 +1,5 @@
 ---
-title: 通过 Id 获取历史消息
+title: Get historical messages by ID
 hide_title: true
 sidebar_position: 8
 ---
@@ -12,20 +12,20 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-根据 messageId 数组获取对应的本地消息。
+Retrieve the corresponding local messages based on an array of message IDs.
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| messageIdList                   | List  | 消息 id 列表                          | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| messageIdList | List | List of message IDs | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
 List<Message> messageList = JIM.getInstance().getMessageManager().getMessagesByMessageIds(messageIds);
@@ -33,15 +33,15 @@ List<Message> messageList = JIM.getInstance().getMessageManager().getMessagesByM
 </TabItem>
 <TabItem value="ios">
 
-根据 messageId 数组获取对应的本地消息。
+Retrieve the corresponding local messages based on an array of message IDs.
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| messageIds                   | NSArray  | 消息 id 列表                          | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| messageIds | NSArray | List of message IDs | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 NSArray *messages = [JIM.shared.messageManager getMessagesByMessageIds:messageIds];
@@ -50,31 +50,31 @@ NSArray *messages = [JIM.shared.messageManager getMessagesByMessageIds:messageId
 </TabItem>
 <TabItem value="js">
 
-通过消息 Id 获取消息内容，支持一次性查询多条消息，需要保证传入的 messageIds 属于同一个会话
+Retrieve message content by message IDs, supporting querying multiple messages at once. Ensure that all messageIds belong to the same session.
 
-**参数说明**
+**Parameter description**
 
-| 名称                | 类型    | 必填  | 默认值           | 描述                                                                      | 版本   |
-|---------------------|---------|------|------------------|---------------------------------------------------------------------------|--------|
-| params              | Object  | 是   |                | 历史消息获取参数                                                           | 1.0.0  |
-| params.conversationType | Number  | 是   |                | [会话类型](../../enum/web#conversation)                                       | 1.0.0  |
-| params.conversationId   | String  | 是   |                | 会话 Id，会话类型是 `PRIVATE` 时，会话 Id 是接收方的 userId，会话类型是 `GROUP` 时是群组 Id | 1.0.0  |
-| message.messageIds      | Array   | 是     |               | 获取的消息 Id 数组                              | 1.0.0    |
+| Name | Type | Required | Default | Description | Version |
+|---------------------|---------|------|------------------|------------------------------------------------------------------------------|--------|
+| params | Object | Yes | | Parameters for retrieving historical messages | 1.0.0 |
+| params.conversationType | Number | Yes | | [Conversation Type](../../enum/web.md#conversation) | 1.0.0 |
+| params.conversationId | String | Yes | | Session ID. For `PRIVATE` sessions, this is the receiver's userId; for `GROUP` sessions, it is the group ID | 1.0.0 |
+| params.messageIds | Array | Yes | | Array of message IDs to retrieve | 1.0.0 |
 
-**成功回调**
+**Successful callback**
 
-| 名称                   | 类型    | 描述                                    | 版本   |
+| Name | Type | Description | Version |
 |------------------------|---------|-----------------------------------------|--------|
-| result                 | Object  |                                        | 1.0.0  |
-| result.messages        | Object  | 消息数组，每条消息的属性，请查看 [Message](../msg/message) 结构 | 1.0.0  |
+| result | Object | | 1.0.0 |
+| result.messages | Object | Array of messages. For properties of each message, see [Message](../msg/message) structure | 1.0.0 |
 
-**失败回调**
+**Failure callback**
 
-| 名称   | 类型    | 描述                                                      | 版本   |
-|--------|---------|-----------------------------------------------------------|--------|
-| error  | Object  | 发送失败后会有对应的状态码，可以直接查看 `error.msg`，或者查看 [状态码](../status_code/web) | 1.0.0  |
+| Name | Type | Description | Version |
+|--------|---------|--------------------------------------------------------------|--------|
+| error | Object | Contains a status code if the request fails. You can check `error.msg` or refer to [status codes](../status_code/web) | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType } = JIM;
 
@@ -94,41 +94,41 @@ jim.getMessagesByIds(params).then((result) => {
 </TabItem>
 <TabItem value="harmony">
 
-根据 messageId 数组获取对应的本地消息。
+Retrieve the corresponding local messages based on an array of message IDs.
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| msgIds                   | string[]  | 消息 id 列表                          | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| msgIds | string[] | List of message IDs | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
-let conver = new Conversation("userid1",1)
-JuggleIm.instance.getMessageManager().getMessagesByIds(conver,["message_id1","message_id2"],(code,msgs)=>{
+let conver = new Conversation("userid1", 1);
+JuggleIm.instance.getMessageManager().getMessagesByIds(conver, ["message_id1", "message_id2"], (code, msgs) => {
   
-})
+});
 ```
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-根据 messageId 数组获取对应的本地消息。
+Retrieve the corresponding local messages based on an array of message IDs.
 
-**参数说明**
+**Parameter description**
 
-| 名称                 | 类型    | 描述                              | 版本     |
-|----------------------|---------|------------------------------------|----------|
-| messageIdList        | `List<String>`  | 消息 id 列表                          | 0.6.3    |
+| Name | Type | Description | Version |
+|----------------------|---------|----------------------------------------|----------|
+| messageIdList | `List<String>` | List of message IDs | 0.6.3 |
 
-**示例代码**
+**Sample Code**
 
 ```dart
 List<String> messageIds = ["msg_id_01", "msg_id_02"];
 List<Message> messages = await JuggleIm.instance.getMessagesByMessageIdList(messageIds);
 ```
 
-`messages` 消息数组，每条消息的属性，请查看 [Message](../../../msg/message) 结构
+The `messages` variable contains an array of messages. For the properties of each message, see the [Message](../../../msg/message) structure.
 
 </TabItem>
 </Tabs>

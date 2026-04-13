@@ -1,43 +1,43 @@
 ---
-title: 发送单聊消息
+title: Send private message
 hide_title: true
 sidebar_position: 1
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-开发者在服务端模拟某个用户发送单聊私信消息，例如添加好友时，开发者服务端验证好友通过后，以某个用户的身份发送 `某某添加你为好友`
+This function allows the developer to simulate a user on the server to send a private message in a one-on-one chat. For example, when adding a friend, after the developer server verifies the friend request, it sends a message as the user: `So-and-so adds you as a friend`.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request Rate Limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/messages/private/send
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/messages/private/send
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|sender_id|string|是|消息发送者id||
-|target_ids|array|是|消息接收者id列表||
-|msg_type|string|是|消息类型标识||
-|msg_content|string|是|消息内容，建议json格式||
-|push_data.push_text|string|否|指定推送的内容||
-|push_data.push_extra|string|否|指定推送的自定义扩展，建议json字符串||
-|is_storage|bool|否|设置该消息是否存储到历史消息里面，默认 true||
-|is_count|bool|否|设置该消息是否记录未读数，默认true，记入未读数||
-|is_notify_sender|bool|否|设置该消息是否通知消息的发送者，默认 true||
-|is_state|bool|否|状态消息，该消息有极高的发送性能，但不保证可靠||
-|life_time|int|否|消息的存活时间，单位到毫秒，0标识永久存活||
-|life_time_after_read|int|否|消息阅读后的存活周期，单位到毫秒||
+| Parameter           | Data type | Required | Description                                                                                  |  |
+|:--------------------|:----------|:---------|:---------------------------------------------------------------------------------------------|--|
+| sender_id           | string    | Yes      | ID of the message sender                                                                    |  |
+| target_ids          | array     | Yes      | List of message recipient IDs                                                               |  |
+| msg_type            | string    | Yes      | Message type identifier                                                                     |  |
+| msg_content         | string    | Yes      | Message content; JSON format is recommended                                                 |  |
+| push_data.push_text | string    | No       | Content to be displayed in the push notification                                            |  |
+| push_data.push_extra| string    | No       | Custom extension data for push notifications; JSON string is recommended                     |  |
+| is_storage          | bool      | No       | Whether to store the message in chat history; default is true                               |  |
+| is_count            | bool      | No       | Whether to count the message as unread; default is true                                    |  |
+| is_notify_sender    | bool      | No       | Whether to notify the sender of the message; default is true                               |  |
+| is_state            | bool      | No       | Status message flag; this message type offers extremely high sending performance but no delivery guarantee |  |
+| life_time           | int       | No       | Message lifespan in milliseconds; 0 means permanent                                        |  |
+| life_time_after_read | int       | No       | Lifespan after the message is read, in milliseconds                                        |  |
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/messages/private/send HTTP/1.1
 appkey: appkey
@@ -61,28 +61,27 @@ Content-Type: application/json
 }
 ```
 
-### 响应参数{#res_param}
+### Response parameters {#res_param}
 
-|参数|数据类型|参数说明||
-|:--|:------|:-----|:-------|
-|msg_id|string|消息的唯一标识||
+| Parameter | Data type | Description                      |  |
+|:----------|:----------|:--------------------------------|--|
+| msg_id    | string    | Unique identifier of the message |  |
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":[
+  "code": 0,
+  "msg": "success",
+  "data": [
     {
-      "target_id":"userid2",
-      "msg_id":"aaaaaaa"
+      "target_id": "userid2",
+      "msg_id": "aaaaaaa"
     },
     {
-      "target_id":"userid3",
-      "msg_id":"bbbbbbb"
+      "target_id": "userid3",
+      "msg_id": "bbbbbbb"
     }
   ]
 }
 ```
-

@@ -1,25 +1,25 @@
 ---
-title: 查询敏感词
+title: Query sensitive words
 hide_title: true
 sidebar_position: 3
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-添加的敏感词将用于单群聊文本消息的内容审核
+The added sensitive words are used for content review of text messages in individual group chats.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`GET`
+> **Request Type**: `GET`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/sensitivewords/list
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/sensitivewords/list
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 GET /apigateway/sensitivewords/list?limit=20&offset=xx HTTP/1.1
 appkey: appkey
@@ -30,36 +30,33 @@ Content-Type: application/json
 
 ```
 
+### Request parameters {#param}
 
-### 请求参数{#param}
+| Parameters | Data type | Required | Description |  |
+|:-----------|:----------|:---------|:------------|:--|
+| offset     | string    | Yes      | The starting ID for querying sensitive words. Each sensitive word entry has a unique ID. Leave blank for the initial query. |  |
+| limit      | int       | No       | Number of items per page for pagination. Default is 50. |  |
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|offset|string|是|查询敏感词的起始id，每条敏感词数据都会有一个唯一的id，初次查询可以留空||
-|limit|int|否|分页一页的数据条数，默认50||
+### Response parameters {#res_param}
 
-### 响应参数{#res_param}
+| Parameters | Data type | Description |  |
+|:-----------|:----------|:------------|:--|
 
-|参数|数据类型|参数说明||
-|:--|:------|:-----|:-------|
-
-
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "items":[
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "items": [
       {
-        "id":"xx",
-        "word":"xx",
-        "word_type":1
+        "id": "xx",
+        "word": "xx",
+        "word_type": 1
       }
     ],
-    "is_finished":false
+    "is_finished": false
   }
 }
 ```
-

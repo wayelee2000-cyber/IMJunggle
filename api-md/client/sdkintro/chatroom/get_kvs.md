@@ -1,5 +1,5 @@
 ---
-title: 获取指定属性
+title: Get the specified attribute
 hide_title: true
 sidebar_position: 8
 ---
@@ -12,50 +12,50 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-> 即将发布
+> Coming soon
 
 </TabItem>
 <TabItem value="ios">
 
-> 即将发布
+> Coming soon
 
 </TabItem>
 <TabItem value="flutter">
 
-> 即将发布
+> Coming soon
 
 </TabItem>
 <TabItem value="js">
 
-获取聊天室指定属性的值，需要在加入聊天室成功后调用，未加入聊天室获取属性 SDK 会返回空数据。
+Retrieve the value of a specified attribute from the chat room. This method must be called after successfully joining the chat room. If you attempt to get the attribute before joining, the SDK will return empty data.
 
-**参数说明**
+**Parameter Description**
 
-| 名称                    | 类型     | 必填   | 默认值  | 描述| 版本     |
-|-------------------------|---------|-------|---|----------|----------|
-| chatroom                | Object | 是     | 无 | 聊天室对象 | 1.6.0    |
-| chatroom.id             | String | 是     | 无 | 聊天室 ID | 1.6.0    |
-| chatroom.attributes     | Array  | 是     | 无 | 聊天室属性列表，数据结构请参考示例代码 | 1.6.0    |
+| Name | Type | Required | Default | Description | Version |
+|-------------------------|---------|----------|---------|--------------------------------------------|----------|
+| chatroom | Object | Yes | None | Chatroom object | 1.6.0 |
+| chatroom.id | String | Yes | None | Chatroom ID | 1.6.0 |
+| chatroom.attributes | Array | Yes | None | List of chat room attributes; see sample code for data structure | 1.6.0 |
 
-**回调说明**
+**Callback Description**
 
-| 属性                 | 类型    | 描述                               | 版本  |
-|---------------------|---------|-----------------------------------|----------|
-| chatroom            | Object  | 会话对象                            | 1.6.0    |
-| chatroom.id         | String  | 聊天室 ID                           | 1.6.0    |
-| chatroom.attributes | Array   | 聊天室全部属性，数据结构请参考示例代码   | 1.6.0    |
+| Properties | Type | Description | Version |
+|---------------------|---------|--------------------------------------------|----------|
+| chatroom | Object | Chatroom object | 1.6.0 |
+| chatroom.id | String | Chatroom ID | 1.6.0 |
+| chatroom.attributes | Array | All attributes of the chat room; see sample code for data structure | 1.6.0 |
 
-**示例代码**
+**Sample Code**
 
 ```js
 let chatroom = {
   id: 'chatroom1001',
-  attributes: [ { key: 'name' }, { key: 'age' }]
+  attributes: [ { key: 'name' }, { key: 'age' } ]
 };
 
 jim.getChatRoomAttributes(chatroom).then((chatroom) => {
@@ -68,19 +68,19 @@ jim.getChatRoomAttributes(chatroom).then((chatroom) => {
       ]
   */
 }, (error) => {
-  console.log('error', error)
+  console.log('error', error);
 });
 ```
 
 </TabItem>
 <TabItem value="reactnative">
 
-> 即将发布
+> Coming soon
 
 </TabItem>
 <TabItem value="harmony">
 
-> 即将发布
+> Coming soon
 
 </TabItem>
 </Tabs>

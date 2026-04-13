@@ -1,36 +1,35 @@
 ---
-title: 设置群成员禁言
+title: Set ban on group members
 hide_title: true
 sidebar_position: 10
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-禁止群成员在群里发送消息，例如群管理员可将某个成员设置为禁止发言，禁言后不可以发送群消息，可以接收群消息。
+This function prohibits group members from sending messages within the group. For example, a group administrator can mute a member, preventing them from sending messages. Once muted, the member cannot send group messages but will still receive messages from the group.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/groups/groupmembermute/set
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/groups/groupmembermute/set
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|group_id|string|是|群组 Id||
-|member_ids|array|是|群成员 Id 列表||
-|is_mute|int|是|0:未禁言; 1:禁言||
-|mute_minute|int|否|禁言的时长，到期后自动解封，单位：分钟，传0时表示永久禁言||
+| Parameters  | Data type | Required | Description                                                                 |  |
+|:------------|:----------|:---------|:----------------------------------------------------------------------------|--|
+| group_id    | string    | Yes      | The ID of the group                                                        |  |
+| member_ids  | array     | Yes      | A list of group member IDs to be muted                                     |  |
+| is_mute     | int       | Yes      | 0: not muted; 1: muted                                                     |  |
+| mute_minute | int       | No       | Duration of the mute in minutes. The mute will be automatically lifted after this period. Passing 0 indicates a permanent mute. |  |
 
-
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/groups/groupmembermute/set HTTP/1.1
 appkey: appkey
@@ -40,18 +39,18 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "group_id":"groupid1",
-  "member_ids":["member1","member2"]
-  "is_mute":1,
-  "mute_minute":10
+  "group_id": "groupid1",
+  "member_ids": ["member1", "member2"],
+  "is_mute": 1,
+  "mute_minute": 10
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

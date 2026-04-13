@@ -1,35 +1,35 @@
 ---
-title: 设置免打扰
+title: Set Do Not Disturb
 hide_title: true
 sidebar_position: 1
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-会话设置免打扰后，当前会话不会接受离线消息推送，调用此接口后 IM 服务端会将 `undisturb_type` 自动同步到指定用户的各端。
+After setting a session to Do Not Disturb, the current session will not receive offline message notifications. Once this interface is called, the IM server will automatically synchronize the `undisturb_type` status to all endpoints of the specified user.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request Frequency Limit**: `100 times/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/convers/undisturb
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/convers/undisturb
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|user_id|string|是|设置免打扰的用户id||
-|target_id|string|是| 免打扰会话id ||
-|channel_type|int|是|免打扰会话的类型||
-|undisturb_type|int|是|免打扰类型：0:取消免打扰；1:普通会话免打扰；||
+| Parameters     | Data type | Required | Description                      |   |
+|:---------------|:----------|:---------|:--------------------------------|---|
+| user_id        | string    | Yes      | The user ID for whom to set Do Not Disturb |   |
+| target_id      | string    | Yes      | The ID of the session to apply DND to       |   |
+| channel_type   | int       | Yes      | The type of the DND session                  |   |
+| undisturb_type | int       | Yes      | DND type: 0 = Cancel DND; 1 = Enable DND for normal conversation |   |
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/convers/undisturb HTTP/1.1
 appkey: appkey
@@ -39,27 +39,27 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "user_id":"userid1",
-  "items":[
+  "user_id": "userid1",
+  "items": [
     {
-      "target_id":"userid2",
-      "channel_type":1,
-      "undisturb_type":1
+      "target_id": "userid2",
+      "channel_type": 1,
+      "undisturb_type": 1
     },
     {
-      "target_id":"groupid1",
-      "channel_type":2,
-      "undisturb_type":1
+      "target_id": "groupid1",
+      "channel_type": 2,
+      "undisturb_type": 1
     }
   ]
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

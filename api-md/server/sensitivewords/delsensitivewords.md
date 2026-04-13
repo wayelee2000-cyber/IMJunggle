@@ -1,25 +1,25 @@
 ---
-title: 删除敏感词
+title: Delete sensitive words
 hide_title: true
 sidebar_position: 2
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-添加的敏感词将用于单群聊文本消息的内容审核
+The added sensitive words are used for content review of text messages in single group chats.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 times/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/sensitivewords/del
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/sensitivewords/del
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 ```js
 POST /apigateway/sensitivewords/del HTTP/1.1
 appkey: appkey
@@ -29,29 +29,26 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "words":["xxxxx","yyyyy"]
+  "words": ["xxxxx", "yyyyy"]
 }
 ```
 
+### Request parameters {#param}
 
-### 请求参数{#param}
+| Parameters | Data type | Required | Parameter description |  |
+|:-----------|:----------|:---------|:----------------------|:--|
+| words      | array     | yes      | The sensitive words to be deleted |  |
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|words|array|是|要删除的敏感词||
+### Response parameters {#res_param}
 
-### 响应参数{#res_param}
+| Parameters | Data type | Parameter description |  |
+|:-----------|:----------|:----------------------|:--|
 
-|参数|数据类型|参数说明||
-|:--|:------|:-----|:-------|
-
-
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```
-

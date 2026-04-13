@@ -1,5 +1,5 @@
 ---
-title: 通话实体
+title: call entity
 hide_title: true
 sidebar_position: 2
 ---
@@ -16,62 +16,62 @@ values={[
 }>
 <TabItem value="android">
 
-SDK 中通过通话实体 `ICallSession` 对音视频通话进行操作。呼出通话时，开发者通过 `startSingleCall` 或者 `startMultiCall` 方法的返回值获取通话实体。接听通话时，开发者通过 `onCallReceive` 回调获取通话实体。开发者还可以使用下面方法获取指定 callId 对应的通话实体。
+In the SDK, audio and video calls are managed through the call entity `ICallSession`. When making an outgoing call, developers obtain the call entity from the return value of the `startSingleCall` or `startMultiCall` method. When answering a call, developers receive the call entity via the `onCallReceive` callback. Developers can also retrieve the call entity corresponding to a specified callId using the following method:
 
 ```java
 ICallSession callSession = JIM.getInstance().getCallManager().getCallSession(callId);
 ```
 
-开发者持有通话实体之后，可以方便的获取通话相关的属性，并对其进行接听、挂断等操作。
+Once developers have the call entity, they can easily access call-related attributes and perform operations such as answering and hanging up.
 
 ```java
-// 接听来电
+// Answer a call
 void accept();
-// 挂断来电
+// Hang up the call
 void hangup();
-// 开启摄像头
+// Turn on camera
 void enableCamera(boolean isEnable);
-// 设置用户的视频 view
+// Set the user's video view
 void setVideoView(String userId, View view);
-// 开始预览
+// Start preview
 void startPreview(View view);
-// 设置麦克风静音
+// Mute microphone
 void muteMicrophone(boolean isMute);
-// 设置扬声器静音
+// Mute the speakers
 void muteSpeaker(boolean isMute);
-// 设置外放声音
-// true 使用外放扬声器；false 使用听筒
+// Set external sound
+// true uses external speakers; false uses earpiece
 void setSpeakerEnable(boolean isEnable);
-// 切换摄像头，默认 true 使用前置摄像头
+// Switch camera, default true uses front camera
 void useFrontCamera(boolean isEnable);
-// 呼叫用户加入通话（isMultiCall 为 false 时不支持该功能）
+// Invite users to join the call (this feature is not supported when isMultiCall is false)
 void inviteUsers(List<String> userIdList);
 
-// 通话 id
+// Call ID
 String getCallId();
-// 是否多人通话，false 表示一对一通话
+// Whether the call is multi-party; false means one-to-one call
 boolean isMultiCall();
-// 媒体类型（语音/视频）
+// Media type (voice/video)
 CallConst.CallMediaType getMediaType();
-// 通话状态
+// Call status
 CallConst.CallStatus getCallStatus();
-// 呼叫开始时间（多人会话中当前用户被呼叫的时间，不一定等于整个通话开始的时间）
+// Call start time (the time when the current user is called in a multi-person session; not necessarily equal to the start time of the entire call)
 long getStartTime();
-// 当前用户加入通话的时间
+// The time the current user joined the call
 long getConnectTime();
-// 当前用户结束通话的时间
+// The time when the current user ended the call
 long getFinishTime();
-// 通话的发起人 id
+// Initiator ID of the call
 String getOwner();
-// 邀请当前用户加入通话的用户 id
+// User ID that invited the current user to join the call
 String getInviter();
-// 通话结束原因
+// Reason for ending the call
 CallConst.CallFinishReason getFinishReason();
-// 通话参与者（除当前用户外的其他参与者）
+// Call participants (excluding the current user)
 List<CallMember> getMembers();
-// 当前用户
+// Current user
 CallMember getCurrentCallMember();
-// 扩展字段
+// Extension fields
 String getExtra();
 ```
 
@@ -79,84 +79,84 @@ String getExtra();
 </TabItem>
 <TabItem value="ios">
 
-SDK 中通过通话实体 `id<JCallSession>` 对音视频通话进行操作。呼出通话时，开发者通过 `startSingleCall:mediaType:delegate:` 或者 `startMultiCall:mediaType:delegate:` 方法的返回值获取通话实体。接听通话时，用户通过 `callDidReceive:` 回调获取通话实体。开发者还可以使用下面方法获取指定 callId 对应的通话实体。
+In the SDK, audio and video calls are managed through the call entity `id<JCallSession>`. When making an outgoing call, developers obtain the call entity from the return value of the `startSingleCall:mediaType:delegate:` or `startMultiCall:mediaType:delegate:` method. When answering a call, the call entity is received via the `callDidReceive:` callback. Developers can also retrieve the call entity corresponding to a specified callId using the following method:
 
 ```objectivec
 id<JCallSession> callSession = [JIM.shared.callManager getCallSession:@"callId1"];
 ```
 
-开发者持有通话实体之后，可以方便的获取通话相关的属性，并对其进行接听、挂断等操作。
+Once developers have the call entity, they can easily access call-related attributes and perform operations such as answering and hanging up.
 
 ```objectivec
 @protocol JCallSession <NSObject>
-/// 通话 id
+/// Call ID
 @property (nonatomic, copy) NSString *callId;
-/// 是否多人通话，NO 表示一对一通话
+/// Whether the call is multi-party; NO means one-to-one call
 @property (nonatomic, assign) BOOL isMultiCall;
-/// 媒体类型（语音/视频）
+/// Media type (Voice/Video)
 @property (nonatomic, assign) JCallMediaType mediaType;
-/// 通话状态
+/// Call status
 @property (nonatomic, assign) JCallStatus callStatus;
-/// 呼叫开始时间（多人会话中当前用户被呼叫的时间，不一定等于整个通话开始的时间）
+/// Call start time (the time when the current user is called in a multi-person session; not necessarily equal to the start time of the entire call)
 @property (nonatomic, assign) long long startTime;
-/// 当前用户加入通话的时间
+/// The time when the current user joined the call
 @property (nonatomic, assign) long long connectTime;
-/// 当前用户结束通话的时间
+/// The time when the current user ended the call
 @property (nonatomic, assign) long long finishTime;
-/// 通话的发起人 id
+/// Initiator ID of the call
 @property (nonatomic, copy) NSString *owner;
-/// 邀请当前用户加入通话的用户 id
+/// The user ID that invited the current user to join the call
 @property (nonatomic, copy) NSString *inviter;
-/// 通话结束原因
+/// Reason for ending the call
 @property (nonatomic, assign) JCallFinishReason finishReason;
-/// 通话参与者（除当前用户外的其他参与者）
+/// Call participants (excluding the current user)
 @property (nonatomic, copy, readonly) NSArray <JCallMember *> *members;
-/// 当前用户
+/// Current user
 @property (nonatomic, strong, readonly) JCallMember *currentCallMember;
-/// 扩展字段
+/// Extension fields
 @property (nonatomic, copy) NSString *extra;
 
 - (void)addDelegate:(id<JCallSessionDelegate>)delegate;
 
-/// 接听来电
+/// Answer incoming call
 - (void)accept;
 
-/// 挂断电话
+/// Hang up the call
 - (void)hangup;
 
-/// 开启摄像头
-/// - Parameter isEnable: 是否开启
+/// Turn on camera
+/// - Parameter isEnable: whether to enable
 - (void)enableCamera:(BOOL)isEnable;
 
-/// 设置用户的视频 view
+/// Set the user's video view
 /// - Parameters:
-///   - view: 视频 view
-///   - userId: 用户 id（当前用户或者会话中的其他用户）
+///   - view: video view
+///   - userId: user ID (current user or other user in the session)
 - (void)setVideoView:(UIView *)view
            forUserId:(NSString *)userId;
 
-/// 开始预览
-/// - Parameter view: 预览的视频 view
+/// Start preview
+/// - Parameter view: preview video view
 - (void)startPreview:(UIView *)view;
 
-/// 设置麦克风静音
-/// - Parameter isMute: 是否静音
+/// Mute microphone
+/// - Parameter isMute: whether to mute
 - (void)muteMicrophone:(BOOL)isMute;
 
-/// 设置扬声器静音
-/// - Parameter isMute: 是否静音
+/// Mute the speaker
+/// - Parameter isMute: whether to mute
 - (void)muteSpeaker:(BOOL)isMute;
 
-/// 设置外放声音
-/// - Parameter isEnable: YES 使用外放扬声器；NO 使用听筒
+/// Set external sound
+/// - Parameter isEnable: YES uses external speakers; NO uses earpiece
 - (void)setSpeakerEnable:(BOOL)isEnable;
 
-/// 切换摄像头，默认 YES 使用前置摄像头
-/// - Parameter isEnable: YES 使用前置摄像头；NO 使用后置摄像头
+/// Switch camera, default YES uses front camera
+/// - Parameter isEnable: YES to use the front camera; NO to use the rear camera
 - (void)useFrontCamera:(BOOL)isEnable;
 
-/// 呼叫用户加入通话（isMultiCall 为 NO 时不支持该功能）
-/// - Parameter userIdList: 呼叫的用户 id 列表
+/// Invite users to join the call (this function is not supported when isMultiCall is NO)
+/// - Parameter userIdList: list of user IDs to invite
 - (void)inviteUsers:(NSArray <NSString *> *)userIdList;
 ```
 
@@ -164,16 +164,16 @@ id<JCallSession> callSession = [JIM.shared.callManager getCallSession:@"callId1"
 </TabItem>
 <TabItem value="js">
 
-SDK 中通过通话实体 `CallSession` 对音视频通话进行操作。呼出通话时，开发者通过 `startSingleCall` 或者 `startMultiCall` 方法的返回值获取通话实体。接听通话时，开发者通过 `CallEvent.INVITED` 回调获取通话实体。开发者还可以使用下面方法获取指定 callId 对应的通话实体。
+In the SDK, audio and video calls are managed through the call entity `CallSession`. When making an outgoing call, developers obtain the call entity from the return value of the `startSingleCall` or `startMultiCall` method. When answering a call, developers receive the call entity via the `CallEvent.INVITED` callback. Developers can also retrieve the call entity corresponding to a specified callId using the following method:
 
 ```javascript
 const callSession = juggleCall.getCallSession(callId);
 ```
 
-开发者持有通话实体之后，可以方便的获取通话相关的属性，并对其进行接听、挂断等操作。
+Once developers have the call entity, they can easily access call-related attributes and perform operations such as answering and hanging up.
 
 ```javascript
-// 发起一对一通话
+// Initiate a one-to-one call
 await callSession.startSingleCall({
   memberId: 'user_id',
   isEnableCamera: true,
@@ -181,7 +181,7 @@ await callSession.startSingleCall({
   ext: ''
 });
 
-// 发起多人通话
+// Initiate a multi-person call
 await callSession.startMultiCall({
   memberIds: ['user_id1', 'user_id2'],
   isEnableCamera: true,
@@ -189,110 +189,110 @@ await callSession.startMultiCall({
   ext: ''
 });
 
-// 接听来电
+// Answer a call
 await callSession.accept({
   isEnableCamera: true,
   isMuteMicrophone: false
 });
 
-// 挂断来电
+// Hang up the call
 await callSession.hangup();
 
-// 设置麦克风静音
+// Mute microphone
 await callSession.muteMicrophone(true);
 
-// 设置扬声器静音
+// Mute the speakers
 await callSession.muteSpeaker(true);
 
-// 呼叫用户加入通话
+// Invite users to join the call
 await callSession.inviteUsers({
   memberIds: ['user_id'],
   isEnableCamera: true
 });
 
-// 设置用户的视频 view
+// Set the user's video view
 await callSession.setVideoView({
   userId: 'user_id',
   videoElement: HTMLVideoElement
 });
 
-/// 通话 id
+/// Call ID
 callId: string;
-/// 是否多人通话，false 表示一对一通话
+/// Whether the call is multi-party; false means one-to-one call
 isMultiCall: boolean;
-/// 通话状态
+/// Call status
 callStatus: number;
-/// 呼叫开始时间（多人会话中当前用户被呼叫的时间，不一定等于整个通话开始的时间）
+/// Call start time (the time when the current user is called in a multi-person session; not necessarily equal to the start time of the entire call)
 startTime: number;
-/// 当前用户加入通话的时间
+/// The time when the current user joined the call
 connectTime: number;
-/// 当前用户结束通话的时间
+/// The time when the current user ended the call
 finishTime: number;
-/// 邀请当前用户加入通话的用户
+/// User who invited the current user to join the call
 inviter: object;
-/// 通话参与者（除当前用户外的其他参与者）
+/// Call participants (excluding the current user)
 members: Array;
-/// 扩展字段
+/// Extension fields
 ext: string;
 ```
 </TabItem>
 
 <TabItem value="flutter">
 
-SDK 中通过通话实体 `CallSession` 对音视频通话进行操作。呼出通话时，开发者通过 `startSingleCall` 或者 `startMultiCall` 方法的返回值获取通话实体。接听通话时，开发者通过 `onCallReceive` 回调获取通话实体。开发者还可以使用下面方法获取指定 callId 对应的通话实体。
+In the SDK, audio and video calls are managed through the call entity `CallSession`. When making an outgoing call, developers obtain the call entity from the return value of the `startSingleCall` or `startMultiCall` method. When answering a call, developers receive the call entity via the `onCallReceive` callback. Developers can also retrieve the call entity corresponding to a specified callId using the following method:
 
 ```dart
 CallSession callSession = await JuggleIm.instance.getCallSession(callId);
 ```
 
-开发者持有通话实体之后，可以方便的获取通话相关的属性，并对其进行接听、挂断等操作。
+Once developers have the call entity, they can easily access call-related attributes and perform operations such as answering and hanging up.
 
 ```dart
-// 接听来电
+// Answer a call
 Future<void> accept() async;
-// 挂断来电
+// Hang up the call
 Future<void> hangup() async;
-// 开启摄像头
+// Turn on camera
 Future<void> enableCamera(bool isEnable) async;
-// 设置用户的视频 view
+// Set the user's video view
 Future<void> setVideoView(String userId, VideoView view) async;
-// 开始预览
+// Start preview
 Future<void> startPreview(VideoView view) async;
-// 设置麦克风静音
-Future<void> muteMicrophone(bool isMute) async
-// 设置扬声器静音
+// Mute microphone
+Future<void> muteMicrophone(bool isMute) async;
+// Mute the speakers
 Future<void> muteSpeaker(bool isMute) async;
-// 设置外放声音
-// true 使用外放扬声器；false 使用听筒
+// Set external sound
+// true uses external speakers; false uses earpiece
 Future<void> setSpeakerEnable(bool isEnable) async;
-// 切换摄像头，默认 true 使用前置摄像头
+// Switch camera, default true uses front camera
 Future<void> useFrontCamera(bool isEnable) async;
-// 呼叫用户加入通话（isMultiCall 为 false 时不支持该功能）
+// Invite users to join the call (this feature is not supported when isMultiCall is false)
 Future<void> inviteUsers(List<String> userIdList) async;
 
-/// 通话 id
+/// Call ID
 String callId = '';
-/// 是否多人通话，false 表示一对一通话
+/// Whether the call is multi-party; false means one-to-one call
 bool isMultiCall = false;
-/// 媒体类型（语音 0 / 视频 1）
+/// Media type (Voice 0 / Video 1)
 int mediaType = 0;
-/// 通话状态（参考 CallStatus）
+/// Call status (refer to CallStatus)
 int callStatus = 0;
-/// 呼叫开始时间（多人会话中当前用户被呼叫的时间，不一定等于整个通话开始的时间）
+/// Call start time (the time when the current user is called in a multi-person session; not necessarily equal to the start time of the entire call)
 int startTime = 0;
-/// 当前用户加入通话的时间
+/// The time when the current user joined the call
 int connectTime = 0;
-/// 当前用户结束通话的时间
+/// The time when the current user ended the call
 int finishTime = 0;
-/// 通话的发起人 id
+/// Initiator ID of the call
 String owner = '';
-/// 邀请当前用户加入通话的用户 id
+/// The user ID that invited the current user to join the call
 String inviterId = '';
-/// 通话结束原因（参考 CallFinishReason）
+/// Reason for call ending (refer to CallFinishReason)
 int finishReason = 0;
-/// 通话参与者（除当前用户外的其他参与者）
+/// Call participants (excluding the current user)
 List<CallMember> members = [];
-/// 扩展字段
+/// Extension fields
 String extra = '';
 ```
 
@@ -301,7 +301,7 @@ String extra = '';
 
 <TabItem value="reactnative">
 
-SDK 中通过通话实体 `CallSession` 对音视频通话进行操作。呼出通话时，开发者通过 `startSingleCall` 或者 `startMultiCall` 方法的返回值获取通话实体。接听通话时，开发者通过 `onCallReceive` 回调获取通话实体。开发者还可以使用下面方法获取指定 callId 对应的通话实体。
+In the SDK, audio and video calls are managed through the call entity `CallSession`. When making an outgoing call, developers obtain the call entity from the return value of the `startSingleCall` or `startMultiCall` method. When answering a call, developers receive the call entity via the `onCallReceive` callback. Developers can also retrieve the call entity corresponding to a specified callId using the following method:
 
 ```typescript
 import JuggleIMCall from 'juggleim-rnsdk';
@@ -309,69 +309,69 @@ import JuggleIMCall from 'juggleim-rnsdk';
 const callSession = await JuggleIMCall.getCallSession(callId);
 ```
 
-开发者持有通话实体之后，可以方便的获取通话相关的属性，并对其进行接听、挂断等操作。
+Once developers have the call entity, they can easily access call-related attributes and perform operations such as answering and hanging up.
 
 ```typescript
-// 接听来电
+// Answer a call
 await callSession.accept();
-// 挂断来电
+// Hang up the call
 await callSession.hangup();
-// 开启摄像头
+// Turn on camera
 await callSession.enableCamera(boolean);
-// 设置麦克风静音
+// Mute microphone
 await callSession.muteMicrophone(boolean);
-// 设置扬声器静音
+// Mute the speakers
 await callSession.muteSpeaker(boolean);
-// 设置外放声音
-// true 使用外放扬声器；false 使用听筒
+// Set external sound
+// true uses external speakers; false uses earpiece
 await callSession.setSpeakerEnable(boolean);
-// 切换摄像头，默认 true 使用前置摄像头
+// Switch camera, default true uses front camera
 await callSession.useFrontCamera(boolean);
-// 呼叫用户加入通话（isMultiCall 为 false 时不支持该功能）
+// Invite users to join the call (this feature is not supported when isMultiCall is false)
 await callSession.inviteUsers(userIdList);
 
-// 设置用户的视频 view
+// Set the user's video view
 await callSession.setVideoView(userId: string, view: Component | null);
 
-// 开始预览
+// Start preview
 await callSession.startPreview(view);
 
   /**
-     * 停止预览
-     * 用于被叫方在接听前挂断时停止预览。
-     * 如果接听后，则不需要停止预览（由通话结束自动处理）。
+     * Stop preview
+     * Used to stop the preview when the called party hangs up before answering.
+     * If you answer the call, there is no need to stop the preview (it is automatically handled at the end of the call).
      *
-     * 使用场景：
-     * - 作为被叫方，被呼叫后开启了预览，之后直接挂断，需要停止预览
-     * - 如果接听了通话，则不需要调用此方法（通话结束会自动停止）
+     * Usage scenarios:
+     * - As the called party, the preview is turned on after being called, then hangs up directly, so the preview needs to be stopped.
+     * - If the call is answered, there is no need to call this method (it will automatically stop when the call ends).
      */
 await callSession.stopPreview();
 
-/// 通话 id
+/// Call ID
 callId: string;
-/// 是否多人通话，false 表示一对一通话
+/// Whether the call is multi-party; false means one-to-one call
 isMultiCall: boolean;
-/// 媒体类型（语音 0 / 视频 1）
+/// Media type (Voice 0 / Video 1)
 mediaType: number;
-/// 通话状态（参考 CallStatus）
+/// Call status (refer to CallStatus)
 callStatus: number;
-/// 呼叫开始时间
+/// Call start time
 startTime: number;
-/// 当前用户加入通话的时间
+/// The time when the current user joined the call
 connectTime: number;
-/// 当前用户结束通话的时间
+/// The time when the current user ended the call
 finishTime: number;
-/// 通话的发起人 id
+/// Initiator ID of the call
 owner: string;
-/// 邀请当前用户加入通话的用户 id
+/// The user ID that invited the current user to join the call
 inviterId: string;
-/// 通话结束原因（参考 CallFinishReason）
+/// Reason for call ending (refer to CallFinishReason)
 finishReason: number;
-/// 通话参与者（除当前用户外的其他参与者）
+/// Call participants (excluding the current user)
 members: CallMember[];
-/// 当前用户
+/// Current user
 currentCallMember: CallMember;
-/// 扩展字段
+/// Extension fields
 extra: string;
 ```
 

@@ -1,31 +1,31 @@
 ---
-title: 查询在线状态
+title: Check online status
 hide_title: true
 sidebar_position: 5
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-批量查询用户的在线状态，当前功能用于首次展示用户状态，若想实时感知用户在线离线状态，请使用用户 [上下线订阅](../../subscription/onlineofflinesub) 功能实现
+Query the online status of users in batches. This function is intended for the initial display of user status. To monitor users' online and offline status in real time, please use the [online and offline subscription](../../subscription/onlineofflinesub) feature.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/users/onlinestatus/query
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/users/onlinestatus/query
 
-> **Content-Type**：`application/json`
+> **Content-Type**: `application/json`
 
-### 请求参数{#param}
+### Request parameters {#param}
 
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|user_ids|array|是|需要查询在线状态的用户id列表||
+| Parameters | Data type | Required | Description                              |
+|:-----------|:----------|:---------|:---------------------------------------|
+| user_ids  | array     | yes      | A list of user IDs whose online status you want to query |
 
-### 请求示例{#req_demo}
+### Request Example{#req_demo}
 
 ```js
 POST /apigateway/users/onlinestatus/query HTTP/1.1
@@ -36,32 +36,32 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "user_ids":["userid1","userid2"]
+  "user_ids": ["userid1", "userid2"]
 }
 ```
 
-### 响应参数{#res_param}
+### Response parameters {#res_param}
 
-|参数|数据类型|参数说明||
-|:--|:------|:-----|:-------|
-|user_id|string|用户的 Id ||
-|is_online|bool|用户是否在线||
+| Parameters | Data type | Description          |
+|:-----------|:----------|:---------------------|
+| user_id   | string    | User ID              |
+| is_online | bool      | Indicates if the user is online |
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "items":[
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "items": [
       {
-        "user_id":"user1",
-        "is_online":true
+        "user_id": "user1",
+        "is_online": true
       },
       {
-        "user_id":"user2",
-        "is_online":false
+        "user_id": "user2",
+        "is_online": false
       }
     ]
   }

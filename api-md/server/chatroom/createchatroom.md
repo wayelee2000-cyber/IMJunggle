@@ -1,36 +1,36 @@
 ---
-title: 创建聊天室
+title: Create a chat room
 hide_title: true
 sidebar_position: 1
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-创建一个聊天室。
+Create a chat room.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../api#api)/apigateway/chatrooms/create
+> **Request URL**: https://[request domain name](../../api#api)/apigateway/chatrooms/create
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|chat_id|string|是|聊天室的id||
-|chat_name|string|否|聊天室昵称||
-|is_mute|int |否|是否全局禁言，0：否；1：是；默认0||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameters | Data type | Required | Description |  |
+|:-----------|:----------|:---------|:------------|:--|
+| chat_id    | string    | Yes      | The ID of the chat room |  |
+| chat_name  | string    | No       | Chat room nickname |  |
+| is_mute   | int       | No       | Whether to mute globally: 0 = no; 1 = yes; default is 0 |  |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /apigateway/chatrooms/create HTTP/1.1
 appkey: appkey
@@ -40,17 +40,17 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "chat_id":"chatroom1",
-  "chat_name":"chatroom1",
-  "is_mute":0
+  "chat_id": "chatroom1",
+  "chat_name": "chatroom1",
+  "is_mute": 0
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

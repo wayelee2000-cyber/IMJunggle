@@ -4,105 +4,111 @@ hide_title: true
 sidebar_position: 3
 ---
 
-### 监听枚举{#listener}
+### Listening Enumeration {#listener}
 
-| 名称                              | 说明                                   | 版本     |
+| Name | Description | Version |
 |----------------------------------|----------------------------------------|----------|
-| Event.STATE_CHANGED         | 连接状态监听，设置 [连接监听](../../watcher/connect) 会用到 | 1.0.0    |
-| Event.MESSAGE_RECEIVED      | 消息接收监听，设置 [消息监听](../../watcher/message) 会用到 | 1.0.0    |
-| Event.CONVERSATION_CHANGED  | 会话变更监听，设置 [会话监听](../../watcher/conversation) 会用到 | 1.0.0    |
+| Event.STATE_CHANGED | Monitors connection status; uses [connection monitoring](../../watcher/connect) | 1.0.0 |
+| Event.MESSAGE_RECEIVED | Monitors message reception; uses [Message Listening](../../watcher/message) | 1.0.0 |
+| Event.CONVERSATION_CHANGED | Monitors session changes; uses [Session Monitoring](../../watcher/conversation) | 1.0.0 |
 
-### 连接枚举{#connection}
+### Connection Enumeration {#connection}
 
-| 名称                              | 说明            | 版本     |
-|----------------------------------|-----------------|----------|
-| ConnectionState.CONNECTED            | 连接成功         | 1.0.0    |
-| ConnectionState.CONNECTING           | 正在连接中       | 1.0.0    |
-| ConnectionState.DISCONNECTED         | 连接已断开，提示连接断开后表示连接彻底断开，SDK 不会再进行任何和连接重试相关操作，开发者业务层提示连接断开即可       | 1.0.0    |
-| ConnectionState.DB_OPENED            | 本地数据库已打开，仅 Electron 中有效       | 1.7.0    |
-| ConnectionState.DB_CLOSED            | 本地数据库已关闭，仅 Electron 中有效       | 1.7.0    |
-| ConnectionState.RECONNECTING         | SDK 内部正在重连中，SDK 默认 `30s` 发一个心跳包，连续 3 个心跳包未得到服务端响应会进行重连，或者单次请求(如：消息发送) `10s` 没有响应进行提示超时同时会进行尝试走重新连接逻辑，默认最多进行 `100` 次重连，时间间隔：`1s`、`2s`、`4s`、`8s`、`16s`、`...`        | 1.7.0    |
+| Name | Description | Version |
+|----------------------------------|------------------|----------|
+| ConnectionState.CONNECTED | Connection established successfully | 1.0.0 |
+| ConnectionState.CONNECTING | Connecting | 1.0.0 |
+| ConnectionState.DISCONNECTED | Connection has been disconnected. This indicates a complete disconnection. The SDK will not attempt any reconnection. The developer's business layer can notify that the connection is disconnected. | 1.0.0 |
+| ConnectionState.DB_OPENED | Local database is open; valid only in Electron | 1.7.0 |
+| ConnectionState.DB_CLOSED | Local database is closed; valid only in Electron | 1.7.0 |
+| ConnectionState.RECONNECTING | The SDK is reconnecting internally. By default, the SDK sends a heartbeat packet every 30 seconds. If the server does not respond to three consecutive heartbeat packets, it will attempt to reconnect. If a single request (e.g., message sending) times out after 10 seconds, a timeout is triggered and reconnection logic is attempted. The default maximum reconnection attempts is 100, with intervals of 1s, 2s, 4s, 8s, 16s, and so on. | 1.7.0 |
 
-### 会话相关{#conversation}
+### Conversation Related {#conversation}
 
-| 名称                               | 说明                                      | 版本     |
-|-----------------------------------|-------------------------------------------|----------|
-| ConversationType.PRIVATE          | 单聊会话，两个人之间通信的会话类型          | 1.0.0    |
-| ConversationType.GROUP            | 群聊会话，群组通信使用的会话类型            | 1.0.0    |
-| ConversationType.CHATROOM         | 聊天室会话，类似直播间，有房间概念的通信场景使用会话类型 | 1.0.0    |
-| ConversationOrder.FORWARD         | 会话获取方向，会话列表按时间倒序排列，获取更早的会话 | 1.0.0    |
-| ConversationOrder.BACKWARD         | 会话获取方向，会话列表按时间倒序排列，获取更(四声)新的会话 | 1.0.0    |
+| Name | Description | Version |
+|----------------------------------|--------------------------------------------------|----------|
+| ConversationType.PRIVATE | Single chat session between two users | 1.0.0 |
+| ConversationType.GROUP | Group chat session for group communication | 1.0.0 |
+| ConversationType.CHATROOM | Chat room conversation, similar to a live broadcast room; used in room-based communication scenarios | 1.0.0 |
+| ConversationOrder.FORWARD | Conversation retrieval direction: retrieves earlier conversations in reverse chronological order | 1.0.0 |
+| ConversationOrder.BACKWARD | Conversation retrieval direction: retrieves newer conversations in reverse chronological order | 1.0.0 |
 
-### 消息相关{#message}
+### Message Related {#message}
 
-| 名称                           | 说明         | 版本     |
-|-------------------------------|--------------|----------|
-| MessageType.TEXT              | 文本消息      | 1.0.0    |
-| MessageType.IMAGE             | 图片消息      | 1.0.0    |
-| MessageType.VOICE             | 语音消息      | 1.0.0    |
-| MessageType.VIDEO             | 小视频消息    | 1.0.0    |
-| MessageType.FILE              | 文件消息      | 1.0.0    |
-| MessageType.RECALL            | 撤回消息      | 1.0.0    |
-| MessageType.READ_MSG           | 消息撤回通知  | 1.0.0    |
-| MessageType.UPDATE_MSG         | 消息修改通知  | 1.0.0    |
-| MessageOrder.FORWARD          | 获取更(四声)新的消息，消息页面向输入框方向滚动时使用 | 1.0.0    |
-| MessageOrder.BACKWARD         | 获取更早的消息，消息页面向顶部滚动时使用 | 1.0.0    |
+| Name | Description | Version |
+|----------------------------------|--------------|----------|
+| MessageType.TEXT | Text message | 1.0.0 |
+| MessageType.IMAGE | Image message | 1.0.0 |
+| MessageType.VOICE | Voice message | 1.0.0 |
+| MessageType.VIDEO | Short video message | 1.0.0 |
+| MessageType.FILE | File message | 1.0.0 |
+| MessageType.RECALL | Recall message | 1.0.0 |
+| MessageType.READ_MSG | Message withdrawal notification | 1.0.0 |
+| MessageType.UPDATE_MSG | Message modification notification | 1.0.0 |
+| MessageOrder.FORWARD | Retrieves newer messages; used when scrolling the message page toward the input box | 1.0.0 |
+| MessageOrder.BACKWARD | Retrieves earlier messages; used when scrolling the message page to the top | 1.0.0 |
 
+### Status Code Enumeration {#state}
 
-### 状态码枚举{#state}
-| 名称                           | 说明         | 版本     |
-|-------------------------------|--------------|----------|
-| ErrorType              | 状态码枚举，具体说明请查看 [状态码](../../enum/web)      | 1.0.0    |
+| Name | Description | Version |
+|----------------------------------|--------------|----------|
+| ErrorType | Status code enumeration; see [Status Code](../../enum/web) for details | 1.0.0 |
 
-### @ 消息枚举{#mention}
-| 名称                           | 说明         | 版本     |
-|-------------------------------|--------------|----------|
-| MentionType.ALL              | @ 所有人      | 1.0.0    |
-| MentionType.SOMEONE          | @ 指定人      | 1.0.0    |
-| MentionType.ALL_SOMEONE        | @所有人 + 指定人| 1.0.0    |
+### @Message Enumeration {#mention}
 
-### 会话免打扰{#disturb}
-| 名称                           | 说明                         | 版本     |
-|-------------------------------|-----------------------------|----------|
-| UndisturbType.DISTURB        | 免打扰                       | 1.0.0    |
-| UndisturbType.UNDISTURB      | 取消免打扰                    | 1.0.0    |
+| Name | Description | Version |
+|----------------------------------|--------------|----------|
+| MentionType.ALL | @Everyone | 1.0.0 |
+| MentionType.SOMEONE | @ specific user | 1.0.0 |
+| MentionType.ALL_SOMEONE | @Everyone plus specific users | 1.0.0 |
 
-### 会话标记状态{#unreadtag}
-| 名称                           | 说明                         | 版本     |
-|-------------------------------|-----------------------------|----------|
-| UnreadTag.UNREAD      | 标记会话未读                   | 1.0.0    |
+### Do Not Disturb Conversation {#disturb}
 
-### 消息发送状态{#msg_sent}
+| Name | Description | Version |
+|----------------------------------|--------------------------------|----------|
+| UndisturbType.DISTURB | Do Not Disturb enabled | 1.0.0 |
+| UndisturbType.UNDISTURB | Do Not Disturb disabled | 1.0.0 |
 
-| 名称                           | 说明         | 版本     |
-|-------------------------------|--------------|----------|
-| MESSAGE_SENT_STATE.NONE       | 初始状态      | 1.0.0    |
-| MESSAGE_SENT_STATE.SENDING    | 消息发送中      | 1.0.0    |
-| MESSAGE_SENT_STATE.SUCCESS    | 消息发送成功      | 1.0.0    |
-| MESSAGE_SENT_STATE.FAILED     | 消息发送失败    | 1.0.0    |
-| MESSAGE_SENT_STATE.UPLOADING  | 文件、图片等消息上传中      | 1.0.0    |
+### Session Tag Status {#unreadtag}
 
-### @ 消息获取方向{#mention_order}
-| 名称                           | 说明                         | 版本     |
-|-------------------------------|-----------------------------|----------|
-| MENTION_ORDER.BACKWARD         | 获取更早的消息，消息页面向顶部滚动时使用      | 1.0.0    |
-| MENTION_ORDER.FORWARD          | 获取更(四声)新的消息，消息页面向输入框方向滚动时使用      | 1.0.0    |
+| Name | Description | Version |
+|----------------------------------|--------------------------------|----------|
+| UnreadTag.UNREAD | Mark a session as unread | 1.0.0 |
 
-### 朋友圈获取方向{#moment_order}
-| 名称                           | 说明                         | 版本     |
-|-------------------------------|-----------------------------|----------|
-| MOMENT_ORDER.ASC         | 获取更早的朋友圈      | 1.9.6    |
-| MOMENT_ORDER.DESC          | 获取更(四声)新的朋友圈      | 1.9.6    |
+### Message Sending Status {#msg_sent}
 
-### 朋友圈类型枚举{#moment_type}
-| 名称                           | 说明                         | 版本     |
-|-------------------------------|-----------------------------|----------|
-| MOMENT_TYPE.IMAGE         | 图片类型      | 1.9.6    |
-| MOMENT_TYPE.VIDEO         | 视频类型      | 1.9.6    |
+| Name | Description | Version |
+|----------------------------------|--------------|----------|
+| MESSAGE_SENT_STATE.NONE | Initial state | 1.0.0 |
+| MESSAGE_SENT_STATE.SENDING | Message is being sent | 1.0.0 |
+| MESSAGE_SENT_STATE.SUCCESS | Message sent successfully | 1.0.0 |
+| MESSAGE_SENT_STATE.FAILED | Message sending failed | 1.0.0 |
+| MESSAGE_SENT_STATE.UPLOADING | Files, images, or other media are being uploaded | 1.0.0 |
 
-### 评论获取方向{#comment_order}
-| 名称                           | 说明                         | 版本     |
-|-------------------------------|-----------------------------|----------|
-| COMMENT_ORDER.ASC         | 获取更早的评论      | 1.9.6    |
-| COMMENT_ORDER.DESC          | 获取更(四声)新的评论      | 1.9.6    |
+### @Message Acquisition Direction {#mention_order}
 
+| Name | Description | Version |
+|----------------------------------|--------------------------------|----------|
+| MENTION_ORDER.BACKWARD | Retrieves earlier messages; used when scrolling the message page to the top | 1.0.0 |
+| MENTION_ORDER.FORWARD | Retrieves newer messages; used when scrolling the message page toward the input box | 1.0.0 |
+
+### Moments Retrieval Direction {#moment_order}
+
+| Name | Description | Version |
+|----------------------------------|--------------------------------|----------|
+| MOMENT_ORDER.ASC | Retrieve earlier Moments | 1.9.6 |
+| MOMENT_ORDER.DESC | Retrieve newer Moments | 1.9.6 |
+
+### Moments Type Enumeration {#moment_type}
+
+| Name | Description | Version |
+|----------------------------------|--------------------------------|----------|
+| MOMENT_TYPE.IMAGE | Image type | 1.9.6 |
+| MOMENT_TYPE.VIDEO | Video type | 1.9.6 |
+
+### Comment Retrieval Direction {#comment_order}
+
+| Name | Description | Version |
+|----------------------------------|--------------------------------|----------|
+| COMMENT_ORDER.ASC | Retrieve older comments | 1.9.6 |
+| COMMENT_ORDER.DESC | Retrieve newer comments | 1.9.6 |

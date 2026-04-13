@@ -1,33 +1,33 @@
 ---
-title: 邮箱验证码
+title: Email Verification Code
 hide_title: true
 sidebar_position: 5
 ---
-### 功能说明{#intro}
+### Function Description{#intro}
 
-发送邮箱验证码
+Send an email verification code.
 
-### 请求说明{#req}
+### Request Description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request Rate Limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/email/send
+> **Request URL**: https://[request domain name](../api.md#api)/jim/email/send
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|email|string|是|手机号||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request Parameters {#param}
+
+| Parameter | Data Type | Required | Description          |   |
+|:----------|:----------|:---------|:---------------------|---|
+| email     | string    | yes      | Email address        |   |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /jim/email/send HTTP/1.1
 appkey: appkey
@@ -35,15 +35,15 @@ Authorization: xxxxxxxxxxxxxxxxxx
 Content-Type: application/json
 
 {
-  "email":"xxxxx@abc.com"
+  "email": "xxxxx@abc.com"
 }
 ```
 
-### 响应示例{#res_demo}
+### Response Example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess"
+  "code": 0,
+  "msg": "success"
 }
 ```

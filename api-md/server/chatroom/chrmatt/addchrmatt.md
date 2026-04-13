@@ -1,39 +1,39 @@
 ---
-title: 设置聊天室属性
+title: Set chat room properties
 hide_title: true
 sidebar_position: 1
 ---
 
-### 功能说明{#intro}
+### Function description{#intro}
 
-在指定聊天室中设置自定义属性。
+Set custom properties for the specified chat room.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../../api#header).
 
-> **请求类型**：`POST`
+> **Request Type**: `POST`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../../../api#api)/apigateway/chatrooms/atts/add
+> **Request URL**: https://[request domain name](../../../api#api)/apigateway/chatrooms/atts/add
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|from_id|string|是|发起属性设置的用户id||
-|chat_id|string|是|聊天室的id||
-|atts|array|是|要设置的属性列表||
-|atts[0].key|string|是|属性的key||
-|atts[0].value|string|是|属性的value||
-|atts[0].is_force|bool|否|是否强制覆盖，默认false||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameter          | Data type | Required | Description                          |   |
+|:-------------------|:----------|:---------|:-----------------------------------|---|
+| from_id            | string    | Yes      | The user ID initiating the attribute setting |   |
+| chat_id            | string    | Yes      | The ID of the chat room             |   |
+| atts               | array     | Yes      | A list of attributes to set         |   |
+| atts[0].key        | string    | Yes      | The key of the attribute            |   |
+| atts[0].value      | string    | Yes      | The value of the attribute          |   |
+| atts[0].is_force   | bool      | No       | Whether to force override; default is false |   |
+
+
+### Request Example{#req_demo}
 ``` js
 POST /apigateway/chatrooms/atts/add HTTP/1.1
 appkey: appkey
@@ -43,31 +43,31 @@ timestamp: 1672568121910
 Content-Type: application/json
 
 {
-  "from_id":"userid1",
-  "chat_id":"chatroom1",
-  "atts":[
+  "from_id": "userid1",
+  "chat_id": "chatroom1",
+  "atts": [
     {
-        "key":"k1",
-        "value":"v1",
-        "is_force":false
+      "key": "k1",
+      "value": "v1",
+      "is_force": false
     }
   ]
 }
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "atts":[
-        {
-            "key":"k1",
-            "code":0,
-            "att_time":1732123445223
-        }
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "atts": [
+      {
+        "key": "k1",
+        "code": 0,
+        "att_time": 1732123445223
+      }
     ]
   }
 }

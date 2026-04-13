@@ -1,5 +1,5 @@
 ---
-title: 清空单个会话未读数
+title: Clear unread data from a single session
 hide_title: true
 sidebar_position: 9
 ---
@@ -12,19 +12,19 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-**参数说明**
+**Parameter Description**
 
-| 名称                             | 类型    | 描述       | 版本     |
+| Name | Type | Description | Version |
 |----------------------------------|--------|------------|----------|
-| conversation                     | Conversation  |   会话标识         | 1.0.0    |
-| callback | IConversationManager.ISimpleCallback |  结果回调 | 1.0.0    |
+| conversation | Conversation | Conversation identifier | 1.0.0 |
+| callback | IConversationManager.ISimpleCallback | Result callback | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```java
 Conversation conversation = new Conversation(Conversation.ConversationType.GROUP, "groupid1");
 JIM.getInstance().getConversationManager().clearUnreadCount(conversation, new IConversationManager.ISimpleCallback() {
@@ -43,13 +43,13 @@ JIM.getInstance().getConversationManager().clearUnreadCount(conversation, new IC
 </TabItem>
 <TabItem value="ios">
 
-**参数说明**
+**Parameter Description**
 
-| 名称                             | 类型    | 描述       | 版本     |
+| Name | Type | Description | Version |
 |----------------------------------|--------|------------|----------|
-| conversation                     | JConversation  |   会话标识         | 1.0.0    |
+| conversation | JConversation | Session identifier | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```objectivec
 JConversation *conversation = [[JConversation alloc] initWithConversationType:JConversationTypeGroup conversationId:@"groupid1"];
 [JIM.shared.conversationManager clearUnreadCountByConversation:conversation
@@ -63,18 +63,18 @@ JConversation *conversation = [[JConversation alloc] initWithConversationType:JC
 </TabItem>
 <TabItem value="js">
 
-**参数说明**
+**Parameter Description**
 
-| 名称                             | 类型    | 必填   | 默认值  | 描述       | 版本     |
+| Name | Type | Required | Default | Description | Version |
 |----------------------------------|---------|--------|--------|------------|----------|
-| conversation                     | Object  | 是     |        |            | 1.0.0    |
-| conversation.conversationType     | Number  | 是     |        | 会话类型   | 1.0.0    |
-| conversation.conversationId       | String  | 是     |        | 会话 Id    | 1.0.0    |
-| conversation.unreadIndex         | Number  | 是     |        | 会话最后一条消息的索引, 可在 `conversation.latestUnreadIndex` 获取   | 1.0.0    |
-| conversation.messageId            | String  | 是     |        | 会话最后的 messageId, 可在 `conversation.latestMessage` 获取   | 1.0.0    |
-| conversation.messageSentTime      | Number  | 是     |        | 会话最后一条消息的发送时间 可在 `conversation.latestMessage` 获取   | 1.0.0    |
+| conversation | Object | Yes | | | 1.0.0 |
+| conversation.conversationType | Number | Yes | | Conversation type | 1.0.0 |
+| conversation.conversationId | String | Yes | | Conversation ID | 1.0.0 |
+| conversation.unreadIndex | Number | Yes | | The index of the last unread message in the conversation, available at `conversation.latestUnreadIndex` | 1.0.0 |
+| conversation.messageId | String | Yes | | The last message ID in the conversation, available at `conversation.latestMessage` | 1.0.0 |
+| conversation.messageSentTime | Number | Yes | | The timestamp when the last message was sent, available at `conversation.latestMessage` | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType } = JIM;
 
@@ -87,19 +87,19 @@ let conversation = {
 };
 
 jim.clearUnreadcount(conversation).then(() => {
-  console.log('clear unreadCount successfully');
-})
+  console.log('Cleared unread count successfully');
+});
 ```
 </TabItem>
 <TabItem value="flutter">
 
-**参数说明**
+**Parameter Description**
 
-| 名称                             | 类型    | 描述       | 版本     |
+| Name | Type | Description | Version |
 |----------------------------------|--------|------------|----------|
-| conversation                     | Conversation  |   会话标识         | 0.6.3    |
+| conversation | Conversation | Conversation identifier | 0.6.3 |
 
-**示例代码**
+**Sample Code**
 ```dart
 Conversation conversation = Conversation(ConversationType.private, 'user1');
 Result result = await JuggleIm.instance.clearUnreadCount(conversation);
@@ -108,15 +108,15 @@ Result result = await JuggleIm.instance.clearUnreadCount(conversation);
 </TabItem>
 <TabItem value="reactnative">
 
-**参数说明**
+**Parameter Description**
 
-| 名称                             | 类型    | 描述       | 版本     |
+| Name | Type | Description | Version |
 |----------------------------------|--------|------------|----------|
-| conversation                     | Object  |   会话标识         | 0.6.3    |
-| conversationType                 | Number  |   会话类型         | 0.6.3    |
-| conversationId                   | String  |   会话ID         | 0.6.3    |
+| conversation | Object | Conversation identifier | 0.6.3 |
+| conversationType | Number | Conversation type | 0.6.3 |
+| conversationId | String | Session ID | 0.6.3 |
 
-**示例代码**
+**Sample Code**
 ```javascript
 import JuggleIM from 'juggleim-rnsdk';
 
@@ -129,19 +129,19 @@ await JuggleIM.clearUnreadCount({
 </TabItem>
 <TabItem value="harmony">
 
-**参数说明**
+**Parameter Description**
 
-| 名称                             | 类型    | 描述       | 版本     |
+| Name | Type | Description | Version |
 |----------------------------------|--------|------------|----------|
-| conver                     | Conversation  |   会话标识         | 1.0.0    |
-| callback | CommonCallback |  结果回调 | 1.0.0    |
+| conver | Conversation | Session ID | 1.0.0 |
+| callback | CommonCallback | Result callback | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```java
-let conver = new Conversation("userid1",1)
-JuggleIm.instance.getConversationManager().clearUnreadCount(conver,(code)=>{
+let conver = new Conversation("userid1", 1);
+JuggleIm.instance.getConversationManager().clearUnreadCount(conver, (code) => {
   
-})
+});
 ```
 
 </TabItem>

@@ -4,25 +4,25 @@ hide_title: true
 sidebar_position: 1
 ---
 
-### 前期准备{#pre}
+### Preparation{#pre}
 
-1、在 `开发者后台` 创建应用获取 `AppKey` 和 `Secret`。
+1. Create an application in the `Developer Backstage` to obtain your `AppKey` and `Secret`.
 
 ![](./assets/appkey_secret.png)
 
-2、自己调用服务端 API 获取 Token 或在开发者后台的 -> 选择应用-> 开发工具 -> API -> 用户相关中，调用用户注册接口，获取两个测试 Token。
+2. Call the server API to obtain the token yourself, or use the developer backend: Select Application -> Development Tools -> API -> User Related, and call the user registration interface to obtain two test tokens.
 
 ![](./assets/token.png)
 
-3、根据集成文档逐步集成。
+3. Follow the integration guide step by step.
 
-### 使用流程{#flow}
+### Use process{#flow}
 
 ![](assets/flow.png)
 
-### 添加依赖{#install}
+### Add dependencies {#install}
 
-导入 SDK 之外，还需要额外添加下面依赖。
+In addition to importing the SDK, add the following dependencies:
 
 ```
 implementation 'org.java-websocket:Java-WebSocket:1.5.5'
@@ -30,28 +30,28 @@ implementation 'com.google.protobuf:protobuf-javalite:3.18.0'
 implementation 'com.qiniu:qiniu-android-sdk:8.7.0'
 ```
 
-### 示例代码{#code}
+### Sample code{#code}
 ```java
 List<String> serverList = new ArrayList<>();
-serverList.add("wss://ws.im.com");// "wss://ws.im.com" 替换成部署好的 server url
+serverList.add("wss://ws.im.com"); // Replace "wss://ws.im.com" with your deployed server URL
 JIM.getInstance().setServerUrls(serverList);
 JIM.getInstance().init(this, "appkey");
 JIM.getInstance().getConnectionManager().addConnectionStatusListener("mainActivity", new IConnectionManager.IConnectionStatusListener() {
-		@Override
-		public void onStatusChange(JIMConst.ConnectionStatus status, int code, String extra) {
-		Log.i("TAG", "main activity onStatusChange status is " + status + " code is " + code);
-		if (status == JIMConst.ConnectionStatus.CONNECTED) {
-			
-		}
-	}
-	@Override
-	public void onDbOpen() {
-
-	}
-	@Override
-	public void onDbClose() {
-
-	}
+    @Override
+    public void onStatusChange(JIMConst.ConnectionStatus status, int code, String extra) {
+        Log.i("TAG", "main activity onStatusChange status is " + status + " code is " + code);
+        if (status == JIMConst.ConnectionStatus.CONNECTED) {
+            // Handle connection established
+        }
+    }
+    @Override
+    public void onDbOpen() {
+        // Handle database open event
+    }
+    @Override
+    public void onDbClose() {
+        // Handle database close event
+    }
 });
 JIM.getInstance().getConnectionManager().connect("token");
 ```

@@ -1,35 +1,35 @@
 ---
-title: 系统通知
+title: System notification
 hide_title: true
 sidebar_position: 3
 ---
 
-### 场景介绍{#intro}
+### Scene introduction{#intro}
 
-系统通知是 IM 产品中对服务端单向给用户推送消息的统称，`系统通知` 和 `单聊` 都是双方通信，区别在于单聊是支持互相发送消息，系统通知只能由服务端 API 发送消息，终端用户只能接收消息，支持发送文本、图片、语音、文件和自定义消息。
+System notification refers to the one-way push of messages from the server to users in IM products. Both `System notification` and `Pingalong chat` involve two-party communication. The difference is that single chat supports bidirectional messaging, while system notifications can only be sent via the server API and are only received by end users. System notifications support sending text, images, voice, files, and custom messages.
 
-### 适用场景{#match}
+### Applicable scenarios{#match}
 
-> **官方号**：应用内以官网账号的形式进行广播推送官方活动、运营策略、版本更新等通知，是官方和终端用户之间的沟通媒介。
+> **Official account**: The official account is used to broadcast and push notifications about official activities, operational strategies, version updates, and more within the application. It serves as the communication channel between the official entity and end users.
 
-> **运营活动通知**：用于应用组织临时性运营活动通知，配合按标签分类进行通知、在线用户接收通知等特色功能，精准推送消息。
+> **Operation Activity Notification**: Used to manage and organize temporary operational activity notifications, featuring capabilities such as tag-based notifications and delivering messages to online users, enabling precise message targeting.
 
-> **应用全员广播**：向应用内全部用户发送消息，内容可以根据用户画像进行动态调整，消息通知领域的 “千人千面”，精细化运营有力工具。
+> **Application-wide broadcast**: Sends messages to all users within the application. The content can be dynamically tailored based on user profiles. This is a powerful tool for refined operations in message notification.
 
-### 方案特点{#sp}
+### Features of the plan{#sp}
 
-> **时效高数量大**：运营活动通常有时效性要求，一定要在最短时间内将通知消息广播给全员，对系统通知服务 API QPS 要求高。
+> **High timeliness and large volume**: Operational activities often have strict timeliness requirements, and notification messages must be broadcast to all users as quickly as possible, demanding a high QPS (queries per second) from the system notification service API.
 
-> **通知灵活多变**：为了精细化运营，通知消息会有 ”千人千面“ 的精准化通知，对于 IM 系统通知平台的灵活性有一定要求
+> **Flexible notifications**: To support refined operations, notification messages require precise targeting for "thousands of users individually," which places demands on the flexibility of the IM system notification platform.
 
-### 相关文档{#doc}
+### Related documents{#doc}
 
->**基础文档**：[SDK 下载](../../../client/import)、[集成示例](../../../client/quickstart/ios)
+>**Basic Documents**: [SDK Download](../../../client/import), [Integration Example](../../../client/quickstart/ios)
 
->**用户管理**：[用户注册](../../../server/user/register)、[更新信息](../../../server/user/updateuser)、[用户封禁](../../../server/user/addbanuser)、[禁言用户](../../../server/user/addblockuser)
+>**User Management**: [User Registration](../../../server/user/register), [Update Information](../../../server/user/updateuser), [User Ban](../../../server/user/addbanuser), [Ban User](../../../server/user/addblockuser)
 
->**系统通知**：[系统通知消息](../../../server/message/sysmsg)、[全员广播消息](../../../server/message/broadcastmsg)
+>**System Notification**: [System Notification Message](../../../server/message/sysmsg), [All Staff Broadcast Message](../../../server/message/broadcastmsg)
 
->**会话相关**：[会话结构](../../../client/sdkintro/conversation)、[获取会话列表](../../../client/sdkintro/conversation/get_all)、[会话置顶](../../../client/sdkintro/conversation/settop)、[免打扰](../../../client/sdkintro/conversation/disturb)、[获取未读总数](../../../client/sdkintro/conversation/get_total_unread)、[服务端获取会话列表](../../../server/convers/qryconvers)
+>**Session related**: [Session structure](../../../client/sdkintro/conversation), [Get session list](../../../client/sdkintro/conversation/get_all), [Session top](../../../client/sdkintro/conversation/settop), [Do not disturb](../../../client/sdkintro/conversation/disturb), [Get the total number of unreads](../../../client/sdkintro/conversation/get_total_unread), [Server gets the conversation list](../../../server/convers/qryconvers)
 
->**状 态 码**：[Android 相关](../../../client/sdkintro/status_code/android)、[iOS 相关](../../../client/sdkintro/status_code/ios)、[Web 相关](../../../client/sdkintro/status_code/web)、[REST API 相关](../../../server/status)
+>**Status code**: [Android related](../../../client/sdkintro/status_code/android), [iOS related](../../../client/sdkintro/status_code/ios), [Web related](../../../client/sdkintro/status_code/web), [REST API Related](../../../server/status)

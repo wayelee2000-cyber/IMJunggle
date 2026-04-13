@@ -1,51 +1,51 @@
 ---
-title: 多人群聊
+title: Group chat
 hide_title: true
 sidebar_position: 2
 ---
 
-### 场景介绍{#intro}
+### Scene introduction{#intro}
 
-群聊通常指两个人以上在一个组里沟通交流，相互之间通过文本、文件、图片、语音互动，群聊互动消息的硬指标是不丢、不重、不乱序，换设备后消息备份能自动同步至新设备，群内每条消息的 `已读状态`、`已读占比`、`未读数量`、`@ 消息`、`消息操作` 等要求一个用户的多个设备严格一致，消息操作例如 `撤回撤回`、`消息修改`、`回复消息`。
+Group chat typically involves two or more people communicating within a group, interacting through text, files, images, and voice messages. A key characteristic of group chat interactive messages is that they are neither lost, duplicated, nor delivered out of order. When switching devices, message backups can be automatically synchronized to the new device. Features such as `read status`, `read proportion`, `unread count`, `@ message`, and `message operations` for each message in the group require strict consistency across all devices of a user. Message operations include `Withdraw`, `Message modification`, and `Reply message`.
 
-### 适用场景{#match}
+### Applicable scenarios{#match}
 
-> **粉丝群**：粉丝群通常依托于有 `KOL` 社交应用中，有粉丝和主播互动，为了经营私域将粉丝拉到一个群组里进行沟通交流。
+> **Fans Group**: Fan groups typically rely on `KOL` social applications, where fans interact with anchors and are brought into a group for communication to manage a private domain.
 
-> **车友群**：车友群是汽车论坛或汽车主机厂面向同品牌、同系列车组织的多人聊天，车友群多以沟通汽车行业资讯、车型优劣等。
+> **Car Friends Group**: Car Friends Groups are multi-person chats organized by car forums or car manufacturers for owners of the same brand and model series. These groups mainly discuss automotive industry information, pros and cons of car models, and related topics.
 
-> **家长群**：家长群通常是学校老师将班级内学生家长组建一个群组，用于同步学生学习情况或告知学校的最新政策等。
+> **Parent Group**: Parent groups are usually formed by school teachers and parents of students in a class to share students' learning progress or inform parents about the latest school policies.
 
-> **公司群**：公司群通常是包含公司全员的群组，为了及时同步公司政策，例如：假期安排、福利同步等建立的沟通群组。
+> **Company Group**: Company groups generally include all employees and serve as communication channels to promptly share company policies, such as vacation arrangements and welfare updates.
 
-> **熟人群聊**：熟人群聊通常和熟人私信是同时存在，用户添加好友后可以将好友拉到一个群组中进行互动交流。
+> **Acquaintance Group Chat**: Acquaintance group chats coexist with private messages among friends. After users add friends, they can add them to a group for interaction and communication.
 
-> **等多场景**：`班级群`、`部门群`、`售后群`、`外卖群`、`支持群`、`客户群`、`智慧群`、`...`
+> **Multiple scenarios**: `Class Group`, `Department Group`, `After-sales Group`, `Takeaway Group`, `Support Group`, `Customer Group`, `Wisdom Group`, and more.
 
-### 方案特点{#sp}
+### Features of the plan{#sp}
 
-> **入群验证**：邀请用户进群、人数过多时被邀请用户主动确认进群群组。
+> **Group entry verification**: Users invited to join the group must actively confirm their participation when the group size is large.
 
-> **人数上限**：根据群组场景不同，群组人数可配置，低至 10 人以内群组，高至万人群。
+> **Maximum number of participants**: The group size can be configured based on the scenario, ranging from fewer than 10 members to up to 10,000 members.
 
-> **群组信息更新**：群昵称变更通知机制，在线成员实时更新，不在线用户上线自动同步。
+> **Group information updates**: Notifications for group nickname changes, real-time updates of online members, and automatic synchronization of offline users when they come online.
 
-> **特殊行为通知**：成员禁言同步，及时提示禁言状态。
+> **Special behavior notifications**: Member bans are synchronized promptly, with immediate notifications of ban status.
 
-> **群组 “功能糖”**：查看群消息阅读状态、群发助手、消息单双向删除、定时清空消息、按时间删除消息。
+> **Group "Functional Sugar"**: Features include viewing group message read status, group sending assistant, single and two-way message deletion, scheduled message clearing, and message deletion by time.
 
-> **消息绑定群组信息**：消息中包含群组的信息，便于客户端展示，降低集成复杂度。
+> **Message binding group information**: Messages contain group information to facilitate client display and reduce integration complexity.
 
-### 相关文档{#doc}
+### Related documents{#doc}
 
->**基础文档**：[SDK 下载](../../../client/import)、[集成示例](../../../client/quickstart/ios)
+>**Basic Documents**: [SDK Download](../../../client/import), [Integration Example](../../../client/quickstart/ios)
 
->**用户管理**：[用户注册](../../../server/user/register)、[更新信息](../../../server/user/updateuser)、[用户封禁](../../../server/user/addbanuser)、[禁言用户](../../../server/user/addblockuser)
+>**User Management**: [User Registration](../../../server/user/register), [Update Information](../../../server/user/updateuser), [User Ban](../../../server/user/addbanuser), [Ban User](../../../server/user/addblockuser)
 
-> **群组相关**：[创建群组](../../../server/group/groupcreate)、[解散群组](../../../server/group/groupdissolve)、[更新群组信息](../../../server/group/updategroup)、[添加群成员](../../../server/group/groupaddmember)、[群组禁言](../../../server/group/groupmute)、[查询群成员](../../../server/group/qrygroupmember)
+>**Group related**: [Create group](../../../server/group/groupcreate), [Dissolve group](../../../server/group/groupdissolve), [Update group information](../../../server/group/updategroup), [Add group members](../../../server/group/groupaddmember), [Group mute](../../../server/group/groupmute), [Query group members](../../../server/group/qrygroupmember)
 
->**消息相关**：[消息结构](../../../client/sdkintro/msg/message)、[发送消息](../../../client/sdkintro/message/msg_send/send)、[接收消息](../../../client/sdkintro/watcher/message)、[获取历史消息](../../../client/sdkintro/message/histories/get_all)、[清空历史消息](../../../client/sdkintro/message/histories/clear)、[消息撤回](../../../client/sdkintro/message/operator/recall)、[消息已读](../../../client/sdkintro/message/operator/read)、[REST API 发送消息](../../../server/message/privatemsg)
+>**Message related**: [Message structure](../../../client/sdkintro/msg/message), [Send message](../../../client/sdkintro/message/msg_send/send), [Receive message](../../../client/sdkintro/watcher/message), [Get historical messages](../../../client/sdkintro/message/histories/get_all), [Clear historical messages](../../../client/sdkintro/message/histories/clear), [Message recall](../../../client/sdkintro/message/operator/recall), [Message read](../../../client/sdkintro/message/operator/read), [REST API send message](../../../server/message/privatemsg)
 
->**会话相关**：[会话结构](../../../client/sdkintro/conversation)、[获取会话列表](../../../client/sdkintro/conversation/get_all)、[会话置顶](../../../client/sdkintro/conversation/settop)、[免打扰](../../../client/sdkintro/conversation/disturb)、[获取未读总数](../../../client/sdkintro/conversation/get_total_unread)、[服务端获取会话列表](../../../server/convers/qryconvers)
+>**Session related**: [Session structure](../../../client/sdkintro/conversation), [Get session list](../../../client/sdkintro/conversation/get_all), [Session top](../../../client/sdkintro/conversation/settop), [Do not disturb](../../../client/sdkintro/conversation/disturb), [Get the total number of unreads](../../../client/sdkintro/conversation/get_total_unread), [Server gets the conversation list](../../../server/convers/qryconvers)
 
->**状 态 码**：[Android 相关](../../../client/sdkintro/status_code/android)、[iOS 相关](../../../client/sdkintro/status_code/ios)、[Web 相关](../../../client/sdkintro/status_code/web)、[REST API 相关](../../../server/status)
+>**Status code**: [Android related](../../../client/sdkintro/status_code/android), [iOS related](../../../client/sdkintro/status_code/ios), [Web related](../../../client/sdkintro/status_code/web), [REST API Related](../../../server/status)

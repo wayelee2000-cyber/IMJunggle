@@ -1,5 +1,5 @@
 ---
-title: 获取消息回应
+title: Get message response
 hide_title: true
 sidebar_position: 4
 ---
@@ -17,27 +17,27 @@ values={[
 }>
 <TabItem value="android">
 
-SDK 提供了两个获取消息回应的接口，一个是从后端拉取最新数据，另一个是从本地获取缓存的消息回应。
+The SDK provides two methods for retrieving message reactions: one fetches the latest data from the backend, and the other retrieves cached message reactions locally.
 
-本地缓存的数据不一定是最新版本，可以用于第一时间渲染界面，优化体验。
+The locally cached data may not be the most up-to-date version but can be used to render the interface immediately, enhancing the user experience.
 
-**接口定义**
+**Interface definition**
 
 ```java
 /**
- * 批量获取消息回应（消息必须属于同一个会话）
- * @param messageIdList 消息 id 列表
- * @param conversation 消息所属会话
- * @param callback 结果回调
+ * Retrieve message reactions in batches (messages must belong to the same conversation)
+ * @param messageIdList List of message IDs
+ * @param conversation The conversation to which the messages belong
+ * @param callback Result callback
  */
 void getMessagesReaction(List<String> messageIdList,
                             Conversation conversation,
                             IMessageReactionListCallback callback);
 
 /**
- * 获取缓存的消息回应（缓存的数据不一定是最新版本，可用于第一时间渲染，优化用户体验）
- * @param messageIdList 消息 id 列表
- * @return 消息回应列表
+ * Retrieve cached message reactions (the cached data may not be the latest version but can be used for immediate rendering to improve user experience)
+ * @param messageIdList List of message IDs
+ * @return List of message reactions
  */
 List<MessageReaction> getCachedMessagesReaction(List<String> messageIdList);
 ```
@@ -45,56 +45,56 @@ List<MessageReaction> getCachedMessagesReaction(List<String> messageIdList);
 </TabItem>
 <TabItem value="ios">
 
-SDK 提供了两个获取消息回应的接口，一个是从后端拉取最新数据，另一个是从本地获取缓存的消息回应。
+The SDK provides two methods for retrieving message reactions: one fetches the latest data from the backend, and the other retrieves cached message reactions locally.
 
-本地缓存的数据不一定是最新版本，可以用于第一时间渲染界面，优化体验。
+The locally cached data may not be the most up-to-date version but can be used to render the interface immediately, enhancing the user experience.
 
-**接口定义** 
+**Interface definition**
 
 ```objectivec
-/// 批量获取消息回应（消息必须属于同一个会话）
+/// Retrieve message reactions in batches (messages must belong to the same conversation)
 /// - Parameters:
-///   - messageIdList: 消息 id 列表
-///   - conversation: 消息所属会话
-///   - successBlock: 成功回调
-///   - errorBlock: 失败回调
+///   - messageIdList: List of message IDs
+///   - conversation: The conversation to which the messages belong
+///   - successBlock: Success callback
+///   - errorBlock: Failure callback
 - (void)getMessagesReaction:(NSArray <NSString *> *)messageIdList
                conversation:(JConversation *)conversation
                     success:(void (^)(NSArray <JMessageReaction *> *reactionList))successBlock
                       error:(void (^)(JErrorCode code))errorBlock;
 
-/// 获取缓存的消息回应（缓存的数据不一定是最新版本，可用于第一时间渲染，优化用户体验）
-/// - Parameter messageIdList: 消息 id 列表
+/// Retrieve cached message reactions (the cached data may not be the latest version but can be used for immediate rendering to improve user experience)
+/// - Parameter messageIdList: List of message IDs
 - (NSArray <JMessageReaction *> *)getCachedMessagesReaction:(NSArray <NSString *> *)messageIdList;
 ```
 
 </TabItem>
 <TabItem value="js">
 
-直接在消息中获取 `reactions` 属性。
+Access the `reactions` property directly from the message.
 
 </TabItem>
 
 <TabItem value="flutter">
 
-SDK 提供了两个获取消息回应的接口，一个是从后端拉取最新数据，另一个是从本地获取缓存的消息回应。
+The SDK provides two methods for retrieving message reactions: one fetches the latest data from the backend, and the other retrieves cached message reactions locally.
 
-本地缓存的数据不一定是最新版本，可以用于第一时间渲染界面，优化体验。
+The locally cached data may not be the most up-to-date version but can be used to render the interface immediately, enhancing the user experience.
 
-**接口定义**
+**Interface definition**
 
 ```dart
 /**
- * 批量获取消息回应（消息必须属于同一个会话）
- * @param messageIdList 消息 id 列表
- * @param conversation 消息所属会话
+ * Retrieve message reactions in batches (messages must belong to the same conversation)
+ * @param messageIdList List of message IDs
+ * @param conversation The conversation to which the messages belong
  */
 Future<Result<List<MessageReaction>>> getMessagesReaction(List<String> messageIdList, Conversation conversation) async
 
 /**
- * 获取缓存的消息回应（缓存的数据不一定是最新版本，可用于第一时间渲染，优化用户体验）
- * @param messageIdList 消息 id 列表
- * @return 消息回应列表
+ * Retrieve cached message reactions (the cached data may not be the latest version but can be used for immediate rendering to improve user experience)
+ * @param messageIdList List of message IDs
+ * @return List of message reactions
  */
 Future<Result<List<MessageReaction>>> getCachedMessagesReaction(List<String> messageIdList) async
 ```

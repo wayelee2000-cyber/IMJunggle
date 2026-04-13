@@ -1,5 +1,5 @@
 ---
-title: 删除指定会话
+title: Delete specified session
 hide_title: true
 sidebar_position: 3
 ---
@@ -13,32 +13,31 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation | Conversation | 会话标识 | 1.0.0    |
-| callback     | IConversationManager.ISimpleCallback | 结果回调 | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|-------------------------|----------|
+| conversation | Conversation | Conversation identifier | 1.0.0 |
+| callback | IConversationManager.ISimpleCallback | Result callback | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
-
 Conversation conversation = new Conversation(Conversation.ConversationType.PRIVATE, "user1");
 JIM.getInstance().getConversationManager().deleteConversationInfo(conversation, new IConversationManager.ISimpleCallback() {
     @Override
     public void onSuccess() {
-
+        // Handle success
     }
 
     @Override
     public void onError(int errorCode) {
-
+        // Handle error
     }
 });
 ```
@@ -46,40 +45,39 @@ JIM.getInstance().getConversationManager().deleteConversationInfo(conversation, 
 </TabItem>
 <TabItem value="ios">
 
-**参数说明**
+**Parameter description**
 
-| 名称           | 类型     | 描述                                      | 版本     |
-|----------------|---------|---------------------------------------------|----------|
-| conversation   | JConversation | 会话标识 | 1.0.0    |
-| successBlock |  | 成功回调 | 1.0.0    |
-| errorBlock   |  | 失败回调 | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------|---------|-------------------------|----------|
+| conversation | JConversation | Session identifier | 1.0.0 |
+| successBlock | Block | Success callback | 1.0.0 |
+| errorBlock | Block | Failure callback | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 JConversation *conversation = [[JConversation alloc] initWithConversationType:JConversationTypePrivate conversationId:@"user1"];
 
 [JIM.shared.conversationManager deleteConversationInfoBy:conversation
                                                 success:^{
-  
+    // Handle success
 } error:^(JErrorCode code) {
-  
+    // Handle error
 }];
 ```
 
 </TabItem>
 <TabItem value="js">
 
-删除会话多端同步，本地和云端会一起删除，会话删除成功后会触发 [会话删除监听](../../../watcher/conversation)
+Deleted sessions are synchronized across multiple devices. Both local and cloud data will be deleted. After the session is successfully deleted, [session deletion monitoring](../../../watcher/conversation) will be triggered.
 
-**参数说明**
+**Parameter description**
 
-| 名称           | 类型     | 必填   | 默认值  | 描述                                      | 版本     |
-|----------------|---------|-------|---|---------------------------------------------|----------|
-| conversation   | Object | 是     | 无 | 删除的会话，支持删除单个会话，或者传入一个会话数组 | 1.0.0    |
+| Name | Type | Required | Default | Description | Version |
+|----------------|---------|----------|---------|------------------------------------------------|----------|
+| conversation | Object | Yes | None | Conversation to delete; supports deleting a single conversation or an array of conversations | 1.0.0 |
 
-
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType } = JIM;
 
@@ -88,48 +86,48 @@ let conversation = {
   conversationId: 'userId01'
 };
 
-// 删除单个会话
+// Delete a single session
 jim.removeConversation(conversation).then(() => {
-  console.log('remove conversation successfully');
+  console.log('Conversation removed successfully');
 });
 
-// 批量删除会话
+// Delete sessions in batch
 let conversations = [conversation];
-jim.removeConversation(conversation).then(() => {
-  console.log('remove conversations successfully');
+jim.removeConversation(conversations).then(() => {
+  console.log('Conversations removed successfully');
 });
 ```
 </TabItem>
 <TabItem value="harmony">
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation | Conversation | 会话标识 | 1.0.0    |
-| CommonCallback     |  | 结果回调 | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|-------------------------|----------|
+| conversation | Conversation | Conversation identifier | 1.0.0 |
+| CommonCallback | Callback | Result callback | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 
 ```java
-let conver = new Conversation("userid1",1)
-JuggleIm.instance.getConversationManager().delConversation(conver,(code)=>{
-  
-})
+let conver = new Conversation("userid1", 1);
+JuggleIm.instance.getConversationManager().delConversation(conver, (code) => {
+    // Handle result
+});
 ```
 
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-删除会话多端同步，本地和云端会一起删除，会话删除成功后会触发 [会话删除监听](../../../watcher/conversation)。
+Deleting a session is synchronized across multiple devices. Both local and cloud data will be deleted. After the session is successfully deleted, [session deletion monitoring](../../../watcher/conversation) will be triggered.
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation              | Conversation | 会话标识 | 0.6.3    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|-------------------------|----------|
+| conversation | Conversation | Conversation identifier | 0.6.3 |
 
-**示例代码**
+**Sample Code**
 
 ```dart
 Conversation conversation = Conversation(ConversationType.private, 'user1');
@@ -139,17 +137,17 @@ Result result = await JuggleIm.instance.deleteConversationInfo(conversation);
 </TabItem>
 <TabItem value="reactnative">
 
-删除会话多端同步，本地和云端会一起删除，会话删除成功后会触发 [会话删除监听](../../../watcher/conversation)。
+Deleting a session is synchronized across multiple devices. Both local and cloud data will be deleted. After the session is successfully deleted, [session deletion monitoring](../../../watcher/conversation) will be triggered.
 
-**参数说明**
+**Parameter description**
 
-| 名称                             | 类型     | 描述| 版本     |
-|---------------------------------|---------|----------|----------|
-| conversation              | Object | 会话标识 | 0.6.3    |
-| conversationType              | Number | 会话类型 | 0.6.3    |
-| conversationId              | String | 会话ID | 0.6.3    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|-------------------------|----------|
+| conversation | Object | Conversation identifier | 0.6.3 |
+| conversationType | Number | Conversation type | 0.6.3 |
+| conversationId | String | Session ID | 0.6.3 |
 
-**示例代码**
+**Sample Code**
 
 ```javascript
 import JuggleIM from 'juggleim-rnsdk';

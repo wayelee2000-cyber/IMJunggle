@@ -1,5 +1,5 @@
 ---
-title: 修改消息
+title: Modify message
 hide_title: true
 sidebar_position: 1
 ---
@@ -12,23 +12,23 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', },
+{ label: 'Hongmeng', value: 'harmony', },
 ]
 }>
 <TabItem value="android">
 
-只允许修改自己发送的消息。修改成功后，对应会话中的其他用户会收到 onMessageUpdate 回调（需要添加[消息监听](../../../watcher/message)）
+You can only modify messages that you have sent. After a successful modification, other users in the corresponding session will receive the `onMessageUpdate` callback (make sure to add [message listening](../../../watcher/message)).
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| messageId                        | String  | 消息 id                           | 1.8.4    |
-| messageContent               | MessageContent | 修改后的消息实体                             | 1.8.4 |
-|conversation | Conversation | 会话 | 1.8.4 |
-| callback         | IMessageCallback  | 结果回调 | 1.8.4    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| messageId | String | Message ID | 1.8.4 |
+| messageContent | MessageContent | Modified message entity | 1.8.4 |
+| conversation | Conversation | Session | 1.8.4 |
+| callback | IMessageCallback | Result callback | 1.8.4 |
 
-**示例代码**
+**Sample Code**
 
 ```java
 TextMessage text = new TextMessage("update message");
@@ -49,19 +49,19 @@ JIM.getInstance().getMessageManager().updateMessage("messageId1", text, conversa
 </TabItem>
 <TabItem value="ios">
 
-只允许修改自己发送的消息。修改成功后，对应会话中的其他用户会收到 messageDidUpdate: 回调（需要添加[消息监听](../../../watcher/message)）
+You can only modify messages that you have sent. After a successful modification, other users in the corresponding session will receive the `messageDidUpdate:` callback (make sure to add [message listening](../../../watcher/message)).
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| messageContent               | JMessageContent | 修改后的消息实体                             | 1.8.4 |
-| messageId                        | NSString  | 消息 id                           | 1.8.4    |
-|conversation | JConversation | 会话 | 1.8.4 |
-| successBlock         |   | 成功回调 | 1.8.4    |
-| errorBlock                   |   | 失败回调 | 1.8.4    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| messageContent | JMessageContent | Modified message entity | 1.8.4 |
+| messageId | NSString | Message ID | 1.8.4 |
+| conversation | JConversation | Session | 1.8.4 |
+| successBlock | | Success callback | 1.8.4 |
+| errorBlock | | Failure callback | 1.8.4 |
 
-**示例代码**
+**Sample Code**
 
 ```objectivec
 JTextMessage *text = [[JTextMessage alloc] initWithContent:@"update message"];
@@ -80,29 +80,29 @@ JConversation *conversation = [[JConversation alloc] initWithConversationType:JC
 </TabItem>
 <TabItem value="js">
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 必填   | 默认值  | 描述                                                         | 版本     |
-|--------------------------------|---------|--------|--------|--------------------------------------------------------------|----------|
-| message                        | Object  | 是     |        | 消息对象                                                      | 1.0.0    |
-| message.conversationType       | Number  | 是     |        | [会话类型](../../enum/web#conversation)                            | 1.0.0    |
-| message.conversationId         | String  | 是     |        | 会话 Id，会话类型是 `PRIVATE` 时，会话 Id 是接收方的 userId，会话类型是 `GROUP` 时是群组 Id | 1.0.0    |
-| message.content                | Object  | 是     |        | 消息内容，构建 `message.name` 消息                              | 1.0.0    |
-| message.tid                     | String  | 是    |         |被修改的消息的本地 Id                                       | 1.0.0  |
-| message.messageId              | String   | 是    |         |被修改的消息 Id                                       | 1.0.0  |
-| message.sentTime               | Number   | 是    |         |被修改的消息的发送时间                                | 1.0.0  |
+| Name | Type | Required | Default | Description | Version |
+|--------------------------------|---------|--------|--------|----------------------------------------------------------------|----------|
+| message | Object | Yes | | Message object | 1.0.0 |
+| message.conversationType | Number | Yes | | [Conversation Type](../../enum/web.md#conversation) | 1.0.0 |
+| message.conversationId | String | Yes | | Session ID. When the session type is `PRIVATE`, this is the user ID of the receiver; when the session type is `GROUP`, it is the group ID | 1.0.0 |
+| message.content | Object | Yes | | Message content, constructed from the `message.name` message | 1.0.0 |
+| message.tid | String | Yes | | Local ID of the modified message | 1.0.0 |
+| message.messageId | String | Yes | | Modified message ID | 1.0.0 |
+| message.sentTime | Number | Yes | | Sending time of the modified message | 1.0.0 |
 
-**成功回调**
+**Success callback**
 
-无参数返回，回调触发表示成功
+No parameters are returned. The callback is triggered to indicate success.
 
-**失败回调**
+**Failure callback**
 
-| 名称   | 类型    | 描述                                                      | 版本   |
-|--------|---------|-----------------------------------------------------------|--------|
-| error  | Object  | 发送失败后会有对应的状态码，可以直接查看 `error.msg`，或者查看 [状态码](../../../../sdkintro/status_code/web) | 1.0.0  |
+| Name | Type | Description | Version |
+|--------|---------|--------------------------------------------------------------|--------|
+| error | Object | Contains the corresponding status code if the transmission fails. You can view `error.msg` directly or refer to [Status Code](../../../../sdkintro/status_code/web) | 1.0.0 |
 
-**示例代码**
+**Sample Code**
 ```js
 let { ConversationType } = JIM;
 
@@ -118,52 +118,51 @@ let msg = {
 };
 
 jim.updateMessage(msg).then(() => {
-  console.log('update message successfully.')
+  console.log('Message updated successfully.');
 }, (error) => {
-  console.log(error)
+  console.log(error);
 });
 ```
 </TabItem>
 
 <TabItem value="harmony">
 
-只允许修改自己发送的消息。修改成功后，对应会话中的其他用户会收到 onMessageUpdate 回调（需要添加[消息监听](../../../watcher/message)）
+You can only modify messages that you have sent. After a successful modification, other users in the corresponding session will receive the `onMessageUpdate` callback (make sure to add [message listening](../../../watcher/message)).
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 描述                                                         | 版本     |
-|-------------------------------|---------|--------------------------------------------------------------|----------|
-| conver  | Conversation | 会话 | 1.8.4 |
-| msgId                        | string  | 消息 id                           | 1.8.4    |
-| msg               | MessageContent | 修改后的消息实体                             | 1.8.4 |
-| callback         | MessageCallback  | 结果回调 | 1.8.4    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|------------------------------------------------------------------|----------|
+| conver | Conversation | Session | 1.8.4 |
+| msgId | string | Message ID | 1.8.4 |
+| msg | MessageContent | Modified message entity | 1.8.4 |
+| callback | MessageCallback | Result callback | 1.8.4 |
 
-**示例代码**
+**Sample Code**
 
 ```java
-let conver = new Conversation("userid1",1)
-let txt = new TextMessage("new content","")
-JuggleIm.instance.getMessageManager().modifyMessage(conver,"messageid1",txt,(code,msg)=>{
+let conver = new Conversation("userid1", 1);
+let txt = new TextMessage("new content", "");
+JuggleIm.instance.getMessageManager().modifyMessage(conver, "messageid1", txt, (code, msg) => {
 
-})
+});
 ```
 
 </TabItem>
 <TabItem value="reactnative" label="ReactNative">
 
-只允许修改自己发送的消息。修改成功后，对应会话中的其他用户会收到 onMessageUpdate 回调（需要添加消息监听）
+You can only modify messages that you have sent. After a successful modification, other users in the corresponding session will receive the `onMessageUpdate` callback (message monitoring needs to be enabled).
 
-**参数说明**
+**Parameter description**
 
-| 名称                           | 类型    | 描述          | 版本     |
-|-------------------------------|---------|----------------|----------|
-| conversation   | Conversation  | 会话标识     | 1.0.0    |
-| messageId      | String        | 消息 id     | 1.0.0    |
-| messageContent | MessageContent| 修改后的消息实体 | 1.0.0    |
-| callback | UpdateMessageCallback | 结果回调 | 1.0.0    |
+| Name | Type | Description | Version |
+|----------------------------------|---------|----------------|----------|
+| conversation | Conversation | Conversation identifier | 1.0.0 |
+| messageId | String | Message ID | 1.0.0 |
+| messageContent | MessageContent | Modified message entity | 1.0.0 |
+| callback | UpdateMessageCallback | Result callback | 1.0.0 |
 
-
-**示例代码**
+**Sample Code**
 
 ```typescript
 import JuggleIM from 'juggleim-rnsdk';

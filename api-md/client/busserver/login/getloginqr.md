@@ -1,34 +1,34 @@
 ---
-title: 登录二维码
+title: Login QR code
 hide_title: true
 sidebar_position: 7
 ---
-### 功能说明{#intro}
+### Function description{#intro}
 
-获取用于登录的二维码
+Retrieve the QR code for login.
 
-### 请求说明{#req}
+### Request description{#req}
 
-> **请求鉴权**：接口需要增加验证 Header，请查看 [鉴权说明](../../api#header)
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
 
-> **请求类型**：`GET`
+> **Request Type**: `GET`
 
-> **请求限频**：`100次/秒`
+> **Request frequency limit**: `100 requests/second`
 
-> **请求地址**：https://[请求域名](../api#api)/jim/login/qrcode
+> **Request URL**: https://[request domain name](../api.md#api)/jim/login/qrcode
 
-> **Content-Type**：`application/json`
-
-
-### 请求参数{#param}
-
-|参数|数据类型|是否必填|参数说明||
-|:--|:------|:-----|:-------|:--|
-|email|string|是|邮箱||
-|code|string|是|邮箱收到的验证码||
+> **Content-Type**: `application/json`
 
 
-### 请求示例{#req_demo}
+### Request parameters {#param}
+
+| Parameter | Data type | Required | Description                      |   |
+|:----------|:----------|:---------|:--------------------------------|---|
+| email    | string    | yes      | Email address                   |   |
+| code     | string    | yes      | Verification code received via email |   |
+
+
+### Request Example{#req_demo}
 ``` js
 GET /jim/login/qrcode HTTP/1.1
 appkey: appkey
@@ -37,15 +37,15 @@ Content-Type: application/json
 
 ```
 
-### 响应示例{#res_demo}
+### Response example{#res_demo}
 
 ```json
 {
-  "code":0,
-  "msg":"sucess",
-  "data":{
-    "id":"二维码唯一标识",
-    "qr_code":"二维码图片的base64数据"
+  "code": 0,
+  "msg": "success",
+  "data": {
+    "id": "QR code unique identifier",
+    "qr_code": "base64 data of QR code image"
   }
 }
 ```

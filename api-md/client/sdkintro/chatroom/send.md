@@ -1,5 +1,5 @@
 ---
-title: 发送聊天室消息
+title: Send chat room message
 hide_title: true
 sidebar_position: 9
 ---
@@ -12,18 +12,18 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
+{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
 :::simple
 
-发送聊天室消息和 _[发送单群聊](../../message/msg_send/send)_ 一致，只需注意两个参数：
+Sending chat room messages is the same as _[sending a single group chat message](../../message/msg_send/send)_. Just note the following two parameters:
 
-> conversatonType: 修改为 `Conversation.ConversationType.CHATROOM`
+> conversationType: set to `Conversation.ConversationType.CHATROOM`
 
-> conversationId: 修改为对应的 `chatroomId`
+> conversationId: set to the corresponding `chatroomId`
 
 :::
 
@@ -32,11 +32,11 @@ values={[
 
 :::simple
 
-发送聊天室消息和 _[发送单群聊](../../message/msg_send/send)_ 一致，只需注意两个参数：
+Sending chat room messages is the same as _[sending a single group chat message](../../message/msg_send/send)_. Just note the following two parameters:
 
-> conversatonType: 修改为 `JConversationTypeChatroom`
+> conversationType: set to `JConversationTypeChatroom`
 
-> conversationId: 修改为对应的 `chatroomId`
+> conversationId: set to the corresponding `chatroomId`
 
 :::
 
@@ -45,11 +45,11 @@ values={[
 
 :::simple
 
-发送聊天室消息和 _[发送单群聊](../../message/msg_send/send)_ 一致，只需注意两个参数：
+Sending chat room messages is the same as _[sending a single group chat message](../../message/msg_send/send)_. Just note the following two parameters:
 
-> conversatonType: 修改为 `ConversationType.CHATROOM`
+> conversationType: set to `ConversationType.CHATROOM`
 
-> conversationId: 修改为对应的 `chatroomId`
+> conversationId: set to the corresponding `chatroomId`
 
 :::
 
@@ -58,11 +58,11 @@ values={[
 
 :::simple
 
-发送聊天室消息和 _[发送单群聊](../../message/msg_send/send)_ 一致，只需注意两个参数：
+Sending chat room messages is the same as _[sending a single group chat message](../../message/msg_send/send)_. Just note the following two parameters:
 
-> conversatonType: 修改为 `ConversationType.chatroom`
+> conversationType: set to `ConversationType.chatroom`
 
-> conversationId: 修改为对应的 `chatroomId`
+> conversationId: set to the corresponding `chatroomId`
 
 :::
 
@@ -71,11 +71,11 @@ values={[
 
 :::simple
 
-发送聊天室消息和 _[发送单群聊](../../message/msg_send/send)_ 一致，只需注意两个参数：
+Sending chat room messages is the same as _[sending a single group chat message](../../message/msg_send/send)_. Just note the following two parameters:
 
-> conversatonType: 修改为 `ConversationType.CHATROOM`
+> conversationType: set to `ConversationType.CHATROOM`
 
-> conversationId: 修改为对应的 `chatroomId`
+> conversationId: set to the corresponding `chatroomId`
 
 :::
 
@@ -84,11 +84,11 @@ values={[
 
 :::simple
 
-发送聊天室消息和 _[发送单群聊](../../message/msg_send/send)_ 一致，只需注意两个参数：
+Sending chat room messages is the same as _[sending a single group chat message](../../message/msg_send/send)_. Just note the following two parameters:
 
-> conversatonType: 修改为 `ConversationType.Chatroom`
+> conversationType: set to `ConversationType.Chatroom`
 
-> conversationId: 修改为对应的 `chatroomId`
+> conversationId: set to the corresponding `chatroomId`
 
 :::
 

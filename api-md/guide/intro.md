@@ -1,81 +1,83 @@
 ---
-title: 产品概述
+title: Product Overview
 hide_title: true
 sidebar_position: 1
 ---
 
-### 产品简介{#intro}
+### Product Introduction{#intro}
 
-IM 即时通讯是日常工作生活必备的工具之一，我们每天都被文本消息、语音消息、图片消息等各种信息包围着，IM 通信能力自主化和数据存储安全化关注度日益增高，JIM 在此背景下推出全新一代 IM 即时通讯系统，支持开发者自主选择部署方式和数据存储位置，提供公有云和私有云两种模式，公私有部署模式 IM 功能完全一致，开发者可以根据业务发展阶段和特性灵活选择高自主化和数据自有存储的私有云，也可选择简单可靠开箱即用的公有云服务。
+Instant messaging (IM) has become an essential part of both work and daily life. Every day, we exchange text, voice, images, and many other types of information. As businesses increasingly prioritize communication autonomy and data security, more developers require IM solutions that offer flexible deployment options and full control over data storage.
 
-对接 IM 服务会涉及 `IM 服务端`、 `开发者服务端`、 `客户端(用户)`，客户端指对接 IM SDK 的 App 或者 Web 站点，三者交互关系如下图所示：
+To address these needs, JIM provides a next-generation IM system that allows developers to independently choose both the deployment model and the data storage location. It supports both `public cloud` and `private cloud` deployments, with the same core features available in each mode. Depending on your business stage and requirements, you can opt for a highly autonomous private-cloud deployment with full control over data storage, or use a simple, reliable, ready-to-use public-cloud service.
+
+An IM integration typically involves three components: the `IM server`, the `developer server`, and the `client (user)`. The client refers to the app or website connected to the IM SDK. The interaction among these three components is illustrated below:
 
 ![](./assets/intro.png)
 
-为了更好的和开发者服务进行互动融合，IM 服务提供覆盖 `Android`、`iOS`、`Web`、`Electron` 多端 SDK 组件，支持 IM 服务端 REST API 调用和 WebHook 回调事件，IM 服务提供用户信息和群组信息管理能力，开发者处理最新聊天列表和消息列表时无需单独获取对应的群组信息、用户信息，SDK 自动将群组、用户信息组装后返回给开发者业务层，开发者按需渲染即可完成 IM 能力搭建。
+To simplify integration with developer services, the IM platform provides SDKs for `Android`, `iOS`, `Web`, and `Electron`, and also supports IM server REST APIs and WebHook callbacks. It includes user and group information management, so when developers process recent conversations or message lists, they do not need to fetch related user or group details separately. The SDK automatically assembles and returns this information to the business layer, enabling developers to build IM features more efficiently and render only what their application requires.
 
-#### 单聊{#private}
+#### Single chat{#private}
 
-单聊是 IM 产品中 `两个人` 之间沟通的统称，具体到业务场景里可以是 _熟人私信_、_关注/互关互动_、_主播粉丝互动_、_陌生人私信_、_买卖双方沟_ 通等，单聊默认支持发送文本、图片、语音、文件消息，如需扩展消息类型，可通过 [自定义消息](../../client/sdkintro/message/msg_send/custom) 扩展，实现单聊通信核心步骤如下：
+Single chat refers to one-to-one communication in IM products. In real business scenarios, it can be used for _private messaging between acquaintances_, _follow or mutual-follow interactions_, _streamer-fan interactions_, _stranger messaging_, _buyer-to-buyer communication_, and more. By default, single chat supports text, image, voice, and file messages. If you need additional message types, you can extend them with [custom messages](../client/sdkintro/message/msg_send/custom.md). The core steps for implementing single chat are as follows:
 
-> 1、在开发者后台创建项目，得到 AppKey 和 Secret
+> 1. Create a project in the developer console and obtain the AppKey and Secret.
 
-> 2、开发者服务端调用用户注册接口，分别生成两个用户 A 和 B IM Token
+> 2. The developer server calls the user registration API to generate IM tokens for users A and B.
 
-> 3、启动两个 App 或者两个 Web 浏览器，根据快速集成指南连接只 IM 服务端
+> 3. Launch two apps or two browser sessions, and connect both clients to the IM server by following the quick integration guide.
 
-> 4、A 和 B 连接成功后，A 调用 `sendMessage` 设置会话类型为 `PRIVATE`、会话 Id 为 B 的用户 Id
+> 4. After A and B are connected successfully, user A calls `sendMessage`, sets the session type to `PRIVATE`, and uses B's user ID as the session ID.
 
-> 5、B 的消息监听会触发，收到 A 发送的消息内容
+> 5. B's message listener is triggered and receives the message sent by A.
 
-#### 群聊{#group}
+#### Group chat{#group}
 
-群聊是 IM 产品中 `两个人以上` 沟通的统称，具体到业务场景里可以是 _熟人群聊_、_粉丝群_、_车友群_、_家长群_、_公司群_、_部门群_、_售后群_ 等，群聊默认支持发送文本、图片、语音、文件消息，与单聊功能一致，如需扩展消息类型，可通过 [自定义消息](../../client/sdkintro/message/msg_send/custom) 扩展，实现群聊通信核心步骤如下：
+Group chat refers to communication among two or more users in IM products. In business scenarios, it can be used for _friend groups_, _fan communities_, _car-owner groups_, _parent groups_, _company groups_, _department groups_, _after-sales support groups_, and more. By default, group chat supports text, image, voice, and file messages, just like single chat. If you need additional message types, you can extend them with [custom messages](../client/sdkintro/message/msg_send/custom.md). The core steps for implementing group chat are as follows:
 
-> 1、在开发者后台创建项目，得到 AppKey 和 Secret
+> 1. Create a project in the developer console and obtain the AppKey and Secret.
 
-> 2、开发者服务端调用用户注册接口，分别生成 A、B、C 三个用户 IM Token
+> 2. The developer server calls the user registration API to generate IM tokens for users A, B, and C.
 
-> 3、开发者服务端生成群组 Id `GroupId01`, 群成员包括 A、B、C
+> 3. The developer server creates a group with the ID `GroupId01`, with A, B, and C as members.
 
-> 4、开发者服务端调用 IM 群组管理 REST API [创建群组](../../server/group/groupcreate) 将群组关系同步至 IM 服务端
+> 4. The developer server calls the IM group management REST API [Create Group](../server/group/groupcreate.md) to synchronize the group information to the IM server.
 
-> 5、A 连接成功后，A 调用 `sendMessage` 设置会话类型为 `GROUP`、会话 Id 为 `GroupId01`
+> 5. After A connects successfully, A calls `sendMessage`, sets the session type to `GROUP`, and sets the session ID to `GroupId01`.
 
-> 6、B、C 连接成功后,消息监听会触发，收到 A 发送的群组消息
+> 6. After B and C connect successfully, their message listeners are triggered and they receive the group message sent by A.
 
-#### 聊天室{#chatroom}
+#### Chatroom{#chatroom}
 
-聊天室是 IM 产品中 `直播间发送弹幕` 场景中的统称，主要应用在弹幕、礼物收发和信令控制，常见的应用场景有 _电商直播_、_才艺直播_、_直播课_、_秀场直播_、_赛事直播_、_新闻直播_、_语聊房_ 等，涉及功能包括 `点赞`、`发送礼物`、`弹幕`、`在房人数统计`、`购物车` 等，实现直播场景中弹幕、点赞和礼物等功能，核心步骤如下：
+Chatrooms are commonly used in live-streaming scenarios where users send real-time messages or bullet comments. They are mainly used for live chat, gift interactions, and signaling control. Typical use cases include _e-commerce live streaming_, _talent live streaming_, _online classes_, _entertainment streams_, _event broadcasts_, _news broadcasts_, and _voice chat rooms_. Features in these scenarios may include `likes`, `gift sending`, `bullet comments`, `room member count`, and `shopping cart` interactions. The core steps are as follows:
 
-> 1、在开发者后台创建项目，得到 AppKey 和 Secret
+> 1. Create a project in the developer console and obtain the AppKey and Secret.
 
-> 2、开发者服务端调用用户注册接口，分别生成 A、B、C 三个用户 IM Token
+> 2. The developer server calls the user registration API to generate IM tokens for users A, B, and C.
 
-> 3、开发者服务端生成聊天室 Id `ChatroomId01`, 聊天室成员无需同步，可由用户在客户端自主加入
+> 3. The developer server creates the chatroom ID `ChatroomId01`. Chatroom members do not need to be synchronized in advance and can join directly from the client side.
 
-> 4、开发者服务端调用 IM 群组管理 REST API [创建聊天室](../../server/chatroom/createchatroom) 将聊天室同步至 IM 服务端
+> 4. The developer server calls the IM group management REST API [Create Chat Room](../server/chatroom/createchatroom.md) to synchronize the chatroom to the IM server.
 
-> 5、A 连接成功后，A 调用 `joinChatroom` 加入 `ChatroomId01` 房间
+> 5. After A connects successfully, A calls `joinChatroom` to join `ChatroomId01`.
 
-> 6、A 调用 `sendMessage` 设置会话类型为 `CHATROOM`、会话 Id 为 `ChatroomId01`
+> 6. A calls `sendMessage`, sets the session type to `CHATROOM`, and sets the session ID to `ChatroomId01`.
 
-> 7、B、C 连接成功后, 调用 `joinChatroom` 加入 `ChatroomId01` 房间
+> 7. After B and C connect successfully, they call `joinChatroom` to join `ChatroomId01`.
 
-> 8、B、C 加入房间成功后消息监听触发，收到 A 在 `ChatroomId01` 发送的消息
+> 8. After B and C join successfully, their message listeners are triggered and they receive the message sent by A in `ChatroomId01`.
 
-#### 系统通知{#sys_notice}
+#### System notification {#sys_notice}
 
-系统通知是 IM 产品中对服务端单向给用户推送消息的统称，`系统通知` 和 `单聊` 都是双方通信，区别在于单聊是支持互相发送消息，系统通知只能由服务端 API 发送消息，终端用户只能接收消息，支持发送文本、图片、语音、文件和自定义消息，主要应用在 _全员广播_、_标签通知_、_官网号_ 等场景，实现系统通知核心步骤如下：
+System notifications are one-way messages pushed from the server to users in IM products. Both `system notifications` and `single chat` involve communication between two parties, but unlike single chat, system notifications can only be sent through the server API. End users can receive them but cannot reply directly. System notifications support text, image, voice, file, and custom messages. They are commonly used for _broadcast notifications_, _tag-based notifications_, _official account messaging_, and similar scenarios. The core steps are as follows:
 
-> 1、在开发者后台创建项目，得到 AppKey 和 Secret
+> 1. Create a project in the developer console and obtain the AppKey and Secret.
 
-> 2、开发者服务端调用用户注册接口，分别生成 A、B、C 三个用户 IM Token
+> 2. The developer server calls the user registration API to generate IM tokens for users A, B, and C.
 
-> 3、开发者服务端以系统用 `system_user` 身份调用 [系统通知](../../server/message/sysmsg) 接口发送广播消息
+> 3. The developer server calls the [System Notification](../server/message/sysmsg.md) API as the system user `system_user` to send broadcast messages.
 
-> 4、B、C 连接成功后,消息监听会触发，收到 `system_user` 发送的系统通知
+> 4. After B and C connect successfully, their message listeners are triggered and they receive the system notification sent by `system_user`.
 
-### 产品矩阵{#matrix}
+### Product Matrix{#matrix}
 
 ![](./assets/matrix.png)
