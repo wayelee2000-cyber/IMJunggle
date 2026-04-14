@@ -303,8 +303,11 @@
     });
   }
 
+  var currentDocPath = '';
+
   function openDoc(path, push) {
     if (!path) return;
+    currentDocPath = path;
     function loadDoc(fetchPath) {
       return fetch(fetchPath).then(function (r) {
         if (!r.ok) {
@@ -358,9 +361,10 @@
 
     setActive(path);
     if (push !== false) {
-      try {
-        history.replaceState(null, '', '#' + encodeURIComponent(path));
-      } catch (e) {}
+      var targetHash = '#' + encodeURIComponent(path);
+      if (location.hash !== targetHash) {
+        location.hash = encodeURIComponent(path);
+      }
     }
   }
 
@@ -388,7 +392,13 @@
     var a = e.target.closest('a[data-doc-path]');
     if (!a) return;
     e.preventDefault();
-    openDoc(a.getAttribute('data-doc-path'), true);
+    var nextPath = a.getAttribute('data-doc-path');
+    var targetHash = '#' + encodeURIComponent(nextPath);
+    if (location.hash === targetHash) {
+      openDoc(nextPath, false);
+      return;
+    }
+    location.hash = encodeURIComponent(nextPath);
   });
 
   document.addEventListener('click', function (e) {
@@ -451,10 +461,19 @@
 
   window.addEventListener('hashchange', function () {
     var h = hashToDocPath();
-    if (h) openDoc(h, false);
+    var next = docsByPath[h] ? h : docs[0].path;
+    if (next !== currentDocPath) openDoc(next, false);
   });
 
   var initial = hashToDocPath();
-  openDoc(docsByPath[initial] ? initial : docs[0].path, false);
+  var initialPath = docsByPath[initial] ? initial : docs[0].path;
+  if (location.hash !== '#' + encodeURIComponent(initialPath)) {
+    try {
+      history.replaceState({ docPath: initialPath }, '', '#' + encodeURIComponent(initialPath));
+    } catch (e) {
+      location.hash = encodeURIComponent(initialPath);
+    }
+  }
+  openDoc(initialPath, false);
 })();
 </script></body></html>
