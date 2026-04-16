@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -477,37 +476,6 @@ jim.on(Event.MESSAGE_UPDATED, (notify) => {
       }
    */ 
   console.log(notify);
-});
-```
-</TabItem>
-<TabItem value="harmony">
-
-可以设置多个监听。
-
-```js
-// 收到新消息
-JuggleIm.instance.getMessageManager().addMsgReceivedListener((msg) => {
-
-});
-
-// 消息撤回监听
-JuggleIm.instance.getMessageManager().addMsgRecalledListener((msg) => {
-
-});
-
-// 消息修改监听
-JuggleIm.instance.getMessageManager().addMsgModifiedListener((msg) => {
-
-});
-
-// 消息删除监听
-JuggleIm.instance.getMessageManager().addMsgDeletedListener((conver, msgIds) => {
-
-});
-
-// 消息清除监听
-JuggleIm.instance.getMessageManager().addMsgCleanedListener((conver, cleanTime, senderId) => {
-
 });
 ```
 </TabItem>

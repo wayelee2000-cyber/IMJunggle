@@ -6,17 +6,17 @@ sidebar_position: 2
 
 ### Preparation{#pre}
 
-1. Create an application in the `Developer Backstage` to obtain your `AppKey` and `Secret`.
+1. Create an application in the `Developer server` to obtain your `AppKey` and `Secret`.
 
 ![](./assets/appkey_secret.png)
 
-2. Call the server API to obtain a token yourself, or in the developer backend, navigate to Select Application -> Development Tools -> API -> User Related, and call the user registration interface to obtain two test tokens.
+2. Call the server API to obtain a token yourself, or in the Developer server, navigate to Select Application -> Development Tools -> API -> User Related, and call the user registration interface to obtain two test tokens.
 
 ![](./assets/token.png)
 
 3. Follow the integration steps as outlined in the integration documentation.
 
-### Use process{#flow}
+### Workflow{#flow}
 
 ![](assets/flow.png)
 

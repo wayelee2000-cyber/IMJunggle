@@ -4,20 +4,19 @@ hide_title: true
 sidebar_position: 4
 ---
 
-:::tip Tips
-Electron provides a message storage module to support offline usage and enhance user experience. Essentially, it embeds HTML integrated with the JavaScript SDK into Electron.
-You can obtain the PC application.
-
-This tutorial demonstrates how to build a minimalist PC IM application by combining the Electron framework with the IM SDK. Let's get started~
-:::
+<div style="margin: 1rem 0 1.5rem; padding: 1.25rem 1.5rem; border-left: 5px solid #24b36b; border-radius: 0 14px 14px 0; background: linear-gradient(180deg, #eef8f2 0%, #f7fbf8 100%);">
+  <div style="margin-bottom: 0.9rem; color: #169c59; font-size: 1.15rem; font-weight: 700;">Tips</div>
+  <p style="margin: 0 0 1rem;">Electron provides a message storage module to support offline usage and improve user experience. You can integrate HTML that already includes the JavaScript SDK into Electron to build a PC application.</p>
+  <p style="margin: 0;">This tutorial demonstrates how to build a minimalist PC IM application by combining the Electron framework with the IM SDK. Let's get started.</p>
+</div>
 
 ### Preparation{#pre}
 
-1. Create an application in the `Developer Backstage` to obtain your `AppKey` and `Secret`.
+1. Create an application in the `Developer server` to obtain your `AppKey` and `Secret`.
 
 ![](../assets/appkey_secret.png)
 
-2. Call the server API to obtain tokens yourself, or use the developer backend -> Select Application -> Development Tools -> API -> User Related, and call the user registration interface to get two test tokens.
+2. Call the server API to obtain tokens yourself, or use the Developer server -> Select Application -> Development Tools -> API -> User Related, and call the user registration interface to get two test tokens.
 
 ![](../assets/token.png)
 
@@ -27,19 +26,19 @@ This tutorial demonstrates how to build a minimalist PC IM application by combin
 
 ### Integrate Electron{#electron}
 
-Please refer to the official Electron [Quick Start](https://www.electronjs.org/zh/docs/latest/tutorial/quick-start) guide to create a minimal HelloWorld application, as shown below:
+Please refer to the official Electron [Quick Start](https://www.electronjs.org/docs/latest/tutorial/tutorial-prerequisites) guide to create a minimal HelloWorld application, as shown below:
 
 ![](../assets/electron-helloworld.png)
 
 After successfully running the HelloWorld application, you will have the following files:
 
-> **main.js** — Main process entry point
+> **main.js** - Main process entry point
 
-> **preload.js** — Exposes API methods to the renderer process and handles communication with the main process
+> **preload.js** - Exposes API methods to the renderer process and handles communication with the main process
 
-> **index.html** — Demo page
+> **index.html** - Demo page
 
-> **package.json** — Project dependencies and scripts
+> **package.json** - Project dependencies and scripts
 
 ### Import IM SDK{#import}
 
@@ -208,3 +207,5 @@ app.on('window-all-closed', () => {
 ```bash
 npm run start
 ```
+
+

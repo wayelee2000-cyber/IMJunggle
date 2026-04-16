@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', },
 ]
 }>
 <TabItem value="android">
@@ -49,10 +48,6 @@ jim.getDraft(conversation).then((draft) => {
   console.log('Successfully retrieved conversation draft', draft);
 });
 ```
-</TabItem>
-<TabItem value="harmony">
-
-Each session includes a `draft` attribute, which is returned when retrieving the session list. For more details, please refer to the [Session Object](../../../conversation).
 </TabItem>
 <TabItem value="flutter">
 

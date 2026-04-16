@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -59,9 +58,6 @@ You can filter SDK-related logs by searching for the keyword "JuggleIM" in the c
 // The SDK automatically outputs logs in the development environment
 // You can view them in the Metro console
 ```
-
-</TabItem>
-<TabItem value="harmony">
 
 </TabItem>
 </Tabs>

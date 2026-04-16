@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -123,24 +122,6 @@ import JuggleIM from 'juggleim-rnsdk';
 await JuggleIM.clearUnreadCount({
   conversationType: 1,
   conversationId: 'user1'
-});
-```
-
-</TabItem>
-<TabItem value="harmony">
-
-**Parameter Description**
-
-| Name | Type | Description | Version |
-|----------------------------------|--------|------------|----------|
-| conver | Conversation | Session ID | 1.0.0 |
-| callback | CommonCallback | Result callback | 1.0.0 |
-
-**Sample Code**
-```java
-let conver = new Conversation("userid1", 1);
-JuggleIm.instance.getConversationManager().clearUnreadCount(conver, (code) => {
-  
 });
 ```
 

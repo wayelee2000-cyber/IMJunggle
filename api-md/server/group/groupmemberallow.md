@@ -8,10 +8,10 @@ sidebar_position: 11
 
 After enabling a group ban, if you want to allow certain users to send messages, you can add those users to the group whitelist.
 
-:::danger priority
-If the developer calls `Group ban`, `Group member ban`, and `Group whitelist` simultaneously, the group whitelist takes the highest priority, allowing users on the whitelist to continue sending messages.
-:::
-
+<div style="margin: 1rem 0; padding: 1rem 1.25rem; border-left: 4px solid #e5484d; background: #fff1f2; border-radius: 0 16px 16px 0;">
+<p style="margin: 0 0 0.75rem; font-size: 1rem; font-weight: 700; color: #b42318;">priority</p>
+<p style="margin: 0; color: #344054;">If the developer calls `Group ban`, `Group member ban`, and `Group whitelist` simultaneously, the group whitelist takes the highest priority, allowing users on the whitelist to continue sending messages.</p>
+</div>
 ### Request Description{#req}
 
 > **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).

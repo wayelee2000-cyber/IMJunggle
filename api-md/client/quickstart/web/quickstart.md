@@ -4,7 +4,7 @@ hide_title: true
 sidebar_position: 1
 ---
 
-### Use process{#flow}
+### Workflow{#flow}
 
 ![](../assets/flow.png)
 
@@ -21,14 +21,14 @@ values={[
 >
 <TabItem value="one">
 
-Create an application in the `Developer Backend` to obtain your `AppKey` and `Secret`.
+Create an application in the `Developer server` to obtain your `AppKey` and `Secret`.
 
 ![](../assets/appkey_secret.png)
 
 </TabItem>
 <TabItem value="two">
 
-Call the server-side API to obtain the token yourself, or in the Developer Backend, navigate to Application -> Development Tools -> API -> User Related, and call the user registration interface to obtain two test tokens.
+Call the server-side API to obtain the token yourself, or in the Developer server, navigate to Application -> Development Tools -> API -> User Related, and call the user registration interface to obtain two test tokens.
 
 ![](../assets/token.png)
 
@@ -123,9 +123,9 @@ jim.connect({ token }).then(
 }
 </style>
 ```
-:::danger Please be careful
-The demo shows a successful connection. In an actual project, you can choose to use the JIM functions as needed according to the [Integration Document](../../../sdkintro/init/).
-:::
-
+<div style="margin: 1rem 0; padding: 1rem 1.25rem; border-left: 4px solid #e5484d; background: #fff1f2; border-radius: 0 16px 16px 0;">
+<p style="margin: 0 0 0.75rem; font-size: 1rem; font-weight: 700; color: #b42318;">Please be careful</p>
+<p style="margin: 0; color: #344054;">The demo shows a successful connection. In an actual project, you can choose to use the JIM functions as needed according to the [Integration Document](../../../sdkintro/init/).</p>
+</div>
 </TabItem>
 </Tabs>

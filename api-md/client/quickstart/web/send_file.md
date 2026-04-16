@@ -8,11 +8,11 @@ sidebar_position: 3
 
 Sending file messages, picture messages, video messages, and voice messages all require file uploads. This example uses file messages. The usage is similar; you only need to replace the sending message method and input parameters.
 
-1. Create an application in the `Developer Backstage` to obtain your `AppKey` and `Secret`.
+1. Create an application in the `Developer server` to obtain your `AppKey` and `Secret`.
 
 ![](../assets/appkey_secret.png)
 
-2. Call the server API to obtain the token yourself, or in the developer backend -> Select Application -> Development Tools -> API -> User Related, call the user registration interface to obtain two test tokens.
+2. Call the server API to obtain the token yourself, or in the Developer server -> Select Application -> Development Tools -> API -> User Related, call the user registration interface to obtain two test tokens.
 
 ![](../assets/token.png)
 
@@ -20,13 +20,13 @@ Sending file messages, picture messages, video messages, and voice messages all 
 
 4. Download the cloud vendor file upload SDK, such as [Qiniu SDK](https://developer.qiniu.com/kodo/1283/javascript) or [Alibaba OSS](https://www.alibabacloud.com/help/zh/oss/user-guide/upload-a-file-using-a-file-url?spm=a2c63.p38356.0.0.55571f10Ci0gEp#392d9bf073h38). The following example uses Qiniu.
 
-5. Set the cloud storage type in the developer backend. If you use Alibaba OSS, please configure the Alibaba Cloud backend to allow web-side cross-domain requests.
+5. Set the cloud storage type in the Developer server. If you use Alibaba OSS, please configure the Alibaba Cloud backend to allow web-side cross-domain requests.
 
 ![](../assets/storage.png)
 
 6. Integrate step-by-step according to the integration document.
 
-### Use process{#flow}
+### Workflow{#flow}
 
 > 1. Import the IM Web SDK
 
@@ -194,6 +194,7 @@ For demonstration purposes, the sample code includes the official test AppKey an
 </html>
 ```
 
-:::danger Please be careful
-The demo shows a successful connection. In an actual project, you can choose to use the JIM functions as needed according to the [Integration Document](../../../sdkintro/init/).
-:::
+<div style="margin: 1rem 0; padding: 1rem 1.25rem; border-left: 4px solid #e5484d; background: #fff1f2; border-radius: 0 16px 16px 0;">
+<p style="margin: 0 0 0.75rem; font-size: 1rem; font-weight: 700; color: #b42318;">Please note</p>
+<p style="margin: 0; color: #344054;">The demo shows a successful connection. In an actual project, you can choose to use the JIM functions as needed according to the <a href="#api-md/client/sdkintro/init.mdx">Integration Document</a>.</p>
+</div>

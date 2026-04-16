@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -155,21 +154,6 @@ const attributes: Record<string, string> = {
   "key2": "value2"
 };
 await JuggleIM.setChatroomAttributes("chatroomId1", attributes);
-```
-
-</TabItem>
-<TabItem value="harmony">
-
-Set chat room properties with support for batch operations. The settings will be automatically synchronized to all members of the chat room and returned through the [Chat Room Property Change Event](../event).
-
-**Sample Code**
-
-```js
-let attributes = {
-  "key1": "value1",
-  "key2": "value2"
-};
-JuggleIm.instance.getChatroomManager().setAttributes("chatroomId1", attributes);
 ```
 
 </TabItem>

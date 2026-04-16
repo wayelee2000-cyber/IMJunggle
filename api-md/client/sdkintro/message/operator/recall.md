@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', },
 ]
 }>
 <TabItem value="android">
@@ -120,31 +119,6 @@ jim.recallMessage(message).then(() => {
   console.log(error);
 });
 ```
-</TabItem>
-<TabItem value="harmony">
-
-Only messages sent by yourself can be withdrawn. After a successful withdrawal, other users in the corresponding session will receive the onMessageRecall callback (requires adding [message listening](../../../watcher/message)).
-
-**Parameter description**
-
-| Name | Type | Description | Version |
-|----------------------------------|---------|------------------------------------------------------------------|----------|
-| conver | Conversation | The associated session | 1.0.0 |
-| msgId | string | Message ID | 1.0.0 |
-| extras | ```Map<string, string>``` | Extended information | 1.0.0 |
-| callback | IRecallMessageCallback | Callback | 1.0.0 |
-
-**Sample Code**
-
-```java
-let conver = new Conversation("userid1", 1);
-let extras: HashMap<string, string> = new HashMap();
-extras.set("key1", "value1");
-JuggleIm.instance.getMessageManager().recallMessage(conver, "messageid", extras, (code, msg) => {
-
-});
-```
-
 </TabItem>
 <TabItem value="reactnative" label="ReactNative">
 

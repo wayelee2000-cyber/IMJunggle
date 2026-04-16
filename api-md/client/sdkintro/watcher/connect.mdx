@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', },
 ]
 }>
 <TabItem value="android">
@@ -98,19 +97,6 @@ jim.on(Event.STATE_CHANGED, ({ state, user }) => {
 
 });
 ```
-</TabItem>
-<TabItem value="harmony">
-
-可以设置多个监听。
-
-```js
-JuggleIM.instance.getConnectionManager().addConnectStatusListener((status, code) => {
-  if (status === ConnStatus.Connected) {
-
-  }
-});
-```
-
 </TabItem>
 <TabItem value="reactnative">
 

@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', },
 ]
 }>
 <TabItem value="android">
@@ -53,8 +52,9 @@ The local message extension function only affects local messages and will not be
 </TabItem>
 <TabItem value="js">
 
-:::danger This feature is only supported in Electron
-:::
+<div style="margin: 1rem 0; padding: 1rem 1.25rem; border-left: 4px solid #e5484d; background: #fff1f2; border-radius: 0 16px 16px 0;">
+<p style="margin: 0 0 0.75rem; font-size: 1rem; font-weight: 700; color: #b42318;">This feature is only supported in Electron</p>
+</div>
 
 To support local messages, special fields are added to implement different functions. For example, adding a local file path to a message in `Electron` can be achieved using this method. After the extension is set successfully, the extension of the corresponding message will be automatically returned when retrieving historical messages.
 
@@ -89,24 +89,6 @@ jim.updateMessageAttr(message).then(() => {
   console.log(error);
 });
 ```
-</TabItem>
-<TabItem value="harmony">
-
-The local message extension function only affects local messages and will not be synchronized to the remote end.
-
-**Parameter description**
-
-| Name | Type | Description | Version |
-|----------------------------------|---------|------------------------------------------------------------------|----------|
-| msgId | string | Message ID | 1.0.0 |
-| attribute | string | Local attributes (JSON format can be used to support complex business scenarios) | 1.0.0 |
-
-**Sample Code**
-
-```java
-JuggleIm.instance.getMessageManager().setLocalAttribue("msgid1", "json content");
-```
-
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 

@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -147,18 +146,6 @@ import JuggleIM from 'juggleim-rnsdk';
 
 const keys = ["key1"];
 await JuggleIM.removeChatroomAttributes("chatroomId1", keys);
-```
-
-</TabItem>
-<TabItem value="harmony">
-
-Deleting chat room attributes supports batch operations. The deletion command is automatically synchronized to all members of the chat room and delivered through the [Chat Room Attribute Change Event](../event).
-
-**Sample Code**
-
-```js
-let keys = ["key1"];
-JuggleIm.instance.getChatroomManager().removeAttributes("chatroomId1", keys);
 ```
 
 </TabItem>

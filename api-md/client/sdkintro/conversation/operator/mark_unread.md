@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -97,27 +96,6 @@ jim.markUnread({
 ```
 </TabItem>
 
-<TabItem value="harmony">
-
-This method sets the unread status of a session and supports marking it as `unread`. To clear the unread status, you can call the [Clear Single Session Unread](../../unread/clear_unread) interface. The SDK will automatically synchronize the mark status across all devices of the current user.
-
-**Parameter description**
-
-| Name | Type | Description | Version |
-|----------------------------------|---------|----------|----------|
-| conversation | Conversation | Conversation identifier | 1.3.0 |
-| callback | ISimpleCallback | Result callback | 1.3.0 |
-
-**Sample Code**
-
-```java
-let conver = new Conversation("userid1",1)
-JuggleIm.instance.getConversationManager().setUnread(conver,(code)=>{
-  
-})
-```
-
-</TabItem>
 <TabItem value="flutter" label="Flutter">
 
 This method sets the unread status of a session and supports marking it as `unread`. To clear the unread status, you can call the [Clear Single Session Unread](../../unread/clear_unread) interface. The SDK will automatically synchronize the mark status across all devices of the current user. After a successful update, a session change event will be triggered.

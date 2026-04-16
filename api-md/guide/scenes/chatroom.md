@@ -20,7 +20,7 @@ The live chat room is an interactive communication scene based on IM instant mes
 
 > **More Live Broadcasts**: `Chat Room`, `Talent Live Broadcast`, `Show Live Broadcast`, and others.
 
-### Features of the plan{#sp}
+### Scenario features{#sp}
 
 > **Flexible and easy to use**: Users can freely join and leave the room to interact at any time.
 
@@ -34,12 +34,12 @@ The live chat room is an interactive communication scene based on IM instant mes
 
 ### Related documents{#doc}
 
-> **Basic Documents**: [SDK Download](../../../client/import), [Integration Example](../../../client/quickstart/ios)
+> **Basic documents**: [SDK Download](../../client/import.md), [Integration Example](../../client/quickstart/ios.md)
 
-> **User Management**: [User Registration](../../../server/user/register), [Update Information](../../../server/user/updateuser), [User Ban](../../../server/user/addbanuser), [Ban User](../../../server/user/addblockuser)
+> **User management**: [User registration](../../server/user/register.md), [Update user information](../../server/user/updateuser.md), [Ban user](../../server/user/addbanuser.md), [Mute user](../../server/user/addblockuser.md)
 
-> **Message related**: [Message structure](../../../client/sdkintro/msg/message), [Send message](../../../client/sdkintro/message/msg_send/send), [Receive message](../../../client/sdkintro/watcher/message), [Get historical messages](../../../client/sdkintro/message/histories/get_all), [Clear historical messages](../../../client/sdkintro/message/histories/clear), [Message recall](../../../client/sdkintro/message/operator/recall), [Message read](../../../client/sdkintro/message/operator/read), [REST API send message](../../../server/message/privatemsg)
+> **Chatroom related**: [Join chatroom](../../client/sdkintro/chatroom/join.md), [Send chatroom message](../../client/sdkintro/chatroom/send.md), [Chatroom events](../../client/sdkintro/chatroom/event.md), [Create chatroom](../../server/chatroom/createchatroom.md), [Get chatroom info](../../server/chatroom/qrychrminfo.md), [REST API send message](../../server/message/chatroommsg.md)
 
-> **Session related**: [Session structure](../../../client/sdkintro/conversation), [Get session list](../../../client/sdkintro/conversation/get_all), [Session top](../../../client/sdkintro/conversation/settop), [Do not disturb](../../../client/sdkintro/conversation/disturb), [Get the total number of unreads](../../../client/sdkintro/conversation/get_total_unread), [Server gets the conversation list](../../../server/convers/qryconvers)
+> **Conversation related**: [Conversation structure](../../client/sdkintro/conversation.md), [Get conversation list](../../client/sdkintro/conversation/get_all.md), [Pin a conversation](../../client/sdkintro/conversation/operator/settop.md), [Do not disturb](../../client/sdkintro/conversation/operator/disturb.md), [Get the total number of unreads](../../client/sdkintro/conversation/unread/get_total_unread.md), [Server gets conversation list](../../server/convers/qryconvers.md)
 
-> **Status code**: [Android related](../../../client/sdkintro/status_code/android), [iOS related](../../../client/sdkintro/status_code/ios), [Web related](../../../client/sdkintro/status_code/web), [REST API Related](../../../server/status)
+> **Status code**: [Android related](../../client/sdkintro/status_code/android.md), [iOS related](../../client/sdkintro/status_code/ios.md), [Web related](../../client/sdkintro/status_code/web.md), [REST API related](../../server/status.md)

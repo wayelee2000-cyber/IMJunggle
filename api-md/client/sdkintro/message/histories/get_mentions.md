@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -112,27 +111,6 @@ jim.getMentionMessages(conversation).then((result) => {
   console.log(isFinished, msgs);
 })
 ```
-</TabItem>
-<TabItem value="harmony">
-
-**Parameter Description**
-
-| Name | Type | Description | Version |
-|----------------------------------|---------|------------------------------------------------------------------|----------|
-| conver | Conversation | Session ID | 1.0.0 |
-| count | number | Number of messages to pull | 1.0.0 |
-| startTime | number | Message timestamp; if 0 is passed, the current time is used | 1.0.0 |
-| isPositive| boolean | Pull direction; true: forward order; false: reverse order | 1.0.0 |
-| callback | QryMessagesCallback| Pull callback | 1.0.0 |
-
-**Sample Code**
-
-```java
-let conver = new Conversation("userid1",1)
-JuggleIm.instance.getMessageManager().queryMentionMessages(conver,100,0,false,(code,msgs,hasMore)=>{
-})
-```
-
 </TabItem>
 
 <TabItem value="flutter" label="Flutter">

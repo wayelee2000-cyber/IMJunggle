@@ -13,7 +13,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -97,25 +96,6 @@ jim.removeConversation(conversations).then(() => {
   console.log('Conversations removed successfully');
 });
 ```
-</TabItem>
-<TabItem value="harmony">
-
-**Parameter description**
-
-| Name | Type | Description | Version |
-|----------------------------------|---------|-------------------------|----------|
-| conversation | Conversation | Conversation identifier | 1.0.0 |
-| CommonCallback | Callback | Result callback | 1.0.0 |
-
-**Sample Code**
-
-```java
-let conver = new Conversation("userid1", 1);
-JuggleIm.instance.getConversationManager().delConversation(conver, (code) => {
-    // Handle result
-});
-```
-
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 

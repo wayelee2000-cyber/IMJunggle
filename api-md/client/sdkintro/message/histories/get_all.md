@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -141,42 +140,6 @@ jim.getMessages(params).then((result) => {
 ```
 </TabItem>
 
-<TabItem value="harmony">
-
-**Interface definition**
-
-```java
-/**
- * Result callback
- * @param code Response error code; 0 indicates success
- * @param msgs List of messages
- * @param hasMore Indicates if there are more messages
- */
-export type QryMessagesCallback = (code: number, msgs: Message[], hasMore: boolean) => void;
-
-/**
- * Retrieves messages arranged in chronological order (oldest first, newest last). 
- * If messages are missing and there is a network issue, locally cached messages are returned.
- * @param conver Session object
- * @param options Message retrieval options
- * @param callback Callback function
- */
-queryMessages(conver: Conversation, options: QueryMsgOptions, callback: QryMessagesCallback);
-```
-
-**Sample Code**
-
-```java
-let options = new QueryMsgOptions();
-options.count = 100;
-options.startTime = 0;
-options.isPositive = false;
-JuggleIm.instance.getMessageManager().queryMessages(new Conversation("userid1", 1), options, (code, msgs, hasMore) => {
-
-});
-```
-
-</TabItem>
 <TabItem value="reactnative" label="ReactNative">
 
 Retrieve historical messages for a specified session. Supports fetching from the latest message or retrieving earlier or later messages relative to a specific point in time. The returned message list is sorted in ascending order by message timestamp.

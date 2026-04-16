@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -90,25 +89,6 @@ jim.getMessagesByIds(params).then((result) => {
 }, (error) => {
   console.log(error);
 })
-```
-</TabItem>
-<TabItem value="harmony">
-
-Retrieve the corresponding local messages based on an array of message IDs.
-
-**Parameter description**
-
-| Name | Type | Description | Version |
-|----------------------------------|---------|------------------------------------------------------------------|----------|
-| msgIds | string[] | List of message IDs | 1.0.0 |
-
-**Sample Code**
-
-```java
-let conver = new Conversation("userid1", 1);
-JuggleIm.instance.getMessageManager().getMessagesByIds(conver, ["message_id1", "message_id2"], (code, msgs) => {
-  
-});
 ```
 </TabItem>
 <TabItem value="flutter" label="Flutter">

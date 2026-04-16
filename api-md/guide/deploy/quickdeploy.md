@@ -9,7 +9,7 @@ JuggleIM provides a comprehensive private cloud installation tool. With this too
 This document details the installation and deployment process for both the stand-alone and cluster versions of JuggleIM, enabling you to experience minute-level installation and foolproof operation.
 
 ### Create application{#create}
-Log in to the [Developer Backend](https://console.juggle.im/login), click **Create Application**, select the appropriate package, and create a private cloud application.
+Log in to the [Developer server](https://console.juggle.im/login), click **Create Application**, select the appropriate package, and create a private cloud application.
 ![create an app.](https://downloads.juggle.im/website/static/deploy/createapp.png)
 
 ### Deployment and installation {#deploy}

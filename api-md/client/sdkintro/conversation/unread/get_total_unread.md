@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -111,13 +110,5 @@ const count = await JuggleIM.getTotalUnreadCount([1, 2]);
 
 ```
 
-</TabItem>
-<TabItem value="harmony">
-
-**Sample Code**
-```java
-JuggleIm.instance.getConversationManager().getTotalUnreadCount((code, count) => {
-})
-```
 </TabItem>
 </Tabs>

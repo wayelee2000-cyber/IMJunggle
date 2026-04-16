@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -66,25 +65,6 @@ jim.getTopConversations().then((result) => {
   let { conversations, isFinished } = result;
   console.log(isFinished, conversations);
 })
-```
-
-</TabItem>
-<TabItem value="harmony">
-
-**Parameter Description**
-
-| Name      | Type               | Description                                                      | Version |
-|-----------|--------------------|------------------------------------------------------------------|---------|
-| sortType  | TopConverSortType  | Enumeration value: ByTopTime (sort by top time); BySortTime (sort by session time) | 1.0.0   |
-| start     | number             | Starting timestamp in milliseconds; 0 means current time         | 1.0.0   |
-| isPositive| boolean            | Whether to pull forward                                           | 1.0.0   |
-
-**Sample Code**
-
-```java 
-JuggleIm.instance.getConversationManager().getTopConversations(TopConverSortType.ByTopTime, 0, true, (convers) => {
-
-});
 ```
 
 </TabItem>

@@ -1,5 +1,5 @@
----
-title: 消息监听
+﻿---
+title: Message Listener
 hide_title: true
 sidebar_position: 3
 ---
@@ -12,18 +12,16 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
-]
-}>
+]}
+>
 <TabItem value="android">
 
-**消息相关监听**
+**Message-related listeners**
 
-可以设置多个监听。
-
+You can set multiple listeners.
 ```java
 JIM.getInstance().getMessageManager().addListener("main", new IMessageManager.IMessageListener() {
-    /// 接收消息的回调
+    /// Callback for receiving messages
     @Override
     public void onMessageReceive(Message message) {
         Log.d("TAG", "onMessageReceive, conversationType is " + message.getConversation().getConversationType() + ", conversationId is " + message.getConversation().getConversationId());
@@ -39,77 +37,76 @@ JIM.getInstance().getMessageManager().addListener("main", new IMessageManager.IM
         }
     }
 
-    /// 消息撤回回调
+    /// Message recall callback
     @Override
     public void onMessageRecall(Message message) {
         Log.d("TAG", "onMessageRecall, messageId is " + message.getMessageId());
     }
 
-    /// 消息修改回调
+    /// Message update callback
     @Override
     public void onMessageUpdate(Message message) {
         Log.d("TAG", "onMessageUpdate, messageId is " + message.getMessageId());
     }
 
-    /// 消息删除回调
-    /// conversation: 会话标识
-    /// clientMsgNos: 列表（本端消息唯一编号）
+    /// Message deletion callback
+    /// conversation: Conversation identifier
+    /// clientMsgNos: List of client-side unique message numbers
     @Override
     public void onMessageDelete(Conversation conversation, List<Long> clientMsgNos) {
         Log.d("TAG", "onMessageDelete, conversation is " + conversation.getConversationId() + ", clientMsgNos are " + clientMsgNos);
     }
 
-    /// 消息清除回调，表示清除特定会话中某个时间点之前的所有消息
-    /// conversation: 会话标识
-    /// timestamp: 时间戳（毫秒），timestamp 之前的消息被清除
-    /// senderId: 若不为空，表示只清除发送者 id 为 senderId 的消息
+    /// Message clear callback, indicating all messages before a certain timestamp in a specific conversation are cleared
+    /// conversation: Conversation identifier
+    /// timestamp: Timestamp in milliseconds; messages before timestamp are cleared
+    /// senderId: If not empty, only clear messages sent by senderId
     @Override
     public void onMessageClear(Conversation conversation, long timestamp, String senderId) {
         Log.d("TAG", "onMessageClear, conversation is " + conversation.getConversationId() + ", timestamp is " + timestamp + ", senderId is " + senderId);
     }
 
-    /// 新增消息回应的回调
-    /// conversation: 所属会话
-    /// reaction: 新增的消息回应
+    /// Callback when a message reaction is added
+    /// conversation: The conversation it belongs to
+    /// reaction: The newly added message reaction
     @Override
     public void onMessageReactionAdd(Conversation conversation, MessageReaction reaction) {
 
     }
 
-    /// 删除消息回应的回调
-    /// conversation: 所属会话
-    /// reaction: 删除的消息回应
+    /// Callback when a message reaction is removed
+    /// conversation: The conversation it belongs to
+    /// reaction: The removed message reaction
     void onMessageReactionRemove(Conversation conversation, MessageReaction reaction) {
 
     }
 
-    /// 消息置顶的回调
-    /// message: 对应的消息
-    /// operator: 操作置顶的用户
-    /// isTop: true 表示置顶，false 表示取消置顶
+    /// Message pin callback
+    /// message: The corresponding message
+    /// operator: The user who pinned/unpinned the message
+    /// isTop: true means pinned, false means unpinned
     void onMessageSetTop(Message message, UserInfo operator, boolean isTop) {
 
     }
 });
 ```
 
-**消息阅读状态相关监听**
+**Message read status listeners**
 
-可以设置多个监听。
-
+You can set multiple listeners.
 ```java
 JIM.getInstance().getMessageManager().addReadReceiptListener("main", new IMessageManager.IMessageReadReceiptListener() {
-  /// 单聊消息阅读回调
-  /// conversation: 所在会话
-  /// messageIds: 消息 id 列表
+  /// One-to-one message read callback
+  /// conversation: The conversation
+  /// messageIds: List of message IDs
 	@Override
 	public void onMessagesRead(Conversation conversation, List<String> messageIds) {
 		Log.d("TAG", "onMessagesRead, count is " + messageIds.size() + ", conversationType is " + conversation.getConversationType() + ", conversationId is " + conversation.getConversationId());
 	}
 
-  /// 群消息阅读回调
-  /// conversation: 所在会话
-  /// messages: key 为 messageId
+  /// Group message read callback
+  /// conversation: The conversation
+  /// messages: key is messageId
 	@Override
 	public void onGroupMessagesRead(Conversation conversation, Map<String, GroupMessageReadInfo> messages) {
 		Log.d("TAG", "onGroupMessagesRead, conversationType is " + conversation.getConversationType() + ", id is " + conversation.getConversationId() + ", count is " + messages.size());
@@ -117,17 +114,16 @@ JIM.getInstance().getMessageManager().addReadReceiptListener("main", new IMessag
 });
 ```
 
-**消息销毁相关监听**
+**Message destruction listeners**
 
-可以设置多个监听。
-
+You can set multiple listeners.
 ```java
 JIM.getInstance().getMessageManager().addDestroyListener("main", new IMessageManager.IMessageDestroyListener() {
   /**
-    * 消息销毁时间更新回调（通常用于阅后即焚场景）
-    * @param messageId 消息 id
-    * @param conversation 所在会话
-    * @param destroyTime 更新后的销毁时间
+    * Callback when the message destruction time is updated (commonly used for burn-after-reading scenarios)
+    * @param messageId Message ID
+    * @param conversation The conversation
+    * @param destroyTime Updated destruction time
     */
 	@Override
 	public void onMessageDestroyTimeUpdate(String messageId, Conversation conversation, long destroyTime) {
@@ -136,19 +132,18 @@ JIM.getInstance().getMessageManager().addDestroyListener("main", new IMessageMan
 });
 ```
 
-**消息加解密相关回调**
+**Message encryption/decryption callbacks**
 
-消息加解密只能设置一个监听。
-
+Only one listener can be set for message encryption/decryption.
 ```java
 JIM.getInstance().getMessageManager().setPreprocessor(new IMessageManager.IMessagePreprocessor() {
   /**
-    * 消息加密回调
-    * 触发时机：消息入库后，发送前
-    * @param content 待发送的消息内容，已序列化为 byte[]
-    * @param conversation 所在会话
-    * @param contentType 消息类型
-    * @return 处理后的消息内容
+    * Message encryption callback
+    * Trigger timing: after the message is stored, before sending
+    * @param content The message content to send, serialized as byte[]
+    * @param conversation The conversation
+    * @param contentType Message type
+    * @return Processed message content
     */
 	@Override
 	public byte[] encryptMessageContent(byte[] content, Conversation conversation, String contentType) {
@@ -156,12 +151,12 @@ JIM.getInstance().getMessageManager().setPreprocessor(new IMessageManager.IMessa
 	}
 
   /**
-    * 消息解密回调
-    * 触发时机：接收到消息，入库前
-    * @param content 接收到的消息内容，byte[] 类型，尚未反序列化
-    * @param conversation 所在会话
-    * @param contentType 消息类型
-    * @return 处理后的消息内容
+    * Message decryption callback
+    * Trigger timing: after receiving the message, before storing it
+    * @param content The received message content, of type byte[], not yet deserialized
+    * @param conversation The conversation
+    * @param contentType Message type
+    * @return Processed message content
     */
 	@Override
 	public byte[] decryptMessageContent(byte[] content, Conversation conversation, String contentType) {
@@ -173,14 +168,13 @@ JIM.getInstance().getMessageManager().setPreprocessor(new IMessageManager.IMessa
 </TabItem>
 <TabItem value="ios">
 
-**消息相关监听**
+**Message-related listeners**
 
-可以设置多个代理。
-
+You can set multiple delegates.
 ```objectivec
 [JIM.shared.messageManager addDelegate:self];
 
-/// 接收消息回调
+/// Message receive callback
 - (void)messageDidReceive:(JMessage *)message {
     NSLog(@"messageDidReceive conversationType is %d, conversationId is %@", message.conversation.conversationType, message.conversation.conversationId);
     JMessageContent *content = message.content;
@@ -195,54 +189,54 @@ JIM.getInstance().getMessageManager().setPreprocessor(new IMessageManager.IMessa
     }
 }
 
-/// 消息撤回回调
+/// Message recall callback
 - (void)messageDidRecall:(JMessage *)message {
     NSLog(@"messageDidRecall");
 }
 
-/// 消息修改回调
+/// Message update callback
 - (void)messageDidUpdate:(JMessage *)message {
     NSLog(@"messageDidUpdate");
 }
 
-/// 消息删除回调
+/// Message deletion callback
 - (void)messageDidDelete:(JConversation *)conversation
             clientMsgNos:(NSArray <NSNumber *> *)clientMsgNos {
 
 }
 
-/// 消息清除回调，表示清除特定会话中某个时间点之前的所有消息
+/// Message clear callback, indicating all messages before a certain timestamp in a specific conversation are cleared
 /// - Parameters:
-///   - conversation: 被清除消息所属的会话标识
-///   - timestamp: 时间戳（毫秒），timestamp 之前的消息被清除
-///   - senderId: 若不为空，表示只清除发送者 id 为 senderId 的消息
+///   - conversation: Identifier of the conversation whose messages were cleared
+///   - timestamp: Timestamp in milliseconds; messages before timestamp are cleared
+///   - senderId: If not empty, only clear messages sent by senderId
 - (void)messageDidClear:(JConversation *)conversation
               timestamp:(long long)timestamp
                senderId:(NSString *)senderId {
 
 }
 
-/// 新增消息回应回调
-/// - Parameter reaction: 新增的消息回应
-/// - Parameter conversation: 所属会话
+/// Callback when a message reaction is added
+/// - Parameter reaction: The newly added message reaction
+/// - Parameter conversation: The conversation it belongs to
 - (void)messageReactionDidAdd:(JMessageReaction *)reaction
                inConversation:(JConversation *)conversation {
 
 }
 
-/// 删除消息回应回调
-/// - Parameter reaction: 删除的消息回应
-/// - Parameter conversation: 所属会话
+/// Callback when a message reaction is removed
+/// - Parameter reaction: The removed message reaction
+/// - Parameter conversation: The conversation it belongs to
 - (void)messageReactionDidRemove:(JMessageReaction *)reaction
                   inConversation:(JConversation *)conversation {
   
 }
 
-/// 消息置顶回调
+/// Message pin callback
 /// - Parameters:
-///   - isTop: YES 表示置顶，NO 表示取消置顶
-///   - message: 对应的消息
-///   - userInfo: 操作置顶的用户
+///   - isTop: YES means pinned, NO means unpinned
+///   - message: The corresponding message
+///   - userInfo: The user who pinned/unpinned the message
 - (void)messageDidSetTop:(BOOL)isTop
                  message:(JMessage *)message
                     user:(JUserInfo *)userInfo {
@@ -250,42 +244,40 @@ JIM.getInstance().getMessageManager().setPreprocessor(new IMessageManager.IMessa
 }
 ```
 
-**消息阅读状态相关监听**
+**Message read status listeners**
 
-可以设置多个代理。
-
+You can set multiple delegates.
 ```objectivec
 [JIM.shared.messageManager addReadReceiptDelegate:self];
 
-/// 单聊消息阅读回调
+/// One-to-one message read callback
 /// - Parameters:
-///   - messageIds: 消息 id 列表
-///   - conversation: 所在会话
+///   - messageIds: List of message IDs
+///   - conversation: The conversation
 - (void)messagesDidRead:(NSArray<NSString *> *)messageIds inConversation:(JConversation *)conversation {
     NSLog(@"messagesDidRead");
 }
 
-/// 群消息阅读回调
+/// Group message read callback
 /// - Parameters:
-///   - msgs: key 为 messageId
-///   - conversation: 所在会话
+///   - msgs: key is messageId
+///   - conversation: The conversation
 - (void)groupMessagesDidRead:(NSDictionary<NSString *,JGroupMessageReadInfo *> *)msgs inConversation:(JConversation *)conversation {
     NSLog(@"groupMessagesDidRead, groupId is %@", conversation.conversationId);
 }
 ```
 
-**消息销毁相关监听**
+**Message destruction listeners**
 
-可以设置多个代理。
-
+You can set multiple delegates.
 ```objectivec
 [JIM.shared.messageManager addDestroyDelegate:self];
 
-/// 消息销毁时间更新回调（通常用于阅后即焚场景）
+/// Callback when the message destruction time is updated (commonly used for burn-after-reading scenarios)
 /// - Parameters:
-///   - messageId: 消息 id
-///   - conversation: 所在会话
-///   - destroyTime: 更新后的销毁时间
+///   - messageId: Message ID
+///   - conversation: The conversation
+///   - destroyTime: Updated destruction time
 - (void)messageDestroyTimeDidUpdate:(NSString *)messageId
                      inConversation:(JConversation *)conversation
                         destroyTime:(long long)destroyTime {
@@ -293,31 +285,30 @@ JIM.getInstance().getMessageManager().setPreprocessor(new IMessageManager.IMessa
 }
 ```
 
-**消息加解密相关回调**
+**Message encryption/decryption callbacks**
 
-消息加解密只能设置一个代理。
-
+Only one delegate can be set for message encryption/decryption.
 ```objectivec
 [JIM.shared.messageManager setPreprocessor:self];
 
-/// 消息加密回调
-/// 触发时机：消息入库后，发送前
-/// - Parameter content: 待发送的消息内容，已序列化为 NSData
-/// - Parameter conversation: 所在会话
-/// - Parameter contentType: 消息类型
-/// - Returns: 处理后的消息内容
+/// Message encryption callback
+/// Trigger timing: after the message is stored, before sending
+/// - Parameter content: The message content to send, serialized as NSData
+/// - Parameter conversation: The conversation
+/// - Parameter contentType: Message type
+/// - Returns: Processed message content
 - (NSData *)encryptMessageContent:(NSData *)content
                    inConversation:(JConversation *)conversation
                       contentType:(NSString *)contentType {
   
 }
 
-/// 消息解密回调
-/// 触发时机：接收到消息，入库前
-/// - Parameter content: 接收到的消息内容，NSData 格式，尚未反序列化
-/// - Parameter conversation: 所在会话
-/// - Parameter contentType: 消息类型
-/// - Returns: 处理后的消息内容
+/// Message decryption callback
+/// Trigger timing: after receiving the message, before storing it
+/// - Parameter content: The received message content in NSData format, not yet deserialized
+/// - Parameter conversation: The conversation
+/// - Parameter contentType: Message type
+/// - Returns: Processed message content
 - (NSData *)decryptMessageContent:(NSData *)content
                    inConversation:(JConversation *)conversation
                       contentType:(NSString *)contentType {
@@ -328,19 +319,19 @@ JIM.getInstance().getMessageManager().setPreprocessor(new IMessageManager.IMessa
 </TabItem>
 <TabItem value="js">
 
-Global listeners only need to be set once; multiple settings will override previous ones. When others send messages to the current user, the message listener will be triggered. For message format, see [Message 结构](../../../msg/message). For event descriptions, see [监听枚举](../../../enum/web#listener).
+Global listeners only need to be set once; multiple settings will override previous ones. When others send messages to the current user, the message listener will be triggered. For message format, see [Message Structure](../../../msg/message). For event descriptions, see [Listener Enum](../../../enum/web#listener).
 
 ```js
 let { Event } = JIM;
 
-### 消息接收监听
+### Message Receive Listener
 
 jim.on(Event.MESSAGE_RECEIVED, (message) => {
   console.log(message);
 });
 
 
-### 消息已读监听
+### Message Read Listener
 
 jim.on(Event.MESSAGE_READ, (notify) => {
   /*
@@ -385,18 +376,18 @@ jim.on(Event.MESSAGE_READ, (notify) => {
 
     4. Typical handling for single and group chat self-destruct messages:
 
-    (1) Single chat sender: after receiving read notification from the other party, start countdown based on message.lifeTimeAfterRead to clear.
+      (1) Single chat sender: after receiving read notification from the other party, start countdown based on message.lifeTimeAfterRead to clear.
 
-    (2) Single chat receiver: after sending read notification, start countdown based on message.lifeTimeAfterRead to clear.
+      (2) Single chat receiver: after sending read notification, start countdown based on message.lifeTimeAfterRead to clear.
 
-    (3) Group chat sender: when notify.messages[0].unreadCount is 0, all have read; sender clears message based on message.lifeTimeAfterRead.
+      (3) Group chat sender: when notify.messages[0].unreadCount is 0, all have read; sender clears message based on message.lifeTimeAfterRead.
 
-    (4) Group chat receiver: after sending read receipt, clear based on message.lifeTimeAfterRead.
+      (4) Group chat receiver: after sending read receipt, clear based on message.lifeTimeAfterRead.
   */
 });
 
 
-### 消息清除监听
+### Message Clear Listener
 
 jim.on(Event.MESSAGE_CLEAN, (notify) => {
   /* 
@@ -411,7 +402,7 @@ jim.on(Event.MESSAGE_CLEAN, (notify) => {
 });
 
 
-### 消息撤回监听
+### Message Recall Listener
 
 jim.on(Event.MESSAGE_RECALLED, (notify) => {
   /* 
@@ -438,7 +429,7 @@ jim.on(Event.MESSAGE_RECALLED, (notify) => {
 });
 
 
-### 消息删除监听
+### Message Delete Listener
 
 jim.on(Event.MESSAGE_REMOVED, (notify) => {
   /* 
@@ -455,7 +446,7 @@ jim.on(Event.MESSAGE_REMOVED, (notify) => {
 });
 
 
-### 消息修改监听
+### Message Update Listener
 
 jim.on(Event.MESSAGE_UPDATED, (notify) => {
   /*
@@ -480,223 +471,190 @@ jim.on(Event.MESSAGE_UPDATED, (notify) => {
 });
 ```
 </TabItem>
-<TabItem value="harmony">
-
-可以设置多个监听。
-
-```js
-// 收到新消息
-JuggleIm.instance.getMessageManager().addMsgReceivedListener((msg) => {
-
-});
-
-// 消息撤回监听
-JuggleIm.instance.getMessageManager().addMsgRecalledListener((msg) => {
-
-});
-
-// 消息修改监听
-JuggleIm.instance.getMessageManager().addMsgModifiedListener((msg) => {
-
-});
-
-// 消息删除监听
-JuggleIm.instance.getMessageManager().addMsgDeletedListener((conver, msgIds) => {
-
-});
-
-// 消息清除监听
-JuggleIm.instance.getMessageManager().addMsgCleanedListener((conver, cleanTime, senderId) => {
-
-});
-```
-</TabItem>
 <TabItem value="reactnative">
 
-**消息相关监听**
+**Message-related listeners**
 
-可以设置多个监听，每个监听需要指定唯一的 key，返回的函数可用于取消监听。
-
+You can set multiple listeners. Each listener must specify a unique `key`, and the returned function can be used to remove the listener.
 ```typescript
 import JuggleIM from 'juggleim-rnsdk';
 
-// 添加消息监听，返回取消监听的函数
+// Add a message listener and return the unsubscribe function
 const unsubscribeMessage = JuggleIM.addMessageListener('message_key', {
-  // 接收消息回调
+  // Callback for receiving messages
   onMessageReceive: (message) => {
     console.log('Received message:', message);
   },
 
-  // 消息撤回回调
+  // Message recall callback
   onMessageRecall: (message) => {
     console.log('Message recalled:', message);
   },
 
-  // 消息修改回调
+  // Message update callback
   onMessageUpdate: (message) => {
     console.log('Message updated:', message);
   },
 
-  // 消息删除回调
-  // conversation: 会话标识
-  // clientMsgNos: 列表（本端消息唯一编号）
+  // Message deletion callback
+  // conversation: Conversation identifier
+  // clientMsgNos: List of client-side unique message numbers
   onMessageDelete: (conversation, clientMsgNos) => {
     console.log('Messages deleted:', conversation, clientMsgNos);
   },
 
-  // 消息清除回调，表示清除特定会话中某个时间点之前的所有消息
-  // conversation: 会话标识
-  // timestamp: 时间戳（毫秒），timestamp 之前的消息被清除
-  // senderId: 若不为空，表示只清除发送者 id 为 senderId 的消息
+  // Message clear callback, indicating all messages before a certain timestamp in a specific conversation are cleared
+  // conversation: Conversation identifier
+  // timestamp: Timestamp in milliseconds; messages before timestamp are cleared
+  // senderId: If not empty, only clear messages sent by senderId
   onMessageClear: (conversation, timestamp, senderId) => {
     console.log('Messages cleared:', conversation, timestamp, senderId);
   },
 
-  // 新增消息回应回调
-  // conversation: 所属会话
-  // reaction: 新增的消息回应
+  // Callback when a message reaction is added
+  // conversation: The conversation it belongs to
+  // reaction: The newly added message reaction
   onMessageReactionAdd: (conversation, reaction) => {
     console.log('Message reaction added:', conversation, reaction);
   },
 
-  // 删除消息回应回调
-  // conversation: 所属会话
-  // reaction: 删除的消息回应
+  // Callback when a message reaction is removed
+  // conversation: The conversation it belongs to
+  // reaction: The removed message reaction
   onMessageReactionRemove: (conversation, reaction) => {
     console.log('Message reaction removed:', conversation, reaction);
   },
 
-  // 消息置顶回调
-  // message: 对应的消息
-  // operator: 操作置顶的用户
-  // isTop: true 表示置顶，false 表示取消置顶
+  // Message pin callback
+  // message: The corresponding message
+  // operator: The user who pinned/unpinned the message
+  // isTop: true means pinned, false means unpinned
   onMessageSetTop: (message, operator, isTop) => {
     console.log('Message set top:', message, operator, isTop);
   }
 });
 
-// 取消监听
+// Remove the listener
 // unsubscribeMessage();
 ```
 
-**消息阅读状态相关监听**
+**Message read status listeners**
 
 ```typescript
-// 添加消息阅读状态监听，返回取消监听的函数
+// Add a message read receipt listener and return the unsubscribe function
 const unsubscribeReadReceipt = JuggleIM.addMessageReadReceiptListener('read_receipt_key', {
-  // 单聊消息阅读回调
-  // conversation: 所在会话
-  // messageIds: 消息 id (messageId) 列表
+  // One-to-one message read callback
+  // conversation: The conversation
+  // messageIds: List of message IDs (messageId)
   onMessagesRead: (conversation, messageIds) => {
     console.log('Messages read:', conversation, messageIds);
   },
 
-  // 群消息阅读回调
-  // conversation: 所在会话
-  // messages: key 为 messageId，value 为阅读状态
+  // Group message read callback
+  // conversation: The conversation
+  // messages: key is messageId, value is the read status
   onGroupMessagesRead: (conversation, messages) => {
     console.log('Group messages read info updated:', conversation, messages);
   }
 });
 
-// 取消监听
+// Remove the listener
 // unsubscribeReadReceipt();
 ```
 
-**消息销毁相关监听**
+**Message destruction listeners**
 
 ```typescript
-// 添加消息销毁监听，返回取消监听的函数
+// Add a message destruction listener and return the unsubscribe function
 const unsubscribeDestroy = JuggleIM.addMessageDestroyListener('destroy_key', {
-  // 消息销毁时间更新回调（通常用于阅后即焚场景）
-  // messageId: 消息 id
-  // conversation: 所在会话
-  // destroyTime: 更新后的销毁时间
+  // Callback when the message destruction time is updated (commonly used for burn-after-reading scenarios)
+  // messageId: Message ID
+  // conversation: The conversation
+  // destroyTime: Updated destruction time
   onMessageDestroyTimeUpdate: (messageId, conversation, destroyTime) => {
     console.log('Message destroy time updated:', messageId, conversation, destroyTime);
   }
 });
 
-// 取消监听
+// Remove the listener
 // unsubscribeDestroy();
 ```
 
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-**消息相关监听**
+**Message-related listeners**
 
-连接监听仅支持设置一次，多次设置会覆盖之前的监听。如果有多个监听点，建议在一个监听中处理所有状态，并在业务层进行二次事件分发。
-
+Connection listeners can only be set once. Setting them multiple times will override the previous listener. If there are multiple listening points, it is recommended to handle all states in a single listener and then perform secondary event dispatching at the business layer.
 ```dart
-// 接收消息回调
+// Message receive callback
 JuggleIm.instance.onMessageReceive = (Message message) {
 };
 
-// 消息撤回回调
+// Message recall callback
 JuggleIm.instance.onMessageRecall = (Message message) {
 };
 
-// 消息修改回调
+// Message update callback
 JuggleIm.instance.onMessageUpdate = (Message message) {
 };
 
-// 消息删除回调
-// conversation: 会话标识
-// clientMsgNoList: 列表（本端消息唯一编号 clientMsgNo）
+// Message deletion callback
+// conversation: Conversation identifier
+// clientMsgNoList: List of client-side unique message numbers (clientMsgNo)
 JuggleIm.instance.onMessageDelete = (Conversation conversation, List<int> clientMsgNoList) {
 };
 
-// 消息清除回调，表示清除特定会话中某个时间点之前的所有消息
-// conversation: 会话标识
-// timestamp: 时间戳（毫秒），timestamp 之前的消息被清除
-// senderId: 若不为空，表示只清除发送者 id 为 senderId 的消息
+// Message clear callback, indicating all messages before a certain timestamp in a specific conversation are cleared
+// conversation: Conversation identifier
+// timestamp: Timestamp in milliseconds; messages before timestamp are cleared
+// senderId: If not empty, only clear messages sent by senderId
 JuggleIm.instance.onMessageClear = (Conversation conversation, int timestamp, String? senderId) {
 };
 
-// 新增消息回应回调
-// conversation: 所属会话
-// reaction: 新增的消息回应
+// Callback when a message reaction is added
+// conversation: The conversation it belongs to
+// reaction: The newly added message reaction
 JuggleIm.instance.onMessageReactionAdd = (Conversation conversation, MessageReaction reaction) {
 };
 
-// 删除消息回应回调
-// conversation: 所属会话
-// reaction: 删除的消息回应
+// Callback when a message reaction is removed
+// conversation: The conversation it belongs to
+// reaction: The removed message reaction
 JuggleIm.instance.onMessageReactionRemove = (Conversation conversation, MessageReaction reaction) {
 };
 
-// 消息置顶回调
-// message: 对应的消息
-// operator: 操作置顶的用户
-// isTop: true 表示置顶，false 表示取消置顶
+// Message pin callback
+// message: The corresponding message
+// operator: The user who pinned/unpinned the message
+// isTop: true means pinned, false means unpinned
 JuggleIm.instance.onMessageSetTop = (Message message, String operator, bool isTop) {
 };
 ```
 
-**消息阅读状态相关监听**
+**Message read status listeners**
 
 ```dart
-// 单聊消息阅读回调
-// conversation: 所在会话
-// messageIdList: 消息 id (messageId) 列表
+// One-to-one message read callback
+// conversation: The conversation
+// messageIdList: List of message IDs (messageId)
 JuggleIm.instance.onMessagesRead = (Conversation conversation, List<String> messageIdList) {
 };
 
-// 群消息阅读回调
-// conversation: 所在会话
-// messages: key 为 messageId，value 为阅读状态
+// Group message read callback
+// conversation: The conversation
+// messages: key is messageId, value is the read status
 JuggleIm.instance.onGroupMessagesRead = (Conversation conversation, Map<String, GroupMessageReadInfo> messages) {
 };
 ```
 
-**消息销毁相关监听**
+**Message destruction listeners**
 
 ```dart
-// 消息销毁时间更新回调（通常用于阅后即焚场景）
-// messageId: 消息 id
-// conversation: 所在会话
-// destroyTime: 更新后的销毁时间
+// Callback when the message destruction time is updated (commonly used for burn-after-reading scenarios)
+// messageId: Message ID
+// conversation: The conversation
+// destroyTime: Updated destruction time
 JuggleIm.instance.onMessageDestroyTimeUpdate = (String messageId, Conversation conversation, int destroyTime) {
 };
 ```

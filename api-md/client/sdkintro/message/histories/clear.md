@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', },
 ]
 }>
 <TabItem value="android">
@@ -105,26 +104,6 @@ jim.clearMessage(params).then(() => {
   console.log(error);
 });
 ```
-</TabItem>
-<TabItem value="harmony">
-
-**Parameter Description**
-
-| Name | Type | Description | Version |
-|----------------------------------|---------|------------------------------------------------------------------|----------|
-| conversation | Conversation | Conversation identifier | 1.0.0 |
-| startTime | long | Messages sent before startTime will be cleared | 1.0.0 |
-| callback | CommonCallback | Result callback | 1.0.0 |
-
-**Sample Code**
-
-```java
-let conver = new Conversation("userid1", 1);
-JuggleIm.instance.getMessageManager().clearMessages(conver, new Date().getTime(), (code) => {
-
-});
-```
-
 </TabItem>
 <TabItem value="flutter">
 

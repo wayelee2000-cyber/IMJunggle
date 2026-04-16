@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'HarmonyOS', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -138,26 +137,6 @@ jim.readMessage(msgs).then(() => {
   console.log(error);
 });
 ```
-</TabItem>
-<TabItem value="harmony">
-
-**Parameter description**
-
-| Name | Type | Description | Version |
-|----------------------------------|---------|------------------------------------------------------------------|----------|
-| conver | Conversation | The conversation containing the message | 1.0.0 |
-| msgIds | string[] | List of message IDs for which to send read receipts | 1.0.0 |
-| callback | CommonCallback | Callback function | 1.0.0 |
-
-**Sample Code**
-
-```java
-let conver = new Conversation("userid1", 1);
-JuggleIm.instance.getMessageManager().sendReadReceipt(conver, ["message_id"], (code) => {
-    // Handle callback
-});
-```
-
 </TabItem>
 <TabItem value="reactnative" label="ReactNative">
 

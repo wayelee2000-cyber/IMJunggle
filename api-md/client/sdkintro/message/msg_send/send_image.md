@@ -192,7 +192,7 @@ Use `message.clientMsgNo` as a unique identifier. After the `callback` is trigge
 
 The SDK includes a built-in file upload function. Simply assign the local file path to `ImageMessage.localPath`, and the SDK will automatically upload the file and return the file URL.
 
-> Note: When sending messages such as files, pictures, videos, etc., you must first configure file storage `OSS` in the private developer backend.
+> Note: When sending messages such as files, pictures, videos, etc., you must first configure file storage `OSS` in the private Developer server.
 
 <p/>
 
@@ -240,7 +240,7 @@ Use `message.clientMsgNo` as a unique identifier. After the `callback` is trigge
 
 The SDK includes a built-in file upload function. Simply assign the local file path to `ImageMessage.localPath`, and the SDK will automatically upload the file and return the file URL.
 
-> Note: When sending messages such as files, pictures, videos, etc., you must first configure file storage `OSS` in the private developer backend.
+> Note: When sending messages such as files, pictures, videos, etc., you must first configure file storage `OSS` in the private Developer server.
 
 <p/>
 

@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -106,31 +105,6 @@ jim.on(Event.CONVERSATION_CHANGED, ({ conversations }) => {
 ```
 </TabItem>
 
-<TabItem value="harmony">
-
-Multiple listeners can be set.
-
-```js
-// Listener for conversation addition
-JuggleIm.instance.getConversationManager().addConversationAddListener((convers) => {
-
-})
-// Listener for conversation updates
-JuggleIm.instance.getConversationManager().addConversationUpdateListener((convers) => {
-
-})
-// Listener for conversation deletion
-JuggleIm.instance.getConversationManager().addConversationDeleteListener((convers) => {
-
-})
-// Listener for total unread count changes
-JuggleIm.instance.getConnectionManager().addTotalUnreadCountUpdateListener((count) => {
-
-})
-
-```
-
-</TabItem>
 <TabItem value="reactnative">
 
 Multiple listeners can be set, each requiring a unique key. The returned function can be used to remove the listener.

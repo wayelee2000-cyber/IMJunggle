@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', },
 ]
 }>
 <TabItem value="android">
@@ -125,30 +124,6 @@ jim.updateMessage(msg).then(() => {
 ```
 </TabItem>
 
-<TabItem value="harmony">
-
-You can only modify messages that you have sent. After a successful modification, other users in the corresponding session will receive the `onMessageUpdate` callback (make sure to add [message listening](../../../watcher/message)).
-
-**Parameter description**
-
-| Name | Type | Description | Version |
-|----------------------------------|---------|------------------------------------------------------------------|----------|
-| conver | Conversation | Session | 1.8.4 |
-| msgId | string | Message ID | 1.8.4 |
-| msg | MessageContent | Modified message entity | 1.8.4 |
-| callback | MessageCallback | Result callback | 1.8.4 |
-
-**Sample Code**
-
-```java
-let conver = new Conversation("userid1", 1);
-let txt = new TextMessage("new content", "");
-JuggleIm.instance.getMessageManager().modifyMessage(conver, "messageid1", txt, (code, msg) => {
-
-});
-```
-
-</TabItem>
 <TabItem value="reactnative" label="ReactNative">
 
 You can only modify messages that you have sent. After a successful modification, other users in the corresponding session will receive the `onMessageUpdate` callback (message monitoring needs to be enabled).

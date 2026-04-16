@@ -13,7 +13,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -154,36 +153,6 @@ import JuggleIM from 'juggleim-rnsdk';
 const result = await JuggleIM.createConversationInfo({
   conversationType: 1,
   conversationId: 'userid1'
-});
-```
-
-</TabItem>
-<TabItem value="harmony">
-
-Insert sessions automatically into local and cloud storage, supporting synchronization across the current user's devices. If the session already exists, the original session will not be overwritten.
-
-**Parameter description**
-
-| Name | Type | Description | Version |
-|----------------------------------|---------|----------|----------|
-| conversation | Conversation | Conversation identifier | 1.0.0 |
-| callback | ConversationInsertCallback | Result callback | 1.0.0 |
-
-**Interface definition**
-
-```java
-// Callback definition
-export type ConversationInsertCallback = (code: number, conver: ConversationInfo) => void;
-
-insertConversation(conver: Conversation, callback: ConversationInsertCallback);
-```
-
-**Sample Code**
-
-```java
-let conver = new Conversation("userid1", 1);
-JuggleIm.instance.getConversationManager().insertConversation(conver, (converInfo) => {
-  
 });
 ```
 

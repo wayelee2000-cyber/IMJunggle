@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -90,18 +89,6 @@ import JuggleIM from 'juggleim-rnsdk';
 
 const chatroomId = "chatroomId1";
 await JuggleIM.quitChatroom(chatroomId);
-```
-
-</TabItem>
-<TabItem value="harmony">
-
-Exit the chat room. When a user is logged in on multiple devices and one device exits, all devices will be logged out, and [Chat Room Monitoring](../event) will be triggered.
-
-**Sample Code**
-
-```js
-let chatroomId = "chatroomId1";
-JuggleIm.instance.getChatroomManager().quitChatroom(chatroomId);
 ```
 
 </TabItem>

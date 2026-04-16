@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -99,26 +98,6 @@ jim.disturbConversation(conversation).then(() => {
 ```
 </TabItem>
 
-<TabItem value="harmony">
-
-Set the session to Do Not Disturb and synchronize this setting across multiple devices. After enabling Do Not Disturb, the mobile device will no longer receive offline push notifications. Once the setting is successful, the SDK will automatically update the `undisturbType` attribute of the session.
-
-**Parameter description**
-
-| Name | Type | Description | Version |
-|----------------------------------|---------|----------|----------|
-| conversation | Conversation | Conversation identifier | 1.0.0 |
-| isMute | boolean | `true` to mute, `false` to unmute | 1.0.0 |
-| callback | CommonCallback | Result callback | 1.0.0 |
-
-**Sample Code**
-```java
-let conver = new Conversation("userid1", 1);
-JuggleIm.instance.getConversationManager().setMute(conver, true, (code) => {
-  
-});
-```
-</TabItem>
 <TabItem value="flutter" label="Flutter">
 
 Set the session to Do Not Disturb, and synchronize the Do Not Disturb status across all devices of the current user. After enabling Do Not Disturb, the mobile device will no longer receive offline push notifications. Once the setting is successful, the SDK will automatically update the `mute` attribute of the session.

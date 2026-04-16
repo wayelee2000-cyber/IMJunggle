@@ -16,7 +16,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -189,23 +188,4 @@ let message = {
 
 </TabItem>
 
-<TabItem value="harmony">
-
-| 属性名       | 类型              | 说明                                                         | 版本  |
-| ------------ | ----------------- | ------------------------------------------------------------ | ----- |
-| conversation | Conversation     | The conversation to which the message belongs                | 1.0.0 |
-| contentType  | string          | Message type (e.g., text message, image message)             | 1.0.0 |
-| content      | MessageContent   | Message content, related to the messageType property. For example, when name is `jg:text`, content is a [text message](.././text) | 1.0.0 |
-| messageId    | string          | Message ID, a globally unique identifier for each message    | 1.0.0 |
-| clientMsgNo  | number         | Unique message number on the client side (corresponds to the local database unique ID) | 1.0.0 |
-| direction    | MessageDirection | Message direction, indicating whether the message is received or sent | 1.0.0 |
-| messageState | MessageState     | Message state, indicating whether the message is sending, sent successfully, or failed | 1.0.0 |
-| hasRead      | boolean              | Whether the message has been read                             | 1.0.0 |
-| sentTime    | number         | Message sending time as a timestamp in milliseconds (server time) | 1.0.0 |
-| senderUserId | string          | User ID of the message sender                                 | 1.0.0 |
-| referredMessage | Message   | Referenced message                                           | 1.0.0 |
-| mentionInfo | MessageMentionInfo | @ mention information                                       | 1.0.0 |
-| localAttribute | string | Local message attribute (effective only on the client side, not synchronized to the server) | 1.0.0 |
-
-</TabItem>
 </Tabs>

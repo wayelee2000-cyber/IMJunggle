@@ -7,10 +7,10 @@ sidebar_position: 4
 
 The group messaging function allows sending message content to multiple sessions simultaneously. Mass messaging does not affect the sender's session list order but does impact the receiver's session list sorting. For the sender, group messaging history is recorded separately, aggregated by `target_id`, and displayed as a distinct session. This session contains only the sender's messages. According to `target_convers`, messages are sent to each conversation as `sender_id` respectively, supporting both `single chat` and `group chat`.
 
-:::danger special frequency limit
-`target_convers` supports multiple sessions, with a sending interval of `50ms` per session. The more sessions included, the longer the sending and response times.
-:::
-
+<div style="margin: 1rem 0; padding: 1rem 1.25rem; border-left: 4px solid #e5484d; background: #fff1f2; border-radius: 0 16px 16px 0;">
+<p style="margin: 0 0 0.75rem; font-size: 1rem; font-weight: 700; color: #b42318;">special frequency limit</p>
+<p style="margin: 0; color: #344054;">`target_convers` supports multiple sessions, with a sending interval of `50ms` per session. The more sessions included, the longer the sending and response times.</p>
+</div>
 ### Request description{#req}
 
 > **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../../api#header).

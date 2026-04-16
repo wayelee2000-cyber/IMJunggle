@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -132,22 +131,6 @@ const chatroomId = "chatroomId1";
 const count = 10;
 const isAutoCreate = true;
 await JuggleIM.joinChatroom(chatroomId, count, isAutoCreate);
-```
-
-</TabItem>
-<TabItem value="harmony">
-
-You do not need to call the `IM Server API` to create a chat room before joining it. The chat room will be automatically created upon joining the specified room. This is useful in scenarios where the live broadcast room ID is predetermined.
-
-After joining the chat room, the SDK automatically synchronizes the latest 50 messages and the complete attribute information of the room to the local device, and returns this data to the developer's business layer via [Chat Room Monitoring](../event).
-
-**Sample Code**
-
-```js
-let chatroomId = "chatroomId1";
-let count = 10;
-let isAutoCreate = true;
-JuggleIm.instance.getChatroomManager().joinChatroom(chatroomId, count, isAutoCreate);
 ```
 
 </TabItem>

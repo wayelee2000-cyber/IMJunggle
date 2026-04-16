@@ -11,8 +11,7 @@ values={[
 { label: 'iOS', value: 'ios' },
 { label: 'JavaScript', value: 'js' },
 { label: 'Flutter', value: 'flutter' },
-{ label: 'ReactNative', value: 'reactnative' },
-{ label: 'HarmonyOS', value: 'harmony' }
+{ label: 'ReactNative', value: 'reactnative' }
 ]}
 >
 <TabItem value="android">
@@ -167,13 +166,4 @@ JuggleIM.disconnect(false);
 
 </TabItem>
 
-<TabItem value="harmony">
-
-**Example Code**
-
-```js
-JuggleIm.instance.getConnectionManager().connect('{token}')
-```
-
-</TabItem>
 </Tabs>

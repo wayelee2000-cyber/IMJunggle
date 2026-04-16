@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -97,35 +96,6 @@ jim.getConversations().then((result) => {
   console.log(isFinished, conversations);
 })
 ```
-</TabItem>
-<TabItem value="harmony">
-
-Retrieve the session information list in pages.
-
-**Interface definition**
-
-```java
-// Callback definition
-export type ConversationsCallback = (code: number, convers: ConversationInfo[]) => void;
-
-/**
- * Retrieves the session information list in pages, with results sorted in either ascending or descending order by session time.
- * @param count Number of sessions to retrieve
- * @param startTime Starting timestamp for retrieval (pass 0 to represent the current time)
- * @param isPositive Pull direction: true for ascending order, false for descending order
- * @param callback Callback function
- */
-queryConversations(count: number, startTime: number, isPositive: boolean, callback: ConversationsCallback);
-```
-
-**Sample Code**
-
-```java
-JuggleIm.instance.getConversationManager().queryConversations(10, 0, false, (code, convers) => {
-
-});
-```
-
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 

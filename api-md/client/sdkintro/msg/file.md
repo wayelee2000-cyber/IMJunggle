@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -73,19 +72,6 @@ let message = {
 ```
 </TabItem>
 
-<TabItem value="harmony">
-
-文件消息（FileMessage）是 SDK 内置的消息类型，对应的 contentType 为 @"jg:file"。
-
-| 属性名 | 类型    | 说明                  | 版本  |
-| ------ | ------- | --------------------- | ----- |
-| name   | string  | 文件名称              | 1.0.0 |
-| url    | string  | 文件地址              | 1.0.0 |
-| size   | number  | 文件大小，单位为 `KB` | 1.0.0 |
-| type   | string  | 文件类型              | 1.0.0 |
-| extra  | string  | 扩展字段              | 1.0.0 |
-
-</TabItem>
 
 <TabItem value="flutter">
 

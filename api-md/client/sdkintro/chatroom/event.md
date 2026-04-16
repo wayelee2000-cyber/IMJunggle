@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -235,58 +234,6 @@ JuggleIM.onChatroomAttributesUpdate = (chatroomId: string, attributes: Record<st
 
 // Chat room attributes deleted
 JuggleIM.onChatroomAttributesDelete = (chatroomId: string, attributes: Record<string, string>) => {
-  console.log('onAttributesDelete, chatroomId is', chatroomId, ', attributes are', attributes);
-};
-```
-
-</TabItem>
-<TabItem value="harmony">
-
-Chat room messages are delivered through the unified [Message Listener](../../watcher/message).  
-You can configure monitoring for multiple chat rooms to join and leave.
-
-```js
-// Chat room joined successfully
-JuggleIm.instance.getChatroomManager().onChatroomJoin = (chatroomId) => {
-  console.log('onChatroomJoin, chatroomId is', chatroomId);
-};
-
-// Chat room exited successfully
-JuggleIm.instance.getChatroomManager().onChatroomQuit = (chatroomId) => {
-  console.log('onChatroomQuit, chatroomId is', chatroomId);
-};
-
-// Failed to join chat room
-JuggleIm.instance.getChatroomManager().onChatroomJoinFail = (chatroomId, errorCode) => {
-  console.log('onChatroomJoinFail, chatroomId is', chatroomId, ', errorCode is', errorCode);
-};
-
-// Failed to exit chat room
-JuggleIm.instance.getChatroomManager().onChatroomQuitFail = (chatroomId, errorCode) => {
-  console.log('onChatroomQuitFail, chatroomId is', chatroomId, ', errorCode is', errorCode);
-};
-
-// Kicked out of chat room
-JuggleIm.instance.getChatroomManager().onChatroomKick = (chatroomId) => {
-  console.log('onChatroomKick, chatroomId is', chatroomId);
-};
-
-// Chat room destroyed
-JuggleIm.instance.getChatroomManager().onChatroomDestroy = (chatroomId) => {
-  console.log('onChatroomDestroy, chatroomId is', chatroomId);
-};
-```
-
-You can also monitor chat room attribute changes with multiple configurations.
-
-```js
-// Chat room attributes updated
-JuggleIm.instance.getChatroomManager().onAttributesUpdate = (chatroomId, attributes) => {
-  console.log('onAttributesUpdate, chatroomId is', chatroomId, ', attributes are', attributes);
-};
-
-// Chat room attributes deleted
-JuggleIm.instance.getChatroomManager().onAttributesDelete = (chatroomId, attributes) => {
   console.log('onAttributesDelete, chatroomId is', chatroomId, ', attributes are', attributes);
 };
 ```

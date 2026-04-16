@@ -7,10 +7,10 @@ sidebar_position: 9
 
 The IM Server stores user information, which is used to display message sender details or session information. When user information changes, the updated data must be synchronized with the IM service by calling this interface.
 
-:::danger User information synchronization timing
-After user information is updated, the IM service **will not proactively notify** the client. Instead, when a session related to the current user generates a message, the IM service will automatically synchronize the latest user information to the client.
-:::
-
+<div style="margin: 1rem 0; padding: 1rem 1.25rem; border-left: 4px solid #e5484d; background: #fff1f2; border-radius: 0 16px 16px 0;">
+<p style="margin: 0 0 0.75rem; font-size: 1rem; font-weight: 700; color: #b42318;">User information synchronization timing</p>
+<p style="margin: 0; color: #344054;">After user information is updated, the IM service **will not proactively notify** the client. Instead, when a session related to the current user generates a message, the IM service will automatically synchronize the latest user information to the client.</p>
+</div>
 ### Request description{#req}
 
 > **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../../api#header).

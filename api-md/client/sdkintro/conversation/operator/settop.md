@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -94,26 +93,6 @@ jim.setTopConversation(conversation).then(() => {
   console.log('Set conversation top successfully');
 });
 ```
-</TabItem>
-<TabItem value="harmony">
-
-**Parameter description**
-
-| Name | Type | Description | Version |
-|----------------------------------|---------|----------|----------|
-| conver | Conversation | Session ID | 1.0.0 |
-| isTop | boolean | Whether to pin the session to the top | 1.0.0 |
-| callback | CommonCallback | Result callback | 1.0.0 |
-
-**Sample Code**
-
-```java
-let conver = new Conversation("userid1",1)
-JuggleIm.instance.getConversationManager().setTop(conver,true,(code)=>{
-  
-})
-```
-
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 

@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -93,15 +92,4 @@ Voice messages (VoiceMessageContent) are a built-in message type in the SDK, wit
 
 </TabItem>
 
-<TabItem value="harmony">
-
-Voice messages (VoiceMessage) are a built-in message type in the SDK, with the corresponding contentType @"jg:voice".
-
-| Property  | Type   | Description                  | Version |
-| --------- | ------ | ----------------------------|---------|
-| url       | string | Remote URL of the voice audio | 1.0.0  |
-| duration  | number | Duration of the voice audio in seconds | 1.0.0 |
-| extra     | string | Extension field              | 1.0.0  |
-
-</TabItem>
 </Tabs>

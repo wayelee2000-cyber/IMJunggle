@@ -20,7 +20,7 @@ Single chat typically refers to one-to-one communication between two users. They
 
 > **Additional private chat scenarios**: `Driver and passenger`, `1v1 teaching`, `teacher-student communication`, `home-school communication`, `courier and customer`, and more.
 
-### Features of the plan{#sp}
+### Scenario features{#sp}
 
 > **Relationship model**: Supports one-way or mutual friend relationships. Fans can follow streamers independently, and the number of friends can scale as needed.
 
@@ -30,16 +30,16 @@ Single chat typically refers to one-to-one communication between two users. They
 
 > **Profile synchronization**: When user information changes, the system provides a seamless synchronization mechanism and automatically notifies related users.
 
-> **User info embedded in messages**: Messages can include user information, simplifying client-side rendering and reducing integration complexity.
+> **User info embedded in messages**: Messages include user information, simplifying client-side rendering and reducing integration complexity.
 
 ### Related documents{#doc}
 
 > **Basic documents**: [SDK Download](../../client/import.md), [Integration Example](../../client/quickstart/ios.md)
 
-> **User management**: [User Registration](../../server/user/register.md), [Update Information](../../server/user/updateuser.md), [User Ban](../../server/user/addbanuser.md), [Ban User](../../server/user/addblockuser.md)
+> **User management**: [User registration](../../server/user/register.md), [Update user information](../../server/user/updateuser.md), [Ban user](../../server/user/addbanuser.md), [Mute user](../../server/user/addblockuser.md)
 
-> **Message related**: [Message structure](../../client/sdkintro/msg/message.mdx), [Send message](../../client/sdkintro/message/msg_send/send.md), [Receive message](../../client/sdkintro/watcher/message.mdx), [Get historical messages](../../client/sdkintro/message/histories/get_all.md), [Clear historical messages](../../client/sdkintro/message/histories/clear.md), [Message recall](../../client/sdkintro/message/operator/recall.md), [Message read](../../client/sdkintro/message/operator/read.md), [REST API send message](../../server/message/privatemsg.md)
+> **Message related**: [Message structure](../../client/sdkintro/msg/message.md), [Send message](../../client/sdkintro/message/msg_send/send.md), [Receive message](../../client/sdkintro/watcher/message.md), [Get historical messages](../../client/sdkintro/message/histories/get_all.md), [Clear historical messages](../../client/sdkintro/message/histories/clear.md), [Message recall](../../client/sdkintro/message/operator/recall.md), [Message read](../../client/sdkintro/message/operator/read.md), [REST API send message](../../server/message/privatemsg.md)
 
-> **Session related**: [Session structure](../../client/sdkintro/conversation.mdx), [Get session list](../../client/sdkintro/conversation/get_all.md), [Session top](../../client/sdkintro/conversation/operator/settop.md), [Do not disturb](../../client/sdkintro/conversation/operator/disturb.md), [Get the total number of unreads](../../client/sdkintro/conversation/unread/get_total_unread.md), [Server gets the conversation list](../../server/convers/qryconvers.md)
+> **Conversation related**: [Conversation structure](../../client/sdkintro/conversation.md), [Get conversation list](../../client/sdkintro/conversation/get_all.md), [Pin a conversation](../../client/sdkintro/conversation/operator/settop.md), [Do not disturb](../../client/sdkintro/conversation/operator/disturb.md), [Get the total number of unreads](../../client/sdkintro/conversation/unread/get_total_unread.md), [Server gets conversation list](../../server/convers/qryconvers.md)
 
-> **Status code**: [Android related](../../client/sdkintro/status_code/android.mdx), [iOS related](../../client/sdkintro/status_code/ios.mdx), [Web related](../../client/sdkintro/status_code/web.mdx), [REST API Related](../../server/status.md)
+> **Status code**: [Android related](../../client/sdkintro/status_code/android.md), [iOS related](../../client/sdkintro/status_code/ios.md), [Web related](../../client/sdkintro/status_code/web.md), [REST API related](../../server/status.md)

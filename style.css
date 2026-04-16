@@ -1788,6 +1788,10 @@ body.page-api-docs .api-md-tree-root {
 
 body.page-api-docs .api-md-group > summary {
   list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
   cursor: pointer;
   margin: 0.2rem 0;
   padding: 0.38rem 0.5rem;
@@ -1796,8 +1800,26 @@ body.page-api-docs .api-md-group > summary {
   font-weight: 700;
 }
 
+body.page-api-docs .api-md-group > summary::after {
+  content: "";
+  flex: 0 0 auto;
+  width: 0.52rem;
+  height: 0.52rem;
+  margin-left: auto;
+  border-right: 2px solid currentColor;
+  border-bottom: 2px solid currentColor;
+  transform: rotate(45deg);
+  transform-origin: 50% 50%;
+  transition: transform 160ms ease, color 160ms ease;
+  opacity: 0.78;
+}
+
 body.page-api-docs .api-md-group > summary::-webkit-details-marker {
   display: none;
+}
+
+body.page-api-docs .api-md-group[open] > summary::after {
+  transform: rotate(225deg);
 }
 
 body.page-api-docs .api-md-group > summary:hover {
@@ -1890,6 +1912,10 @@ body.page-api-docs .api-md-content h4 {
   color: #0f172a;
 }
 
+body.page-api-docs .api-doc-eyebrow {
+  display: none;
+}
+
 body.page-api-docs .api-md-content img {
   max-width: 100%;
   border-radius: 14px;
@@ -1914,31 +1940,163 @@ body.page-api-docs .api-md-content pre code {
   background: transparent;
   color: #e5eefc;
   border: none;
+  font-family: "SFMono-Regular", "SF Mono", Consolas, "Liberation Mono", Menlo, monospace;
+  font-size: 0.92rem;
+  line-height: 1.65;
+}
+
+body.page-api-docs .api-md-content pre code.hljs {
+  color: #e6edf3;
+}
+
+body.page-api-docs .api-md-content pre code .hljs-comment,
+body.page-api-docs .api-md-content pre code .hljs-quote {
+  color: #8b9bb4;
+  font-style: italic;
+}
+
+body.page-api-docs .api-md-content pre code .hljs-keyword,
+body.page-api-docs .api-md-content pre code .hljs-selector-tag,
+body.page-api-docs .api-md-content pre code .hljs-literal,
+body.page-api-docs .api-md-content pre code .hljs-name {
+  color: #ff7ab2;
+}
+
+body.page-api-docs .api-md-content pre code .hljs-built_in,
+body.page-api-docs .api-md-content pre code .hljs-type,
+body.page-api-docs .api-md-content pre code .hljs-class .hljs-title,
+body.page-api-docs .api-md-content pre code .hljs-title.class_ {
+  color: #82aaff;
+}
+
+body.page-api-docs .api-md-content pre code .hljs-title,
+body.page-api-docs .api-md-content pre code .hljs-title.function_,
+body.page-api-docs .api-md-content pre code .hljs-function .hljs-title,
+body.page-api-docs .api-md-content pre code .hljs-variable,
+body.page-api-docs .api-md-content pre code .hljs-attr,
+body.page-api-docs .api-md-content pre code .hljs-property {
+  color: #7dd3fc;
+}
+
+body.page-api-docs .api-md-content pre code .hljs-params,
+body.page-api-docs .api-md-content pre code .hljs-subst {
+  color: #dbe6ff;
+}
+
+body.page-api-docs .api-md-content pre code .hljs-string,
+body.page-api-docs .api-md-content pre code .hljs-regexp,
+body.page-api-docs .api-md-content pre code .hljs-doctag {
+  color: #a5e075;
+}
+
+body.page-api-docs .api-md-content pre code .hljs-number,
+body.page-api-docs .api-md-content pre code .hljs-symbol,
+body.page-api-docs .api-md-content pre code .hljs-bullet {
+  color: #f9c97c;
+}
+
+body.page-api-docs .api-md-content pre code .hljs-meta,
+body.page-api-docs .api-md-content pre code .hljs-meta .hljs-keyword,
+body.page-api-docs .api-md-content pre code .hljs-link {
+  color: #c792ea;
+}
+
+body.page-api-docs .api-md-content pre code .hljs-tag,
+body.page-api-docs .api-md-content pre code .hljs-selector-id,
+body.page-api-docs .api-md-content pre code .hljs-selector-class {
+  color: #ff966c;
+}
+
+body.page-api-docs .api-md-content pre code .hljs-addition {
+  color: #a5e075;
+  background: rgba(34, 197, 94, 0.08);
+}
+
+body.page-api-docs .api-md-content pre code .hljs-deletion {
+  color: #ff9b9b;
+  background: rgba(239, 68, 68, 0.08);
 }
 
 body.page-api-docs .api-code-viewer {
   position: relative;
   width: 100%;
   max-width: 100%;
-  margin: 1rem 0 1.15rem;
+  margin: 0.35rem 0 0.8rem;
+}
+
+body.page-api-docs .api-md-content > .api-code-viewer:first-child,
+body.page-api-docs .api-md-content .mdx-tab-panel > .api-code-viewer:first-child {
+  margin-top: 0;
+}
+
+body.page-api-docs .api-md-content p + .api-code-viewer,
+body.page-api-docs .api-md-content ul + .api-code-viewer,
+body.page-api-docs .api-md-content ol + .api-code-viewer,
+body.page-api-docs .api-md-content blockquote + .api-code-viewer,
+body.page-api-docs .api-md-content .mdx-tabs + .api-code-viewer {
+  margin-top: 0.4rem;
+}
+
+body.page-api-docs .api-md-content h2 + .api-code-viewer,
+body.page-api-docs .api-md-content h3 + .api-code-viewer,
+body.page-api-docs .api-md-content h4 + .api-code-viewer {
+  margin-top: 0.5rem;
+}
+
+body.page-api-docs .api-md-content li > p {
+  margin-bottom: 0.2rem;
+}
+
+body.page-api-docs .api-md-content li > p:last-child {
+  margin-bottom: 0;
+}
+
+body.page-api-docs .api-md-content li > p + .api-code-viewer,
+body.page-api-docs .api-md-content li > .api-code-viewer:first-of-type {
+  margin-top: 0.02rem;
+}
+
+body.page-api-docs .api-md-content li > .api-code-viewer:last-child {
+  margin-bottom: 0.45rem;
+}
+
+body.page-api-docs .api-md-content li > .api-code-viewer + p,
+body.page-api-docs .api-md-content li > .api-code-viewer + ul,
+body.page-api-docs .api-md-content li > .api-code-viewer + ol {
+  margin-top: 0.3rem;
+}
+
+body.page-api-docs .api-md-content ol > li,
+body.page-api-docs .api-md-content ul > li {
+  margin-bottom: 0.32rem;
+}
+
+body.page-api-docs .api-md-content ol > li:has(.api-code-viewer),
+body.page-api-docs .api-md-content ul > li:has(.api-code-viewer) {
+  margin-bottom: 0.18rem;
+}
+
+body.page-api-docs .api-md-content ol,
+body.page-api-docs .api-md-content ul {
+  margin-bottom: 0.75rem;
 }
 
 body.page-api-docs .api-code-toolbar {
   position: absolute;
-  top: 0.65rem;
-  right: 0.65rem;
+  top: 0.5rem;
+  right: 0.5rem;
   z-index: 2;
   display: flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.28rem;
 }
 
 body.page-api-docs .api-code-action {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 1.9rem;
-  height: 1.9rem;
+  width: 1.72rem;
+  height: 1.72rem;
   padding: 0;
   border: 1px solid rgba(148, 163, 184, 0.22);
   border-radius: 8px;
@@ -1968,12 +2126,12 @@ body.page-api-docs .api-code-action.is-success {
 }
 
 body.page-api-docs .api-code-action svg {
-  width: 0.92rem;
-  height: 0.92rem;
+  width: 0.82rem;
+  height: 0.82rem;
 }
 
 body.page-api-docs .api-code-viewer pre {
-  padding-top: 3rem;
+  padding-top: 2.15rem;
 }
 
 body.page-api-docs .api-code-viewer.is-wrapped pre {

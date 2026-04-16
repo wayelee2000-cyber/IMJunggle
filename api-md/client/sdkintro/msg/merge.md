@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -97,16 +96,4 @@ MergeMessageContent is a built-in message type in the SDK, with the correspondin
 
 </TabItem>
 
-<TabItem value="harmony">
-
-MergeMessage is a built-in message type in the SDK, with the corresponding contentType @"jg:merge".
-
-| Property       | Type             | Description                                         | Version  |
-|----------------|------------------|-----------------------------------------------------|----------|
-| title          | string           | Title of the merged message                          | 1.0.0    |
-| conversation   | Conversation     | Identifier of the conversation containing merged messages | 1.0.0    |
-| messageIdList  | string[]         | List of all merged message IDs, limited to 100 items | 1.0.0    |
-| previewList    | PreviewUnit[]    | List of merged messages used for preview in the message bubble, limited to 10 items | 1.0.0 |
-
-</TabItem>
 </Tabs>

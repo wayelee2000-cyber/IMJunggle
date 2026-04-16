@@ -13,7 +13,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -60,16 +59,6 @@ let message = {
 
 </TabItem>
 
-<TabItem value="harmony">
-
-TextMessage is a built-in message type in the SDK, with the corresponding contentType @"jg:text".
-
-| Property | Type   | Description                                         | Version |
-| -------- | ------ | ------------------------------------------------- | ------- |
-| content  | string | The text message content, such as user input or Emoji | 1.0.0   |
-| extra    | string | Extension field                                    | 1.0.0   |
-
-</TabItem>
 
 <TabItem value="flutter">
 

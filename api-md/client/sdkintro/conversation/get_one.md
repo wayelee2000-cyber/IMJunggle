@@ -13,7 +13,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -85,38 +84,6 @@ jim.getConversation(conversation).then(({ conversation }) => {
 ```
 </TabItem>
 
-<TabItem value="harmony">
-
-Retrieve the specified session information based on the session ID `Conversation`. Returning an empty object indicates that no session information exists.
-
-**Parameter description**
-
-| Name | Type | Description | Version |
-|----------------------------------|---------|----------|----------|
-| conversation | Conversation | Conversation identifier | 1.0.0 |
-
-**Interface definition**
-
-```java
-// Callback definition
-export type ConversationCallback = (code: number, conver: ConversationInfo | null) => void
-
-/**
- * Get information about a single session
- * @param conver Session ID
- * @return Session information
- */
-getConversation(conver: Conversation, callback: ConversationCallback)
-```
-
-**Sample Code**
-```java
-JuggleIm.instance.getConversationManager().getConversation(new Conversation("userid2", 1), (conver) => {
-    
-})
-```
-
-</TabItem>
 <TabItem value="flutter" label="Flutter">
 
 Retrieve the specified session information. Returning an empty object indicates that no session information exists. This method only retrieves session information from the local database and does not fetch it from the cloud.

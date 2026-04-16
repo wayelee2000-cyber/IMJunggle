@@ -5,6 +5,14 @@ obj/
 *.suo
 .vs/
 
+## Generated API TOC fragments (source: _build_api_toc.py)
+api-nav-fragment.html
+api-anchors-fragment.html
+
+## Juggle doc mirror output (large); remove these lines to commit prose
+mirror/juggle/source/
+mirror/juggle/en/
+
 ## OS
 Thumbs.db
 Desktop.ini

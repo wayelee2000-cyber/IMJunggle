@@ -1,5 +1,5 @@
----
-title: 消息对象
+﻿---
+title: Message Object
 hide_title: true
 sidebar_position: 1
 ---
@@ -16,12 +16,11 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
-]
-}>
+]}
+>
 <TabItem value="android">
 
-| 属性名       | 类型              | 说明                                                         | 版本  |
+| Property | Type | Description | Version |
 | ------------ | ----------------- | ------------------------------------------------------------ | ----- |
 | conversation | [Conversation](#conversation)     | The conversation to which the message belongs                | 1.0.0 |
 | contentType  | String          | Message type (e.g., text message, image message)             | 1.0.0 |
@@ -50,7 +49,7 @@ values={[
 </TabItem>
 <TabItem value="ios">
 
-| 属性名       | 类型              | 说明                                                         | 版本  |
+| Property | Type | Description | Version |
 | ------------ | ----------------- | ------------------------------------------------------------ | ----- |
 | conversation | JConversation     | The conversation to which the message belongs                | 1.0.0 |
 | contentType  | NSString          | Message type (e.g., text message, image message)             | 1.0.0 |
@@ -79,7 +78,7 @@ values={[
 </TabItem>
 <TabItem value="js">
 
-| 属性名           | 类型      | 说明                                                | 版本     |
+| Property | Type | Description | Version |
 |------------------|-----------|-----------------------------------------------------|----------|
 | conversationId    | String   | Conversation ID. For `PRIVATE` conversations, this is the recipient's userId; for `GROUP` conversations, it is the group ID | 1.0.0    |
 | conversationType  | Number   | Conversation type                                    | 1.0.0    |
@@ -138,15 +137,15 @@ let message = {
 
 <TabItem value="flutter">
 
-| 属性名       | 类型              | 说明                                                         | 版本  |
+| Property | Type | Description | Version |
 | ------------ | ----------------- | ------------------------------------------------------------ | ----- |
 | conversation | Conversation     | The conversation to which the message belongs                | 0.0.63 |
 | contentType  | String          | Message type (e.g., text message, image message)             | 0.0.63 |
 | content      | MessageContent   | Message content, related to the contentType property. For example, when contentType is `jg:text`, content is a [text message](.././text) | 0.0.63 |
 | messageId    | String          | Message ID, a globally unique identifier for each message    | 0.0.63 |
 | clientMsgNo  | int         | Unique message number on the client side (corresponds to the local database unique ID) | 0.0.63 |
-| direction    | int | Message direction, indicating “received message (2)” or “sent message (1)” | 0.0.63 |
-| messageState | int     | Message state, indicating “sending (1)”, “sent successfully (2)”, or “failed (3)” | 0.0.63 |
+| direction    | int | Message direction, indicating "received message (2)" or "sent message (1)" | 0.0.63 |
+| messageState | int     | Message state, indicating "sending (1)", "sent successfully (2)", or "failed (3)" | 0.0.63 |
 | hasRead      | bool              | Whether the message has been read                             | 0.0.63 |
 | timestamp    | int         | Message sending time as a timestamp in milliseconds (server time) | 0.0.63 |
 | senderUserId | String          | User ID of the message sender                                 | 0.0.63 |
@@ -166,7 +165,7 @@ let message = {
 
 <TabItem value="reactnative">
 
-| 属性名       | 类型              | 说明                                                         | 版本  |
+| Property | Type | Description | Version |
 | ------------ | ----------------- | ------------------------------------------------------------ | ----- |
 | conversation | Conversation     | The conversation to which the message belongs                | 1.0.0 |
 | contentType  | string          | Message type (e.g., text message, image message)             | 1.0.0 |
@@ -189,23 +188,4 @@ let message = {
 
 </TabItem>
 
-<TabItem value="harmony">
-
-| 属性名       | 类型              | 说明                                                         | 版本  |
-| ------------ | ----------------- | ------------------------------------------------------------ | ----- |
-| conversation | Conversation     | The conversation to which the message belongs                | 1.0.0 |
-| contentType  | string          | Message type (e.g., text message, image message)             | 1.0.0 |
-| content      | MessageContent   | Message content, related to the messageType property. For example, when name is `jg:text`, content is a [text message](.././text) | 1.0.0 |
-| messageId    | string          | Message ID, a globally unique identifier for each message    | 1.0.0 |
-| clientMsgNo  | number         | Unique message number on the client side (corresponds to the local database unique ID) | 1.0.0 |
-| direction    | MessageDirection | Message direction, indicating whether the message is received or sent | 1.0.0 |
-| messageState | MessageState     | Message state, indicating whether the message is sending, sent successfully, or failed | 1.0.0 |
-| hasRead      | boolean              | Whether the message has been read                             | 1.0.0 |
-| sentTime    | number         | Message sending time as a timestamp in milliseconds (server time) | 1.0.0 |
-| senderUserId | string          | User ID of the message sender                                 | 1.0.0 |
-| referredMessage | Message   | Referenced message                                           | 1.0.0 |
-| mentionInfo | MessageMentionInfo | @ mention information                                       | 1.0.0 |
-| localAttribute | string | Local message attribute (effective only on the client side, not synchronized to the server) | 1.0.0 |
-
-</TabItem>
 </Tabs>

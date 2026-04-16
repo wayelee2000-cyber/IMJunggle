@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -74,19 +73,6 @@ Sending chat room messages is the same as _[sending a single group chat message]
 Sending chat room messages is the same as _[sending a single group chat message](../../message/msg_send/send)_. Just note the following two parameters:
 
 > conversationType: set to `ConversationType.CHATROOM`
-
-> conversationId: set to the corresponding `chatroomId`
-
-:::
-
-</TabItem>
-<TabItem value="harmony">
-
-:::simple
-
-Sending chat room messages is the same as _[sending a single group chat message](../../message/msg_send/send)_. Just note the following two parameters:
-
-> conversationType: set to `ConversationType.Chatroom`
 
 > conversationId: set to the corresponding `chatroomId`
 

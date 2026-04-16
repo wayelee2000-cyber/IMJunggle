@@ -7,11 +7,10 @@ sidebar_position: 3
 
 The IM Server stores group information, which is used to display session details. When group information changes, the updated data must be synchronized with the IM service by calling this interface.
 
-:::danger Group information synchronization timing
-After the group information is updated, the IM service **will not proactively notify** the client. Instead, when new messages arrive in the current group, the IM service will automatically synchronize the latest group information to the client.
-:::
-
-
+<div style="margin: 1rem 0; padding: 1rem 1.25rem; border-left: 4px solid #e5484d; background: #fff1f2; border-radius: 0 16px 16px 0;">
+<p style="margin: 0 0 0.75rem; font-size: 1rem; font-weight: 700; color: #b42318;">Group information synchronization timing</p>
+<p style="margin: 0; color: #344054;">After the group information is updated, the IM service **will not proactively notify** the client. Instead, when new messages arrive in the current group, the IM service will automatically synchronize the latest group information to the client.</p>
+</div>
 ### Request description{#req}
 
 > **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../../api#header).

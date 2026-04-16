@@ -14,7 +14,7 @@ sidebar_position: 4
 
 ### Installation Package Download
 
-Download link: [https://juggle.im/docs/guide/deploy/releasenodes/](https://juggle.im/docs/guide/deploy/releasenodes/)
+Download link: [SDK Download](releasenodes.md)
 
 ```shell
 # Download the installation package
@@ -115,7 +115,7 @@ In the deployment directory, you can run the imserver executable directly, as sh
 ### Import App
 JuggleIM is a multi-tenant system. A single private deployment can create multiple apps with mutually isolated data. To create an app, you need to apply for an authorization license from the official website backend. The steps are as follows:
 
-#### 1. Developer Backend: Create Applications (select Private Cloud)
+#### 1. Developer server: Create Applications (select Private Cloud)
 ![create app](https://downloads.juggle.im/website/static/deploy/createapp.png)
 
 #### 2. Generate and Install License

@@ -12,12 +12,11 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
 
-Join the specified chat room. You must create the chat room before joining it. For integrated development, you can create it using API debugging: `Developer Backend` -> Select Application -> Development and Debugging.
+Join the specified chat room. You must create the chat room before joining it. For integrated development, you can create it using API debugging: `Developer server` -> Select Application -> Development and Debugging.
 
 After joining the chat room, the SDK will automatically synchronize the latest 50 messages and the full attribute information of the room locally, and return this data to the developer's business layer through [Chat Room Monitoring](../event).
 
@@ -39,7 +38,7 @@ JIM.getInstance().getChatroomManager().joinChatroom(chatroomId, count);
 </TabItem>
 <TabItem value="ios">
 
-Join the specified chat room. You must create the chat room before joining it. For integrated development, you can create it using API debugging: `Developer Backend` -> Select Application -> Development and Debugging.
+Join the specified chat room. You must create the chat room before joining it. For integrated development, you can create it using API debugging: `Developer server` -> Select Application -> Development and Debugging.
 
 After joining the chat room, the SDK will automatically synchronize the latest 50 messages and the full attribute information of the room locally, and return this data to the developer's business layer through [Chat Room Monitoring](../event).
 
@@ -62,7 +61,7 @@ int count = 10;
 </TabItem>
 <TabItem value="js">
 
-Join the specified chat room. You must create the chat room before joining it. For integrated development, you can create it using API debugging: `Developer Backend` -> Select Application -> Development and Debugging.
+Join the specified chat room. You must create the chat room before joining it. For integrated development, you can create it using API debugging: `Developer server` -> Select Application -> Development and Debugging.
 
 After joining the chat room, the SDK will automatically synchronize the latest 50 messages and the full attribute information of the room locally, and return this data to the developer's business layer through [Chat Room Monitoring](../event).
 
@@ -100,7 +99,7 @@ jim.joinChatroom(chatroom).then(() => {
 </TabItem>
 <TabItem value="flutter">
 
-Join the specified chat room. You must create the chat room before joining it. For integrated development, you can create it using API debugging: `Developer Backend` -> Select Application -> Development and Debugging.
+Join the specified chat room. You must create the chat room before joining it. For integrated development, you can create it using API debugging: `Developer server` -> Select Application -> Development and Debugging.
 
 After joining the chat room, the SDK will automatically synchronize the latest 50 messages and the full attribute information of the room locally, and return this data to the developer's business layer through [Chat Room Monitoring](../event).
 
@@ -115,7 +114,7 @@ await JuggleIm.instance.getChatroomManager().joinChatroom(chatroomId, count);
 </TabItem>
 <TabItem value="reactnative">
 
-Join the specified chat room. You must create the chat room before joining it. For integrated development, you can create it using API debugging: `Developer Backend` -> Select Application -> Development and Debugging.
+Join the specified chat room. You must create the chat room before joining it. For integrated development, you can create it using API debugging: `Developer server` -> Select Application -> Development and Debugging.
 
 After joining the chat room, the SDK will automatically synchronize the latest 50 messages and the full attribute information of the room locally, and return this data to the developer's business layer through [Chat Room Monitoring](../event).
 
@@ -127,21 +126,6 @@ import JuggleIM from 'juggleim-rnsdk';
 const chatroomId = "chatroomId1";
 const count = 10;
 await JuggleIM.joinChatroom(chatroomId, count);
-```
-
-</TabItem>
-<TabItem value="harmony">
-
-Join the specified chat room. You must create the chat room before joining it. For integrated development, you can create it using API debugging: `Developer Backend` -> Select Application -> Development and Debugging.
-
-After joining the chat room, the SDK will automatically synchronize the latest 50 messages and the full attribute information of the room locally, and return this data to the developer's business layer through [Chat Room Monitoring](../event).
-
-**Sample Code**
-
-```js
-let chatroomId = "chatroomId1";
-let count = 10;
-JuggleIm.instance.getChatroomManager().joinChatroom(chatroomId, count);
 ```
 
 </TabItem>

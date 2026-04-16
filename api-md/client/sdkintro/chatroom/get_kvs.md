@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -74,11 +73,6 @@ jim.getChatRoomAttributes(chatroom).then((chatroom) => {
 
 </TabItem>
 <TabItem value="reactnative">
-
-> Coming soon
-
-</TabItem>
-<TabItem value="harmony">
 
 > Coming soon
 

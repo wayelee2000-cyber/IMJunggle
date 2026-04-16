@@ -8,10 +8,10 @@ sidebar_position: 2
 
 After the developer server disbands a group, it synchronizes the disbanded group's information with the IM server. If a dissolution notification message is to be sent, it must be sent before calling this interface, followed by the disbandment operation.
 
-:::danger group disbandment notification
-After a group is successfully disbanded, the IM server **will not** send a group disbandment notification. Developers must implement a custom notification message to be sent to the group.
-:::
-
+<div style="margin: 1rem 0; padding: 1rem 1.25rem; border-left: 4px solid #e5484d; background: #fff1f2; border-radius: 0 16px 16px 0;">
+<p style="margin: 0 0 0.75rem; font-size: 1rem; font-weight: 700; color: #b42318;">group disbandment notification</p>
+<p style="margin: 0; color: #344054;">After a group is successfully disbanded, the IM server **will not** send a group disbandment notification. Developers must implement a custom notification message to be sent to the group.</p>
+</div>
 ### Request description{#req}
 
 > **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../../api#header).

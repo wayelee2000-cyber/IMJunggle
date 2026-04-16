@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -124,27 +123,6 @@ jim.removeMessages(messages).then(() => {
   console.log('Messages removed successfully.');
 });
 ```
-</TabItem>
-<TabItem value="harmony">
-
-Delete your own historical messages locally and in the cloud; the deletion will be synchronized across all your devices. After the interface is called successfully, it will not affect the other party or other group members' ability to continue viewing messages. Batch deletion of multiple messages within the same conversation is supported.
-
-**Parameter description**
-
-| Name | Type | Description | Version |
-|----------------------------------|---------|------------------------------------------------------------------|----------|
-| conver | Conversation | Session ID | 1.0.0 |
-| msgIds | string[] | List of local message unique numbers | 1.0.0 |
-| delScope | number | 0: Delete only on one side; 1: Delete in both directions so other users in the session cannot see the messages | 1.0.0 |
-| callback | CommonCallback | Result callback | 1.0.0 |
-
-**Sample Code**
-
-```java
-let conver = new Conversation("userid1",1);
-JuggleIm.instance.getMessageManager().delMessages(conver, ["message_id1", "message_id2"], 1, (code) => {});
-```
-
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 

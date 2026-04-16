@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: '鸿蒙', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -79,20 +78,6 @@ let message = {
 ```
 </TabItem>
 
-<TabItem value="harmony">
-
-图片消息（ImageMessage）是 SDK 内置的消息类型，对应的 contentType 为 @"jg:img"。
-
-| 属性名    | 类型    | 说明                     | 版本  |
-| --------- | ------- | ------------------------ | ----- |
-| url       | string  | 图片的远端地址           | 1.0.0 |
-| thumbnail | string  | 缩略图的远端地址         | 1.0.0 |
-| height    | number  | 图片高度                 | 1.0.0 |
-| width     | number  | 图片宽度                 | 1.0.0 |
-| size      | number  | 图片大小，单位为 KB      | 1.0.0 |
-| extra     | string  | 扩展字段                 | 1.0.0 |
-
-</TabItem>
 
 <TabItem value="flutter">
 

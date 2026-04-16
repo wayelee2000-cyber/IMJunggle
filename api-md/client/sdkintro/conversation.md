@@ -11,8 +11,7 @@ values={[
 { label: 'iOS', value: 'ios' },
 { label: 'JavaScript', value: 'js' },
 { label: 'Flutter', value: 'flutter' },
-{ label: 'ReactNative', value: 'reactnative' },
-{ label: 'HarmonyOS', value: 'harmony' }
+{ label: 'ReactNative', value: 'reactnative' }
 ]}
 >
 <TabItem value="android">
@@ -157,21 +156,4 @@ values={[
 
 </TabItem>
 
-<TabItem value="harmony">
-
-`ConversationInfo` is the SDK's general conversation object. Its `conversation` property, of type `Conversation`, uniquely identifies a conversation. The `Conversation` object contains two properties: `conversationType`, which indicates the type of conversation, and `conversationId`, which identifies the conversation itself.
-
-| Property Name | Type | Description | Version |
-| --- | --- | --- | --- |
-| conversation | Conversation | Conversation identifier | 1.0.0 |
-| lastMessage | Message | The last message in the conversation | 1.0.0 |
-| unreadCount | number | Number of unread messages in the conversation | 1.0.0 |
-| sortTime | number | Conversation sort time (server time) | 1.0.0 |
-| isTop | boolean | Whether the conversation is pinned | 1.0.0 |
-| topTime | number | Time when the conversation was pinned | 1.0.0 |
-| mute | boolean | Whether Do Not Disturb is enabled | 1.0.0 |
-| draft | string | Conversation draft | 1.0.0 |
-| mentionInfo | ConversationMentionInfo | @ mention information | 1.0.0 |
-
-</TabItem>
 </Tabs>

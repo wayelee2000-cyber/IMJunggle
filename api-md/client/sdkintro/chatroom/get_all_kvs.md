@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -133,17 +132,6 @@ Retrieve all properties of a chat room
 import JuggleIM from 'juggleim-rnsdk';
 
 const attributes = await JuggleIM.getChatroomAttributes("chatroomId1");
-```
-
-</TabItem>
-<TabItem value="harmony">
-
-Retrieve all properties of a chat room
-
-**Sample Code**
-
-```js
-const attributes = await JuggleIm.instance.getChatroomManager().getAllAttributes("chatroomId1");
 ```
 
 </TabItem>

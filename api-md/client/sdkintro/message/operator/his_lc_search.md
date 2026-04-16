@@ -12,7 +12,6 @@ values={[
 { label: 'JavaScript', value: 'js', },
 { label: 'Flutter', value: 'flutter', },
 { label: 'ReactNative', value: 'reactnative', },
-{ label: 'Hongmeng', value: 'harmony', }
 ]
 }>
 <TabItem value="android">
@@ -61,8 +60,9 @@ NSArray <JMessage *> *searchResults = [JIM.shared.messageManager searchMessagesW
 </TabItem>
 <TabItem value="js">
 
-:::danger This feature is only supported in Electron
-:::
+<div style="margin: 1rem 0; padding: 1rem 1.25rem; border-left: 4px solid #e5484d; background: #fff1f2; border-radius: 0 16px 16px 0;">
+<p style="margin: 0 0 0.75rem; font-size: 1rem; font-weight: 700; color: #b42318;">This feature is only supported in Electron</p>
+</div>
 
 Local message search supports using `conversationId` to control whether to search messages within a single conversation or across all conversations. It also supports paginated retrieval, allowing developers to flexibly implement both global search and chat-specific search.
 
@@ -132,28 +132,6 @@ jim.searchMessages(params).then(({ isFinished, total, list }) => {
 
 </TabItem>
 
-<TabItem value="harmony">
-
-**Parameter Description**
-
-| Name | Type | Description | Version |
-|----------------------------------|---------|------------------------------------------------------------------|----------|
-| params | SearchParams | Query parameters | 1.0.0 |
-| callback | QryMessagesCallback | Callback for results; pass empty to return all content types | 1.0.0 |
-
-**Sample Code**
-
-```java
-let conver = new Conversation("userid1", 1);
-let params = new SearchParams();
-params.conver = conver;
-params.keywords = "keywords";
-JuggleIm.instance.getMessageManager().searchMessages(params, (code, msgs) => {
-
-});
-```
-
-</TabItem>
 <TabItem value="flutter" label="Flutter">
 
 **Sample Code**
