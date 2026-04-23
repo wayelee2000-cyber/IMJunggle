@@ -55,8 +55,8 @@ NSArray <JConversationInfo *> *conversationList = [JIM.shared.conversationManage
 | Property           | Type    | Description                                                                 | Version |
 |--------------------|---------|-----------------------------------------------------------------------------|---------|
 | result             | Object  | Query result                                                                | 1.0.0   |
-| result.conversations | Array   | Array of conversations. See [Conversation](../../conversation.mdx) for the structure of a single conversation object | 1.0.0   |
-| result.isFinished  | Boolean | Indicates whether the session retrieval is complete                        | 1.0.0   |
+| result.conversations | Array   | Array of conversations. See [Conversation](../../conversation.md) for the structure of a single conversation object | 1.0.0   |
+| result.isFinished  | Boolean | Indicates whether the conversation retrieval is complete                        | 1.0.0   |
 
 **Sample Code**
 

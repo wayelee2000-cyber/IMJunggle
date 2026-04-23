@@ -1,4 +1,4 @@
----
+﻿---
 title: Disband Group
 hide_title: true
 sidebar_position: 3
@@ -15,7 +15,7 @@ Update group information by disbanding the group.
 
 > **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/dissolve
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/dissolve
 
 > **Content-Type**: `application/json`
 
@@ -52,3 +52,4 @@ Content-Type: application/json
 
 | Response Code | Description |  |
 |:--------------|:------------|:--|
+

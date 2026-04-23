@@ -1,4 +1,4 @@
----
+﻿---
 title: Update group information
 hide_title: true
 sidebar_position: 2
@@ -13,9 +13,9 @@ Update group information.
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/update
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/update
 
 > **Content-Type**: `application/json`
 

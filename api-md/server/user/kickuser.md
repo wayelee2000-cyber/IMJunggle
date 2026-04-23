@@ -1,4 +1,4 @@
----
+﻿---
 title: Kick user offline
 hide_title: true
 sidebar_position: 11
@@ -10,13 +10,13 @@ Kick users offline who are currently connected to the IM service. Kicking users 
 
 ### Request description{#req}
 
-> **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `GET`
 
-> **Request frequency limit**: `100 times/second`
+> **Request Frequency Limit**: `100 times/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/users/kick
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/users/kick
 
 > **Content-Type**: `application/json`
 

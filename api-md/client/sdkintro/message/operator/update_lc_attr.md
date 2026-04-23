@@ -63,7 +63,7 @@ To support local messages, special fields are added to implement different funct
 | Name | Type | Required | Description | Version |
 |---------------------|---------|----|-------------------------------------------------------------------------------|--------|
 | message | Object | Yes | Message search parameters | 1.0.0 |
-| message.tid | String | Yes | The unique identifier of the message, which can be obtained in [Message](../../../msg/message) | 1.0.0 |
+| message.tid | String | Yes | The unique identifier of the message, which can be obtained in the [message object](../../msg/message.md) | 1.0.0 |
 | message.attribute | String | Yes | Extension data as a JSON string, maximum length of 1000 characters | 1.0.0 |
 
 **Success callback**
@@ -74,7 +74,7 @@ No parameters are returned; the callback is triggered to indicate success.
 
 | Name | Type | Description | Version |
 |--------|---------|--------------------------------------------------------------|--------|
-| error | Object | Contains a status code indicating the failure reason. You can view `error.msg` directly or refer to [Status Code](../../../../sdkintro/status_code/web) | 1.0.0 |
+| error | Object | Contains a status code indicating the failure reason. You can view `error.msg` directly or refer to [Status Code](../../status_code/web.md) | 1.0.0 |
 
 **Sample Code**
 ```js

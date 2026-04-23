@@ -1,4 +1,4 @@
----
+﻿---
 title: Set up group announcement
 hide_title: true
 sidebar_position: 5
@@ -13,9 +13,9 @@ Configure group announcements.
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/setgrpannouncement
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/setgrpannouncement
 
 > **Content-Type**: `application/json`
 

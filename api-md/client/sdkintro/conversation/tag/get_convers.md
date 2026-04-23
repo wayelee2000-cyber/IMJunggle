@@ -62,7 +62,7 @@ Retrieve the conversation list under a specific tag, with support for pagination
 | option | Object | Yes | | | 1.7.5 |
 | option.tag | String | Yes | | | 1.7.5 |
 | option.count | Number | No | 50 | Number of sessions to retrieve, up to 100 sessions per request | 1.0.0 |
-| option.order | Number | No | [FORWARD](../../../enum/web#conversation) | Direction of retrieval; supports fetching earlier or newer sessions, used with the `time` attribute | 1.0.0 |
+| option.order | Number | No | [FORWARD](../../enum/web.md#conversation) | Direction of retrieval; supports fetching earlier or newer sessions, used with the `time` attribute | 1.0.0 |
 | option.time | Number | No | 0 | Starting point in time to retrieve sessions. Use with `order` to fetch newer or older sessions | 1.0.0 |
 
 **Callback Description**
@@ -70,7 +70,7 @@ Retrieve the conversation list under a specific tag, with support for pagination
 | Properties | Type | Description | Version |
 |------------------|----------|------------------------------------------------|----------|
 | result | Object | Query result | 1.0.0 |
-| result.conversations | Array | Array of conversations. See [Conversation](../../conversation.mdx) for the structure of a single conversation object | 1.0.0 |
+| result.conversations | Array | Array of conversations. See [Conversation](../../conversation.md) for the structure of a single conversation object | 1.0.0 |
 | result.isFinished | Boolean | Indicates whether all sessions have been retrieved | 1.0.0 |
 
 **Sample Code**

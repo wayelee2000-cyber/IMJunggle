@@ -71,7 +71,7 @@ Local message search supports using `conversationId` to control whether to searc
 | Name | Type | Required | Description | Version |
 |-------------------------|---------|----|-------------------------------------------------------------------------------|--------|
 | params | Object | Yes | Message search parameters | 1.0.0 |
-| params.conversationType | Number | No | [Conversation Type](../../../enum/web#conversation) | 1.0.0 |
+| params.conversationType | Number | No | [Conversation Type](../../enum/web.md#conversation) | 1.0.0 |
 | params.conversationId | String | No | Session ID; passing a value searches messages within a single conversation, passing empty searches across all conversations | 1.0.0 |
 | params.keywords | Array | Yes | Message search keywords; supports up to 5 keywords with an "OR" relationship between them | 1.0.0 |
 | params.senderIds | Number | No | Filter messages by specified sender IDs | 1.0.0 |
@@ -97,13 +97,13 @@ Local message search supports using `conversationId` to control whether to searc
 | conversationType | Number | Conversation type | 1.0.0 |
 | conversationId | String | Session ID; for `PRIVATE` conversations, this is the userId of the other party; for `GROUP` conversations, this is the group ID | 1.0.0 |
 | matchedCount | Array | Number of matched keywords in the current session | 1.0.0 |
-| matchedList | Array | Details of messages matching keywords in the current session; each item is a [Message](../../../msg/message) object | 1.0.0 |
+| matchedList | Array | Details of messages matching keywords in the current session; each item is a [message object](../../msg/message.md) | 1.0.0 |
 
 **Failure Callback**
 
 | Name | Type | Description | Version |
 |--------|---------|--------------------------------------------------------------|--------|
-| error | Object | Contains a status code if the request fails. You can check `error.msg` or refer to [Status Code](../../../../sdkintro/status_code/web) | 1.0.0 |
+| error | Object | Contains a status code if the request fails. You can check `error.msg` or refer to [Status Code](../../status_code/web.md) | 1.0.0 |
 
 **All Sessions Search: Sample Code**
 

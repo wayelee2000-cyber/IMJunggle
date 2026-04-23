@@ -1,4 +1,4 @@
----
+﻿---
 title: Set Group Ban
 hide_title: true
 sidebar_position: 2
@@ -15,7 +15,7 @@ Set a global group ban.
 
 > **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/management/setmute
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/management/setmute
 
 > **Content-Type**: `application/json`
 
@@ -54,3 +54,4 @@ Content-Type: application/json
 
 | Response Code | Description |   |
 |:--------------|:------------|---|
+

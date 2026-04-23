@@ -1,4 +1,4 @@
----
+﻿---
 title: Set ban on group members
 hide_title: true
 sidebar_position: 8
@@ -13,9 +13,9 @@ Banned group members will no longer be able to send messages within the group.
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/management/setgrpmembersmute
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/management/setgrpmembersmute
 
 > **Content-Type**: `application/json`
 

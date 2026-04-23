@@ -18,7 +18,7 @@ values={[
 
 Message reactions refer to replying to a message using emoticons or special symbols, such as `like`, `wry smile`, etc.
 
-The message reaction callbacks are integrated into the [Message Listener](../../../watcher/message).
+The message reaction callbacks are integrated into the [Message event listener](../../watcher/message.md).
 
 ```java
 JIM.getInstance().getMessageManager().addListener("main", new IMessageManager.IMessageListener() {
@@ -45,7 +45,7 @@ JIM.getInstance().getMessageManager().addListener("main", new IMessageManager.IM
 
 Message reactions refer to replying to a message using emoticons or special symbols, such as `like`, `wry smile`, etc.
 
-The message reaction callbacks are integrated into the [Message Listener](../../../watcher/message).
+The message reaction callbacks are integrated into the [Message event listener](../../watcher/message.md).
 
 ```objectivec
 [JIM.shared.messageManager addDelegate:self];
@@ -85,7 +85,7 @@ There are two ways to obtain message reactions: `Historical messages` and `Messa
 ```js
 let { Event } = JIM;
 
-// Register this globally once; it can be placed alongside message listeners for consistency. Here it is shown for clarity.
+// Register this globally once; it can be placed alongside message event listeners for consistency. Here it is shown for clarity.
 
 jim.on(Event.MESSAGE_REACTION_CHANGED, (notify) => {
   /* 
@@ -121,7 +121,7 @@ Example notify object:
 
 Message reactions refer to replying to a message using emoticons or special symbols, such as `like`, `wry smile`, etc.
 
-The message reaction callbacks are integrated into the [Message Listener](../../../watcher/message).
+The message reaction callbacks are integrated into the [Message event listener](../../watcher/message.md).
 
 ```java
 /// Callback for adding a message reaction

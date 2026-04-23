@@ -1,4 +1,4 @@
----
+﻿---
 title: Delete Moments
 hide_title: true
 sidebar_position: 3
@@ -13,7 +13,7 @@ Deletes Moments.
 
 > **Request Type**: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api#api)/momentgateway/moments/del
 
@@ -48,3 +48,4 @@ Content-Type: application/json
 
 | Response Code | Description |
 |:-------------:|:------------|
+

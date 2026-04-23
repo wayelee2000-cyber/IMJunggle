@@ -1,4 +1,4 @@
----
+﻿---
 title: Create group
 hide_title: true
 sidebar_position: 1
@@ -10,19 +10,19 @@ Synchronize groups created by the developer server with the IM service for messa
 
 <div style="margin: 1rem 0; padding: 1rem 1.25rem; border-left: 4px solid #e5484d; background: #fff1f2; border-radius: 0 16px 16px 0;">
 <p style="margin: 0 0 0.75rem; font-size: 1rem; font-weight: 700; color: #b42318;">group creation notification</p>
-<p style="margin: 0; color: #344054;">After a group is successfully created, the IM server will **not** send a group creation notification. Developers need to implement custom notification messages to be sent to the group.</p>
+<p style="margin: 0; color: #344054;">After a group is successfully created, the IM server will <strong>not</strong> send a group creation notification. Developers need to implement custom notification messages to be sent to the group.</p>
 </div>
-### Request description{#req}
+Request description{#req}
 
-> **Request Authentication**: This API requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> <strong>Request Authentication</strong>: This API requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
-> **Request Type**: `POST`
+> <strong>Request Type</strong>: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> <strong>Request Frequency Limit</strong>: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/groups/add
+> <strong>Request URL</strong>: https://[request domain name](../api.md#api)/apigateway/groups/add
 
-> **Content-Type**: `application/json`
+> <strong>Content-Type</strong>: `application/json`
 
 
 ### Request parameters {#param}
@@ -63,3 +63,8 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+
+
+
+
+

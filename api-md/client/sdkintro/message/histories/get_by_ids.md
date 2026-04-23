@@ -65,13 +65,13 @@ Retrieve message content by message IDs, supporting querying multiple messages a
 | Name | Type | Description | Version |
 |------------------------|---------|-----------------------------------------|--------|
 | result | Object | | 1.0.0 |
-| result.messages | Object | Array of messages. For properties of each message, see [Message](../msg/message) structure | 1.0.0 |
+| result.messages | Object | Array of messages. For the properties of each message, see the [message object](../../msg/message.md) | 1.0.0 |
 
 **Failure callback**
 
 | Name | Type | Description | Version |
 |--------|---------|--------------------------------------------------------------|--------|
-| error | Object | Contains a status code if the request fails. You can check `error.msg` or refer to [status codes](../status_code/web) | 1.0.0 |
+| error | Object | Contains a status code if the request fails. You can check `error.msg` or refer to [status codes](../../status_code/web.md) | 1.0.0 |
 
 **Sample Code**
 ```js
@@ -108,7 +108,7 @@ List<String> messageIds = ["msg_id_01", "msg_id_02"];
 List<Message> messages = await JuggleIm.instance.getMessagesByMessageIdList(messageIds);
 ```
 
-The `messages` variable contains an array of messages. For the properties of each message, see the [Message](../../../msg/message) structure.
+The `messages` variable contains an array of messages. For the properties of each message, see the [message object](../../msg/message.md).
 
 </TabItem>
 </Tabs>

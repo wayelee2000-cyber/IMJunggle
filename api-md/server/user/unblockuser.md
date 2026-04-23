@@ -1,4 +1,4 @@
----
+﻿---
 title: Unban Single Chat
 hide_title: true
 sidebar_position: 7
@@ -10,13 +10,13 @@ Unblock users' ability to send private messages.
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/users/blockusers/unblock
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/users/blockusers/unblock
 
 > **Content-Type**: `application/json`
 
@@ -51,3 +51,4 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+

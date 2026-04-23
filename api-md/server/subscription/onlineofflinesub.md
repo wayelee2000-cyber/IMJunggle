@@ -6,7 +6,7 @@ sidebar_position: 1
 
 ### Request description{#req}
 
-> **Push Authentication**: The interface requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Push Authentication**: The interface requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Push Result**: When the business party receives the push, it must ensure the corresponding status code is 200 to confirm successful receipt.
 

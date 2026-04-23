@@ -1,21 +1,21 @@
----
+﻿---
 title: Check online status
 hide_title: true
 sidebar_position: 5
 ---
 ### Function description{#intro}
 
-Query the online status of users in batches. This function is intended for the initial display of user status. To monitor users' online and offline status in real time, please use the [online and offline subscription](../../subscription/onlineofflinesub) feature.
+Query the online status of users in batches. This function is intended for the initial display of user status. To monitor users' online and offline status in real time, please use the [online and offline subscription](../subscription/onlineofflinesub.md) feature.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/users/onlinestatus/query
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/users/onlinestatus/query
 
 > **Content-Type**: `application/json`
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Check if Group Member
 hide_title: true
 sidebar_position: 7
@@ -13,9 +13,9 @@ Check whether a user is a member of a group.
 
 > **Request Type**: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/members/check
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/members/check
 
 > **Content-Type**: `application/json`
 
@@ -61,3 +61,4 @@ Content-Type: application/json
 
 | Response Code | Description |   |
 |:--------------|:------------|---|
+

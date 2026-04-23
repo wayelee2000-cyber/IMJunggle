@@ -1,4 +1,4 @@
----
+﻿---
 title: Remove user blacklist
 hide_title: true
 sidebar_position: 2
@@ -13,9 +13,9 @@ Remove users from the blacklist.
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 times/second`
+> **Request Frequency Limit**: `100 times/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/users/blockusers/del
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/users/blockusers/del
 
 > **Content-Type**: `application/json`
 

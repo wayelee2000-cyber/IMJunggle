@@ -18,7 +18,7 @@ values={[
 
 **Connect**
 
-Connecting to the IM server is asynchronous. Connection state changes are returned through the [connection listener](./watcher/connect.mdx). It is recommended to register the listener before initialization.
+Connecting to the IM server is asynchronous. Connection state changes are returned through the [connection events](./watcher/connect.mdx). It is recommended to register the listener before initialization.
 
 You can show the conversation and message UI in the database-open callback. When the connection state changes to `JetIMConst.ConnectionStatus.CONNECTED`, messages can be sent from the status callback.
 
@@ -43,7 +43,7 @@ JIM.getInstance().getConnectionManager().disconnect(false);
 
 **Connect**
 
-After calling the connection method, use the [connection listener](./watcher/connect.mdx) to handle follow-up business logic.
+After calling the connection method, use the [connection events](./watcher/connect.mdx) to handle follow-up business logic.
 
 You can show the conversation and message UI in the `dbDidOpen` callback. When the connection state changes to `JConnectionStatusConnected`, messages can be sent in the `connectionStatusDidChange:errorCode` callback.
 
@@ -78,8 +78,8 @@ When disconnecting, you can choose whether the client should continue receiving 
 | Property | Type | Description | Version |
 | --- | --- | --- | --- |
 | error | Object | Connection result | 1.0.0 |
-| error.code | Number | Connection status code. See [connection status codes](./status_code/web.mdx#connect) | 1.0.0 |
-| error.msg | String | Description of the connection result. See [connection status codes](./status_code/web.mdx#connect) | 1.0.0 |
+| error.code | Number | Connection status code. See [connection status codes](./status_code/web.md#connect) | 1.0.0 |
+| error.msg | String | Connection status description. See [connection status codes](./status_code/web.md#connect) | 1.0.0 |
 
 **Example Code**
 
@@ -104,7 +104,7 @@ jim.connect(user).then((user) => {
 
 **Connect**
 
-After calling the connection method, use the [connection listener](./watcher/connect.mdx) to handle follow-up business logic.
+After calling the connection method, use the [connection events](./watcher/connect.mdx) to handle follow-up business logic.
 
 Developers only need to call `connect` once. After that, the SDK opens the local database, establishes the network connection, and handles all reconnect logic automatically. Developers only need to intervene in cases the SDK cannot handle on its own, such as an invalid token or an app-level ban. When `SDKConnectionStatus.FAILURE` is received, you can handle the error based on the returned error code.
 
@@ -128,7 +128,7 @@ await JuggleIm.instance.disconnect(false);
 
 **Connect**
 
-After calling the connection method, use the [connection listener](./watcher/connect.mdx) to handle follow-up business logic.
+After calling the connection method, use the [connection events](./watcher/connect.mdx) to handle follow-up business logic.
 
 Developers only need to call `connect` once. After that, the SDK opens the local database, establishes the network connection, and handles all reconnect logic automatically. Developers only need to intervene in cases the SDK cannot handle on its own, such as an invalid token or an app-level ban. When `ConnectionStatus.FAILURE` is received, you can handle the error based on the returned error code.
 

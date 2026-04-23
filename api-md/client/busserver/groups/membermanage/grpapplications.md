@@ -1,4 +1,4 @@
----
+﻿---
 title: Group membership application list
 hide_title: true
 sidebar_position: 8
@@ -13,9 +13,9 @@ This endpoint provides a list of group membership applications, including users 
 
 > **Request Type**: `GET`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/grpapplications
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/grpapplications
 
 > **Content-Type**: `application/json`
 

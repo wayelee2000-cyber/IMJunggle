@@ -116,12 +116,12 @@ Developers only need to pass in the File object; the send picture message method
 | Name | Type | Required | Default | Description | Version |
 |--------------------------------|---------|--------|--------|----------------------------------------------------------------|----------|
 | message | Object | Yes | | Message object | 1.0.0 |
-| message.conversationType | Number | Yes | | [Conversation Type](../../../enum/web#conversation) | 1.0.0 |
+| message.conversationType | Number | Yes | | [Conversation Type](../../enum/web.md#conversation) | 1.0.0 |
 | message.conversationId | String | Yes | | Session ID. When the session type is `PRIVATE`, the session ID is the userId of the receiver; when the session type is `GROUP`, it is the group ID | 1.0.0 |
 | message.content | Object | Yes | | | 1.0.0 |
 | message.content.file | File | Yes | | Image object | 1.0.0 |
 | message.mentionInfo | Object | No | None | Valid when conversationType is `GROUP`. Setting mentionInfo indicates this message is an @ message | 1.0.0 |
-| mentionInfo.mentionType | Number | No | None | @ type, see [@ message enumeration](../../../enum/web#mention) for details | 1.0.0 |
+| mentionInfo.mentionType | Number | No | None | @ type, see [@ message enumeration](../../enum/web.md#mention) for details | 1.0.0 |
 | mentionInfo.targetIds | Array | No | None | List of specified @ recipients. The SDK prioritizes determining the @ type of the message based on mentionType | 1.0.0 |
 | lifeTime | Number | No | 0 | Message destruction time period, must be greater than `0`, unit: `ms`. For example, 60s: `1 * 60 * 1000` | 1.9.0 |
 | lifeTimeAfterRead | Number | No | 0 | Time period for the message to disappear after reading, must be greater than 0, unit: `ms`. For example, 60s: `1 * 60 * 1000` | 1.9.0 |
@@ -139,13 +139,13 @@ Developers only need to pass in the File object; the send picture message method
 
 | Name | Type | Description | Version |
 |-----------|----------|-------------------------------------------------------------------------------|--------|
-| message | Object | After successful sending, a message object with `messageId` and `sentTime` will be returned. See the message structure [Message](../../../msg/message) | 1.0.0 |
+| message | Object | After successful sending, a message object with `messageId` and `sentTime` will be returned. See the [message object](../../msg/message.md) | 1.0.0 |
 
 **Failure callback**
 
 | Name | Type | Description | Version |
 |--------|---------|--------------------------------------------------------------|--------|
-| result | Object | After failure to send, the returned object contains `tid` and `error` information. You can view `error.msg` directly or refer to [status code](../../../status_code/web) | 1.0.0 |
+| result | Object | After failure to send, the returned object contains `tid` and `error` information. You can view `error.msg` directly or refer to [status code](../../status_code/web.md) | 1.0.0 |
 
 **Sample Code**
 ```js

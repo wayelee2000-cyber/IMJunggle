@@ -1,4 +1,4 @@
----
+﻿---
 title: Set Group Member Whitelist
 hide_title: true
 sidebar_position: 11
@@ -12,17 +12,17 @@ After enabling a group ban, if you want to allow certain users to send messages,
 <p style="margin: 0 0 0.75rem; font-size: 1rem; font-weight: 700; color: #b42318;">priority</p>
 <p style="margin: 0; color: #344054;">If the developer calls `Group ban`, `Group member ban`, and `Group whitelist` simultaneously, the group whitelist takes the highest priority, allowing users on the whitelist to continue sending messages.</p>
 </div>
-### Request Description{#req}
+Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> <strong>Request Authentication</strong>: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
-> **Request Type**: `POST`
+> <strong>Request Type</strong>: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> <strong>Request Frequency Limit</strong>: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/groups/groupmemberallow/set
+> <strong>Request URL</strong>: https://[request domain name](../api.md#api)/apigateway/groups/groupmemberallow/set
 
-> **Content-Type**: `application/json`
+> <strong>Content-Type</strong>: `application/json`
 
 ### Request Parameters {#param}
 
@@ -56,3 +56,6 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+
+
+

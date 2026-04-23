@@ -1,5 +1,5 @@
 ---
-title: Delete specified session
+title: Delete specified conversation
 hide_title: true
 sidebar_position: 3
 ---
@@ -48,7 +48,7 @@ JIM.getInstance().getConversationManager().deleteConversationInfo(conversation, 
 
 | Name | Type | Description | Version |
 |----------------|---------|-------------------------|----------|
-| conversation | JConversation | Session identifier | 1.0.0 |
+| conversation | JConversation | Conversation identifier | 1.0.0 |
 | successBlock | Block | Success callback | 1.0.0 |
 | errorBlock | Block | Failure callback | 1.0.0 |
 
@@ -68,7 +68,7 @@ JConversation *conversation = [[JConversation alloc] initWithConversationType:JC
 </TabItem>
 <TabItem value="js">
 
-Deleted sessions are synchronized across multiple devices. Both local and cloud data will be deleted. After the session is successfully deleted, [session deletion monitoring](../../../watcher/conversation) will be triggered.
+Deleted conversations are synchronized across multiple devices. Both local and cloud data will be deleted. After the conversation is successfully deleted, [conversation deletion monitoring](../../watcher/conversation.md) will be triggered.
 
 **Parameter description**
 
@@ -85,7 +85,7 @@ let conversation = {
   conversationId: 'userId01'
 };
 
-// Delete a single session
+// Delete a single conversation
 jim.removeConversation(conversation).then(() => {
   console.log('Conversation removed successfully');
 });
@@ -99,7 +99,7 @@ jim.removeConversation(conversations).then(() => {
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-Deleting a session is synchronized across multiple devices. Both local and cloud data will be deleted. After the session is successfully deleted, [session deletion monitoring](../../../watcher/conversation) will be triggered.
+Deleting a conversation is synchronized across multiple devices. Both local and cloud data will be deleted. After the conversation is successfully deleted, [conversation deletion monitoring](../../watcher/conversation.md) will be triggered.
 
 **Parameter description**
 
@@ -117,7 +117,7 @@ Result result = await JuggleIm.instance.deleteConversationInfo(conversation);
 </TabItem>
 <TabItem value="reactnative">
 
-Deleting a session is synchronized across multiple devices. Both local and cloud data will be deleted. After the session is successfully deleted, [session deletion monitoring](../../../watcher/conversation) will be triggered.
+Deleting a conversation is synchronized across multiple devices. Both local and cloud data will be deleted. After the conversation is successfully deleted, [conversation deletion monitoring](../../watcher/conversation.md) will be triggered.
 
 **Parameter description**
 
@@ -125,7 +125,7 @@ Deleting a session is synchronized across multiple devices. Both local and cloud
 |----------------------------------|---------|-------------------------|----------|
 | conversation | Object | Conversation identifier | 0.6.3 |
 | conversationType | Number | Conversation type | 0.6.3 |
-| conversationId | String | Session ID | 0.6.3 |
+| conversationId | String | Conversation ID | 0.6.3 |
 
 **Sample Code**
 

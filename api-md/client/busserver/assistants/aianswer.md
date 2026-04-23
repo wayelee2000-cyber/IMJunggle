@@ -1,4 +1,4 @@
----
+﻿---
 title: Smart Reply
 hide_title: true
 sidebar_position: 6
@@ -9,7 +9,7 @@ Generate smart replies.
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
@@ -67,3 +67,4 @@ Content-Type: application/json
 
 | Response Code | Description |   |
 |:--------------|:------------|---|
+

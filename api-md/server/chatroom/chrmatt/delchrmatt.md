@@ -1,22 +1,22 @@
 ---
-title: Delete chat room attributes
+title: Delete chatroom attributes
 hide_title: true
 sidebar_position: 2
 ---
 
 ### Function description{#intro}
 
-Removes custom attributes from the specified chat room.
+Removes attributes from the specified chatroom.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request rate limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../../api#api)/apigateway/chatrooms/atts/del
+> **Request URL**: https://[request domain name](../../api.md#api)/apigateway/chatrooms/atts/del
 
 > **Content-Type**: `application/json`
 
@@ -26,7 +26,7 @@ Removes custom attributes from the specified chat room.
 | Parameter       | Data type | Required | Description                          |   |
 |:----------------|:----------|:---------|:-----------------------------------|---|
 | from_id         | string    | Yes      | The user ID of the attribute initiator |   |
-| chat_id         | string    | Yes      | The ID of the chat room             |   |
+| chat_id         | string    | Yes      | The ID of the chatroom             |   |
 | atts            | array     | Yes      | A list of attributes to delete     |   |
 | atts[0].key     | string    | Yes      | The key of the attribute            |   |
 | atts[0].is_force| bool      | No       | Whether to force deletion; defaults to false |   |
@@ -70,3 +70,4 @@ Content-Type: application/json
   }
 }
 ```
+

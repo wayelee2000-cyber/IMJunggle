@@ -1,22 +1,22 @@
 ---
-title: Query the Specified Attributes of a Chat Room
+title: Query the Specified Attributes of a Chatroom
 hide_title: true
 sidebar_position: 3
 ---
 
 ### Function Description{#intro}
 
-Query specific custom properties within a chat room.
+Query specific attributes within a chatroom.
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../../api#api)/apigateway/chatrooms/atts/qry
+> **Request URL**: https://[request domain name](../../api.md#api)/apigateway/chatrooms/atts/qry
 
 > **Content-Type**: `application/json`
 
@@ -25,7 +25,7 @@ Query specific custom properties within a chat room.
 
 | Parameter | Data Type | Required | Description                  |   |
 |:----------|:----------|:---------|:----------------------------|---|
-| chat_id   | string    | Yes      | The ID of the chat room     |   |
+| chat_id   | string    | Yes      | The ID of the chatroom     |   |
 | att_keys  | array     | Yes      | List of attribute keys to query |   |
 
 
@@ -63,3 +63,4 @@ Content-Type: application/json
   }
 }
 ```
+

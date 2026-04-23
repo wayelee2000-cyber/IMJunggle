@@ -1,4 +1,4 @@
----
+﻿---
 title: Account and password login
 hide_title: true
 sidebar_position: 3
@@ -15,7 +15,7 @@ You can choose one from `account`, `phone`, or `email`.
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 times/second`
+> **Request Frequency Limit**: `100 times/second`
 
 > **Request URL**: https://[request domain name](../api.md#api)/jim/login
 

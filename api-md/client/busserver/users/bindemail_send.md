@@ -1,4 +1,4 @@
----
+﻿---
 title: Bind Email - Send Email
 hide_title: true
 sidebar_position: 9
@@ -9,7 +9,7 @@ Before binding an email, trigger the email verification code.
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
@@ -52,3 +52,4 @@ Content-Type: application/json
 
 | Response Code | Description |  |
 |:--------------|:------------|:--|
+

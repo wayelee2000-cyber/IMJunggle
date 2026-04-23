@@ -1,4 +1,4 @@
----
+﻿---
 title: Remove administrator
 hide_title: true
 sidebar_position: 2
@@ -13,9 +13,9 @@ Remove a group administrator.
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/management/administrators/del
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/management/administrators/del
 
 > **Content-Type**: `application/json`
 

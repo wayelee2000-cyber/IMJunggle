@@ -1,4 +1,4 @@
----
+﻿---
 title: Exit group
 hide_title: true
 sidebar_position: 2
@@ -13,9 +13,9 @@ Exit a group.
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/quit
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/quit
 
 > **Content-Type**: `application/json`
 

@@ -1,22 +1,22 @@
 ---
-title: Query chat room information
+title: Query chatroom information
 hide_title: true
 sidebar_position: 3
 ---
 
 ### Function description{#intro}
 
-Retrieve the basic information of a chat room, including the chat room's nickname, attribute list, number of members, and some member details.
+Retrieve the information of a chatroom, including the chatroom's nickname, attribute list, number of members, and some member details.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `GET`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/chatrooms/info
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/chatrooms/info
 
 > **Content-Type**: `application/json`
 
@@ -25,9 +25,9 @@ Retrieve the basic information of a chat room, including the chat room's nicknam
 
 | Parameters | Data type | Required | Description |  |
 |:-----------|:----------|:---------|:------------|:--|
-| chat_id    | string    | Yes      | The ID of the chat room |  |
-| order      | int       | No       | Sorting order of chat room members: 0 for descending order; 1 for ascending order |  |
-| count      | int       | No       | Number of chat room members to query; default is 100 |  |
+| chat_id    | string    | Yes      | The ID of the chatroom |  |
+| order      | int       | No       | Sorting order of chatroom members: 0 for descending order; 1 for ascending order |  |
+| count      | int       | No       | Number of chatroom members to query; default is 100 |  |
 
 
 ### Request Example{#req_demo}

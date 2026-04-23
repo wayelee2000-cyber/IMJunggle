@@ -1,5 +1,5 @@
----
-title: 图片消息
+﻿---
+title: Image message
 hide_title: true
 sidebar_position: 4
 ---
@@ -7,62 +7,62 @@ sidebar_position: 4
 <Tabs
 groupId="sdks-language"
 values={[
-{ label: 'Android', value: 'android', },
-{ label: 'iOS', value: 'ios', },
-{ label: 'JavaScript', value: 'js', },
-{ label: 'Flutter', value: 'flutter', },
-{ label: 'ReactNative', value: 'reactnative', },
-]
-}>
+{ label: 'Android', value: 'android' },
+{ label: 'iOS', value: 'ios' },
+{ label: 'JavaScript', value: 'js' },
+{ label: 'Flutter', value: 'flutter' },
+{ label: 'ReactNative', value: 'reactnative' }
+]}
+>
 <TabItem value="android">
 
-图片消息（ImageMessage）是 SDK 内置的消息类型，对应的 contentType 为 @"jg:img"。
+Image messages (`ImageMessage`) are a built-in SDK message type with the corresponding contentType `@"jg:img"`.
 
-| 属性名             | 类型     | 说明                     | 版本  |
-| ------------------ | -------- | ------------------------ | ----- |
-| localPath          | String   | 图片的本地路径           | 1.0.0 |
-| url                | String   | 图片的远端地址           | 1.0.0 |
-| thumbnailLocalPath  | String   | 缩略图的本地路径         | 1.0.0 |
-| thumbnailUrl       | String   | 缩略图的远端地址         | 1.0.0 |
-| height             | int      | 图片高度                 | 1.0.0 |
-| width              | int      | 图片宽度                 | 1.0.0 |
-| size               | long     | 图片大小，单位为 `Byte`  | 1.0.0 |
-| extra              | String   | 扩展字段                 | 1.0.0 |
+| Property | Type | Description | Version |
+| --- | --- | --- | --- |
+| localPath | String | Local path of the image | 1.0.0 |
+| url | String | Remote URL of the image | 1.0.0 |
+| thumbnailLocalPath | String | Local path of the thumbnail image | 1.0.0 |
+| thumbnailUrl | String | Remote URL of the thumbnail image | 1.0.0 |
+| height | int | Image height | 1.0.0 |
+| width | int | Image width | 1.0.0 |
+| size | long | Image size in `Byte` | 1.0.0 |
+| extra | String | Extension field | 1.0.0 |
 
 </TabItem>
 <TabItem value="ios">
 
-图片消息（JImageMessage）是 SDK 内置的消息类型，对应的 contentType 为 @"jg:img"。
+Image messages (`JImageMessage`) are a built-in SDK message type with the corresponding contentType `@"jg:img"`.
 
-| 属性名             | 类型       | 说明                     | 版本  |
-| ------------------ | ---------- | ------------------------ | ----- |
-| localPath          | NSString   | 图片的本地路径           | 1.0.0 |
-| url                | NSString   | 图片的远端地址           | 1.0.0 |
-| thumbnailLocalPath  | NSString   | 缩略图的本地路径         | 1.0.0 |
-| thumbnailUrl       | NSString   | 缩略图的远端地址         | 1.0.0 |
-| height             | int        | 图片高度                 | 1.0.0 |
-| width              | int        | 图片宽度                 | 1.0.0 |
-| size               | long long  | 图片大小，单位为 `Byte`  | 1.0.0 |
-| extra              | NSString   | 扩展字段                 | 1.0.0 |
+| Property | Type | Description | Version |
+| --- | --- | --- | --- |
+| localPath | NSString | Local path of the image | 1.0.0 |
+| url | NSString | Remote URL of the image | 1.0.0 |
+| thumbnailLocalPath | NSString | Local path of the thumbnail image | 1.0.0 |
+| thumbnailUrl | NSString | Remote URL of the thumbnail image | 1.0.0 |
+| height | int | Image height | 1.0.0 |
+| width | int | Image width | 1.0.0 |
+| size | long long | Image size in `Byte` | 1.0.0 |
+| extra | NSString | Extension field | 1.0.0 |
 
 </TabItem>
 <TabItem value="js">
 
-图片消息是 SDK 内置的消息类型，枚举对应 _[MessageType.IMAGE](../../enum/web#message)_。
+Image messages are a built-in SDK message type, corresponding to the enum _[MessageType.IMAGE](../enum/web.md#message)_.
 
-| 属性名    | 类型    | 说明                                                                 | 版本  |
-|-----------|---------|----------------------------------------------------------------------|-------|
-| url       | String  | 图片消息的原图地址                                                   | 1.0.0 |
-| thumbnail | String  | 图片消息的缩略图地址。UI 通过高宽属性展示占位图，优先加载缩略图，避免图片加载后跳动 | 1.0.0 |
-| height    | Number  | 图片高度                                                           | 1.0.0 |
-| width     | Number  | 图片宽度                                                           | 1.0.0 |
-| size      | Number  | 图片消息原图大小，用于查看或下载时显示进度条，单位为 `KB`           | 1.0.0 |
-| extra     | String  | 消息附加内容，支持 JSON 字符串，设置后不可修改                      | 1.0.0 |
+| Property | Type | Description | Version |
+| --- | --- | --- | --- |
+| url | String | URL of the original image | 1.0.0 |
+| thumbnail | String | URL of the thumbnail image. The UI can use the width and height fields to reserve space and load the thumbnail first to reduce layout shifts | 1.0.0 |
+| height | Number | Image height | 1.0.0 |
+| width | Number | Image width | 1.0.0 |
+| size | Number | Original image size, used when previewing or downloading and showing progress. Unit: `KB` | 1.0.0 |
+| extra | String | Additional message content. Supports a JSON string and cannot be modified after being set | 1.0.0 |
 
 ```js
 let imageMsg = {
-  url: "https://example.com/avatar.png",
-  thumbnail: "https://example.com/avatar_th.png",
+  url: 'https://example.com/avatar.png',
+  thumbnail: 'https://example.com/avatar_th.png',
   height: 640,
   width: 480,
   size: 100,
@@ -78,38 +78,37 @@ let message = {
 ```
 </TabItem>
 
-
 <TabItem value="flutter">
 
-图片消息（ImageMessage）是 SDK 内置的消息类型，对应的 contentType 为 "jg:img"。
+Image messages (`ImageMessage`) are a built-in SDK message type with the corresponding contentType `"jg:img"`.
 
-| 属性名             | 类型     | 说明                     | 版本  |
-| ------------------ | -------- | ------------------------ | ----- |
-| localPath          | String   | 图片的本地路径           | 0.6.3 |
-| url                | String   | 图片的远端地址           | 0.6.3 |
-| thumbnailLocalPath  | String   | 缩略图的本地路径         | 0.6.3 |
-| thumbnailUrl       | String   | 缩略图的远端地址         | 0.6.3 |
-| height             | int      | 图片高度                 | 0.6.3 |
-| width              | int      | 图片宽度                 | 0.6.3 |
-| size               | int      | 图片大小，单位为 `Byte`  | 0.6.3 |
-| extra              | String   | 扩展字段                 | 0.6.3 |
+| Property | Type | Description | Version |
+| --- | --- | --- | --- |
+| localPath | String | Local path of the image | 0.6.3 |
+| url | String | Remote URL of the image | 0.6.3 |
+| thumbnailLocalPath | String | Local path of the thumbnail image | 0.6.3 |
+| thumbnailUrl | String | Remote URL of the thumbnail image | 0.6.3 |
+| height | int | Image height | 0.6.3 |
+| width | int | Image width | 0.6.3 |
+| size | int | Image size in `Byte` | 0.6.3 |
+| extra | String | Extension field | 0.6.3 |
 
 </TabItem>
 
 <TabItem value="reactnative">
 
-图片消息（ImageMessageContent）是 SDK 内置的消息类型，对应的 contentType 为 "jg:img"。
+Image messages (`ImageMessageContent`) are a built-in SDK message type with the corresponding contentType `"jg:img"`.
 
-| 属性名             | 类型     | 说明                     | 版本  |
-| ------------------ | -------- | ------------------------ | ----- |
-| localPath          | string   | 图片的本地路径           | 1.0.0 |
-| url                | string   | 图片的远端地址           | 1.0.0 |
-| thumbnailLocalPath  | string   | 缩略图的本地路径         | 1.0.0 |
-| thumbnailUrl       | string   | 缩略图的远端地址         | 1.0.0 |
-| height             | number   | 图片高度                 | 1.0.0 |
-| width              | number   | 图片宽度                 | 1.0.0 |
-| size               | number   | 图片大小，单位为 `Byte`  | 1.0.0 |
-| extra              | string   | 扩展字段                 | 1.0.0 |
+| Property | Type | Description | Version |
+| --- | --- | --- | --- |
+| localPath | string | Local path of the image | 1.0.0 |
+| url | string | Remote URL of the image | 1.0.0 |
+| thumbnailLocalPath | string | Local path of the thumbnail image | 1.0.0 |
+| thumbnailUrl | string | Remote URL of the thumbnail image | 1.0.0 |
+| height | number | Image height | 1.0.0 |
+| width | number | Image width | 1.0.0 |
+| size | number | Image size in `Byte` | 1.0.0 |
+| extra | string | Extension field | 1.0.0 |
 
 </TabItem>
 </Tabs>

@@ -1,4 +1,4 @@
----
+﻿---
 title: delete friend
 hide_title: true
 sidebar_position: 2
@@ -10,13 +10,13 @@ Delete a friend.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/friends/del
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/friends/del
 
 > **Content-Type**: `application/json`
 
@@ -25,7 +25,7 @@ Delete a friend.
 
 | Parameter   | Data type | Required | Description                     |   |
 |:------------|:----------|:---------|:-------------------------------|---|
-| user_id    | string    | yes      | The user’s ID                  |   |
+| user_id    | string    | yes      | The user鈥檚 ID                  |   |
 | friend_ids | array     | yes      | A list of user IDs to unfriend |   |
 
 

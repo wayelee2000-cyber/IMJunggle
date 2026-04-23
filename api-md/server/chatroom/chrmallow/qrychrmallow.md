@@ -1,22 +1,22 @@
 ---
-title: Query Chat Room Member Whitelist
+title: Query Chatroom Member Whitelist
 hide_title: true
 sidebar_position: 3
 ---
 
 ### Function Description{#intro}
 
-Retrieve the whitelist of members in a chat room.
+Retrieve the whitelist of members in a chatroom.
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api.md#header).
 
 > **Request Type**: `GET`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../../api#api)/apigateway/chatrooms/allowmembers/query
+> **Request URL**: https://[request domain name](../../api.md#api)/apigateway/chatrooms/allowmembers/query
 
 > **Content-Type**: `application/json`
 
@@ -25,7 +25,7 @@ Retrieve the whitelist of members in a chat room.
 
 | Parameter | Data Type | Required | Description |  |
 |:----------|:----------|:---------|:------------|:--|
-| chat_id   | string    | Yes      | The ID of the chat room |  |
+| chat_id   | string    | Yes      | The ID of the chatroom |  |
 | offset    | string    | No       | Offset for pagination. The next offset is returned with each response. Pass empty for the initial request. |  |
 | limit     | int       | No       | Number of records to query. Default is 100, maximum is 1000. |  |
 
@@ -59,3 +59,4 @@ Content-Type: application/json
   }
 }
 ```
+

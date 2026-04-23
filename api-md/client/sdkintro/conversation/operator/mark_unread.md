@@ -1,5 +1,5 @@
 ---
-title: mark session status
+title: Mark conversation status
 hide_title: true
 sidebar_position: 3
 ---
@@ -16,7 +16,7 @@ values={[
 }>
 <TabItem value="android">
 
-This method sets the unread status of a session and supports marking it as `unread`. To clear the unread status, you can call the [Clear Single Session Unread](../../unread/clear_unread) interface. The SDK will automatically synchronize the mark status across all devices of the current user.
+This method sets the unread status of a conversation and supports marking it as `unread`. To clear the unread status, you can call the [Clear Single Conversation Unread](../unread/clear_unread.md) interface. The SDK will automatically synchronize the mark status across all devices of the current user.
 
 **Parameter description**
 
@@ -45,13 +45,13 @@ JIM.getInstance().getConversationManager().setUnread(c, new IConversationManager
 </TabItem>
 <TabItem value="ios">
 
-This method sets the unread status of a session and supports marking it as `unread`. To clear the unread status, you can call the [Clear Single Session Unread](../../unread/clear_unread) interface. The SDK will automatically synchronize the mark status across all devices of the current user.
+This method sets the unread status of a conversation and supports marking it as `unread`. To clear the unread status, you can call the [Clear Single Conversation Unread](../unread/clear_unread.md) interface. The SDK will automatically synchronize the mark status across all devices of the current user.
 
 **Parameter description**
 
 | Name | Type | Description | Version |
 |----------------------------------|---------|----------|----------|
-| conversation | JConversation | Session identifier | 1.3.0 |
+| conversation | JConversation | Conversation identifier | 1.3.0 |
 | successBlock | | Success callback | 1.3.0 |
 | errorBlock | | Failure callback | 1.3.0 |
 
@@ -70,7 +70,7 @@ JConversation *c = [[JConversation alloc] initWithConversationType:JConversation
 </TabItem>
 <TabItem value="js">
 
-This method sets the unread status of a session and supports marking it as `unread`. To clear the unread status, you can call the [Clear Single Session Unread](../../unread/clear_unread) interface. The SDK will automatically synchronize the mark status across all devices of the current user.
+This method sets the unread status of a conversation and supports marking it as `unread`. To clear the unread status, you can call the [Clear Single Conversation Unread](../unread/clear_unread.md) interface. The SDK will automatically synchronize the mark status across all devices of the current user.
 
 **Parameter description**
 
@@ -79,7 +79,7 @@ This method sets the unread status of a session and supports marking it as `unre
 | conversation | Object | Yes | None | Conversation object | 1.5.0 |
 | conversation.conversationId | String | Yes | None | Conversation ID | 1.5.0 |
 | conversation.conversationType | Number | Yes | None | Conversation type | 1.5.0 |
-| conversation.unreadTag | Number | Yes | | [Conversation Tag Status](../../../enum/web#unreadtag) | 1.5.0 |
+| conversation.unreadTag | Number | Yes | | [Conversation Tag Status](../../enum/web.md#unreadtag) | 1.5.0 |
 
 **Sample Code**
 
@@ -98,7 +98,7 @@ jim.markUnread({
 
 <TabItem value="flutter" label="Flutter">
 
-This method sets the unread status of a session and supports marking it as `unread`. To clear the unread status, you can call the [Clear Single Session Unread](../../unread/clear_unread) interface. The SDK will automatically synchronize the mark status across all devices of the current user. After a successful update, a session change event will be triggered.
+This method sets the unread status of a conversation and supports marking it as `unread`. To clear the unread status, you can call the [Clear Single Conversation Unread](../unread/clear_unread.md) interface. The SDK will automatically synchronize the mark status across all devices of the current user. After a successful update, a conversation change event will be triggered.
 
 **Parameter description**
 
@@ -116,7 +116,7 @@ await JuggleIm.instance.setUnread(conversation);
 </TabItem>
 <TabItem value="reactnative">
 
-This method sets the unread status of a session and supports marking it as `unread`. To clear the unread status, you can call the [Clear Single Session Unread](../../unread/clear_unread) interface. The SDK will automatically synchronize the mark status across all devices of the current user. After a successful update, a session change event will be triggered.
+This method sets the unread status of a conversation and supports marking it as `unread`. To clear the unread status, you can call the [Clear Single Conversation Unread](../unread/clear_unread.md) interface. The SDK will automatically synchronize the mark status across all devices of the current user. After a successful update, a conversation change event will be triggered.
 
 **Parameter description**
 
@@ -124,7 +124,7 @@ This method sets the unread status of a session and supports marking it as `unre
 |----------------------------------|---------|----------|----------|
 | conversation | Object | Conversation identifier | 0.6.3 |
 | conversationType | Number | Conversation type | 0.6.3 |
-| conversationId | String | Session ID | 0.6.3 |
+| conversationId | String | Conversation ID | 0.6.3 |
 
 **Sample Code**
 

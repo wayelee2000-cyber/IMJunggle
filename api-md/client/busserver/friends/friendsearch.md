@@ -1,4 +1,4 @@
----
+﻿---
 title: Friend Search
 hide_title: true
 sidebar_position: 6
@@ -9,7 +9,7 @@ Search my friends.
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
@@ -64,3 +64,4 @@ Content-Type: application/json
   }
 }
 ```
+

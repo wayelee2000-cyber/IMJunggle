@@ -74,7 +74,7 @@ JConversation *conversation = [[JConversation alloc] initWithConversationType:JC
 | Name | Type | Required | Default | Description | Version |
 |--------------------------|---------|----------|--------|----------------------------------------------------------|--------|
 | params | Object | Yes | - | Parameters for clearing historical messages | 1.0.0 |
-| params.conversationType | Number | Yes | - | [Conversation Type](../../../enum/web#conversation) | 1.0.0 |
+| params.conversationType | Number | Yes | - | [Conversation Type](../../enum/web.md#conversation) | 1.0.0 |
 | params.conversationId | String | Yes | - | Session ID. For `PRIVATE` sessions, this is the userId of the receiver; for `GROUP` sessions, it is the group ID | 1.0.0 |
 | params.time | Number | Yes | - | Clear historical messages sent before the specified time; typically the sentTime of the last message in the session | 1.0.0 |
 
@@ -86,7 +86,7 @@ No parameters are returned. The callback is triggered to indicate success.
 
 | Name | Type | Description | Version |
 |--------|---------|--------------------------------------------------------------|--------|
-| error | Object | Contains a status code upon failure. You can view `error.msg` or refer to the [status code](../../../status_code/web) documentation | 1.0.0 |
+| error | Object | Contains a status code upon failure. You can view `error.msg` or refer to the [status code](../../status_code/web.md) documentation | 1.0.0 |
 
 **Sample Code**
 ```js

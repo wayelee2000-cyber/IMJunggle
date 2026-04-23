@@ -1,4 +1,4 @@
----
+﻿---
 title: add likes
 hide_title: true
 sidebar_position: 21
@@ -13,7 +13,7 @@ Like a post
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api#api)/momentgateway/moments/reactions/add
 

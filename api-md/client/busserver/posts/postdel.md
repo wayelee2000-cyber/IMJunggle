@@ -1,4 +1,4 @@
----
+﻿---
 title: delete post
 hide_title: true
 sidebar_position: 3
@@ -9,11 +9,11 @@ Delete a post.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api.md#api)/jim/posts/del
 

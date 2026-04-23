@@ -1,22 +1,22 @@
----
-title: Delete session
+﻿---
+title: Delete conversation
 hide_title: true
 sidebar_position: 3
 ---
 
 ### Function description{#intro}
 
-After a session is deleted, the IM server will automatically synchronize the deletion across all devices of the current user. Deleting the session **does not delete** the messages within the session.
+After a conversation is deleted, the IM server will automatically synchronize the deletion across all devices of the current user. Deleting the conversation **does not delete** the messages within the conversation.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/convers/del
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/convers/del
 
 > **Content-Type**: `application/json`
 
@@ -24,9 +24,9 @@ After a session is deleted, the IM server will automatically synchronize the del
 
 | Parameters   | Data type | Required | Description               |   |
 |:-------------|:----------|:---------|:--------------------------|---|
-| user_id      | string    | yes      | The user ID whose session is to be deleted |   |
-| target_id    | string    | yes      | The session to be deleted |   |
-| channel_type | int       | yes      | The type of session       |   |
+| user_id      | string    | yes      | The user ID whose conversation is to be deleted |   |
+| target_id    | string    | yes      | The conversation to be deleted |   |
+| channel_type | int       | yes      | The type of conversation       |   |
 
 ### Request Example{#req_demo}
 ```js
@@ -60,3 +60,4 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+

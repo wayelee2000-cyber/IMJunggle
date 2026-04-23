@@ -103,7 +103,7 @@ Query the pinned messages of a specified session. After entering the session pag
 
 | Name | Type | Description | Version |
 |--------|---------|--------------------------------------------------------------|--------|
-| error | Object | Contains a status code if the request fails. You can check `error.msg` or refer to [Status Code](../../../../sdkintro/status_code/web) | 1.0.0 |
+| error | Object | Contains a status code if the request fails. You can check `error.msg` or refer to [Status Code](../../status_code/web.md) | 1.0.0 |
 
 **Sample Code**
 ```js

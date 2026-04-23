@@ -1,4 +1,4 @@
----
+﻿---
 title: Login QR code
 hide_title: true
 sidebar_position: 7
@@ -9,11 +9,11 @@ Retrieve the QR code for login.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `GET`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api.md#api)/jim/login/qrcode
 

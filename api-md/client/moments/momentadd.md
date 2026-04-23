@@ -1,4 +1,4 @@
----
+﻿---
 title: Post to Moments
 hide_title: true
 sidebar_position: 1
@@ -13,7 +13,7 @@ Post a moment to your circle of friends, supporting images, text, and videos.
 
 > **Request Type**: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api#api)/momentgateway/moments/add
 
@@ -76,3 +76,4 @@ Content-Type: application/json
 
 | Response Code | Description |  |
 |:-------------:|:-----------:|:-:|
+

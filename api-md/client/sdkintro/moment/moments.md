@@ -1,4 +1,4 @@
----
+﻿---
 title: Moments list
 hide_title: true
 sidebar_position: 4
@@ -245,7 +245,7 @@ Retrieve the list of all friends' Moments, supporting pagination before and afte
 |--------------|---------|----------|---------|------------------------------------------------|----------|
 | option | Object | No | | | 1.9.6 |
 | option.count | Number | No | 50 | Number of friend circles to retrieve, up to 20 records per request | 1.9.6 |
-| option.order | Number | No | [Get direction](../../enum/web#moment_order) | Retrieval direction; supports fetching earlier Moments or updating with newer Moments based on `time` | 1.9.6 |
+| option.order | Number | No | [Get direction](../enum/web.md#moment_order) | Retrieval direction; supports fetching earlier Moments or updating with newer Moments based on `time` | 1.9.6 |
 | option.time | Number | No | 0 | Retrieve Moments starting from the specified time. Can be used with `order` | 1.9.6 |
 | option.userId | String | No | - | Retrieve Moments published by the specified user. If empty, retrieves Moments from all friends. | 1.9.8 |
 
@@ -254,7 +254,7 @@ Retrieve the list of all friends' Moments, supporting pagination before and afte
 | Properties | Type | Description | Version |
 |------------------|----------|------------------------------------------------|----------|
 | result | Object | Query result | 1.9.6 |
-| result.moments | Array | Array of Moments. See [Moment](./moment.md) for the structure of a single Moment object | 1.9.6 |
+| result.moments | Array | Array of Moments. See [Moment](./moment_model.md) for the structure of a single Moment object | 1.9.6 |
 | result.isFinished | Boolean | Indicates whether the retrieval is complete | 1.9.6 |
 
 **Sample Code**

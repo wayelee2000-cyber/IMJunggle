@@ -97,9 +97,9 @@ _Note: The `messages` parameter accepts an array. Each message item is described
 | Name | Type | Required | Default | Description | Version |
 |--------------------------------|---------|--------|--------|----------------------------------------------------------------|----------|
 | message | Object | Yes | | Message object | 1.0.0 |
-| message.conversationType | Number | Yes | | [Conversation Type](../../../enum/web#conversation) | 1.0.0 |
+| message.conversationType | Number | Yes | | [Conversation Type](../../enum/web.md#conversation) | 1.0.0 |
 | message.conversationId | String | Yes | | Session ID. For `PRIVATE` sessions, this is the receiver's userId; for `GROUP` sessions, it is the group ID | 1.0.0 |
-| message.name | String | Yes | | Message name. Different message types can be sent as needed. For detailed enumeration, see [MessageType](../../../enum/web#message) | 1.0.0 |
+| message.name | String | Yes | | Message name. Different message types can be sent as needed. For detailed enumeration, see [MessageType](../../enum/web.md#message) | 1.0.0 |
 | message.content | Object | Yes | | Message content, constructed according to the `message.name` type | 1.0.0 |
 | message.isMass | Boolean | No | true | Indicates whether the message is sent in mass. Defaults to `true`. Mass sending does not affect the sorting of the conversation list | 1.0.0 |
 | lifeTime | Number | No | 0 | Message self-destruction time in milliseconds, must be greater than `0`. For example, 60 seconds: `1 * 60 * 1000` | 1.9.0 |
@@ -110,17 +110,17 @@ _Note: The `messages` parameter accepts an array. Each message item is described
 | Name | Type | Description | Version |
 |-----------------------|---------|-------------------------------------------------------------------------------|--------|
 | callbacks | Object | The mass sending interface returns a `Promise` differently from other interfaces; results are returned via callbacks | 1.0.0 |
-| callbacks.onbefore | Function | Triggered multiple times during mass sending, returning the message content to be sent, including `tid` [Message](../../../msg/message) | 1.0.0 |
-| callbacks.onprogress | Function | Triggered multiple times during mass sending, returning the number of messages sent, total messages, and the current successfully sent [Message](../../../msg/message) | 1.0.0 |
-| callbacks.oncompleted | Function | Triggered once after mass sending completes, returning an array of all messages sent this time. See the structure of each message [Message](../../../msg/message) | 1.0.0 |
+| callbacks.onbefore | Function | Triggered multiple times during mass sending, returning the message content to be sent, including `tid` in the [message object](../../msg/message.md) | 1.0.0 |
+| callbacks.onprogress | Function | Triggered multiple times during mass sending, returning the number of messages sent, total messages, and the current successfully sent [message object](../../msg/message.md) | 1.0.0 |
+| callbacks.oncompleted | Function | Triggered once after mass sending completes, returning an array of all messages sent this time. See the [message object](../../msg/message.md) for the structure of each message | 1.0.0 |
 
 **Failed to send**
 
-Invalid parameters will cause the `Promise` to reject, and the sending failure status of each message will be returned in `callbacks.onprogress`. You can check the `message.error` in the returned message and handle the situation according to the [status code](../../../status_code/web).
+Invalid parameters will cause the `Promise` to reject, and the sending failure status of each message will be returned in `callbacks.onprogress`. You can check the `message.error` in the returned message and handle the situation according to the [status code](../../status_code/web.md).
 
 | Name | Type | Description | Version |
 |--------|---------|--------------------------------------------------------------|--------|
-| result | Object | On failure, the returned object contains `tid` and `error` information. You can view `error.msg` directly or refer to [status code](../../../status_code/web) | 1.0.0 |
+| result | Object | On failure, the returned object contains `tid` and `error` information. You can view `error.msg` directly or refer to [status code](../../status_code/web.md) | 1.0.0 |
 
 **Sample Code**
 ```js

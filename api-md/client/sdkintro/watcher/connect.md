@@ -1,5 +1,5 @@
----
-title: 连接监听
+﻿---
+title: Connection events
 hide_title: true
 sidebar_position: 2
 ---
@@ -7,25 +7,26 @@ sidebar_position: 2
 <Tabs
 groupId="sdks-language"
 values={[
-{ label: 'Android', value: 'android', },
-{ label: 'iOS', value: 'ios', },
-{ label: 'JavaScript', value: 'js', },
-{ label: 'Flutter', value: 'flutter', },
-{ label: 'ReactNative', value: 'reactnative', },
-]
-}>
+{ label: 'Android', value: 'android' },
+{ label: 'iOS', value: 'ios' },
+{ label: 'JavaScript', value: 'js' },
+{ label: 'Flutter', value: 'flutter' },
+{ label: 'ReactNative', value: 'reactnative' }
+]}
+>
 <TabItem value="android">
 
-可以设置多个监听。
+You can register multiple connection listeners.
 
 ```java
 JIM.getInstance().getConnectionManager().addConnectionStatusListener("main", new IConnectionManager.IConnectionStatusListener() {
 
-    /// 连接状态变化的回调
+    /// Callback for connection status changes
     /// - Parameters:
-    ///   - status: 变化后的状态
-    ///   - code: 连接错误码，在 JIMConst.ConnectionStatus.FAILURE 状态时有效，其它状态均为 0。
-    ///   - extra: 附加信息
+    ///   - status: the new connection status
+    ///   - code: connection error code. This is only valid when the status is
+    ///           JIMConst.ConnectionStatus.FAILURE. In all other states it is 0.
+    ///   - extra: additional message
     @Override
     public void onStatusChange(JIMConst.ConnectionStatus status, int code, String extra) {
         if (status == JIMConst.ConnectionStatus.CONNECTED) {
@@ -33,7 +34,8 @@ JIM.getInstance().getConnectionManager().addConnectionStatusListener("main", new
         }
     }
 
-    /// 数据库打开的回调，设备离线时也可以打开本地数据库查看历史消息
+    /// Callback when the local database is opened. Even while the device is
+    /// offline, you can still open the local database and view message history.
     @Override
     public void onDbOpen() {
         Log.i("TAG", "onDbOpen");
@@ -49,21 +51,23 @@ JIM.getInstance().getConnectionManager().addConnectionStatusListener("main", new
 </TabItem>
 <TabItem value="ios">
 
-可以设置多个代理。
+You can register multiple delegates.
 
 ```objectivec
 [JIM.shared.connectionManager addDelegate:self];
 
-/// 数据库打开的回调，设备离线时也可以打开本地数据库查看历史消息
+/// Callback when the local database is opened. Even while the device is
+/// offline, you can still open the local database and view message history.
 - (void)dbDidOpen {
     NSLog(@"dbDidOpen");
 }
 
-/// 连接状态变化的回调
+/// Callback for connection status changes
 /// - Parameters:
-///   - status: 变化后的状态
-///   - code: 连接错误码，在 JConnectionStatusFailure 状态时有效，其它状态均为 0。
-///   - extra: 附加信息
+///   - status: the new connection status
+///   - code: connection error code. This is only valid when the status is
+///           JConnectionStatusFailure. In all other states it is 0.
+///   - extra: additional message
 - (void)connectionStatusDidChange:(JConnectionStatus)status
                         errorCode:(JErrorCode)code
                             extra:(NSString *)extra {
@@ -75,7 +79,7 @@ JIM.getInstance().getConnectionManager().addConnectionStatusListener("main", new
 </TabItem>
 <TabItem value="js">
 
-全局只需设置一次，多次设置会覆盖。除 connect 方法外，其他所有 SDK 方法必须在连接成功后调用。Event 说明请查看 [监听枚举](../../enum/web#listener)。
+You only need to register this listener once globally. If you register it again, the previous handler is overwritten. Except for `connect`, all other SDK APIs should be called only after the connection is established. For event details, see [Listener enums](../enum/web.md#listener).
 
 ```js
 let { Event, ConnectionState } = JIM;
@@ -90,7 +94,9 @@ jim.on(Event.STATE_CHANGED, ({ state, user }) => {
     console.log('IM is connected', user);
   }
   
-  // SDK 内部有重连机制，开发者业务层无须重连，重连失败或主动断开都会触发 DISCONNECTED 状态
+  // The SDK handles reconnection internally, so the application layer usually
+  // does not need to reconnect manually. Reconnect failure or an active
+  // disconnect will both trigger the DISCONNECTED state.
   if (ConnectionState.DISCONNECTED == state) {
     console.log('IM is disconnected');
   }
@@ -100,60 +106,61 @@ jim.on(Event.STATE_CHANGED, ({ state, user }) => {
 </TabItem>
 <TabItem value="reactnative">
 
-可以设置多个监听，每个监听需要指定唯一的 key。返回的函数可用于取消监听。
+You can register multiple connection listeners. Each listener must use a unique key. The returned function can be used to unsubscribe.
 
-**示例代码**
+**Example Code**
 
 ```typescript
 import JuggleIM from 'juggleim-rnsdk';
 
-// 添加连接状态监听，返回取消监听的函数
+// Add a connection status listener and keep the returned unsubscribe function.
 const unsubscribeConnection = JuggleIM.addConnectionStatusListener('connection_key', (status, code, extra) => {
-  // status: 连接状态 'connected' | 'connecting' | 'disconnected' | 'failure'
-  // code: 状态码，连接失败时为错误码
-  // extra: 附加信息
+  // status: 'connected' | 'connecting' | 'disconnected' | 'failure'
+  // code: status code. When the connection fails, this is the error code.
+  // extra: additional message
   if (status === 'connected') {
-    // 连接成功
+    // Connected successfully
   }
   if (status === 'connecting') {
-    // 连接中
+    // Connecting
   }
   if (status === 'disconnected') {
-    // 连接断开
+    // Disconnected
   }
   if (status === 'failure') {
-    // 连接失败，code 为错误码，extra 为错误信息
+    // Connection failed. `code` is the error code and `extra` is the error message.
   }
 });
 
-// 取消监听
+// Remove the listener
 // unsubscribeConnection();
 ```
 
 </TabItem>
 <TabItem value="flutter">
 
-连接监听仅支持设置一次，多次设置会覆盖之前的监听。如果有多个监听，建议在一个监听中处理所有状态，并在业务层进行二次事件分发。
+The connection listener can only be assigned once. Setting it again will replace the previous listener. If you need multiple handlers, it is recommended to process all states in one listener and then redistribute events in your application layer.
 
-**示例代码**
+**Example Code**
 
 ```dart
 JuggleIM.instance.onConnectionStatusChange = (int connectionStatus, int code, String extra) {
   if (connectionStatus == SDKConnectionStatus.CONNECTED) {
-    // 连接成功
+    // Connected successfully
   }
   if (connectionStatus == SDKConnectionStatus.CONNECTING) {
-    // 连接中
+    // Connecting
   }
   if (connectionStatus == SDKConnectionStatus.DISCONNECTED) {
-    // 连接断开
+    // Disconnected
   }
   if (connectionStatus == SDKConnectionStatus.FAILURE) {
-    // 连接失败，code 为错误码，extra 为错误信息
+    // Connection failed. `code` is the error code and `extra` is the error message.
   }
 };
 
-// 数据库打开的回调，设备离线时也可以打开本地数据库查看历史消息
+// Callback when the local database is opened. Even while the device is
+// offline, you can still open the local database and view message history.
 JuggleIM.instance.onDbOpen = () {
 
 };

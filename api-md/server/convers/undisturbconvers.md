@@ -1,4 +1,4 @@
----
+﻿---
 title: Set Do Not Disturb
 hide_title: true
 sidebar_position: 1
@@ -6,17 +6,17 @@ sidebar_position: 1
 
 ### Function description{#intro}
 
-After setting a session to Do Not Disturb, the current session will not receive offline message notifications. Once this interface is called, the IM server will automatically synchronize the `undisturb_type` status to all endpoints of the specified user.
+After setting a conversation to Do Not Disturb, the current conversation will not receive offline message notifications. Once this interface is called, the IM server will automatically synchronize the `undisturb_type` status to all endpoints of the specified user.
 
 ### Request description{#req}
 
-> **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
 > **Request Frequency Limit**: `100 times/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/convers/undisturb
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/convers/undisturb
 
 > **Content-Type**: `application/json`
 
@@ -25,8 +25,8 @@ After setting a session to Do Not Disturb, the current session will not receive 
 | Parameters     | Data type | Required | Description                      |   |
 |:---------------|:----------|:---------|:--------------------------------|---|
 | user_id        | string    | Yes      | The user ID for whom to set Do Not Disturb |   |
-| target_id      | string    | Yes      | The ID of the session to apply DND to       |   |
-| channel_type   | int       | Yes      | The type of the DND session                  |   |
+| target_id      | string    | Yes      | The ID of the conversation to apply DND to       |   |
+| channel_type   | int       | Yes      | The type of the DND conversation                  |   |
 | undisturb_type | int       | Yes      | DND type: 0 = Cancel DND; 1 = Enable DND for normal conversation |   |
 
 ### Request Example{#req_demo}
@@ -63,3 +63,5 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+
+

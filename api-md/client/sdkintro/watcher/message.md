@@ -1,5 +1,5 @@
 ﻿---
-title: Message Listener
+title: Message Event Listener
 hide_title: true
 sidebar_position: 3
 ---
@@ -319,7 +319,7 @@ Only one delegate can be set for message encryption/decryption.
 </TabItem>
 <TabItem value="js">
 
-Global listeners only need to be set once; multiple settings will override previous ones. When others send messages to the current user, the message listener will be triggered. For message format, see [Message Structure](../../../msg/message). For event descriptions, see [Listener Enum](../../../enum/web#listener).
+Global listeners only need to be set once; multiple settings will override previous ones. When others send messages to the current user, the message event listener will be triggered. For message format, see [Message Structure](../msg/message.md). For event descriptions, see [Listener Enum](../enum/web.md#listener).
 
 ```js
 let { Event } = JIM;
@@ -479,7 +479,7 @@ You can set multiple listeners. Each listener must specify a unique `key`, and t
 ```typescript
 import JuggleIM from 'juggleim-rnsdk';
 
-// Add a message listener and return the unsubscribe function
+// Add a message event listener and return the unsubscribe function
 const unsubscribeMessage = JuggleIM.addMessageListener('message_key', {
   // Callback for receiving messages
   onMessageReceive: (message) => {

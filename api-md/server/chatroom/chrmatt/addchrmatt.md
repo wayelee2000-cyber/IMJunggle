@@ -1,22 +1,22 @@
 ---
-title: Set chat room properties
+title: Set chatroom attributes
 hide_title: true
 sidebar_position: 1
 ---
 
 ### Function description{#intro}
 
-Set custom properties for the specified chat room.
+Set attributes for the specified chatroom.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../../api#api)/apigateway/chatrooms/atts/add
+> **Request URL**: https://[request domain name](../../api.md#api)/apigateway/chatrooms/atts/add
 
 > **Content-Type**: `application/json`
 
@@ -26,7 +26,7 @@ Set custom properties for the specified chat room.
 | Parameter          | Data type | Required | Description                          |   |
 |:-------------------|:----------|:---------|:-----------------------------------|---|
 | from_id            | string    | Yes      | The user ID initiating the attribute setting |   |
-| chat_id            | string    | Yes      | The ID of the chat room             |   |
+| chat_id            | string    | Yes      | The ID of the chatroom             |   |
 | atts               | array     | Yes      | A list of attributes to set         |   |
 | atts[0].key        | string    | Yes      | The key of the attribute            |   |
 | atts[0].value      | string    | Yes      | The value of the attribute          |   |

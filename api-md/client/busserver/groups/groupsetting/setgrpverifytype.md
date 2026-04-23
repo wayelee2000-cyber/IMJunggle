@@ -1,4 +1,4 @@
----
+﻿---
 title: Set the group verification type
 hide_title: true
 sidebar_position: 3
@@ -13,9 +13,9 @@ Set the group verification method.
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/management/setgrpverifytype
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/management/setgrpverifytype
 
 > **Content-Type**: `application/json`
 

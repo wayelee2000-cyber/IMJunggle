@@ -1,4 +1,4 @@
----
+﻿---
 title: Like list
 hide_title: true
 sidebar_position: 32
@@ -132,7 +132,7 @@ Retrieve the list of likes, including likes from a specific circle of friends or
 | Name            | Type  | Description                                                                 | Version |
 |-----------------|-------|-----------------------------------------------------------------------------|---------|
 | result          | Object| Result of retrieving the like list                                          | 1.9.6   |
-| result.reactions| Array | List of interaction types; see the object structure [Reaction](../moment_model) | 1.9.6   |
+| result.reactions| Array | List of interaction types; see the object structure [Reaction](./moment_model.md) | 1.9.6   |
 
 **Code Example**
 

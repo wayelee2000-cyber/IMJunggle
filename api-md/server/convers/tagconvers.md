@@ -1,5 +1,5 @@
----
-title: Set session label
+﻿---
+title: Set conversation label
 hide_title: true
 sidebar_position: 8
 ---
@@ -10,13 +10,13 @@ Set labels for conversations to enable conversation grouping.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/convers/tags/add
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/convers/tags/add
 
 > **Content-Type**: `application/json`
 
@@ -28,7 +28,7 @@ Set labels for conversations to enable conversation grouping.
 | tag                | string    | yes      | Tag identifier                              |   |
 | tag_name           | string    | no       | Tag nickname                               |   |
 | convers            | array     | yes      | List of conversations to label             |   |
-| convers.target_id   | string    | yes      | Session ID                                  |   |
+| convers.target_id   | string    | yes      | Conversation ID                                  |   |
 | convers.channel_type| int       | yes      | Conversation type: 1 for single chat; 2 for group chat |   |
 
 ### Request Example{#req_demo}
@@ -65,3 +65,4 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+

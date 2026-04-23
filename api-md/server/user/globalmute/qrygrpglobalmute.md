@@ -1,4 +1,4 @@
----
+﻿---
 title: Query users who are prohibited from sending group chat messages
 hide_title: true
 sidebar_position: 6
@@ -10,13 +10,13 @@ Retrieve the list of users who are banned from sending group chat messages.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api.md#header).
 
 > **Request Type**: `GET`
 
-> **Request rate limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../../api#api)/apigateway/group/globalmutemembers/query
+> **Request URL**: https://[request domain name](../../api.md#api)/apigateway/group/globalmutemembers/query
 
 > **Content-Type**: `application/json`
 
@@ -57,3 +57,4 @@ Content-Type: application/json
   }
 }
 ```
+

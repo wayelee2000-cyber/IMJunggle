@@ -1,22 +1,22 @@
 ---
-title: Query banned chat room members
+title: Query banned chatroom members
 hide_title: true
 sidebar_position: 3
 ---
 
 ### Function description{#intro}
 
-Retrieve the list of banned members in a chat room.
+Retrieve the list of banned members in a chatroom.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api.md#header).
 
 > **Request Type**: `GET`
 
-> **Request rate limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../../api#api)/apigateway/chatrooms/banmembers/query
+> **Request URL**: https://[request domain name](../../api.md#api)/apigateway/chatrooms/banmembers/query
 
 > **Content-Type**: `application/json`
 
@@ -25,7 +25,7 @@ Retrieve the list of banned members in a chat room.
 
 | Parameter | Data type | Required | Description |  |
 |:----------|:----------|:---------|:------------|:--|
-| chat_id   | string    | Yes      | The ID of the chat room |  |
+| chat_id   | string    | Yes      | The ID of the chatroom |  |
 | offset    | string    | No       | Offset for pagination. The next offset is returned with each response. Pass empty for the initial request. |  |
 | limit     | int       | No       | Number of records to query. Default is 100, maximum is 1000. |  |
 
@@ -59,3 +59,4 @@ Content-Type: application/json
   }
 }
 ```
+

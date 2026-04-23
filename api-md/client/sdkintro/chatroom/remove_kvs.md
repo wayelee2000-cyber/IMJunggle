@@ -16,15 +16,15 @@ values={[
 }>
 <TabItem value="android">
 
-Deleting chat room attributes supports batch operations. The deletion command is automatically synchronized to all members of the chat room and delivered through the [Chat Room Attribute Change Event](../event).
+Deleting chatroom attributes supports batch operations. The deletion command is automatically synchronized to all members of the chatroom and delivered through the [Chatroom Attribute Change Event](./event.md).
 
 **Interface definition**
 
 ```java
 /**
- * Delete chat room attributes
+ * Delete chatroom attributes
  *
- * @param chatroomId Chat room ID
+ * @param chatroomId Chatroom ID
  * @param keys List of attribute keys to be deleted. Keys set by users other than the current user cannot be deleted.
  * @param callback Completion callback.
  *                 When the code returns JErrorCode.NONE, it means all attributes were deleted successfully.
@@ -49,15 +49,15 @@ JIM.getInstance().getChatroomManager().removeAttributes("chatroomId1", keys, new
 </TabItem>
 <TabItem value="ios">
 
-Deleting chat room attributes supports batch operations. The deletion command is automatically synchronized to all members of the chat room and delivered through the [Chat Room Attribute Change Event](../event).
+Deleting chatroom attributes supports batch operations. The deletion command is automatically synchronized to all members of the chatroom and delivered through the [Chatroom Attribute Change Event](./event.md).
 
 **Interface definition**
 
 ```objectivec
-/// Delete chat room attributes
+/// Delete chatroom attributes
 /// - Parameters:
 ///   - keys: List of attribute keys to be deleted. Keys set by users other than the current user cannot be deleted.
-///   - chatroomId: Chat room ID
+///   - chatroomId: Chatroom ID
 ///   - completeBlock: Completion callback.
 ///     Returns JErrorCodeNone to indicate all attributes were deleted successfully.
 ///     Other codes indicate some keys failed to be deleted. All failed keys will be returned with their corresponding error codes. Refer to the definition of JErrorCode for details.
@@ -81,7 +81,7 @@ NSArray <NSString *> *keys = @[@"key1"];
 </TabItem>
 <TabItem value="js">
 
-Deleting chat room attributes supports batch operations. The deletion command is automatically synchronized to all members of the chat room and delivered through the [Chat Room Attribute Deletion Event](../event).
+Deleting chatroom attributes supports batch operations. The deletion command is automatically synchronized to all members of the chatroom and delivered through the [Chatroom Attribute Deletion Event](./event.md).
 
 Batch deletion may fail for some attributes. For example, if a `key` was set by another member and `isForce` is not set to `true`, the deletion will fail.
 
@@ -125,7 +125,7 @@ jim.removeChatroomAttributes(chatroom).then((result) => {
 </TabItem>
 <TabItem value="flutter">
 
-Deleting chat room attributes supports batch operations. The deletion command is automatically synchronized to all members of the chat room and delivered through the [Chat Room Attribute Change Event](../event).
+Deleting chatroom attributes supports batch operations. The deletion command is automatically synchronized to all members of the chatroom and delivered through the [Chatroom Attribute Change Event](./event.md).
 
 **Sample Code**
 
@@ -137,7 +137,7 @@ await JuggleIm.instance.getChatroomManager().removeAttributes("chatroomId1", key
 </TabItem>
 <TabItem value="reactnative">
 
-Deleting chat room attributes supports batch operations. The deletion command is automatically synchronized to all members of the chat room and delivered through the [Chat Room Attribute Change Event](../event).
+Deleting chatroom attributes supports batch operations. The deletion command is automatically synchronized to all members of the chatroom and delivered through the [Chatroom Attribute Change Event](./event.md).
 
 **Sample Code**
 

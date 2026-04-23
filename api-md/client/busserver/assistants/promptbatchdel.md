@@ -1,4 +1,4 @@
----
+﻿---
 title: Batch Delete Prompt Words
 hide_title: true
 sidebar_position: 4
@@ -9,11 +9,11 @@ Batch delete prompt words.
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api.md#api)/jim/assistants/prompts/batchdel
 
@@ -53,3 +53,4 @@ Content-Type: application/json
 | Response Code | Description      |   |
 |:--------------|:-----------------|---|
 | 17300         | Deletion failed  |   |
+

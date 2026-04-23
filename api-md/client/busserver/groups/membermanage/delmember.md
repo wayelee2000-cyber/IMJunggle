@@ -1,4 +1,4 @@
----
+﻿---
 title: Remove group members
 hide_title: true
 sidebar_position: 3
@@ -13,9 +13,9 @@ Remove members from a group.
 
 > **Request Type**: `POST`
 
-> **Request rate limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/members/del
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/members/del
 
 > **Content-Type**: `application/json`
 
@@ -54,3 +54,4 @@ Content-Type: application/json
 
 | Response code | Description |   |
 |:--------------|:------------|---|
+

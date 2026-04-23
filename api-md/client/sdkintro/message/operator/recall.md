@@ -16,7 +16,7 @@ values={[
 }>
 <TabItem value="android">
 
-Only messages sent by yourself can be withdrawn. After a successful withdrawal, other users in the corresponding session will receive the onMessageRecall callback (requires adding [message listening](../../../watcher/message)).
+Only messages sent by yourself can be withdrawn. After a successful withdrawal, other users in the corresponding session will receive the onMessageRecall callback (requires adding the [message event listener](../../watcher/message.md)).
 
 **Parameter description**
 
@@ -47,7 +47,7 @@ JIM.getInstance().getMessageManager().recallMessage("messageId1", extras, new IM
 </TabItem>
 <TabItem value="ios">
 
-Only messages sent by yourself can be withdrawn. After a successful withdrawal, other users in the corresponding session will receive the messageDidRecall: callback (requires adding [message listening](../../../watcher/message)).
+Only messages sent by yourself can be withdrawn. After a successful withdrawal, other users in the corresponding session will receive the messageDidRecall: callback (requires adding the [message event listener](../../watcher/message.md)).
 
 **Parameter description**
 
@@ -73,14 +73,14 @@ NSMutableDictionary *extras = [NSMutableDictionary dictionary];
 </TabItem>
 <TabItem value="js">
 
-Only messages sent by yourself can be withdrawn. Group administrators can withdraw any message in the group. For example, user A withdraws a message sent to user B. After a successful withdrawal, A's other devices and B will receive a [notification message](../../../watcher/message#recall).
+Only messages sent by yourself can be withdrawn. Group administrators can withdraw any message in the group. For example, user A withdraws a message sent to user B. After a successful withdrawal, A's other devices and B will receive a [notification message](../../watcher/message.md#recall).
 
 **Parameter description**
 
 | Name | Type | Required | Description | Version |
 |----------------------------|----------|----------|--------------------------------------------------------|--------|
-| message | Object | Yes | Message object; messages can be obtained from [Historical Messages](../../histories/get_all) | 1.0.0 |
-| message.conversationType | Number | Yes | [Conversation Type](../../../../sdkintro/enum/web#conversation) | 1.0.0 |
+| message | Object | Yes | Message object; messages can be obtained from [Historical Messages](../histories/get_all.md) | 1.0.0 |
+| message.conversationType | Number | Yes | [Conversation Type](../../enum/web.md#conversation) | 1.0.0 |
 | message.conversationId | String | Yes | Session ID. For `PRIVATE` sessions, this is the receiver's userId; for `GROUP` sessions, this is the group ID | 1.0.0 |
 | message.messageId | String | Yes | ID of the message to be withdrawn | 1.0.0 |
 | message.sentTime | Number | Yes | Timestamp when the message was sent | 1.0.0 |
@@ -94,7 +94,7 @@ No parameters are returned. The callback is triggered to indicate success.
 
 | Name | Type | Description | Version |
 |--------|---------|--------------------------------------------------------------|--------|
-| error | Object | Contains a status code if the operation fails. You can check `error.msg` or refer to [Status Code](../../../../sdkintro/status_code/web) | 1.0.0 |
+| error | Object | Contains a status code if the operation fails. You can check `error.msg` or refer to [Status Code](../../status_code/web.md) | 1.0.0 |
 
 **Sample Code**
 ```js

@@ -1,5 +1,5 @@
----
-title: remove session label
+﻿---
+title: remove conversation label
 hide_title: true
 sidebar_position: 9
 ---
@@ -10,13 +10,13 @@ Removes a label from a conversation.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/convers/tags/del
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/convers/tags/del
 
 > **Content-Type**: `application/json`
 
@@ -27,7 +27,7 @@ Removes a label from a conversation.
 | user_id         | string    | yes      | The user ID for setting conversation labels |   |
 | tag             | string    | yes      | Tag identifier                              |   |
 | convers         | array     | yes      | List of conversations to remove the label from |   |
-| convers.target_id| string    | yes      | Session ID                                  |   |
+| convers.target_id| string    | yes      | Conversation ID                                  |   |
 | convers.channel_type | int    | yes      | Conversation type: 1 for single chat; 2 for group chat |   |
 
 ### Request Example{#req_demo}
@@ -63,3 +63,4 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+

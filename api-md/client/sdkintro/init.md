@@ -54,7 +54,7 @@ The SDK uses a singleton pattern and only needs to be initialized once globally.
 </TabItem>
 <TabItem value="js">
 
-The Web SDK uses a singleton pattern and only needs to be initialized once globally. APIs related to connection, conversations, and messages are all exposed on the instance object. For first-time integration and debugging, see **[Quickstart Integration](../../quickstart/web/quickstart.md)** for a faster setup.
+The Web SDK uses a singleton pattern and only needs to be initialized once globally. APIs related to connection, conversations, and messages are all exposed on the instance object. For first-time integration and debugging, see **[Quickstart Integration](../quickstart/web/quickstart.md)** for a faster setup.
 
 **Parameter Description**
 
@@ -63,7 +63,7 @@ The Web SDK uses a singleton pattern and only needs to be initialized once globa
 | appkey | String | Yes | None | The unique application identifier obtained when the app is created. Data is isolated between different appkeys | 1.0.0 |
 | serverList | Array | Yes | None | IM server addresses obtained after deployment (`Server Url`) | 1.0.0 |
 | isSync | Boolean | No | true | Whether to synchronize offline messages after connection. Offline messages are retained for the last 24 hours. Synchronizing offline messages does not affect conversation state or unread counts | 1.0.0 |
-| upload | Object | No | None | Upload component supporting Qiniu and Alibaba Cloud storage. See [Send File Message Example](../../quickstart/web/send_file.md) for details | 1.0.0 |
+| upload | Object | No | None | Upload component supporting Qiniu and Alibaba Cloud storage. See [Send File Message Example](../quickstart/web/send_file.md) for details | 1.0.0 |
 
 **Example Code**
 

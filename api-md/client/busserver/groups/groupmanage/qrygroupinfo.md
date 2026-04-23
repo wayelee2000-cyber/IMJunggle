@@ -1,4 +1,4 @@
----
+﻿---
 title: Query group information
 hide_title: true
 sidebar_position: 4
@@ -13,9 +13,9 @@ Retrieve group information.
 
 > **Request Type**: `GET`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/info
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/info
 
 > **Content-Type**: `application/json`
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Query group information
 hide_title: true
 sidebar_position: 4
@@ -8,17 +8,17 @@ sidebar_position: 4
 
 Query the information of a single group to compare it with the group information used on the developer server. The group information on the developer server takes precedence. After any changes are made to the group information on the developer server, it must be synchronized to the IM server promptly.
 
-### Request description{#req}
+Request description{#req}
 
-> **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> <strong>Request Authentication</strong>: This interface requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
-> **Request Type**: `GET`
+> <strong>Request Type</strong>: `GET`
 
-> **Request frequency limit**: `100 requests/second`
+> <strong>Request Frequency Limit</strong>: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/groups/info
+> <strong>Request URL</strong>: https://[request domain name](../api.md#api)/apigateway/groups/info
 
-> **Content-Type**: `application/json`
+> <strong>Content-Type</strong>: `application/json`
 
 ### Request parameters {#param}
 
@@ -63,3 +63,5 @@ Content-Type: application/json
   }
 }
 ```
+
+

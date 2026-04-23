@@ -1,4 +1,4 @@
----
+﻿---
 title: Processing friend requests
 hide_title: true
 sidebar_position: 2
@@ -9,11 +9,11 @@ Handles the processing of friend requests.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api.md#api)/jim/friends/confirm
 
@@ -24,7 +24,7 @@ Handles the processing of friend requests.
 
 | Parameter    | Data type | Required | Description                     |   |
 |:-------------|:----------|:---------|:--------------------------------|---|
-| sponsor_id   | string    | Yes      | The applicant’s user ID         |   |
+| sponsor_id   | string    | Yes      | The applicant鈥檚 user ID         |   |
 | is_agree     | bool      | Yes      | Whether to agree or not. `false`: reject; `true`: accept |   |
 
 

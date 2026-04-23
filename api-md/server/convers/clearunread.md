@@ -1,4 +1,4 @@
----
+﻿---
 title: Clean up unread
 hide_title: true
 sidebar_position: 6
@@ -6,17 +6,17 @@ sidebar_position: 6
 
 ### Function description{#intro}
 
-Clears unread sessions.
+Clears unread conversations.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/convers/clearunread
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/convers/clearunread
 
 > **Content-Type**: `application/json`
 
@@ -24,9 +24,9 @@ Clears unread sessions.
 
 | Parameter    | Data type | Required | Description                  |   |
 |:-------------|:----------|:---------|:----------------------------|---|
-| user_id     | string    | yes      | The user ID for which to clear sessions |   |
-| target_id   | string    | yes      | The session to be cleared    |   |
-| channel_type| int       | yes      | The type of session          |   |
+| user_id     | string    | yes      | The user ID for which to clear conversations |   |
+| target_id   | string    | yes      | The conversation to be cleared    |   |
+| channel_type| int       | yes      | The type of conversation          |   |
 
 ### Request Example{#req_demo}
 ```js
@@ -60,3 +60,5 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+
+

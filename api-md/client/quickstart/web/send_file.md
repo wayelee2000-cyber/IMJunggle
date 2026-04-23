@@ -140,7 +140,7 @@ For demonstration purposes, the sample code includes the official test AppKey an
       }
     });
 
-    // Step 3: Set up message monitoring. This only needs to be done once globally.
+// Step 3: Set up the message event listener. This only needs to be done once globally.
     jim.on(Event.MESSAGE_RECEIVED, (message) => {
       console.log(message);
     });

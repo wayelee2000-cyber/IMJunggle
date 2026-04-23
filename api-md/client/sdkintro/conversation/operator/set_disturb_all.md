@@ -83,9 +83,9 @@ Set a global Do Not Disturb (DND) for the current user. After a successful setti
 | Name | Type | Required | Default | Description | Version |
 |------------------|----------|-------|--------|----------|----------|
 | params | Object | Yes | None | | 1.0.0 |
-| params.type | Number | Yes | None | [DND type](../../../enum/web#disturb) | 1.0.0 |
-| params.timezone | String | Required for [UndisturbType.DISTURB](../../../enum/web#disturb) | None | Time zone string, e.g., `Asia/Shanghai` | 1.3.0 |
-| params.times | Array | Must be provided every time for [UndisturbType.DISTURB](../../../enum/web#disturb) | None | Do Not Disturb time periods; multiple periods supported, see example | 1.3.0 |
+| params.type | Number | Yes | None | [DND type](../../enum/web.md#disturb) | 1.0.0 |
+| params.timezone | String | Required for [UndisturbType.DISTURB](../../enum/web.md#disturb) | None | Time zone string, e.g., `Asia/Shanghai` | 1.3.0 |
+| params.times | Array | Must be provided every time for [UndisturbType.DISTURB](../../enum/web.md#disturb) | None | Do Not Disturb time periods; multiple periods supported, see example | 1.3.0 |
 
 **Sample Code**
 

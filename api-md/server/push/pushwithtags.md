@@ -1,21 +1,21 @@
----
+﻿---
 title: All members/label push
 hide_title: true
 sidebar_position: 5
 ---
 ### Function description{#intro}
 
-Initiate a push to all members or users with specific labels.
+Push to all  users with specific tags.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/push
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/push
 
 > **Content-Type**: `application/json`
 
@@ -72,3 +72,4 @@ Content-Type: application/json
   }
 }
 ```
+

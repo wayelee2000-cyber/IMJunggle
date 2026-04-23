@@ -1,4 +1,4 @@
----
+﻿---
 title: Administrator withdraws message
 hide_title: true
 sidebar_position: 1
@@ -9,11 +9,11 @@ Allows a group administrator to withdraw messages sent by other group members.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 times/second`
+> **Request Frequency Limit**: `100 times/second`
 
 > **Request URL**: https://[request domain name](../api.md#api)/jim/messages/recall
 

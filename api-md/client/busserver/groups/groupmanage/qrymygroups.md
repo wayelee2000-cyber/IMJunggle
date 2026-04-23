@@ -1,4 +1,4 @@
----
+﻿---
 title: Query the list of joined groups
 hide_title: true
 sidebar_position: 5
@@ -13,9 +13,9 @@ Retrieve the list of groups I have joined.
 
 > **Request Type**: `GET`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/mygroups
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/mygroups
 
 > **Content-Type**: `application/json`
 

@@ -1,5 +1,5 @@
 ---
-title: Chat room monitoring
+title: Chartroom event listener
 hide_title: true
 sidebar_position: 2
 ---
@@ -16,8 +16,8 @@ values={[
 }>
 <TabItem value="android">
 
-Chat room messages are delivered through the unified [Message Listener](../../watcher/message).  
-You can configure monitoring for multiple chat rooms to join and leave.
+Chatroom messages are delivered through the unified [Message event listener](../watcher/message.md).
+You can configure monitoring for multiple chatrooms to join and leave.
 
 ```java
 JIM.getInstance().getChatroomManager().addListener("main", this);
@@ -53,7 +53,7 @@ public void onChatroomDestroy(String chatroomId) {
 }
 ```
 
-You can also monitor chat room attribute changes with multiple configurations.
+You can also monitor chatroom attribute changes with multiple configurations.
 
 ```java
 JIM.getInstance().getChatroomManager().addAttributesListener("main", this);
@@ -72,8 +72,8 @@ public void onAttributesDelete(String chatroomId, Map<String, String> attributes
 </TabItem>
 <TabItem value="ios">
 
-Chat room messages are delivered through the unified [Message Listener](../../watcher/message).  
-You can configure monitoring for multiple chat rooms to join and leave.
+Chatroom messages are delivered through the unified [Message event listener](../watcher/message.md).
+You can configure monitoring for multiple chatrooms to join and leave.
 
 ```objectivec
 [JIM.shared.chatroomManager addDelegate:self];
@@ -103,7 +103,7 @@ You can configure monitoring for multiple chat rooms to join and leave.
 }
 ```
 
-You can also monitor chat room attribute changes with multiple configurations.
+You can also monitor chatroom attribute changes with multiple configurations.
 
 ```objectivec
 [JIM.shared.chatroomManager addAttributesDelegate:self];
@@ -125,43 +125,43 @@ You can also monitor chat room attribute changes with multiple configurations.
 </TabItem>
 <TabItem value="js">
 
-Chat room monitoring includes two main types: `attribute changes` and `member changes`.  
-Chat room messages are delivered through the unified [Message Monitoring](../../watcher/message).
+Chatroom event listening includes two main types: `attribute changes` and `member changes`.
+Chatroom messages are delivered through the unified [Message event listener](../watcher/message.md).
 
 ```js
-// The current user rejoins the chat room. After a network disconnection and reconnection, the SDK will automatically rejoin the chat room.
+// The current user rejoins the chatroom. After a network disconnection and reconnection, the SDK will automatically rejoin the chatroom.
 jim.on(Event.CHATROOM_USER_REJOINED, (user) => {
   // user => { id: '10002', name: 'xiaokele' }
 });
 
-// Current user joins the chat room
+// Current user joins the chatroom
 jim.on(Event.CHATROOM_USER_JOINED, (user) => {
   // user => { id: '10002', name: 'xiaokele' }
 });
 
-// Current user leaves the chat room
+// Current user leaves the chatroom
 jim.on(Event.CHATROOM_USER_QUIT, (user) => {
   // user => { id: '10002', name: 'xiaokele' }
 });
 
-// Chat room member joined event
+// Chatroom member joined event
 jim.on(Event.CHATROOM_MEMBER_JOINED, (member) => {
   // member => { id: '10001', name: 'xiaoshan' }
 });
 
-// Chat room member left event
+// Chatroom member left event
 jim.on(Event.CHATROOM_MEMBER_QUIT, (member) => {
   // member => { id: '10001', name: 'xiaoshan' }
 });
 
-// Chat room destruction event. The chat room can be destroyed via the Server API.
+// Chatroom destruction event. The chatroom can be destroyed via the Server API.
 jim.on(Event.CHATROOM_DESTROYED, (chatroom) => {
   // chatroom => { id: 'chatroom1001' }
 });
 
-// Chat room attribute deletion notification
+// Chatroom attribute deletion notification
 jim.on(Event.CHATROOM_ATTRIBUTE_DELETED, (chatroom) => {
-  console.log('Chat room attributes deleted', chatroom);
+  console.log('Chatroom attributes deleted', chatroom);
   /* 
     chatroom => 
       {
@@ -171,9 +171,9 @@ jim.on(Event.CHATROOM_ATTRIBUTE_DELETED, (chatroom) => {
   */
 });
 
-// Chat room attribute update notification
+// Chatroom attribute update notification
 jim.on(Event.CHATROOM_ATTRIBUTE_UPDATED, (chatroom) => {
-  console.log('Chat room attributes updated', chatroom);
+  console.log('Chatroom attributes updated', chatroom);
   /* 
     chatroom => 
       {
@@ -187,52 +187,52 @@ jim.on(Event.CHATROOM_ATTRIBUTE_UPDATED, (chatroom) => {
 </TabItem>
 <TabItem value="reactnative">
 
-Chat room messages are delivered through the unified [Message Listener](../../watcher/message).  
-You can configure monitoring for multiple chat rooms to join and leave.
+Chatroom messages are delivered through the unified [Message event listener](../watcher/message.md).
+You can configure monitoring for multiple chatrooms to join and leave.
 
 ```ts
 import JuggleIM from 'juggleim-rnsdk';
 
-// Chat room joined successfully
+// Chatroom joined successfully
 JuggleIM.onChatroomJoin = (chatroomId: string) => {
   console.log('onChatroomJoin, chatroomId is', chatroomId);
 };
 
-// Chat room exited successfully
+// Chatroom exited successfully
 JuggleIM.onChatroomQuit = (chatroomId: string) => {
   console.log('onChatroomQuit, chatroomId is', chatroomId);
 };
 
-// Failed to join chat room
+// Failed to join chatroom
 JuggleIM.onChatroomJoinFail = (chatroomId: string, errorCode: number) => {
   console.log('onChatroomJoinFail, chatroomId is', chatroomId, ', errorCode is', errorCode);
 };
 
-// Failed to exit chat room
+// Failed to exit chatroom
 JuggleIM.onChatroomQuitFail = (chatroomId: string, errorCode: number) => {
   console.log('onChatroomQuitFail, chatroomId is', chatroomId, ', errorCode is', errorCode);
 };
 
-// Kicked out of chat room
+// Kicked out of chatroom
 JuggleIM.onChatroomKick = (chatroomId: string) => {
   console.log('onChatroomKick, chatroomId is', chatroomId);
 };
 
-// Chat room destroyed
+// Chatroom destroyed
 JuggleIM.onChatroomDestroy = (chatroomId: string) => {
   console.log('onChatroomDestroy, chatroomId is', chatroomId);
 };
 ```
 
-You can also monitor chat room attribute changes with multiple configurations.
+You can also monitor chatroom attribute changes with multiple configurations.
 
 ```ts
-// Chat room attributes updated
+// Chatroom attributes updated
 JuggleIM.onChatroomAttributesUpdate = (chatroomId: string, attributes: Record<string, string>) => {
   console.log('onAttributesUpdate, chatroomId is', chatroomId, ', attributes are', attributes);
 };
 
-// Chat room attributes deleted
+// Chatroom attributes deleted
 JuggleIM.onChatroomAttributesDelete = (chatroomId: string, attributes: Record<string, string>) => {
   console.log('onAttributesDelete, chatroomId is', chatroomId, ', attributes are', attributes);
 };

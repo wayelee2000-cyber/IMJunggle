@@ -16,16 +16,16 @@ values={[
 }>
 <TabItem value="android">
 
-Each session includes a `draft` attribute, which is returned when retrieving the session list. For more details, please refer to the [Session Object](../../../conversation).
+Each conversation includes a `draft` attribute, which is returned when retrieving the conversation list. For more details, please refer to the [Conversation](../../conversation.md).
 </TabItem>
 <TabItem value="ios">
 
-Each session includes a `draft` attribute, which is returned when retrieving the session list. For more details, please refer to the [Session Object](../../../conversation).
+Each conversation includes a `draft` attribute, which is returned when retrieving the conversation list. For more details, please refer to the [Conversation](../../conversation.md).
 
 </TabItem>
 <TabItem value="js">
 
-The session list displays the draft status, so calling this method is generally unnecessary. Each session includes a `draft` attribute, which is returned when retrieving the session list. For more details, please refer to the [Session Object](../../../conversation).
+The conversation list displays the draft status, so calling this method is generally unnecessary. Each conversation includes a `draft` attribute, which is returned when retrieving the conversation list. For more details, please refer to the [Conversation](../../conversation.md).
 
 **Parameter description**
 
@@ -51,12 +51,12 @@ jim.getDraft(conversation).then((draft) => {
 </TabItem>
 <TabItem value="flutter">
 
-Each session includes a `draft` attribute, which is returned when retrieving the session list. For more details, please refer to the [Session Object](../../../conversation).
+Each conversation includes a `draft` attribute, which is returned when retrieving the conversation list. For more details, please refer to the [Conversation](../../conversation.md).
 
 </TabItem>
 <TabItem value="reactnative">
 
-Each session includes a `draft` attribute, which is returned when retrieving the session list. For more details, please refer to the [Session Object](../../../conversation).
+Each conversation includes a `draft` attribute, which is returned when retrieving the conversation list. For more details, please refer to the [Conversation](../../conversation.md).
 
 </TabItem>
 </Tabs>

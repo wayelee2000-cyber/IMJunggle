@@ -182,32 +182,32 @@ NSLog(@"after send, m.clientMsgNo is %lld", m.clientMsgNo);
 <TabItem value="js">
 
 The parameters supported by custom messages for sending are consistent with [Send Message](./send.md). The difference is that before sending a custom message, you need to register it and inform the SDK whether the message should be counted and stored.  
-Custom messages only need to be registered once, and the registration code can be placed in [After SDK initialization](../../init.mdx).
+Custom messages only need to be registered once, and the registration code can be placed after [SDK initialization](../../init.md).
 
 **Parameter description**
 
 | Name | Type | Required | Default | Description | Version |
 |--------------------------------|---------|--------|--------|----------------------------------------------------------------|----------|
 | message | Object | Yes | | Message object | 1.0.0 |
-| message.conversationType | Number | Yes | | [Conversation Type](../../../enum/web#conversation) | 1.0.0 |
+| message.conversationType | Number | Yes | | [Conversation Type](../../enum/web.md#conversation) | 1.0.0 |
 | message.conversationId | String | Yes | | Session ID. When the session type is `PRIVATE`, the session ID is the userId of the receiver; when the session type is `GROUP`, it is the group ID | 1.0.0 |
-| message.name | String | Yes | | Message name. Different message types are sent according to actual needs. For detailed enumeration, see [MessageType](../../../enum/web#message) | 1.0.0 |
+| message.name | String | Yes | | Message name. Different message types are sent according to actual needs. For detailed enumeration, see [MessageType](../../enum/web.md#message) | 1.0.0 |
 | message.content | Object | Yes | | Message content, constructed according to the `message.name` message type | 1.0.0 |
 | message.mentionInfo | Object | No | None | Valid when conversationType is `GROUP`. Setting mentionInfo indicates this message is an @ message | 1.0.0 |
-| mentionInfo.mentionType | Number | No | None | @ type. See [@ message enumeration](../../../enum/web#mention) for details | 1.0.0 |
+| mentionInfo.mentionType | Number | No | None | @ type. See [@ message enumeration](../../enum/web.md#mention) for details | 1.0.0 |
 | mentionInfo.targetIds | Array | No | None | List of specified @ recipients. The SDK prioritizes the @ type of the message based on mentionType | 1.0.0 |
 
 **Success callback**
 
 | Name | Type | Description | Version |
 |-----------|----------|-------------------------------------------------------------------------------|--------|
-| message | Object | After successful sending, returns a message object with `messageId` and `sentTime`. See the message structure [Message](../../../msg/message) | 1.0.0 |
+| message | Object | After successful sending, returns a message object with `messageId` and `sentTime`. See the [message object](../../msg/message.md) | 1.0.0 |
 
 **Failure callback**
 
 | Name | Type | Description | Version |
 |--------|---------|--------------------------------------------------------------|--------|
-| result | Object | After failure to send, the returned object contains `tid` and `error` information. You can view `error.msg` directly or refer to [status code](../../../status_code/web) | 1.0.0 |
+| result | Object | After failure to send, the returned object contains `tid` and `error` information. You can view `error.msg` directly or refer to [status code](../../status_code/web.md) | 1.0.0 |
 
 **Sample Code**
 

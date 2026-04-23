@@ -1,4 +1,4 @@
----
+﻿---
 title: Query group announcement
 hide_title: true
 sidebar_position: 6
@@ -13,9 +13,9 @@ Query the group announcement.
 
 > **Request Type**: `GET`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/getgrpannouncement
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/getgrpannouncement
 
 > **Content-Type**: `application/json`
 

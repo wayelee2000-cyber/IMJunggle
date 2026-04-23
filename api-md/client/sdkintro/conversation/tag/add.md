@@ -46,7 +46,7 @@ No parameters are returned. The callback is triggered to indicate success.
 
 | Name  | Type   | Description                                                                                  | Version |
 |-------|--------|----------------------------------------------------------------------------------------------|---------|
-| error | Object | Contains a corresponding status code when the operation fails. You can check `error.msg` or refer to [Status Code](../../../../sdkintro/status_code/web) | 1.0.0   |
+| error | Object | Contains a corresponding status code when the operation fails. You can check `error.msg` or refer to [Status Code](../../status_code/web.md) | 1.0.0   |
 
 **Sample Code**
 ```js

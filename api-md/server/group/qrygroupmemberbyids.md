@@ -1,4 +1,4 @@
----
+﻿---
 title: Query Information by Member ID
 hide_title: true
 sidebar_position: 12
@@ -8,17 +8,17 @@ sidebar_position: 12
 
 Query information for specified group members within a group, such as checking whether a group member is muted.
 
-### Request Description{#req}
+Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> <strong>Request Authentication</strong>: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
-> **Request Type**: `POST`
+> <strong>Request Type</strong>: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> <strong>Request Frequency Limit</strong>: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/groups/members/querybyids
+> <strong>Request URL</strong>: https://[request domain name](../api.md#api)/apigateway/groups/members/querybyids
 
-> **Content-Type**: `application/json`
+> <strong>Content-Type</strong>: `application/json`
 
 ### Request Parameters {#param}
 
@@ -61,3 +61,6 @@ Content-Type: application/json
   }
 }
 ```
+
+
+

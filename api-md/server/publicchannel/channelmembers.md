@@ -1,4 +1,4 @@
----
+﻿---
 title: Public Account Subscription List
 hide_title: true
 sidebar_position: 6
@@ -10,13 +10,13 @@ Retrieve the list of users subscribed to a public account.
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `GET`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/publicchannel/members/list
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/publicchannel/members/list
 
 > **Content-Type**: `application/json`
 
@@ -58,3 +58,4 @@ Content-Type: application/json
   }
 }
 ```
+

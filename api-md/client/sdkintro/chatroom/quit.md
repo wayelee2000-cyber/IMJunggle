@@ -1,5 +1,5 @@
 ---
-title: Exit chat room
+title: Exit chatroom
 hide_title: true
 sidebar_position: 4
 ---
@@ -16,12 +16,12 @@ values={[
 }>
 <TabItem value="android">
 
-Exit the chat room. When a user is logged in on multiple devices and one device exits, all devices will be logged out, and [Chat Room Monitoring](../event) will be triggered.
+Exit the chatroom. When a user is logged in on multiple devices and one device exits, all devices will be logged out, and the [Chartroom event](./event.md) will be triggered.
 
 **Sample Code**
 
 ```java
-// The exit result is monitored through the chat room callback
+// The exit result is monitored through the chatroom callback
 String chatroomId = "chatroomId1";
 JIM.getInstance().getChatroomManager().quitChatroom(chatroomId);
 ```
@@ -29,12 +29,12 @@ JIM.getInstance().getChatroomManager().quitChatroom(chatroomId);
 </TabItem>
 <TabItem value="ios">
 
-Exit the chat room. When a user is logged in on multiple devices and one device exits, all devices will be logged out, and [Chat Room Monitoring](../event) will be triggered.
+Exit the chatroom. When a user is logged in on multiple devices and one device exits, all devices will be logged out, and the [Chartroom event](./event.md) will be triggered.
 
 **Sample Code**
 
 ```objectivec
-// The exit result is monitored through the chat room callback
+// The exit result is monitored through the chatroom callback
 NSString *chatroomId = @"chatroomId1";
 [JIM.shared.chatroomManager quitChatroom:chatroomId];
 ```
@@ -42,7 +42,7 @@ NSString *chatroomId = @"chatroomId1";
 </TabItem>
 <TabItem value="js">
 
-Exit the chat room. When a user is logged in on multiple devices and one device exits, all devices will be logged out, and the chat room [Member Change Monitoring](../event) will be triggered.
+Exit the chatroom. When a user is logged in on multiple devices and one device exits, all devices will be logged out, and the chatroom [Member Change event](./event.md) will be triggered.
 
 **Parameter description**
 
@@ -68,7 +68,7 @@ jim.quitChatroom(chatroom).then(() => {
 </TabItem>
 <TabItem value="flutter">
 
-Exit the chat room. When a user is logged in on multiple devices and one device exits, all devices will be logged out, and [Chat Room Monitoring](../event) will be triggered.
+Exit the chatroom. When a user is logged in on multiple devices and one device exits, all devices will be logged out, and the [Chartroom event](./event.md) will be triggered.
 
 **Sample Code**
 
@@ -80,7 +80,7 @@ await JuggleIm.instance.getChatroomManager().quitChatroom(chatroomId);
 </TabItem>
 <TabItem value="reactnative">
 
-Exit the chat room. When a user is logged in on multiple devices and one device exits, all devices will be logged out, and [Chat Room Monitoring](../event) will be triggered.
+Exit the chatroom. When a user is logged in on multiple devices and one device exits, all devices will be logged out, and the [Chartroom event](./event.md) will be triggered.
 
 **Sample Code**
 

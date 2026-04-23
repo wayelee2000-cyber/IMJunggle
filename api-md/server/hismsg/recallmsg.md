@@ -1,4 +1,4 @@
----
+﻿---
 title: Message withdrawal
 hide_title: true
 sidebar_position: 2
@@ -10,13 +10,13 @@ The server-side message withdrawal function has no time limit for withdrawal. De
 
 ### Request description{#req}
 
-> **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/hismsgs/recall
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/hismsgs/recall
 
 > **Content-Type**: `application/json`
 
@@ -24,8 +24,8 @@ The server-side message withdrawal function has no time limit for withdrawal. De
 
 | Parameter    | Data type | Required | Description                                                                                  |   |
 |:-------------|:----------|:---------|:---------------------------------------------------------------------------------------------|---|
-| from_id     | string    | No       | In a single chat session, the ID of the user in the conversation                            |   |
-| target_id   | string    | Yes      | In a single chat session, the ID of the other user; in a group chat session, the group ID   |   |
+| from_id     | string    | No       | In a single chat conversation, the ID of the user in the conversation                            |   |
+| target_id   | string    | Yes      | In a single chat conversation, the ID of the other user; in a group chat conversation, the group ID   |   |
 | channel_type| int       | Yes      | Conversation type: 1 for single chat; 2 for group chat                                      |   |
 | msg_id      | string    | Yes      | The ID of the message to be withdrawn                                                      |   |
 | msg_time    | int       | Yes      | The timestamp of the message to be withdrawn                                               |   |
@@ -60,3 +60,4 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+

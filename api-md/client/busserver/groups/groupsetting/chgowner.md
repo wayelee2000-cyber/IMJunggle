@@ -1,4 +1,4 @@
----
+﻿---
 title: Change group owner
 hide_title: true
 sidebar_position: 1
@@ -13,9 +13,9 @@ Only the current group owner can change the group owner, and the new owner must 
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/management/chgowner
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/management/chgowner
 
 > **Content-Type**: `application/json`
 

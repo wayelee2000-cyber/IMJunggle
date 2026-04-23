@@ -1,4 +1,4 @@
----
+﻿---
 title: Remove likes
 hide_title: true
 sidebar_position: 22
@@ -13,7 +13,7 @@ Remove likes from a moment.
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api#api)/momentgateway/moments/reactions/del
 

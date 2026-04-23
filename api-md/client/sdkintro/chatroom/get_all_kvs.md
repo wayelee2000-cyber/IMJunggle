@@ -16,15 +16,15 @@ values={[
 }>
 <TabItem value="android">
 
-Retrieve all properties of a chat room
+Retrieve all properties of a chatroom
 
 **Interface definition**
 
 ```java
 /**
- * Retrieve all properties of a chat room
+ * Retrieve all properties of a chatroom
  *
- * @param chatroomId The chat room ID
+ * @param chatroomId The chatroom ID
  * @param callback Completion callback
  */
 void getAllAttributes(String chatroomId, IChatroomAttributesCallback callback);
@@ -54,14 +54,14 @@ JIM.getInstance().getChatroomManager().getAllAttributes("chatroomId1", new IChat
 </TabItem>
 <TabItem value="ios">
 
-Retrieve all properties of a chat room
+Retrieve all properties of a chatroom
 
 **Interface definition**
 
 ```objectivec
-/// Retrieve all properties of the chat room
+/// Retrieve all properties of the chatroom
 /// - Parameters:
-///   - chatroomId: The chat room ID
+///   - chatroomId: The chatroom ID
 ///   - completeBlock: Completion callback; JErrorCodeNone indicates successful retrieval.
 - (void)getAllAttributesFromChatroom:(NSString *)chatroomId
                             complete:(void (^)(JErrorCode code, NSDictionary<NSString *, NSString *> *attributes))completeBlock;
@@ -83,7 +83,7 @@ Retrieve all properties of a chat room
 </TabItem>
 <TabItem value="js">
 
-To retrieve all properties of a chat room, call this method after successfully joining the chat room. If you attempt to get the properties without joining, the SDK will return empty data.
+To retrieve all properties of a chatroom, call this method after successfully joining the chatroom. If you attempt to get the properties without joining, the SDK will return empty data.
 
 **Parameter description**
 
@@ -98,7 +98,7 @@ To retrieve all properties of a chat room, call this method after successfully j
 |---------------------|---------|-----------------------------------|----------|
 | chatroom | Object | Chatroom object | 1.6.0 |
 | chatroom.id | String | Chatroom ID | 1.6.0 |
-| chatroom.attributes | Array | All attributes of the chat room; see sample code for data structure | 1.6.0 |
+| chatroom.attributes | Array | All attributes of the chatroom; see sample code for data structure | 1.6.0 |
 
 **Sample Code**
 
@@ -124,7 +124,7 @@ jim.getAllChatRoomAttributes(chatroom).then((chatroom) => {
 </TabItem>
 <TabItem value="reactnative">
 
-Retrieve all properties of a chat room
+Retrieve all properties of a chatroom
 
 **Sample Code**
 

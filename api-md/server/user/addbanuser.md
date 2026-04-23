@@ -1,4 +1,4 @@
----
+﻿---
 title: Ban user
 hide_title: true
 sidebar_position: 2
@@ -6,17 +6,17 @@ sidebar_position: 2
 
 ### Function description{#intro}
 
-Once a user is banned, they cannot establish a connection with the IM Server. The client connection will return the user [Banned](../../status/#connection) status code. If a user who is already connected is banned, the current connection will remain unaffected.
+Once a user is banned, they cannot establish a connection with the IM Server. The client connection will return the user [Banned](../status.md#connection) status code. If a user who is already connected is banned, the current connection will remain unaffected.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 times/second`
+> **Request Frequency Limit**: `100 times/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/users/banusers/ban
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/users/banusers/ban
 
 > **Content-Type**: `application/json`
 

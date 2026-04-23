@@ -70,13 +70,13 @@ Query the collection list, sorted in reverse chronological order, with support f
 | result | Object | | 1.0.0 |
 | result.offset | String | Pagination identifier. Pass this `offset` to retrieve additional favorite messages. | 1.0.0 |
 | result.list | Array | Collection list. When `list.length` is less than or equal to `limit`, it indicates all data has been fetched. In this case, `offset` will be an empty string. | 1.0.0 |
-| result.list[0] | Object | Favorite [Message](../../../msg/message) objects | 1.0.0 |
+| result.list[0] | Object | Favorite [message object](../../msg/message.md) entries | 1.0.0 |
 
 **Failure callback**
 
 | Name | Type | Description | Version |
 |--------|---------|--------------------------------------------------------------|--------|
-| error | Object | Contains the status code if the request fails. You can check `error.msg` directly or refer to [Status Code](../../../../sdkintro/status_code/web) for details. | 1.0.0 |
+| error | Object | Contains the status code if the request fails. You can check `error.msg` directly or refer to [Status Code](../../status_code/web.md) for details. | 1.0.0 |
 
 **Sample Code**
 ```js

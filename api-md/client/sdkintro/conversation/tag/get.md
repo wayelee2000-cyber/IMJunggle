@@ -38,7 +38,7 @@ No parameters are returned; the callback is triggered to indicate success.
 
 | Name  | Type   | Description                                                                                  | Version |
 |-------|--------|----------------------------------------------------------------------------------------------|---------|
-| error | Object | Contains a status code if the request fails. You can access the error message via `error.msg`, or refer to [Status Code](../../../../sdkintro/status_code/web) for details. | 1.0.0   |
+| error | Object | Contains a status code if the request fails. You can access the error message via `error.msg`, or refer to [Status Code](../../status_code/web.md) for details. | 1.0.0   |
 
 **Sample Code**
 ```js

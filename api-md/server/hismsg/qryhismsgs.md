@@ -1,4 +1,4 @@
----
+﻿---
 title: Query historical messages
 hide_title: true
 sidebar_position: 4
@@ -6,17 +6,17 @@ sidebar_position: 4
 
 ### Function description{#intro}
 
-The function for querying historical messages aligns with the client's capability to retrieve past messages. It is used by the developer's server to fetch historical messages from the session specified by the given user.
+The function for querying historical messages aligns with the client's capability to retrieve past messages. It is used by the developer's server to fetch historical messages from the conversation specified by the given user.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `GET`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/hismsgs/query
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/hismsgs/query
 
 > **Content-Type**: `application/json`
 
@@ -24,8 +24,8 @@ The function for querying historical messages aligns with the client's capabilit
 
 | Parameters   | Data type | Required | Description                                                                                  |   |
 |:-------------|:----------|:---------|:---------------------------------------------------------------------------------------------|---|
-| from_id      | string    | No       | In a single chat session, the ID of the user in the conversation                            |   |
-| target_id    | string    | Yes      | In a single chat session, the ID of the other user; in a group chat session, the group ID   |   |
+| from_id      | string    | No       | In a single chat conversation, the ID of the user in the conversation                            |   |
+| target_id    | string    | Yes      | In a single chat conversation, the ID of the other user; in a group chat conversation, the group ID   |   |
 | channel_type | int       | Yes      | Conversation type: 1 for single chat; 2 for group chat                                     |   |
 | start        | int       | Yes      | The start timestamp for querying historical messages                                       |   |
 | count        | int       | No       | Number of items per page for pagination; default is 20, maximum is 50                       |   |
@@ -64,3 +64,4 @@ Content-Type: application/json
   }
 }
 ```
+

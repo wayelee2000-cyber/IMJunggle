@@ -4,7 +4,7 @@ hide_title: true
 sidebar_position: 1
 ---
 
-The IM RESTful API provides developers with interfaces for IM business operations. The client and server API capabilities are symmetrical. Developers can implement features such as `user management` and `group management` through these API interfaces. For more details, please refer to the interface list in [RESTful API](./apilist).
+The IM RESTful API provides developers with interfaces for IM business operations. The client and server API capabilities are symmetrical. Developers can implement features such as `user management` and `group management` through these API interfaces. For more details, please refer to the interface list in [RESTful API](#api).
 
 > For communication security, the API authenticates requests via a custom public [header](#header).
 

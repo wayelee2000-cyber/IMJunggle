@@ -68,7 +68,7 @@ typedef NS_ENUM(NSUInteger, JCallFinishNotifyType) {
 <TabItem value="js">
 
 When a 1v1 call ends, the IM system automatically sends this message to the corresponding single chat session to identify the call record.  
-The call end message listener will receive `MessageType.COMMAND_RTC_1V1_FINISHED`.
+The call end message event listener will receive `MessageType.COMMAND_RTC_1V1_FINISHED`.
 
 **message.content**
 

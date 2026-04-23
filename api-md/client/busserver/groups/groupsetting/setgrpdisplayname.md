@@ -1,4 +1,4 @@
----
+﻿---
 title: Set group nickname
 hide_title: true
 sidebar_position: 7
@@ -13,9 +13,9 @@ Set a group nickname.
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/setdisplayname
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/setdisplayname
 
 > **Content-Type**: `application/json`
 

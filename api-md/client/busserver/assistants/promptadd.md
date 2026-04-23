@@ -1,4 +1,4 @@
----
+﻿---
 title: Add New Prompt Word
 hide_title: true
 sidebar_position: 1
@@ -9,11 +9,11 @@ Add prompt words to the AI assistant.
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api.md#api)/jim/assistants/prompts/add
 
@@ -53,3 +53,4 @@ Content-Type: application/json
 | Response Code | Description  |   |
 |:--------------|:-------------|---|
 | 17300         | Add failed   |   |
+

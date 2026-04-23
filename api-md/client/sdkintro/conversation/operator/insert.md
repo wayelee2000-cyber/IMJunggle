@@ -1,5 +1,5 @@
 ---
-title: Insert the specified session
+title: Insert the specified conversation
 hide_title: true
 sidebar_position: 3
 ---
@@ -17,7 +17,7 @@ values={[
 }>
 <TabItem value="android">
 
-When inserting a session, the SDK automatically inserts it locally and in the cloud, supporting multi-end synchronization.
+When inserting a conversation, the SDK automatically inserts it locally and in the cloud, supporting multi-end synchronization.
 
 **Parameter description**
 
@@ -47,13 +47,13 @@ JIM.getInstance().getConversationManager().createConversationInfo(conversation, 
 </TabItem>
 <TabItem value="ios">
 
-When inserting a session, the SDK automatically inserts it locally and in the cloud, supporting multi-end synchronization.
+When inserting a conversation, the SDK automatically inserts it locally and in the cloud, supporting multi-end synchronization.
 
 **Parameter description**
 
 | Name | Type | Description | Version |
 |----------------------------------|---------|----------|----------|
-| conversation | JConversation | Session identifier | 1.0.0 |
+| conversation | JConversation | Conversation identifier | 1.0.0 |
 | successBlock | | Success callback | 1.0.0 |
 | errorBlock | | Failure callback | 1.0.0 |
 
@@ -72,13 +72,13 @@ JConversation *conversation = [[JConversation alloc] initWithConversationType:JC
 </TabItem>
 <TabItem value="js">
 
-When inserting a session, the SDK automatically inserts it locally and in the cloud, supporting multi-end synchronization. If the session already exists, the original session will be **overwritten**.
+When inserting a conversation, the SDK automatically inserts it locally and in the cloud, supporting multi-end synchronization. If the conversation already exists, the original conversation will be **overwritten**.
 
-:::info session information
+:::info conversation information
 
-> The Web SDK relies on the user information provided during registration to obtain a token, or on the avatar and group nickname specified when creating a group. If there is no registration or group creation with group information set, session information will not be available.
+> The Web SDK relies on the user information provided during registration to obtain a token, or on the avatar and group nickname specified when creating a group. If there is no registration or group creation with group information set, conversation information will not be available.
 
-> Electron follows the Web SDK principles, but specifying `conversationTitle` and `conversationPortrait` will save them in the local database, and retrieving the session list will return these values.
+> Electron follows the Web SDK principles, but specifying `conversationTitle` and `conversationPortrait` will save them in the local database, and retrieving the conversation list will return these values.
 :::
 
 
@@ -97,7 +97,7 @@ When inserting a session, the SDK automatically inserts it locally and in the cl
 | Properties | Type | Description | Version |
 |------------------|----------|------------------------------------------------|----------|
 | result | Object | Query result | 1.0.0 |
-| result.conversation | Object | [Conversation object](../../../conversation), containing user or group information | 1.0.0 |
+| result.conversation | Object | [Conversation object](../../conversation.md), containing user or group information | 1.0.0 |
 
 **Sample Code**
 ```js
@@ -117,7 +117,7 @@ jim.insertConversation(conversation).then((result) => {
 
 <TabItem value="flutter" label="Flutter">
 
-Insert sessions automatically into local and cloud storage, supporting synchronization across the current user's devices. If the session already exists, the original session will not be overwritten. After a successful insertion, the session listening event will be triggered.
+Insert conversations automatically into local and cloud storage, supporting synchronization across the current user's devices. If the conversation already exists, the original conversation will not be overwritten. After a successful insertion, the conversation listening event will be triggered.
 
 **Parameter description**
 
@@ -135,7 +135,7 @@ Result<ConversationInfo> result = await JuggleIm.instance.createConversationInfo
 </TabItem>
 <TabItem value="reactnative">
 
-Insert sessions automatically into local and cloud storage, supporting synchronization across the current user's devices. If the session already exists, the original session will not be overwritten. After a successful insertion, the session listening event will be triggered.
+Insert conversations automatically into local and cloud storage, supporting synchronization across the current user's devices. If the conversation already exists, the original conversation will not be overwritten. After a successful insertion, the conversation listening event will be triggered.
 
 **Parameter description**
 
@@ -143,7 +143,7 @@ Insert sessions automatically into local and cloud storage, supporting synchroni
 |--------------|---------|----------|----------|
 | conversation | Object | Conversation identifier | 0.6.3 |
 | conversationType | Number | Conversation type | 0.6.3 |
-| conversationId | String | Session ID | 0.6.3 |
+| conversationId | String | Conversation ID | 0.6.3 |
 
 **Sample Code**
 

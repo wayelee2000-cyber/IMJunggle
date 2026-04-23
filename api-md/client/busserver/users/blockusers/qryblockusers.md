@@ -1,4 +1,4 @@
----
+﻿---
 title: Query Blacklist User List
 hide_title: true
 sidebar_position: 3
@@ -13,9 +13,9 @@ Retrieve the list of users in the blacklist.
 
 > **Request Type**: `GET`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/users/blockusers/list
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/users/blockusers/list
 
 > **Content-Type**: `application/json`
 
@@ -65,3 +65,4 @@ Content-Type: application/json
 
 | Response Code | Description |  |
 |:--------------|:------------|:--|
+

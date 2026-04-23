@@ -63,7 +63,7 @@ void removeMessageReaction(String messageId,
 |--------------------------------|---------|--------|--------|----------------------------------------------------------------|----------|
 | message | Object | Yes | | Message object | 1.8.0 |
 | message.conversationType | Number | Yes | | [Conversation Type](../../enum/web.md#conversation) | 1.8.0 |
-| message.conversationId | String | Yes | | Session ID. For `PRIVATE` sessions, this is the user ID of the receiver; for `GROUP` sessions, it is the group ID | 1.8.0 |
+| message.conversationId | String | Yes | | Conversation ID. For `PRIVATE` conversations, this is the user ID of the receiver; for `GROUP` conversations, it is the group ID | 1.8.0 |
 | message.messageId | String | Yes | | The ID of the message whose reaction is being removed | 1.8.0 |
 | message.reactionId | String | Yes | | The unique identifier of the reaction. Developers can customize this, but multi-end agreement is required | 1.8.0 |
 
@@ -75,7 +75,7 @@ No parameters are returned. The callback is triggered to indicate success.
 
 | Name | Type | Description | Version |
 |--------|---------|--------------------------------------------------------------|--------|
-| error | Object | Contains the status code if the operation fails. You can check `error.msg` or refer to [Status Code](../../../../sdkintro/status_code/web) | 1.8.0 |
+| error | Object | Contains the status code if the operation fails. You can check `error.msg` or refer to [Status Code](../../status_code/web.md) | 1.8.0 |
 
 **Sample Code**
 ```js

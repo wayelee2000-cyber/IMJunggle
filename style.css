@@ -2171,6 +2171,69 @@ body.page-api-docs .api-md-content blockquote {
   color: #334155;
 }
 
+body.page-api-docs .api-admonition {
+  margin: 1.15rem 0 1.4rem;
+  padding: 1.1rem 1.35rem 1.35rem;
+  border-left: 6px solid #1677e8;
+  border-radius: 16px;
+  background: #dfeeff;
+  color: #1f2937;
+}
+
+body.page-api-docs .api-admonition-title {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  margin-bottom: 1.2rem;
+  color: #1677e8;
+  font-size: 1.05rem;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+}
+
+body.page-api-docs .api-admonition-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  flex: 0 0 1.55rem;
+}
+
+body.page-api-docs .api-admonition-icon svg {
+  width: 100%;
+  height: 100%;
+}
+
+body.page-api-docs .api-admonition-body > :first-child {
+  margin-top: 0;
+}
+
+body.page-api-docs .api-admonition-body > :last-child {
+  margin-bottom: 0;
+}
+
+body.page-api-docs .api-admonition-body p,
+body.page-api-docs .api-admonition-body ol,
+body.page-api-docs .api-admonition-body ul {
+  color: #374151;
+}
+
+body.page-api-docs .api-admonition-body strong {
+  color: #1f2937;
+  font-weight: 800;
+}
+
+body.page-api-docs .api-admonition-body ol,
+body.page-api-docs .api-admonition-body ul {
+  margin-top: 0.65rem;
+  margin-bottom: 0.9rem;
+}
+
+body.page-api-docs .api-admonition-body li {
+  margin-bottom: 0.5rem;
+}
+
 body.page-api-docs .api-md-content .mdx-tab-bar {
   background: #f8fafc;
   border-color: rgba(15, 23, 42, 0.08);

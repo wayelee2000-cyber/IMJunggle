@@ -142,7 +142,7 @@ values={[
       }
     });
 
-    // Step 3: Set up message monitoring globally
+// Step 3: Set up the message event listener globally
     jim.on(Event.MESSAGE_RECEIVED, (message) => {
       console.log(message);
     });

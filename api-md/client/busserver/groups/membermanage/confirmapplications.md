@@ -1,4 +1,4 @@
----
+﻿---
 title: Approval of Application for Invitation to Join the Group
 hide_title: true
 sidebar_position: 9
@@ -15,7 +15,7 @@ The administrator approves an application to join the group.
 
 > **Request Frequency Limit**: `100 times/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/grpapplications/confirm
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/grpapplications/confirm
 
 > **Content-Type**: `application/json`
 
@@ -54,3 +54,4 @@ Content-Type: application/json
 
 | Response Code | Description |   |
 |:--------------|:------------|---|
+

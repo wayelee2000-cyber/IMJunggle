@@ -54,7 +54,7 @@ type ConnectionStatusListener = (
 ) => void;
 ```
 
-**Message Listener Type:**
+**Message Event Listener Type:**
 
 ```typescript
 type MessageListener = {

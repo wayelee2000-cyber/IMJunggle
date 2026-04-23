@@ -1,5 +1,5 @@
 ---
-title: Join chat room
+title: Join chatroom
 hide_title: true
 sidebar_position: 3
 ---
@@ -16,20 +16,20 @@ values={[
 }>
 <TabItem value="android">
 
-Join the specified chat room. You must create the chat room before joining it. For integrated development, you can create it using API debugging: `Developer server` -> Select Application -> Development and Debugging.
+Join the specified chatroom. You must create the chatroom before joining it. For integrated development, you can create it using API debugging: `Developer server` -> Select Application -> Development and Debugging.
 
-After joining the chat room, the SDK will automatically synchronize the latest 50 messages and the full attribute information of the room locally, and return this data to the developer's business layer through [Chat Room Monitoring](../event).
+After joining the chatroom, the SDK will automatically synchronize the latest 50 messages and the full attribute information of the room locally, and return this data to the developer's business layer through the [Chartroom event listener](./event.md).
 
 _**Multi-device login:**_
 
-> Multi-device scenario 1: Supports a single user joining multiple chat rooms on one device, with messages isolated from each other. Messages are returned through the [Message Listener](../../watcher/message).
+> Multi-device scenario 1: Supports a single user joining multiple chatrooms on one device, with messages isolated from each other. Messages are returned through the [Message event listener](../watcher/message.md).
 
-> Multi-device scenario 2: Supports a single user joining multiple chat rooms across multiple devices (such as Web and iOS), with messages sent and received automatically synchronized across devices.
+> Multi-device scenario 2: Supports a single user joining multiple chatrooms across multiple devices (such as Web and iOS), with messages sent and received automatically synchronized across devices.
 
 **Sample Code**
 
 ```java
-// Join the chat room and listen for callbacks
+// Join the chatroom and listen for callbacks
 String chatroomId = "chatroomId1";
 int count = 10;
 JIM.getInstance().getChatroomManager().joinChatroom(chatroomId, count);
@@ -38,20 +38,20 @@ JIM.getInstance().getChatroomManager().joinChatroom(chatroomId, count);
 </TabItem>
 <TabItem value="ios">
 
-Join the specified chat room. You must create the chat room before joining it. For integrated development, you can create it using API debugging: `Developer server` -> Select Application -> Development and Debugging.
+Join the specified chatroom. You must create the chatroom before joining it. For integrated development, you can create it using API debugging: `Developer server` -> Select Application -> Development and Debugging.
 
-After joining the chat room, the SDK will automatically synchronize the latest 50 messages and the full attribute information of the room locally, and return this data to the developer's business layer through [Chat Room Monitoring](../event).
+After joining the chatroom, the SDK will automatically synchronize the latest 50 messages and the full attribute information of the room locally, and return this data to the developer's business layer through the [Chartroom event listener](./event.md).
 
 _**Multi-device login:**_
 
-> Multi-device scenario 1: Supports a single user joining multiple chat rooms on one device, with messages isolated from each other. Messages are returned through the [Message Listener](../../watcher/message).
+> Multi-device scenario 1: Supports a single user joining multiple chatrooms on one device, with messages isolated from each other. Messages are returned through the [Message event listener](../watcher/message.md).
 
-> Multi-device scenario 2: Supports a single user joining multiple chat rooms across multiple devices (such as Web and iOS), with messages sent and received automatically synchronized across devices.
+> Multi-device scenario 2: Supports a single user joining multiple chatrooms across multiple devices (such as Web and iOS), with messages sent and received automatically synchronized across devices.
 
 **Sample Code**
 
 ```objectivec
-// Join the chat room and listen for callbacks
+// Join the chatroom and listen for callbacks
 NSString *chatroomId = @"chatroomId1";
 int count = 10;
 [JIM.shared.chatroomManager joinChatroom:chatroomId
@@ -61,15 +61,15 @@ int count = 10;
 </TabItem>
 <TabItem value="js">
 
-Join the specified chat room. You must create the chat room before joining it. For integrated development, you can create it using API debugging: `Developer server` -> Select Application -> Development and Debugging.
+Join the specified chatroom. You must create the chatroom before joining it. For integrated development, you can create it using API debugging: `Developer server` -> Select Application -> Development and Debugging.
 
-After joining the chat room, the SDK will automatically synchronize the latest 50 messages and the full attribute information of the room locally, and return this data to the developer's business layer through [Chat Room Monitoring](../event).
+After joining the chatroom, the SDK will automatically synchronize the latest 50 messages and the full attribute information of the room locally, and return this data to the developer's business layer through the [Chartroom event listener](./event.md).
 
 _**Multi-device login:**_
 
-> Multi-device scenario 1: Supports a single user joining multiple chat rooms on one device, with messages isolated from each other. Messages are returned through the [Message Listener](../../watcher/message). Note that you should distinguish messages by `message.conversationId`.
+> Multi-device scenario 1: Supports a single user joining multiple chatrooms on one device, with messages isolated from each other. Messages are returned through the [Message event listener](../watcher/message.md). Note that you should distinguish messages by `message.conversationId`.
 
-> Multi-device scenario 2: Supports a single user joining multiple chat rooms across multiple devices (such as Web and iOS), with messages sent and received automatically synchronized across devices.
+> Multi-device scenario 2: Supports a single user joining multiple chatrooms across multiple devices (such as Web and iOS), with messages sent and received automatically synchronized across devices.
 
 <br/>
 
@@ -79,7 +79,7 @@ _**Multi-device login:**_
 |----------------|--------|----------|---------|-----------------------------------------------------------------------------|---------|
 | chatroom       | Object | Yes      | None    | Chatroom object                                                             | 1.6.0   |
 | chatroom.id    | String | Yes      | None    | Chatroom ID                                                                 | 1.6.0   |
-| chatroom.count | Number | Yes      | None    | Number of recent messages to retrieve upon joining the chat room, returned via message listener, range `1-50` | 1.6.0   |
+| chatroom.count | Number | Yes      | None    | Number of recent messages to retrieve upon joining the chatroom, returned via the message event listener, range `1-50` | 1.6.0   |
 
 **Sample Code**
 
@@ -99,9 +99,9 @@ jim.joinChatroom(chatroom).then(() => {
 </TabItem>
 <TabItem value="flutter">
 
-Join the specified chat room. You must create the chat room before joining it. For integrated development, you can create it using API debugging: `Developer server` -> Select Application -> Development and Debugging.
+Join the specified chatroom. You must create the chatroom before joining it. For integrated development, you can create it using API debugging: `Developer server` -> Select Application -> Development and Debugging.
 
-After joining the chat room, the SDK will automatically synchronize the latest 50 messages and the full attribute information of the room locally, and return this data to the developer's business layer through [Chat Room Monitoring](../event).
+After joining the chatroom, the SDK will automatically synchronize the latest 50 messages and the full attribute information of the room locally, and return this data to the developer's business layer through the [Chartroom event listener](./event.md).
 
 **Sample Code**
 
@@ -114,9 +114,9 @@ await JuggleIm.instance.getChatroomManager().joinChatroom(chatroomId, count);
 </TabItem>
 <TabItem value="reactnative">
 
-Join the specified chat room. You must create the chat room before joining it. For integrated development, you can create it using API debugging: `Developer server` -> Select Application -> Development and Debugging.
+Join the specified chatroom. You must create the chatroom before joining it. For integrated development, you can create it using API debugging: `Developer server` -> Select Application -> Development and Debugging.
 
-After joining the chat room, the SDK will automatically synchronize the latest 50 messages and the full attribute information of the room locally, and return this data to the developer's business layer through [Chat Room Monitoring](../event).
+After joining the chatroom, the SDK will automatically synchronize the latest 50 messages and the full attribute information of the room locally, and return this data to the developer's business layer through the [Chartroom event listener](./event.md).
 
 **Sample Code**
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Query group member list
 hide_title: true
 sidebar_position: 4
@@ -13,9 +13,9 @@ Query the list of group members.
 
 > **Request Type**: `GET`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/members/list
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/members/list
 
 > **Content-Type**: `application/json`
 

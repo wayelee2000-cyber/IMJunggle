@@ -1,5 +1,5 @@
----
-title: 文件消息
+﻿---
+title: File message
 hide_title: true
 sidebar_position: 5
 ---
@@ -7,59 +7,59 @@ sidebar_position: 5
 <Tabs
 groupId="sdks-language"
 values={[
-{ label: 'Android', value: 'android', },
-{ label: 'iOS', value: 'ios', },
-{ label: 'JavaScript', value: 'js', },
-{ label: 'Flutter', value: 'flutter', },
-{ label: 'ReactNative', value: 'reactnative', },
-]
-}>
+{ label: 'Android', value: 'android' },
+{ label: 'iOS', value: 'ios' },
+{ label: 'JavaScript', value: 'js' },
+{ label: 'Flutter', value: 'flutter' },
+{ label: 'ReactNative', value: 'reactnative' }
+]}
+>
 <TabItem value="android">
 
-文件消息（FileMessage）是 SDK 内置的消息类型，对应的 contentType 为 @"jg:file"。
+File messages (`FileMessage`) are a built-in SDK message type with the corresponding contentType `@"jg:file"`.
 
-| 属性名    | 类型    | 说明                  | 版本  |
-| --------- | ------- | --------------------- | ----- |
-| name      | String  | 文件名称              | 1.0.0 |
-| localPath | String  | 文件的本地路径        | 1.0.0 |
-| url       | String  | 文件的远端地址        | 1.0.0 |
-| size      | long    | 文件大小，单位为 `Byte` | 1.0.0 |
-| type      | String  | 文件类型              | 1.0.0 |
-| extra     | String  | 扩展字段              | 1.0.0 |
+| Property | Type | Description | Version |
+| --- | --- | --- | --- |
+| name | String | File name | 1.0.0 |
+| localPath | String | Local path of the file | 1.0.0 |
+| url | String | Remote URL of the file | 1.0.0 |
+| size | long | File size in `Byte` | 1.0.0 |
+| type | String | File type | 1.0.0 |
+| extra | String | Extension field | 1.0.0 |
 
 </TabItem>
 <TabItem value="ios">
 
-文件消息（JFileMessage）是 SDK 内置的消息类型，对应的 contentType 为 @"jg:file"。
+File messages (`JFileMessage`) are a built-in SDK message type with the corresponding contentType `@"jg:file"`.
 
-| 属性名    | 类型       | 说明                  | 版本  |
-| --------- | ---------- | --------------------- | ----- |
-| name      | NSString   | 文件名称              | 1.0.0 |
-| localPath | NSString   | 文件的本地路径        | 1.0.0 |
-| url       | NSString   | 文件的远端地址        | 1.0.0 |
-| size      | long long  | 文件大小，单位为 `Byte` | 1.0.0 |
-| type      | NSString   | 文件类型              | 1.0.0 |
-| extra     | NSString   | 扩展字段              | 1.0.0 |
+| Property | Type | Description | Version |
+| --- | --- | --- | --- |
+| name | NSString | File name | 1.0.0 |
+| localPath | NSString | Local path of the file | 1.0.0 |
+| url | NSString | Remote URL of the file | 1.0.0 |
+| size | long long | File size in `Byte` | 1.0.0 |
+| type | NSString | File type | 1.0.0 |
+| extra | NSString | Extension field | 1.0.0 |
 
 </TabItem>
 <TabItem value="js">
 
-文件消息是 SDK 内置的消息类型，枚举对应 _[MessageType.FILE](../../enum/web#message)_。
+File messages are a built-in SDK message type, corresponding to the enum _[MessageType.FILE](../enum/web.md#message)_.
 
-| 属性名 | 类型   | 说明                                               | 版本  |
-|--------|--------|----------------------------------------------------|-------|
-| name   | String | 文件名称                                           | 1.0.0 |
-| url    | String | 文件地址                                           | 1.0.0 |
-| size   | Number | 文件大小，用于查看或下载时显示进度条，单位为 `KB` | 1.0.0 |
-| type   | String | 文件类型，常见类型包括 `word`、`excel`、`ppt`、`zip` 等 | 1.0.0 |
-| extra  | String | 消息附加内容，支持 JSON 字符串，设置后不可修改     | 1.0.0 |
+| Property | Type | Description | Version |
+| --- | --- | --- | --- |
+| name | String | File name | 1.0.0 |
+| url | String | File URL | 1.0.0 |
+| size | Number | File size, used when previewing or downloading and showing progress. Unit: `KB` | 1.0.0 |
+| type | String | File type. Common values include `word`, `excel`, `ppt`, and `zip` | 1.0.0 |
+| extra | String | Additional message content. Supports a JSON string and cannot be modified after being set | 1.0.0 |
 
 ```js
 let fileMsg = {
-  name: "demo.pptx",
-  url: "https://example.com/demo.pptx",
+  name: 'demo.pptx',
+  url: 'https://example.com/demo.pptx',
   size: 1000,
-  type: "pptx",
+  type: 'pptx',
   extra: '{"Priority":"P0"}'
 }
 
@@ -72,34 +72,33 @@ let message = {
 ```
 </TabItem>
 
-
 <TabItem value="flutter">
 
-文件消息（FileMessage）是 SDK 内置的消息类型，对应的 contentType 为 "jg:file"。
+File messages (`FileMessage`) are a built-in SDK message type with the corresponding contentType `"jg:file"`.
 
-| 属性名    | 类型    | 说明                  | 版本  |
-| --------- | ------- | --------------------- | ----- |
-| name      | String  | 文件名称              | 0.6.3 |
-| localPath | String  | 文件的本地路径        | 0.6.3 |
-| url       | String  | 文件的远端地址        | 0.6.3 |
-| size      | int     | 文件大小，单位为 `Byte` | 0.6.3 |
-| type      | String  | 文件类型              | 0.6.3 |
-| extra     | String  | 扩展字段              | 0.6.3 |
+| Property | Type | Description | Version |
+| --- | --- | --- | --- |
+| name | String | File name | 0.6.3 |
+| localPath | String | Local path of the file | 0.6.3 |
+| url | String | Remote URL of the file | 0.6.3 |
+| size | int | File size in `Byte` | 0.6.3 |
+| type | String | File type | 0.6.3 |
+| extra | String | Extension field | 0.6.3 |
 
 </TabItem>
 
 <TabItem value="reactnative">
 
-文件消息（FileMessageContent）是 SDK 内置的消息类型，对应的 contentType 为 "jg:file"。
+File messages (`FileMessageContent`) are a built-in SDK message type with the corresponding contentType `"jg:file"`.
 
-| 属性名    | 类型    | 说明                  | 版本  |
-| --------- | ------- | --------------------- | ----- |
-| name      | string  | 文件名称              | 1.0.0 |
-| localPath | string  | 文件的本地路径        | 1.0.0 |
-| url       | string  | 文件的远端地址        | 1.0.0 |
-| size      | number  | 文件大小，单位为 `Byte` | 1.0.0 |
-| type      | string  | 文件类型              | 1.0.0 |
-| extra     | string  | 扩展字段              | 1.0.0 |
+| Property | Type | Description | Version |
+| --- | --- | --- | --- |
+| name | string | File name | 1.0.0 |
+| localPath | string | Local path of the file | 1.0.0 |
+| url | string | Remote URL of the file | 1.0.0 |
+| size | number | File size in `Byte` | 1.0.0 |
+| type | string | File type | 1.0.0 |
+| extra | string | Extension field | 1.0.0 |
 
 </TabItem>
 </Tabs>

@@ -103,7 +103,7 @@ Download the JavaScript SDK.
       }
     });
 
-    // Step 3: Set up message monitoring; only needs to be done once globally
+// Step 3: Set up the message event listener; this only needs to be done once globally
     jim.on(Event.MESSAGE_RECEIVED, (message) => {
       console.log(message);
     });

@@ -1,4 +1,4 @@
----
+﻿---
 title: Query ban list
 hide_title: true
 sidebar_position: 4
@@ -10,13 +10,13 @@ Retrieve the list of banned users with support for paginated queries.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `GET`
 
-> **Request rate limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/users/banusers/query
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/users/banusers/query
 
 > **Content-Type**: `application/json`
 
@@ -69,3 +69,4 @@ Content-Type: application/json
   }
 }
 ```
+

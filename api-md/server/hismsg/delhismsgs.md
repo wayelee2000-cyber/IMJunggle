@@ -1,4 +1,4 @@
----
+﻿---
 title: delete message
 hide_title: true
 sidebar_position: 1
@@ -10,13 +10,13 @@ Deleting messages by message ID supports both single-item and two-way deletion. 
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/hismsgs/del
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/hismsgs/del
 
 > **Content-Type**: `application/json`
 
@@ -24,8 +24,8 @@ Deleting messages by message ID supports both single-item and two-way deletion. 
 
 | Parameters   | Data type | Required | Description                                                                                                         |   |
 |:-------------|:----------|:---------|:--------------------------------------------------------------------------------------------------------------------|---|
-| from_id      | string    | No       | In a single chat session, the ID of the user in the conversation.                                                  |   |
-| target_id    | string    | Yes      | In a single chat session, the ID of the other user; in a group chat session, the group ID.                         |   |
+| from_id      | string    | No       | In a single chat conversation, the ID of the user in the conversation.                                                  |   |
+| target_id    | string    | Yes      | In a single chat conversation, the ID of the other user; in a group chat conversation, the group ID.                         |   |
 | channel_type | int       | Yes      | Conversation type: 1 for single chat; 2 for group chat.                                                             |   |
 | del_scope    | int       | No       | The scope of message deletion: 0 means deleting messages only from the perspective of `from_id`; 1 means deleting messages for all participants (both parties in a single chat or all members in a group) so that no one can view them. |   |
 | msgs         | array     | Yes      | A list of message IDs to be deleted.                                                                                |   |
@@ -60,3 +60,4 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+

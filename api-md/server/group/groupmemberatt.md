@@ -1,4 +1,4 @@
----
+﻿---
 title: Set group member attributes
 hide_title: true
 sidebar_position: 13
@@ -8,17 +8,17 @@ sidebar_position: 13
 
 Set attributes for group members within a group, such as group nickname, group badge, and more.
 
-### Request description{#req}
+Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> <strong>Request Authentication</strong>: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
-> **Request Type**: `POST`
+> <strong>Request Type</strong>: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> <strong>Request Frequency Limit</strong>: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/groups/members/update
+> <strong>Request URL</strong>: https://[request domain name](../api.md#api)/apigateway/groups/members/update
 
-> **Content-Type**: `application/json`
+> <strong>Content-Type</strong>: `application/json`
 
 ### Request parameters {#param}
 
@@ -26,7 +26,7 @@ Set attributes for group members within a group, such as group nickname, group b
 |:----------------|:----------|:---------|:---------------------------------|---|
 | group_id        | string    | Yes      | Group ID                         |   |
 | member_id       | string    | Yes      | Group member ID                  |   |
-| grp_display_name| string    | No       | Member’s nickname within the group |   |
+| grp_display_name| string    | No       | Member鈥檚 nickname within the group |   |
 | ext_fields      | map       | No       | Extended fields for the member within the group |   |
 
 ### Request Example{#req_demo}
@@ -57,3 +57,5 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+
+

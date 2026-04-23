@@ -1,10 +1,10 @@
 ---
-title: iOS normal push
+title: iOS push notifications
 hide_title: true
 sidebar_position: 2
 ---
 
-### Request permission{#setting}
+### Request notification permission{#setting}
 
 ```objectivec
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
@@ -32,9 +32,9 @@ sidebar_position: 2
 }
 ```
 
-### Set push token{#device}
+### Register the device token{#device}
 
-Set the device token in the SDK within the `application:didRegisterForRemoteNotificationsWithDeviceToken:` callback.
+Register the device token with the SDK in the `application:didRegisterForRemoteNotificationsWithDeviceToken:` callback.
 
 ```objectivec
 - (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken {

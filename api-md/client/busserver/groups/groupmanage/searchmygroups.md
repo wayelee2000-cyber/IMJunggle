@@ -1,4 +1,4 @@
----
+﻿---
 title: Search for groups to join
 hide_title: true
 sidebar_position: 6
@@ -13,9 +13,9 @@ Search for groups I have joined.
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 times/second`
+> **Request Frequency Limit**: `100 times/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/mygroups/search
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/mygroups/search
 
 > **Content-Type**: `application/json`
 

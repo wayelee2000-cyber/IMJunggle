@@ -60,8 +60,8 @@ Remove favorites, supporting various message types such as pictures, files, voic
 | params.messages | Array | Yes | | List of favorite messages | 1.0.0 |
 | params.messages[0].conversationType | Number | Yes | | [Conversation Type](../../enum/web.md#conversation) | 1.0.0 |
 | params.messages[0].conversationId | String | Yes | | Session ID. For `PRIVATE` sessions, this is the receiver's userId; for `GROUP` sessions, this is the group ID | 1.0.0 |
-| params.messages[0].senderId | String | Yes | | Message sender ID, see [Message.sender.id](../../../msg/message) | 1.0.0 |
-| params.messages[0].messageId | String | Yes | | Message ID, see [Message.messageId](../../../msg/message) | 1.0.0 |
+| params.messages[0].senderId | String | Yes | | Message sender ID, see [Message.sender.id](../../msg/message.md) | 1.0.0 |
+| params.messages[0].messageId | String | Yes | | Message ID, see [Message.messageId](../../msg/message.md) | 1.0.0 |
 
 **Success callback**
 
@@ -71,7 +71,7 @@ No parameters are returned. The callback is triggered to indicate success.
 
 | Name | Type | Description | Version |
 |--------|---------|--------------------------------------------------------------|--------|
-| error | Object | Contains the corresponding status code upon failure. You can check `error.msg` or refer to [Status Code](../../../../sdkintro/status_code/web) | 1.0.0 |
+| error | Object | Contains the corresponding status code upon failure. You can check `error.msg` or refer to [Status Code](../../status_code/web.md) | 1.0.0 |
 
 **Sample Code**
 ```js

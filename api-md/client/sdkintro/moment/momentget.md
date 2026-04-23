@@ -1,4 +1,4 @@
----
+﻿---
 title: Get Moments
 hide_title: true
 sidebar_position: 4
@@ -16,7 +16,7 @@ values={[
 }>
 <TabItem value="android">
 
-Retrieve information about a single circle of friends
+Retrieve information about a single moment
 
 **Interface description**
 
@@ -46,7 +46,7 @@ JIM.getInstance().getMomentManager().getMoment("momentId", new JIMConst.IResultC
 </TabItem>
 <TabItem value="ios">
 
-Retrieve information about a single circle of friends
+Retrieve information about a single moment
 
 **Interface description**
 
@@ -69,7 +69,7 @@ Retrieve information about a single circle of friends
 </TabItem>
 <TabItem value="flutter">
 
-Retrieve information about a single circle of friends
+Retrieve information about a single moment
 
 **Interface description**
 
@@ -91,7 +91,7 @@ Result<Moment> moment = await JuggleIm.instance.getMoment('momentId');
 </TabItem>
 <TabItem value="reactnative">
 
-Retrieve information about a single circle of friends
+Retrieve information about a single moment
 
 **Interface description**
 
@@ -115,7 +115,7 @@ const moment = await JuggleIMMoment.getMoment('momentId');
 </TabItem>
 <TabItem value="js">
 
-Retrieve information about a single circle of friends
+Retrieve information about a single moment
 
 **Parameter description**
 
@@ -129,12 +129,12 @@ Retrieve information about a single circle of friends
 | Properties     | Type   | Description                                              | Version |
 |----------------|--------|----------------------------------------------------------|---------|
 | result         | Object | Query result                                             | 1.9.6   |
-| result.moment  | Object | Moment object; see the [Moment](../moment.md) structure | 1.9.6   |
+| result.moment  | Object | Moment object; see the [Moment](./moment_model.md) structure | 1.9.6   |
 
 **Code Example**
 
 ```js
-// Retrieve information about a single circle of friends
+// Retrieve information about a single moment
 let momentId = '';
 jim.getMoment({ momentId }).then((result) => {
   console.log('getMoment succeeded', result);
@@ -143,3 +143,4 @@ jim.getMoment({ momentId }).then((result) => {
 
 </TabItem>
 </Tabs>
+

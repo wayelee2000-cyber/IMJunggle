@@ -1,5 +1,5 @@
 ---
-title: Get a single session
+title: Get a single conversation
 hide_title: true
 sidebar_position: 3
 ---
@@ -17,7 +17,7 @@ values={[
 }>
 <TabItem value="android">
 
-Retrieve the specified session information based on the session ID `Conversation`. Returning an empty object indicates that no session information exists.
+Retrieve the specified conversation information based on the conversation ID `Conversation`. Returning an empty object indicates that no conversation information exists.
 
 **Parameter description**
 
@@ -33,13 +33,13 @@ ConversationInfo info = JIM.getInstance().getConversationManager().getConversati
 </TabItem>
 <TabItem value="ios">
 
-Retrieve the specified session information based on the session ID `JConversation`. Returning an empty object indicates that no session information exists.
+Retrieve the specified conversation information based on the conversation ID `JConversation`. Returning an empty object indicates that no conversation information exists.
 
 **Parameter description**
 
 | Name | Type | Description | Version |
 |----------------------------------|---------|----------|----------|
-| conversation | JConversation | Session identifier | 1.0.0 |
+| conversation | JConversation | Conversation identifier | 1.0.0 |
 
 **Sample Code**
 ```objectivec
@@ -50,7 +50,7 @@ JConversationInfo *info = [JIM.shared.conversationManager getConversationInfo:co
 </TabItem>
 <TabItem value="js">
 
-Retrieve the specified session based on `conversationType` and `conversationId`. If the session does not exist locally, it will be fetched from the cloud. An empty object indicates that no session information exists.
+Retrieve the specified conversation based on `conversationType` and `conversationId`. If the conversation does not exist locally, it will be fetched from the cloud. An empty object indicates that no conversation information exists.
 
 **Parameter description**
 
@@ -65,7 +65,7 @@ Retrieve the specified session based on `conversationType` and `conversationId`.
 | Name | Type | Description | Version |
 |------------------------|---------|-----------------------------------------|--------|
 | result | Object | Return value | 1.0.0 |
-| result.conversation | Object | An empty object indicates the conversation does not exist. See [Conversation](../../conversation) for properties. | 1.0.0 |
+| result.conversation | Object | An empty object indicates the conversation does not exist. See [Conversation](../conversation.md) for properties. | 1.0.0 |
 
 
 **Sample Code**
@@ -86,14 +86,14 @@ jim.getConversation(conversation).then(({ conversation }) => {
 
 <TabItem value="flutter" label="Flutter">
 
-Retrieve the specified session information. Returning an empty object indicates that no session information exists. This method only retrieves session information from the local database and does not fetch it from the cloud.
+Retrieve the specified conversation information. Returning an empty object indicates that no conversation information exists. This method only retrieves conversation information from the local database and does not fetch it from the cloud.
 
 **Parameter description**
 
 | Name | Type | Description | Version |
 |------------------|--------------|----------|----------|
 | conversationType | int | Conversation type | 0.6.3 |
-| conversationId | String | Session ID | 0.6.3 |
+| conversationId | String | Conversation ID | 0.6.3 |
 
 **Sample Code**
 
@@ -105,14 +105,14 @@ ConversationInfo? conversationInfo = await JuggleIm.instance.getConversationInfo
 </TabItem>
 <TabItem value="reactnative">
 
-Retrieve the specified session information. Returning an empty object indicates that no session information exists. This method only retrieves session information from the local database and does not fetch it from the cloud.
+Retrieve the specified conversation information. Returning an empty object indicates that no conversation information exists. This method only retrieves conversation information from the local database and does not fetch it from the cloud.
 
 **Parameter description**
 
 | Name | Type | Description | Version |
 |------------------|--------------|----------|----------|
 | conversationType | Number | Conversation type | 0.6.3 |
-| conversationId | String | Session ID | 0.6.3 |
+| conversationId | String | Conversation ID | 0.6.3 |
 
 **Sample Code**
 

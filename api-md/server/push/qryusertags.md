@@ -1,4 +1,4 @@
----
+﻿---
 title: clear user label
 hide_title: true
 sidebar_position: 4
@@ -9,13 +9,13 @@ Delete user labels
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/usertags/query
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/usertags/query
 
 > **Content-Type**: `application/json`
 

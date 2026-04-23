@@ -1,4 +1,4 @@
----
+﻿---
 title: add friend
 hide_title: true
 sidebar_position: 1
@@ -10,13 +10,13 @@ Add friends.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 times/second`
+> **Request Frequency Limit**: `100 times/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/friends/add
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/friends/add
 
 > **Content-Type**: `application/json`
 
@@ -25,9 +25,9 @@ Add friends.
 
 | Parameters           | Data type | Required | Description           |   |
 |:---------------------|:----------|:---------|:----------------------|---|
-| user_id              | string    | yes      | User’s ID             |   |
-| friends.friend_id    | string    | yes      | Friend’s user ID      |   |
-| friends.display_name | string    | no       | Friend’s display name |   |
+| user_id              | string    | yes      | User鈥檚 ID             |   |
+| friends.friend_id    | string    | yes      | Friend鈥檚 user ID      |   |
+| friends.display_name | string    | no       | Friend鈥檚 display name |   |
 
 
 ### Request Example{#req_demo}

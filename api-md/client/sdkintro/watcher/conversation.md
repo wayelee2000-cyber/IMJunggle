@@ -83,7 +83,7 @@ Multiple delegates can be set.
 
 **Interface Description**: Listeners for conversation addition, deletion, and updates need to be set only once globally; multiple settings will overwrite previous ones.
 
-**Related Enums**: [Conversation](../../../conversation), [Event](../../../enum/web#listener)
+**Related Enums**: [Conversation](../conversation.md), [Event](../enum/web.md#listener)
 
 ```js
 let { Event } = JIM;

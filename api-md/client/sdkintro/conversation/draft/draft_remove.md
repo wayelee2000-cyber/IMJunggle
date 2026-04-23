@@ -35,7 +35,7 @@ JIM.getInstance().getConversationManager().clearDraft(conversation);
 
 | Name         | Type          | Description         | Version |
 |--------------|---------------|---------------------|---------|
-| conversation | JConversation | Session identifier  | 1.0.0   |
+| conversation | JConversation | Conversation identifier  | 1.0.0   |
 
 **Sample Code**
 ```objectivec
@@ -83,7 +83,7 @@ JuggleIm.instance.getConversationManager().clearDraft(new Conversation("userid1"
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-Deleting a session draft is equivalent to clearing the draft for that session and only affects the current device. The draft will not be synchronized across multiple devices. After the operation succeeds, session change monitoring will be triggered, allowing the UI to update accordingly.
+Deleting a conversation draft is equivalent to clearing the draft for that conversation and only affects the current device. The draft will not be synchronized across multiple devices. After the operation succeeds, conversation change monitoring will be triggered, allowing the UI to update accordingly.
 
 **Parameter description**
 
@@ -102,7 +102,7 @@ await JuggleIm.instance.setDraft(conversation, '');
 </TabItem>
 <TabItem value="reactnative">
 
-Deleting a session draft is equivalent to clearing the draft for that session and only affects the current device. The draft will not be synchronized across multiple devices. After the operation succeeds, session change monitoring will be triggered, allowing the UI to update accordingly.
+Deleting a conversation draft is equivalent to clearing the draft for that conversation and only affects the current device. The draft will not be synchronized across multiple devices. After the operation succeeds, conversation change monitoring will be triggered, allowing the UI to update accordingly.
 
 **Parameter description**
 
@@ -110,7 +110,7 @@ Deleting a session draft is equivalent to clearing the draft for that session an
 |------------------|--------|-------------------------|---------|
 | conversation     | Object | Conversation identifier | 0.6.3   |
 | conversationType | Number | Conversation type       | 0.6.3   |
-| conversationId   | String | Session ID              | 0.6.3   |
+| conversationId   | String | Conversation ID              | 0.6.3   |
 | draft           | String | Draft content           | 0.6.3   |
 
 **Sample Code**

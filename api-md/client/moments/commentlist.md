@@ -1,4 +1,4 @@
----
+﻿---
 title: Comment list
 hide_title: true
 sidebar_position: 14
@@ -13,7 +13,7 @@ Retrieve a list of comments.
 
 > **Request Type**: `GET`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api#api)/momentgateway/moments/comments/list
 

@@ -1,4 +1,4 @@
----
+﻿---
 title: Add Users Prohibited from Sending Group Chat Messages
 hide_title: true
 sidebar_position: 4
@@ -10,13 +10,13 @@ Set users who are prohibited from sending group chat messages.
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api.md#header).
 
 > **Request Type**: `POST`
 
 > **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../../api#api)/apigateway/group/globalmutemembers/add
+> **Request URL**: https://[request domain name](../../api.md#api)/apigateway/group/globalmutemembers/add
 
 > **Content-Type**: `application/json`
 
@@ -50,3 +50,4 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+

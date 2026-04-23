@@ -1,4 +1,4 @@
----
+﻿---
 title: Moments list
 hide_title: true
 sidebar_position: 4
@@ -13,7 +13,7 @@ Retrieve the list of moments from the circle of friends.
 
 > **Request Type**: `GET`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api#api)/momentgateway/moments/list
 
@@ -113,3 +113,4 @@ Content-Type: application/json
   }
 }
 ```
+

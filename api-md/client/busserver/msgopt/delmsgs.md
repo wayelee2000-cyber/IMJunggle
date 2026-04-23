@@ -1,4 +1,4 @@
----
+﻿---
 title: Administrator deletes message
 hide_title: true
 sidebar_position: 2
@@ -9,11 +9,11 @@ When a group administrator deletes messages sent by other group members, those m
 
 ### Request description{#req}
 
-> **Request Authentication**: This API requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This API requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api.md#api)/jim/messages/del
 

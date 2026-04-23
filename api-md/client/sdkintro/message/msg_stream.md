@@ -146,7 +146,7 @@ JuggleIM.addMessageListener('MessageListScreen', {
 });
 
 /**
- * Streaming message listener
+* Streaming message event listener
  * Listens for append and completion events of streaming messages
  */
 const unsubscribe = JuggleIM.addStreamMessageListener('stream_listener_key', {

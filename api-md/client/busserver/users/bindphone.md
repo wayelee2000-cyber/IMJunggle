@@ -1,4 +1,4 @@
----
+﻿---
 title: Bind Mobile Phone Number
 hide_title: true
 sidebar_position: 8
@@ -9,7 +9,7 @@ Bind a mobile phone number using an SMS verification code.
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
@@ -54,3 +54,4 @@ Content-Type: application/json
 
 | Response Code | Description |   |
 |:--------------|:------------|---|
+

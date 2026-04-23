@@ -1,4 +1,4 @@
----
+﻿---
 title: Set ban on group members
 hide_title: true
 sidebar_position: 10
@@ -8,17 +8,17 @@ sidebar_position: 10
 
 This function prohibits group members from sending messages within the group. For example, a group administrator can mute a member, preventing them from sending messages. Once muted, the member cannot send group messages but will still receive messages from the group.
 
-### Request description{#req}
+Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> <strong>Request Authentication</strong>: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
-> **Request Type**: `POST`
+> <strong>Request Type</strong>: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> <strong>Request Frequency Limit</strong>: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/groups/groupmembermute/set
+> <strong>Request URL</strong>: https://[request domain name](../api.md#api)/apigateway/groups/groupmembermute/set
 
-> **Content-Type**: `application/json`
+> <strong>Content-Type</strong>: `application/json`
 
 ### Request parameters {#param}
 
@@ -54,3 +54,5 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+
+

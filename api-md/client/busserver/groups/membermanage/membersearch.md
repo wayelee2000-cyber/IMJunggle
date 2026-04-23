@@ -1,4 +1,4 @@
----
+﻿---
 title: Search group members
 hide_title: true
 sidebar_position: 6
@@ -13,9 +13,9 @@ Search for group members.
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/members/search
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/members/search
 
 > **Content-Type**: `application/json`
 

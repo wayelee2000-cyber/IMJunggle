@@ -1,4 +1,4 @@
----
+﻿---
 title: status code
 hide_title: true
 sidebar_position: 100
@@ -37,7 +37,7 @@ sidebar_position: 100
 |11011|Kicked offline by other devices||
 |11012|Logged out||
 |11013|Unsupported signaling||
-|11014|Request rate limit exceeded||
+|11014|Request Frequency Limit exceeded||
 |11015|Missing required parameters||
 |11016|Client disconnected abnormally||
 |11017|Data parsing error, connection disconnected||
@@ -124,3 +124,4 @@ sidebar_position: 100
 |16102|The other party hung up||
 |16103|The other party is busy||
 |16104|Cancelled||
+

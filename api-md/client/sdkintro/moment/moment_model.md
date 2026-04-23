@@ -1,4 +1,4 @@
----
+﻿---
 title: data structure
 hide_title: true
 sidebar_position: 0
@@ -214,7 +214,7 @@ values={[
 
 | Property name | Type | Default value | Description | Version |
 |---------------|--------------|--------------|--------------------------------------------------------|--------|
-| type | String | - | [Moment media type](../../enum/web#moment_type) | 1.9.6 |
+| type | String | - | [Moment media type](../enum/web.md#moment_type) | 1.9.6 |
 | url | String | - | Original image or video URL in the circle of friends | 1.9.6 |
 | snapshotUrl | String | - | Thumbnail image of the circle of friends; for videos, the first frame thumbnail | 1.9.6 |
 | height | Number | - | Height of the image or video | 1.9.6 |

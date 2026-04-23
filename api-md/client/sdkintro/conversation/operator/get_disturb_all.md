@@ -75,7 +75,7 @@ Retrieve the global Do Not Disturb configuration.
 | Properties | Type | Description | Version |
 |------------------|----------|------------------------------------------------|----------|
 | disturbInfo | Object | Do Not Disturb information | 1.3.0 |
-| disturbInfo.type | Number | [Do Not Disturb type](../../../enum/web#disturb) | 1.3.0 |
+| disturbInfo.type | Number | [Do Not Disturb type](../../enum/web.md#disturb) | 1.3.0 |
 | disturbInfo.timezone | String | Time zone, e.g., `Asia/Shanghai` | 1.3.0 |
 | disturbInfo.times | Array | Do Not Disturb time periods | 1.3.0 |
 

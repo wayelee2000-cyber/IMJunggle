@@ -1,4 +1,4 @@
----
+﻿---
 title: registered user
 hide_title: true
 sidebar_position: 1
@@ -11,13 +11,13 @@ Once the token is successfully obtained, it can be cached on the developer's bus
 
 ### Request description{#req}
 
-> **Request Authentication**: This interface requires an authentication header. Please see [Authentication Instructions](../../api#header).
+> **Request Authentication**: This interface requires an authentication header. Please see [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 times/second`
+> **Request Frequency Limit**: `100 times/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/users/register
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/users/register
 
 > **Content-Type**: `application/json`
 

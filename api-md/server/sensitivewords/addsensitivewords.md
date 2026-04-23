@@ -1,4 +1,4 @@
----
+﻿---
 title: Add sensitive words
 hide_title: true
 sidebar_position: 1
@@ -9,13 +9,13 @@ The added sensitive words will be used for content review of text messages in in
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/sensitivewords/add
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/sensitivewords/add
 
 > **Content-Type**: `application/json`
 

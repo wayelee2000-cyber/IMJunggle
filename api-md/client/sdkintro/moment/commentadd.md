@@ -1,4 +1,4 @@
----
+﻿---
 title: add comment
 hide_title: true
 sidebar_position: 20
@@ -151,7 +151,7 @@ Add a comment or reply to an existing comment.
 | Properties | Type | Description | Version |
 |------------------|----------|------------------------------------------------|----------|
 | result | Object | Query result | 1.9.6 |
-| result.comment | Object | Comment object; see [Comment](../moment_model) for structure | 1.9.6 |
+| result.comment | Object | Comment object; see [Comment](./moment_model.md) for structure | 1.9.6 |
 
 **Code Example**
 

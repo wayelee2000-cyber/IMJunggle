@@ -1,4 +1,4 @@
----
+﻿---
 title: Message modification
 hide_title: true
 sidebar_position: 5
@@ -10,13 +10,13 @@ Modify existing messages by updating the message type and content, with support 
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request rate limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/hismsgs/modify
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/hismsgs/modify
 
 > **Content-Type**: `application/json`
 
@@ -24,8 +24,8 @@ Modify existing messages by updating the message type and content, with support 
 
 | Parameter    | Data type | Required | Description                                                                                  |   |
 |:-------------|:----------|:---------|:---------------------------------------------------------------------------------------------|---|
-| from_id     | string    | No       | In a single chat session, the ID of the user in the conversation                            |   |
-| target_id   | string    | Yes      | In a single chat session, the ID of the other user; in a group chat session, the group ID   |   |
+| from_id     | string    | No       | In a single chat conversation, the ID of the user in the conversation                            |   |
+| target_id   | string    | Yes      | In a single chat conversation, the ID of the other user; in a group chat conversation, the group ID   |   |
 | channel_type| int       | Yes      | Conversation type: 1 for single chat; 2 for group chat                                     |   |
 | msg_id      | string    | Yes      | The ID of the message to be modified                                                       |   |
 | msg_type    | string    | Yes      | The type of the message                                                                    |   |
@@ -58,3 +58,6 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+
+
+

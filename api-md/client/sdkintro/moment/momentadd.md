@@ -1,4 +1,4 @@
----
+﻿---
 title: Add Moments
 hide_title: true
 sidebar_position: 2
@@ -176,14 +176,14 @@ Adding a Moment supports sending text, mixed text and images, mixed text and vid
 |--------------|--------|---------------------------------------|---------|------------------------------------------------------------------|---------|
 | params       | Object | Yes                                   | -       | Moment information                                               | 1.9.6   |
 | params.text  | String | At least one of `medias` or `text` is required | -       | Text content of the Moment, limited to 500 characters           | 1.9.6   |
-| params.medias| Array  | At least one of `medias` or `text` is required | []      | Media content of the Moment; each element follows the [Media](../moment_model) structure | 1.9.6   |
+| params.medias| Array  | At least one of `medias` or `text` is required | []      | Media content of the Moment; each element follows the [Media](./moment_model.md) structure | 1.9.6   |
 
 **Callback Description**
 
 | Properties    | Type   | Description                                                                 | Version |
 |---------------|--------|-----------------------------------------------------------------------------|---------|
 | result        | Object | Query result                                                                | 1.9.6   |
-| result.moment | Array  | Array of Moments; see [Moment](../moment.md) for the structure of a single Moment object | 1.9.6   |
+| result.moment | Array  | Array of Moments; see [Moment](./moment_model.md) for the structure of a single Moment object | 1.9.6   |
 
 **Code Example**
 

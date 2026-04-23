@@ -1,4 +1,4 @@
----
+﻿---
 title: Post a comment
 hide_title: true
 sidebar_position: 11
@@ -13,7 +13,7 @@ Post a comment on Moments.
 
 > **Request Type**: `POST`
 
-> **Request rate limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api#api)/momentgateway/moments/comments/add
 
@@ -61,3 +61,4 @@ Content-Type: application/json
 
 | Response code | Description |  |
 |:-------------:|:-----------:|:-:|
+

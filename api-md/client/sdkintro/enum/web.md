@@ -8,9 +8,9 @@ sidebar_position: 3
 
 | Name | Description | Version |
 |----------------------------------|----------------------------------------|----------|
-| Event.STATE_CHANGED | Monitors connection status; uses [connection monitoring](../../watcher/connect) | 1.0.0 |
-| Event.MESSAGE_RECEIVED | Monitors message reception; uses [Message Listening](../../watcher/message) | 1.0.0 |
-| Event.CONVERSATION_CHANGED | Monitors session changes; uses [Session Monitoring](../../watcher/conversation) | 1.0.0 |
+| Event.STATE_CHANGED | Monitors connection status; uses [connection monitoring](../watcher/connect.md) | 1.0.0 |
+| Event.MESSAGE_RECEIVED | Monitors message reception; uses [Message Listening](../watcher/message.md) | 1.0.0 |
+| Event.CONVERSATION_CHANGED | Monitors session changes; uses [Session Monitoring](../watcher/conversation.md) | 1.0.0 |
 
 ### Connection Enumeration {#connection}
 
@@ -52,7 +52,7 @@ sidebar_position: 3
 
 | Name | Description | Version |
 |----------------------------------|--------------|----------|
-| ErrorType | Status code enumeration; see [Status Code](../../enum/web) for details | 1.0.0 |
+| ErrorType | Status code enumeration; see [Status Code](./web.md) for details | 1.0.0 |
 
 ### @Message Enumeration {#mention}
 

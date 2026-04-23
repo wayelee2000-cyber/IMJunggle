@@ -1,4 +1,4 @@
----
+﻿---
 title: Search user
 hide_title: true
 sidebar_position: 4
@@ -9,11 +9,11 @@ Search for users based on their mobile phone number.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api.md#api)/jim/users/search
 
@@ -24,7 +24,7 @@ Search for users based on their mobile phone number.
 
 | Parameter | Data type | Required | Description                                      |   |
 |:----------|:----------|:---------|:------------------------------------------------|---|
-| keyword   | string    | yes      | The other party’s mobile phone number, email address, or account number |   |
+| keyword   | string    | yes      | The other party鈥檚 mobile phone number, email address, or account number |   |
 
 
 ### Request Example{#req_demo}

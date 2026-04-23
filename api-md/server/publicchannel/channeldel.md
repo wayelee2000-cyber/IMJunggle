@@ -1,4 +1,4 @@
----
+﻿---
 title: Destroy public account
 hide_title: true
 sidebar_position: 3
@@ -10,13 +10,13 @@ Destroying a public account will also terminate all subscription relationships a
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/publicchannel/destroy
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/publicchannel/destroy
 
 > **Content-Type**: `application/json`
 

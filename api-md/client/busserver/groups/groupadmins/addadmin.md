@@ -1,4 +1,4 @@
----
+﻿---
 title: add administrator
 hide_title: true
 sidebar_position: 1
@@ -13,9 +13,9 @@ Add a group administrator.
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/management/administrators/add
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/management/administrators/add
 
 > **Content-Type**: `application/json`
 

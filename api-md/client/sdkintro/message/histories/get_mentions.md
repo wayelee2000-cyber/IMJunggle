@@ -84,7 +84,7 @@ JConversation *conversation = [[JConversation alloc] initWithConversationType:JC
 | conversation.conversationId | String | Yes | | Conversation ID | 1.0.0 |
 | conversation.messageIndex | Number | No | 0 | Message index; when querying @ messages, this is the starting point to retrieve `count` messages forward or backward | 1.0.0 |
 | conversation.count | Number | No | 20 | Number of messages to retrieve | 1.0.0 |
-| conversation.order | Number | No | [BACKWARD](../../../enum/web#mention_order) | Retrieval direction | 1.0.0 |
+| conversation.order | Number | No | [BACKWARD](../../enum/web.md#mention_order) | Retrieval direction | 1.0.0 |
 
 **Callback Description**
 
@@ -92,7 +92,7 @@ JConversation *conversation = [[JConversation alloc] initWithConversationType:JC
 |------------------|----------|------------------------------------------------|----------|
 | result | Object | Query result | 1.0.0 |
 | result.isFinished | Boolean | Indicates whether the @ message query is complete; false means more @ messages are available on the server | 1.0.0 |
-| result.msgs | Array | List of @ messages; message content can be accessed via [Query message by ID](../get_by_ids) | 1.0.0 |
+| result.msgs | Array | List of @ messages; message content can be accessed via [Query message by ID](./get_by_ids.md) | 1.0.0 |
 
 **Sample Code**
 ```js
@@ -148,7 +148,7 @@ GetMessageResult<List<Message>> result = await JuggleIm.instance.getMentionMessa
 |------------------------|---------|-----------------------------------------|--------|
 | result | `GetMessageResult<List<Message>>` | Result object | 0.6.3 |
 | result.hasMore | bool | Indicates whether there are more @ messages | 0.6.3 |
-| result.t | `List<Message>` | List of messages; see [Message](../../../msg/message) for message properties | 0.6.3 |
+| result.t | `List<Message>` | List of messages; see the [message object](../../msg/message.md) for message properties | 0.6.3 |
 
 </TabItem>
 </Tabs>

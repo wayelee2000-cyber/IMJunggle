@@ -1,4 +1,4 @@
----
+﻿---
 title: Apply to Add Friends
 hide_title: true
 sidebar_position: 1
@@ -9,11 +9,11 @@ Submit a request to add a friend.
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api.md#api)/jim/friends/apply
 
@@ -54,3 +54,4 @@ Content-Type: application/json
 |:--------------|:-----------------------------------------------------------------|---|
 | 17101         | The other party does not accept friend requests from anyone.    |   |
 | 17102         | Duplicate friend request, or the other party is already your friend. |
+

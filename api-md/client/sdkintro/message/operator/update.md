@@ -16,7 +16,7 @@ values={[
 }>
 <TabItem value="android">
 
-You can only modify messages that you have sent. After a successful modification, other users in the corresponding session will receive the `onMessageUpdate` callback (make sure to add [message listening](../../../watcher/message)).
+You can only modify messages that you have sent. After a successful modification, other users in the corresponding session will receive the `onMessageUpdate` callback (make sure to add the [message event listener](../../watcher/message.md)).
 
 **Parameter description**
 
@@ -48,7 +48,7 @@ JIM.getInstance().getMessageManager().updateMessage("messageId1", text, conversa
 </TabItem>
 <TabItem value="ios">
 
-You can only modify messages that you have sent. After a successful modification, other users in the corresponding session will receive the `messageDidUpdate:` callback (make sure to add [message listening](../../../watcher/message)).
+You can only modify messages that you have sent. After a successful modification, other users in the corresponding session will receive the `messageDidUpdate:` callback (make sure to add the [message event listener](../../watcher/message.md)).
 
 **Parameter description**
 
@@ -99,7 +99,7 @@ No parameters are returned. The callback is triggered to indicate success.
 
 | Name | Type | Description | Version |
 |--------|---------|--------------------------------------------------------------|--------|
-| error | Object | Contains the corresponding status code if the transmission fails. You can view `error.msg` directly or refer to [Status Code](../../../../sdkintro/status_code/web) | 1.0.0 |
+| error | Object | Contains the corresponding status code if the transmission fails. You can view `error.msg` directly or refer to [Status Code](../../status_code/web.md) | 1.0.0 |
 
 **Sample Code**
 ```js
@@ -126,7 +126,7 @@ jim.updateMessage(msg).then(() => {
 
 <TabItem value="reactnative" label="ReactNative">
 
-You can only modify messages that you have sent. After a successful modification, other users in the corresponding session will receive the `onMessageUpdate` callback (message monitoring needs to be enabled).
+You can only modify messages that you have sent. After a successful modification, other users in the corresponding session will receive the `onMessageUpdate` callback (the message event listener needs to be enabled).
 
 **Parameter description**
 

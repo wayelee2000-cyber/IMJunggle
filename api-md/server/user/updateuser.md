@@ -1,4 +1,4 @@
----
+﻿---
 title: Update user information
 hide_title: true
 sidebar_position: 9
@@ -9,17 +9,17 @@ The IM Server stores user information, which is used to display message sender d
 
 <div style="margin: 1rem 0; padding: 1rem 1.25rem; border-left: 4px solid #e5484d; background: #fff1f2; border-radius: 0 16px 16px 0;">
 <p style="margin: 0 0 0.75rem; font-size: 1rem; font-weight: 700; color: #b42318;">User information synchronization timing</p>
-<p style="margin: 0; color: #344054;">After user information is updated, the IM service **will not proactively notify** the client. Instead, when a session related to the current user generates a message, the IM service will automatically synchronize the latest user information to the client.</p>
+<p style="margin: 0; color: #344054;">After user information is updated, the IM service **will not proactively notify** the client. Instead, when a conversation related to the current user generates a message, the IM service will automatically synchronize the latest user information to the client.</p>
 </div>
-### Request description{#req}
+Request description{#req}
 
-> **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request rate limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/users/update
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/users/update
 
 > **Content-Type**: `application/json`
 
@@ -61,3 +61,6 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+
+
+

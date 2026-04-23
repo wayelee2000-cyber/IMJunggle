@@ -1,4 +1,4 @@
----
+﻿---
 title: Update comment
 hide_title: true
 sidebar_position: 12
@@ -13,7 +13,7 @@ Update a comment.
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api#api)/momentgateway/moments/comments/update
 

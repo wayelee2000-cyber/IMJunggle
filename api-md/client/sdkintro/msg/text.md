@@ -36,7 +36,7 @@ JTextMessage is a built-in message type in the SDK, with the corresponding conte
 </TabItem>
 <TabItem value="js">
 
-Text messages are built-in SDK message types, corresponding to the enum _[MessageType.TEXT](../../enum/web#message)_.
+Text messages are built-in SDK message types, corresponding to the enum _[MessageType.TEXT](../enum/web.md#message)_.
 
 | Property | Type   | Description                                         | Version |
 | -------- | ------ | ------------------------------------------------- | ------- |

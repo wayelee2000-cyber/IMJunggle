@@ -1,4 +1,4 @@
----
+﻿---
 title: Moments Information
 hide_title: true
 sidebar_position: 5
@@ -13,7 +13,7 @@ Retrieve information about a friend's moment.
 
 > **Request Type**: `GET`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api#api)/momentgateway/moments/info
 
@@ -105,3 +105,4 @@ Content-Type: application/json
   }
 }
 ```
+

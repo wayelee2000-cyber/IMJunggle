@@ -1,4 +1,4 @@
----
+﻿---
 title: Send broadcast message
 hide_title: true
 sidebar_position: 5
@@ -9,13 +9,13 @@ Broadcast a message to all registered users within the application.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request rate limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/messages/broadcast/send
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/messages/broadcast/send
 
 > **Content-Type**: `application/json`
 
@@ -51,3 +51,4 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+

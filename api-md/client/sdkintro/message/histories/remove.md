@@ -85,12 +85,12 @@ Delete your own historical messages locally and in the cloud; the deletion will 
 | Name | Type | Required | Default | Description | Version |
 |--------------------------|---------|----------|--------|----------------------------------------------------------|--------|
 | message | Object | Yes | - | Object representing the message to delete | 1.0.0 |
-| message.conversationType | Number | Yes | - | [Conversation Type](../../../enum/web#conversation) | 1.0.0 |
+| message.conversationType | Number | Yes | - | [Conversation Type](../../enum/web.md#conversation) | 1.0.0 |
 | message.conversationId | String | Yes | - | Session ID. For `PRIVATE` sessions, this is the receiver's userId; for `GROUP` sessions, it is the group ID | 1.0.0 |
-| message.messageIndex | Number | Yes | - | Message index, available in [Message](../../../msg/message) | 1.0.0 |
-| message.sentTime | Number | Yes | - | Message sending time, available in [Message](../../../msg/message) | 1.0.0 |
-| message.tid | String | Yes | - | Message ID, available in [Message](../../../msg/message) | 1.0.0 |
-| message.messageId | String | Yes | - | Unique message ID, available in [Message](../../../msg/message) | 1.0.0 |
+| message.messageIndex | Number | Yes | - | Message index, available in the [message object](../../msg/message.md) | 1.0.0 |
+| message.sentTime | Number | Yes | - | Message sending time, available in the [message object](../../msg/message.md) | 1.0.0 |
+| message.tid | String | Yes | - | Message ID, available in the [message object](../../msg/message.md) | 1.0.0 |
+| message.messageId | String | Yes | - | Unique message ID, available in the [message object](../../msg/message.md) | 1.0.0 |
 
 **Success callback**
 
@@ -100,7 +100,7 @@ No parameters are returned. The callback is triggered to indicate success.
 
 | Name | Type | Description | Version |
 |--------|---------|--------------------------------------------------------------|--------|
-| error | Object | Contains the corresponding status code if the operation fails. You can view `error.msg` or refer to [status code](../status_code/web) | 1.0.0 |
+| error | Object | Contains the corresponding status code if the operation fails. You can view `error.msg` or refer to [status code](../../status_code/web.md) | 1.0.0 |
 
 **Sample Code**
 ```js

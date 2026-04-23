@@ -1,4 +1,4 @@
----
+﻿---
 title: Delete sensitive words
 hide_title: true
 sidebar_position: 2
@@ -9,13 +9,13 @@ The added sensitive words are used for content review of text messages in single
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 times/second`
+> **Request Frequency Limit**: `100 times/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/sensitivewords/del
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/sensitivewords/del
 
 > **Content-Type**: `application/json`
 

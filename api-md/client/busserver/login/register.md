@@ -1,4 +1,4 @@
----
+﻿---
 title: Account registration
 hide_title: true
 sidebar_position: 1
@@ -9,11 +9,11 @@ Registration interface supporting account and password registration, mobile phon
 
 ### Request description{#req}
 
-> **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This interface requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 times/second`
+> **Request Frequency Limit**: `100 times/second`
 
 > **Request URL**: https://[request domain name](../api.md#api)/jim/register
 

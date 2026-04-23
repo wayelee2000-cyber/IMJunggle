@@ -1,5 +1,5 @@
 ---
-title: Set up session draft
+title: Set up conversation draft
 hide_title: true
 sidebar_position: 2
 ---
@@ -42,7 +42,7 @@ Set up conversation drafts that are stored locally and will not be synced to the
 | Name | Type | Description | Version |
 |----------------------------------|--------|----------|----------|
 | draft | NSString | Draft content | 1.0.0 |
-| conversation | JConversation | Session identifier | 1.0.0 |
+| conversation | JConversation | Conversation identifier | 1.0.0 |
 
 **Sample Code**
 ```objectivec
@@ -53,7 +53,7 @@ JConversation *c = [[JConversation alloc] initWithConversationType:JConversation
 </TabItem>
 <TabItem value="js">
 
-Set the session draft, which is stored locally and will not be synchronized to the cloud. The draft will become invalid when you change the browser. After successfully calling the set session draft method, session monitoring will not be triggered. Developers can update the UI as needed.
+Set the conversation draft, which is stored locally and will not be synchronized to the cloud. The draft will become invalid when you change the browser. After successfully calling the set conversation draft method, conversation monitoring will not be triggered. Developers can update the UI as needed.
 
 **Parameter description**
 
@@ -71,7 +71,7 @@ let { ConversationType } = JIM;
 let conversation = {
   conversationType: ConversationType.PRIVATE,
   conversationId: 'userId01',
-  draft: 'I am a session draft'
+  draft: 'I am a conversation draft'
 };
 
 jim.setDraft(conversation).then(() => {
@@ -99,7 +99,7 @@ JuggleIm.instance.getConversationManager().setDraft(new Conversation("groupid1",
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-Set the session draft, which is stored locally and will not be synchronized across multiple devices. After successfully setting the draft, session change monitoring will be triggered, allowing the UI to update accordingly.
+Set the conversation draft, which is stored locally and will not be synchronized across multiple devices. After successfully setting the draft, conversation change monitoring will be triggered, allowing the UI to update accordingly.
 
 **Parameter description**
 
@@ -119,7 +119,7 @@ await JuggleIm.instance.setDraft(conversation, 'draft');
 </TabItem>
 <TabItem value="reactnative">
 
-Set the session draft, which is stored locally and will not be synchronized to the cloud. After successfully setting the draft, session change monitoring will be triggered, allowing the UI to update accordingly.
+Set the conversation draft, which is stored locally and will not be synchronized to the cloud. After successfully setting the draft, conversation change monitoring will be triggered, allowing the UI to update accordingly.
 
 **Parameter description**
 
@@ -127,7 +127,7 @@ Set the session draft, which is stored locally and will not be synchronized to t
 |----------------------------------|--------|----------|----------|
 | conversation | Object | Conversation identifier | 0.6.3 |
 | conversationType | Number | Conversation type | 0.6.3 |
-| conversationId | String | Session ID | 0.6.3 |
+| conversationId | String | Conversation ID | 0.6.3 |
 | draft | String | Draft content | 0.6.3 |
 
 

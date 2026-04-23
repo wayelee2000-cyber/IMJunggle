@@ -28,7 +28,7 @@ Single chat refers to one-to-one communication in IM products. In real business 
 
 > 4. After A and B are connected successfully, user A calls `sendMessage`, sets the session type to `PRIVATE`, and uses B's user ID as the session ID.
 
-> 5. B's message listener is triggered and receives the message sent by A.
+> 5. B's message event listener is triggered and receives the message sent by A.
 
 #### Group chat{#group}
 
@@ -44,7 +44,7 @@ Group chat refers to communication among two or more users in IM products. In bu
 
 > 5. After A connects successfully, A calls `sendMessage`, sets the session type to `GROUP`, and sets the session ID to `GroupId01`.
 
-> 6. After B and C connect successfully, their message listeners are triggered and they receive the group message sent by A.
+> 6. After B and C connect successfully, their message event listeners are triggered and they receive the group message sent by A.
 
 #### Chatroom{#chatroom}
 
@@ -64,7 +64,7 @@ Chatrooms are commonly used in live-streaming scenarios where users send real-ti
 
 > 7. After B and C connect successfully, they call `joinChatroom` to join `ChatroomId01`.
 
-> 8. After B and C join successfully, their message listeners are triggered and they receive the message sent by A in `ChatroomId01`.
+> 8. After B and C join successfully, their message event listeners are triggered and they receive the message sent by A in `ChatroomId01`.
 
 #### System notification {#sys_notice}
 
@@ -76,7 +76,7 @@ System notifications are one-way messages pushed from the server to users in IM 
 
 > 3. The developer server calls the [System Notification](../server/message/sysmsg.md) API as the system user `system_user` to send broadcast messages.
 
-> 4. After B and C connect successfully, their message listeners are triggered and they receive the system notification sent by `system_user`.
+> 4. After B and C connect successfully, their message event listeners are triggered and they receive the system notification sent by `system_user`.
 
 ### Product Matrix{#matrix}
 

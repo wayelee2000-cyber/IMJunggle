@@ -1,4 +1,4 @@
----
+﻿---
 title: Delete Moments
 hide_title: true
 sidebar_position: 3
@@ -9,7 +9,7 @@ Delete Moments.
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
@@ -49,3 +49,4 @@ Content-Type: application/json
 
 | Response Code | Description |  |
 |:-------------:|:-----------:|:-:|
+

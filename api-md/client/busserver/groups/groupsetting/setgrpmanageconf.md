@@ -1,4 +1,4 @@
----
+﻿---
 title: Set up group configuration
 hide_title: true
 sidebar_position: 9
@@ -13,9 +13,9 @@ Configure management settings for the group dimension.
 
 > **Request Type**: `POST`
 
-> **Request rate limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/management/set
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/management/set
 
 > **Content-Type**: `application/json`
 
@@ -63,3 +63,4 @@ Content-Type: application/json
 
 | Response code | Description |  |
 |:--------------|:------------|:--|
+

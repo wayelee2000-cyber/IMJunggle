@@ -1,4 +1,4 @@
----
+﻿---
 title: Set Ban on Single Chat
 hide_title: true
 sidebar_position: 6
@@ -10,13 +10,13 @@ After banning individual chats, users will no longer be able to send private mes
 
 ### Request Description{#req}
 
-> **Request Authentication**: This API requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This API requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
 > **Request Frequency Limit**: `100 times/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/users/blockusers/block
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/users/blockusers/block
 
 > **Content-Type**: `application/json`
 
@@ -50,3 +50,4 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+

@@ -1,4 +1,4 @@
----
+﻿---
 title: Can new members view historical messages when joining the group?
 hide_title: true
 sidebar_position: 4
@@ -13,9 +13,9 @@ Can new members view historical messages when they join the group? By default, t
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 times/second`
+> **Request Frequency Limit**: `100 times/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/management/sethismsgvisible
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/management/sethismsgvisible
 
 > **Content-Type**: `application/json`
 

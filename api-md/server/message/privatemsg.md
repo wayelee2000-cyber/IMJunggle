@@ -1,21 +1,21 @@
----
+﻿---
 title: Send private message
 hide_title: true
 sidebar_position: 1
 ---
 ### Function description{#intro}
 
-This function allows the developer to simulate a user on the server to send a private message in a one-on-one chat. For example, when adding a friend, after the developer server verifies the friend request, it sends a message as the user: `So-and-so adds you as a friend`.
+This function allows the developer to simulate a user on the server to send a private message in a one-on-one chat. For example, when adding a friend, after the developer server verifies the friend request, it sends a message as the user: `xxx adds you as a friend.`.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/messages/private/send
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/messages/private/send
 
 > **Content-Type**: `application/json`
 
@@ -85,3 +85,5 @@ Content-Type: application/json
   ]
 }
 ```
+
+

@@ -1,4 +1,4 @@
----
+﻿---
 title: Delete Users Banned from Sending Group Chat Messages
 hide_title: true
 sidebar_position: 5
@@ -10,13 +10,13 @@ Deletes users who are banned from sending group chat messages and restores their
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../../api#api)/apigateway/group/globalmutemembers/del
+> **Request URL**: https://[request domain name](../../api.md#api)/apigateway/group/globalmutemembers/del
 
 > **Content-Type**: `application/json`
 
@@ -50,3 +50,4 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+

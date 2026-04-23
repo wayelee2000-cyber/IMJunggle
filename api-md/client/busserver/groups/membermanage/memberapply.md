@@ -1,4 +1,4 @@
----
+﻿---
 title: Apply to Join a Group
 hide_title: true
 sidebar_position: 5
@@ -13,9 +13,9 @@ User applies to join a group.
 
 > **Request Type**: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/apply
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/apply
 
 > **Content-Type**: `application/json`
 
@@ -52,3 +52,4 @@ Content-Type: application/json
 
 | Response Code | Description |  |
 |:--------------|:------------|:--|
+

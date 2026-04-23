@@ -1,4 +1,4 @@
----
+﻿---
 title: Query the list of group administrators
 hide_title: true
 sidebar_position: 3
@@ -13,9 +13,9 @@ Retrieve the list of group administrators.
 
 > **Request Type**: `GET`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/groups/management/administrators/list
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/groups/management/administrators/list
 
 > **Content-Type**: `application/json`
 

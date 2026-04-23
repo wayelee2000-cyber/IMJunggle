@@ -1,4 +1,4 @@
----
+﻿---
 title: Comment list
 hide_title: true
 sidebar_position: 22
@@ -173,7 +173,7 @@ Retrieve the comment list of Moments, supporting pagination before and after a s
 |--------------|---------|----------|---------|------------------------------------------------|----------|
 | option | Object | No | | Retrieval options | 1.9.6 |
 | option.count | Number | No | 50 | Number of comments to retrieve, up to 20 records per request | 1.9.6 |
-| option.order | Number | No | [Get direction](../../enum/web#comment_order) | Direction for retrieval; supports using `time` to fetch earlier or newer comments | 1.9.6 |
+| option.order | Number | No | [Get direction](../enum/web.md#comment_order) | Direction for retrieval; supports using `time` to fetch earlier or newer comments | 1.9.6 |
 | option.time | Number | No | 0 | Starting point in time for fetching comments; can be used with `order` | 1.9.6 |
 
 **Callback description**
@@ -181,7 +181,7 @@ Retrieve the comment list of Moments, supporting pagination before and after a s
 | Properties | Type | Description | Version |
 |------------------|----------|------------------------------------------------|----------|
 | result | Object | Query result | 1.9.6 |
-| result.comments | Array | Array of comments; see [Comment](../moment_model) for the structure of a single comment object | 1.9.6 |
+| result.comments | Array | Array of comments; see [Comment](./moment_model.md) for the structure of a single comment object | 1.9.6 |
 | result.isFinished | Boolean | Indicates whether all comments have been retrieved | 1.9.6 |
 
 **Sample Code**

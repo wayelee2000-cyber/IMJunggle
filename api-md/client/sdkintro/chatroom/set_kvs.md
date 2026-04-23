@@ -16,16 +16,16 @@ values={[
 }>
 <TabItem value="android">
 
-Set chat room properties with support for batch operations. The settings will be automatically synchronized to all members of the chat room and returned through the [Chat Room Property Change Event](../event).
+Set chatroom properties with support for batch operations. The settings will be automatically synchronized to all members of the chatroom and returned through the [Chatroom Property Change Event](./event.md).
 
 **Interface definition**
 
 ```java
 /**
- * Set chat room properties.
+ * Set chatroom properties.
  *
- * @param chatroomId The chat room ID.
- * @param attributes Chat room attributes, where both keys and values are strings. Supports setting up to 100 different attributes.
+ * @param chatroomId The chatroom ID.
+ * @param attributes Chatroom attributes, where both keys and values are strings. Supports setting up to 100 different attributes.
  *                   Keys set by users other than the current user cannot be modified on the client (returns JErrorCode.CHATROOM_KEY_UNAUTHORIZED).
  * @param callback Completion callback.
  *                 When the code returns JErrorCode.NONE, all properties have been set successfully.
@@ -51,15 +51,15 @@ JIM.getInstance().getChatroomManager().setAttributes("chatroomId1", attributes, 
 </TabItem>
 <TabItem value="ios">
 
-Set chat room properties with support for batch operations. The settings will be automatically synchronized to all members of the chat room and returned through the [Chat Room Property Change Event](../event).
+Set chatroom properties with support for batch operations. The settings will be automatically synchronized to all members of the chatroom and returned through the [Chatroom Property Change Event](./event.md).
 
 **Interface definition**
 
 ```objectivec
-/// Set chat room properties.
+/// Set chatroom properties.
 /// - Parameters:
-///   - attributes: Chat room attributes, where both keys and values are strings. Supports setting up to 100 different attributes. Keys set by users other than the current user cannot be modified on the client (returns JErrorCodeChatroomKeyUnauthorized).
-///   - chatroomId: Chat room ID.
+///   - attributes: Chatroom attributes, where both keys and values are strings. Supports setting up to 100 different attributes. Keys set by users other than the current user cannot be modified on the client (returns JErrorCodeChatroomKeyUnauthorized).
+///   - chatroomId: Chatroom ID.
 ///   - completeBlock: Completion callback.
 ///     Returns JErrorCodeNone when all properties are set successfully.
 ///     Other codes indicate that some keys failed to be set. All failed keys will be returned with their corresponding error codes, which can be found in the definition of JErrorCode.
@@ -82,9 +82,9 @@ NSDictionary <NSString *, NSString *> *attr = @{@"key1":@"value1", @"key2":@"val
 </TabItem>
 <TabItem value="js">
 
-Set chat room properties with support for batch operations. The settings will be automatically synchronized to all members of the chat room and returned through the [Chat Room Property Change Event](../event).
+Set chatroom properties with support for batch operations. The settings will be automatically synchronized to all members of the chatroom and returned through the [Chatroom Property Change Event](./event.md).
 
-When setting attributes in batches, some settings may fail. For example, if a `key` has already been set by another member and `isForce` is not set to `true`, the operation will fail. Please refer to the corresponding [error codes](../../status_code/web) for details.
+When setting attributes in batches, some settings may fail. For example, if a `key` has already been set by another member and `isForce` is not set to `true`, the operation will fail. Please refer to the corresponding [error codes](../status_code/web.md) for details.
 
 **Parameter description**
 
@@ -127,7 +127,7 @@ jim.setChatroomAttributes(chatroom).then((result) => {
 </TabItem>
 <TabItem value="flutter">
 
-Set chat room properties with support for batch operations. The settings will be automatically synchronized to all members of the chat room and returned through the [Chat Room Property Change Event](../event).
+Set chatroom properties with support for batch operations. The settings will be automatically synchronized to all members of the chatroom and returned through the [Chatroom Property Change Event](./event.md).
 
 **Sample Code**
 
@@ -142,7 +142,7 @@ await JuggleIm.instance.getChatroomManager().setAttributes("chatroomId1", attrib
 </TabItem>
 <TabItem value="reactnative">
 
-Set chat room properties with support for batch operations. The settings will be automatically synchronized to all members of the chat room and returned through the [Chat Room Property Change Event](../event).
+Set chatroom properties with support for batch operations. The settings will be automatically synchronized to all members of the chatroom and returned through the [Chatroom Property Change Event](./event.md).
 
 **Sample Code**
 

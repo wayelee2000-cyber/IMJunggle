@@ -1,4 +1,4 @@
----
+﻿---
 title: Update Prompt Word
 hide_title: true
 sidebar_position: 2
@@ -9,7 +9,7 @@ Update a prompt word.
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
@@ -55,3 +55,4 @@ Content-Type: application/json
 | Response Code | Description    |   |
 |:--------------|:---------------|---|
 | 17300         | Update failed  |   |
+

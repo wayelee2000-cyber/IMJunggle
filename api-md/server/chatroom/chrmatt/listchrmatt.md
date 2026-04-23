@@ -1,22 +1,22 @@
 ---
-title: Query all properties of chat room
+title: Query all attributes of chatroom
 hide_title: true
 sidebar_position: 4
 ---
 
 ### Function description{#intro}
 
-Retrieve all custom properties of a chat room.
+Retrieve all attributes of a chatroom.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api.md#header).
 
 > **Request Type**: `GET`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../../api#api)/apigateway/chatrooms/atts/list
+> **Request URL**: https://[request domain name](../../api.md#api)/apigateway/chatrooms/atts/list
 
 > **Content-Type**: `application/json`
 
@@ -25,7 +25,7 @@ Retrieve all custom properties of a chat room.
 
 | Parameter | Data type | Required | Description          |   |
 |:----------|:----------|:---------|:---------------------|---|
-| chat_id   | string    | Yes      | The ID of the chat room |   |
+| chat_id   | string    | Yes      | The ID of the chatroom |   |
 
 
 ### Request Example{#req_demo}

@@ -1,4 +1,4 @@
----
+﻿---
 title: Set top status
 hide_title: true
 sidebar_position: 7
@@ -6,17 +6,17 @@ sidebar_position: 7
 
 ### Function description{#intro}
 
-Set the specified status of a session.
+Set pin state of a conversation.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/convers/top
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/convers/top
 
 > **Content-Type**: `application/json`
 
@@ -24,10 +24,10 @@ Set the specified status of a session.
 
 | Parameter    | Data type | Required | Description                  |   |
 |:-------------|:----------|:---------|:----------------------------|---|
-| user_id      | string    | Yes      | The user ID of the pinned session |   |
-| target_id    | string    | Yes      | The session ID to pin        |   |
-| channel_type | int       | Yes      | The type of session          |   |
-| is_top      | bool      | Yes      | Whether the session is pinned to top |   |
+| user_id      | string    | Yes      | The user ID of the pinned conversation |   |
+| target_id    | string    | Yes      | The conversation ID to pin        |   |
+| channel_type | int       | Yes      | The type of conversation          |   |
+| is_top      | bool      | Yes      | Whether the conversation is pinned to top |   |
 
 ### Request Example{#req_demo}
 ```js
@@ -63,3 +63,6 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+
+
+

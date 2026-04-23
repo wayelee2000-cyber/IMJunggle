@@ -1,5 +1,5 @@
 ---
-title: Set session top
+title: Pin conversation
 hide_title: true
 sidebar_position: 4
 ---
@@ -21,7 +21,7 @@ values={[
 | Name | Type | Description | Version |
 |----------------------------------|---------|----------|----------|
 | conversation | Conversation | Conversation identifier | 1.0.0 |
-| isTop | boolean | Whether to pin the session to the top | 1.0.0 |
+| isTop | boolean | Whether to pin the conversation to the top | 1.0.0 |
 | callback | ISimpleCallback | Result callback | 1.0.0 |
 
 **Sample Code**
@@ -47,8 +47,8 @@ JIM.getInstance().getConversationManager().setTop(conversation, true, new IConve
 
 | Name | Type | Description | Version |
 |----------------------------------|---------|----------|----------|
-| isTop | BOOL | Whether to pin the session to the top | 1.0.0 |
-| conversation | JConversation | Session identifier | 1.0.0 |
+| isTop | BOOL | Whether to pin the conversation to the top | 1.0.0 |
+| conversation | JConversation | Conversation identifier | 1.0.0 |
 | successBlock | | Success callback | 1.0.0 |
 | errorBlock | | Failure callback | 1.0.0 |
 
@@ -68,7 +68,7 @@ JConversation *conversation = [[JConversation alloc] initWithConversationType:JC
 </TabItem>
 <TabItem value="js">
 
-Setting the session to the top supports multi-end synchronization. After successfully calling the method to set the session to the top, [session change monitoring](../../../watcher/conversation) will be triggered.
+Pinning the conversation supports multi-end synchronization. After successfully calling the pin method, [conversation change event](../../watcher/conversation.md) will be triggered.
 
 **Parameter description**
 
@@ -77,7 +77,7 @@ Setting the session to the top supports multi-end synchronization. After success
 | conversation | Object | Yes | None | Conversation object | 1.0.0 |
 | conversation.conversationType | Number | Yes | None | Conversation type | 1.0.0 |
 | conversation.conversationId | String | Yes | None | Conversation ID | 1.0.0 |
-| conversation.isTop | Boolean | Yes | None | Whether to pin the session to the top | 1.0.0 |
+| conversation.isTop | Boolean | Yes | None | Whether to pin the conversation to the top | 1.0.0 |
 
 **Sample Code**
 ```js
@@ -96,14 +96,14 @@ jim.setTopConversation(conversation).then(() => {
 </TabItem>
 <TabItem value="flutter" label="Flutter">
 
-Setting the session to the top supports multi-end synchronization. After successfully calling the method to set the session to the top, [Session Change Monitoring](../../../watcher/conversation) will be triggered.
+Pinning the conversation supports multi-end synchronization. After successfully calling the pin method, [Conversation change event](../../watcher/conversation.md) will be triggered.
 
 **Parameter description**
 
 | Name | Type | Description | Version |
 |----------------------------------|---------|----------|----------|
 | conversation | Conversation | Conversation identifier | 0.6.3 |
-| isTop | bool | Whether to pin the session to the top | 0.6.3 |
+| isTop | bool | Whether to pin the conversation to the top | 0.6.3 |
 
 **Sample Code**
 
@@ -115,7 +115,7 @@ await JuggleIm.instance.setTop(conversation, true);
 </TabItem>
 <TabItem value="reactnative">
 
-Setting the session to the top supports multi-end synchronization. After successfully calling the method to set the session to the top, [Session Change Monitoring](../../../watcher/conversation) will be triggered.
+Pinning the conversation supports multi-end synchronization. After successfully calling the pin method, [Conversation change event](../../watcher/conversation.md) will be triggered.
 
 **Parameter description**
 
@@ -123,8 +123,8 @@ Setting the session to the top supports multi-end synchronization. After success
 |----------------------------------|---------|----------|----------|
 | conversation | Object | Conversation identifier | 0.6.3 |
 | conversationType | Number | Conversation type | 0.6.3 |
-| conversationId | String | Session ID | 0.6.3 |
-| isTop | Boolean | Whether to pin the session to the top | 0.6.3 |
+| conversationId | String | Conversation ID | 0.6.3 |
+| isTop | Boolean | Whether to pin the conversation to the top | 0.6.3 |
 
 **Sample Code**
 

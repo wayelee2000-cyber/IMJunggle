@@ -1,5 +1,5 @@
----
-title: Set the Friend’s Note Name
+﻿---
+title: Set the Friend鈥檚 Note Name
 hide_title: true
 sidebar_position: 4
 ---
@@ -10,13 +10,13 @@ Set a custom display name (note) for a friend.
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/friends/setdisplayname
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/friends/setdisplayname
 
 > **Content-Type**: `application/json`
 
@@ -25,9 +25,9 @@ Set a custom display name (note) for a friend.
 
 | Parameter    | Data Type | Required | Description           |  |
 |:-------------|:----------|:---------|:----------------------|--|
-| user_id     | string    | yes      | User’s ID             |  |
-| friend_id   | string    | yes      | Friend’s user ID      |  |
-| display_name| string    | yes      | Friend’s custom note name |  |
+| user_id     | string    | yes      | User鈥檚 ID             |  |
+| friend_id   | string    | yes      | Friend鈥檚 user ID      |  |
+| display_name| string    | yes      | Friend鈥檚 custom note name |  |
 
 
 ### Request Example{#req_demo}
@@ -54,3 +54,4 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+

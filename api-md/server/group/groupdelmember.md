@@ -1,4 +1,4 @@
----
+﻿---
 title: Remove group members
 hide_title: true
 sidebar_position: 8
@@ -8,17 +8,17 @@ sidebar_position: 8
 
 When members are removed from a developer server group, the changes will be synchronized to the IM server.
 
-### Request description{#req}
+Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> <strong>Request Authentication</strong>: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
-> **Request Type**: `POST`
+> <strong>Request Type</strong>: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> <strong>Request Frequency Limit</strong>: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/groups/members/del
+> <strong>Request URL</strong>: https://[request domain name](../api.md#api)/apigateway/groups/members/del
 
-> **Content-Type**: `application/json`
+> <strong>Content-Type</strong>: `application/json`
 
 ### Request parameters {#param}
 
@@ -50,3 +50,6 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+
+
+

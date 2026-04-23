@@ -1,4 +1,4 @@
----
+﻿---
 title: Moments list
 hide_title: true
 sidebar_position: 4
@@ -9,11 +9,11 @@ Retrieve the list of moments (circle of friends).
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `GET`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api.md#api)/momentgateway/moments/list
 
@@ -113,3 +113,4 @@ Content-Type: application/json
   }
 }
 ```
+

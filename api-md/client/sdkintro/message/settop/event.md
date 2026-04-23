@@ -16,7 +16,7 @@ values={[
 }>
 <TabItem value="android">
 
-The callback for message pinning is integrated into the [Message Listener](../../../watcher/message).
+The callback for message pinning is integrated into the [Message event listener](../../watcher/message.md).
 
 ```java
 JIM.getInstance().getMessageManager().addListener("main", new IMessageManager.IMessageListener() {
@@ -33,7 +33,7 @@ JIM.getInstance().getMessageManager().addListener("main", new IMessageManager.IM
 </TabItem>
 <TabItem value="ios">
 
-The callback for message pinning is integrated into the [Message Listener](../../../watcher/message).
+The callback for message pinning is integrated into the [Message event listener](../../watcher/message.md).
 
 ```objectivec
 [JIM.shared.messageManager addDelegate:self];
@@ -76,7 +76,7 @@ jim.on(Event.MESSAGE_SET_TOP, ({ message, isTop, operator, createdTime }) => {
 </TabItem>
 <TabItem value="flutter">
 
-The callback for message pinning is integrated into the [Message Listener](../../../watcher/message).
+The callback for message pinning is integrated into the [Message event listener](../../watcher/message.md).
 
 ```dart
 /// Callback for message pinning

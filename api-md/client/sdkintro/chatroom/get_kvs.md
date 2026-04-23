@@ -31,7 +31,7 @@ values={[
 </TabItem>
 <TabItem value="js">
 
-Retrieve the value of a specified attribute from the chat room. This method must be called after successfully joining the chat room. If you attempt to get the attribute before joining, the SDK will return empty data.
+Retrieve the value of a specified attribute from the chatroom. This method must be called after successfully joining the chatroom. If you attempt to get the attribute before joining, the SDK will return empty data.
 
 **Parameter Description**
 
@@ -39,7 +39,7 @@ Retrieve the value of a specified attribute from the chat room. This method must
 |-------------------------|---------|----------|---------|--------------------------------------------|----------|
 | chatroom | Object | Yes | None | Chatroom object | 1.6.0 |
 | chatroom.id | String | Yes | None | Chatroom ID | 1.6.0 |
-| chatroom.attributes | Array | Yes | None | List of chat room attributes; see sample code for data structure | 1.6.0 |
+| chatroom.attributes | Array | Yes | None | List of chatroom attributes; see sample code for data structure | 1.6.0 |
 
 **Callback Description**
 
@@ -47,7 +47,7 @@ Retrieve the value of a specified attribute from the chat room. This method must
 |---------------------|---------|--------------------------------------------|----------|
 | chatroom | Object | Chatroom object | 1.6.0 |
 | chatroom.id | String | Chatroom ID | 1.6.0 |
-| chatroom.attributes | Array | All attributes of the chat room; see sample code for data structure | 1.6.0 |
+| chatroom.attributes | Array | All attributes of the chatroom; see sample code for data structure | 1.6.0 |
 
 **Sample Code**
 

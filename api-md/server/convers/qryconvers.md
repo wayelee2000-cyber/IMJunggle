@@ -1,22 +1,22 @@
----
-title: Query global session list
+﻿---
+title: Query global conversation list
 hide_title: true
 sidebar_position: 5
 ---
 
 ### Function description{#intro}
 
-Querying the session list functions similarly to the client's method of retrieving the session list. It is typically used by the server to view all session messages of a user in a supervisory role—first obtaining the sessions, then retrieving historical messages through those sessions.
+Querying the conversation list works similarly to the client-side method for retrieving conversations. It is typically used by the server in supervisory scenarios to inspect a user's conversations: first retrieve the conversation list, then fetch the historical messages for those conversations.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `GET`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/globalconvers/query
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/globalconvers/query
 
 > **Content-Type**: `application/json`
 
@@ -24,10 +24,10 @@ Querying the session list functions similarly to the client's method of retrievi
 
 | Parameters       | Data type | Required | Description                                                                                      |       |
 |:-----------------|:----------|:---------|:------------------------------------------------------------------------------------------------|:------|
-| start            | int       | No       | The start timestamp for querying sessions. For the initial query, this can be left blank. By default, results are returned in reverse chronological order from the current time. |       |
+| start            | int       | No       | The start timestamp for querying conversations. For the initial query, this can be left blank. By default, results are returned in reverse chronological order from the current time. |       |
 | count            | int       | No       | Number of items per page. Default is 100.                                                      |       |
 | order            | int       | No       | Query order: 0 for descending (default), 1 for ascending.                                      |       |
-| target_id        | string    | No       | Specify the user ID or group ID to filter the sessions.                                        |       |
+| target_id        | string    | No       | Specify the user ID or group ID to filter the conversations.                                        |       |
 | channel_type     | int       | No       | Specify the conversation type to query: 1 for single chat, 2 for group chat.                   |       |
 | exclude_user_id  | array     | No       | User IDs to exclude from the results. For multiple users, use: `?exclude_user_id=userid1&exclude_user_id=userid2` |       |
 
@@ -67,3 +67,4 @@ Content-Type: application/json
   }
 }
 ```
+

@@ -1,4 +1,4 @@
----
+﻿---
 title: Single Chat Ban List
 hide_title: true
 sidebar_position: 8
@@ -10,13 +10,13 @@ Query the list of users who are banned from single chat and private messages wit
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `GET`
 
 > **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/users/blockusers/query
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/users/blockusers/query
 
 > **Content-Type**: `application/json`
 
@@ -69,3 +69,4 @@ Content-Type: application/json
   }
 }
 ```
+

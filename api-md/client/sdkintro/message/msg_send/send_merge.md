@@ -146,7 +146,7 @@ JConversation *dstConversation = [[JConversation alloc] initWithConversationType
 | Name | Type | Required | Default | Description | Version |
 |--------------------------------|---------|--------|--------|----------------------------------------------------------------|----------|
 | message | Object | Yes | | Message object | 1.0.0 |
-| message.conversationType | Number | Yes | | [Conversation Type](../../../enum/web#conversation) | 1.0.0 |
+| message.conversationType | Number | Yes | | [Conversation Type](../../enum/web.md#conversation) | 1.0.0 |
 | message.conversationId | String | Yes | | Session ID. When the session type is `PRIVATE`, the session ID is the userId of the receiver; when the session type is `GROUP`, it is the group ID | 1.0.0 |
 | message.messages | Array | Yes | | List of merged and forwarded messages, format shown in the example below | 1.0.0 |
 | message.previewList | Array | Yes | | Customized message content preview; the array content can be agreed upon across platforms | 1.0.0 |
@@ -165,13 +165,13 @@ JConversation *dstConversation = [[JConversation alloc] initWithConversationType
 
 | Name | Type | Description | Version |
 |-----------|----------|-------------------------------------------------------------------------------|--------|
-| message | Object | After successful sending, returns a message object with `messageId` and `sentTime`. See the message structure [Message](../../../msg/message) | 1.0.0 |
+| message | Object | After successful sending, returns a message object with `messageId` and `sentTime`. See the [message object](../../msg/message.md) | 1.0.0 |
 
 **Failure callback**
 
 | Name | Type | Description | Version |
 |--------|---------|--------------------------------------------------------------|--------|
-| result | Object | After failure, the returned object contains `tid` and `error` information. You can view `error.msg` directly or refer to [status codes](../../../status_code/web) | 1.0.0 |
+| result | Object | After failure, the returned object contains `tid` and `error` information. You can view `error.msg` directly or refer to [status codes](../../status_code/web.md) | 1.0.0 |
 
 **Sample Code**
 ```js

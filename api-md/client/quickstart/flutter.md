@@ -52,6 +52,4 @@ JuggleIm.instance.onConnectionStatusChange = (int connectionStatus, int code, St
 await JuggleIm.instance.connect("token");
 ```
 
-:::simple
 If the connection fails, please refer to [Connection Error Code](../sdkintro/status_code/ios.mdx) for a detailed description of the `code`.
-:::

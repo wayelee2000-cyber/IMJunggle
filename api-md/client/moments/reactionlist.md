@@ -1,4 +1,4 @@
----
+﻿---
 title: Like list
 hide_title: true
 sidebar_position: 23
@@ -13,7 +13,7 @@ Retrieve the list of likes for a post.
 
 > **Request Type**: `GET`
 
-> **Request rate limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api#api)/momentgateway/moments/reactions/list
 
@@ -59,3 +59,4 @@ Content-Type: application/json
   }
 }
 ```
+

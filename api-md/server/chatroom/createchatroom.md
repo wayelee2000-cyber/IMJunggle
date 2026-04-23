@@ -1,22 +1,22 @@
 ---
-title: Create a chat room
+title: Create a chatroom
 hide_title: true
 sidebar_position: 1
 ---
 
 ### Function description{#intro}
 
-Create a chat room.
+Create a chatroom.
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/chatrooms/create
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/chatrooms/create
 
 > **Content-Type**: `application/json`
 
@@ -25,8 +25,8 @@ Create a chat room.
 
 | Parameters | Data type | Required | Description |  |
 |:-----------|:----------|:---------|:------------|:--|
-| chat_id    | string    | Yes      | The ID of the chat room |  |
-| chat_name  | string    | No       | Chat room nickname |  |
+| chat_id    | string    | Yes      | The ID of the chatroom |  |
+| chat_name  | string    | No       | Chatroom nickname |  |
 | is_mute   | int       | No       | Whether to mute globally: 0 = no; 1 = yes; default is 0 |  |
 
 

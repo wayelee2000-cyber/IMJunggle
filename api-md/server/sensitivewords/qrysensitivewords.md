@@ -1,4 +1,4 @@
----
+﻿---
 title: Query sensitive words
 hide_title: true
 sidebar_position: 3
@@ -9,13 +9,13 @@ The added sensitive words are used for content review of text messages in indivi
 
 ### Request description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `GET`
 
-> **Request frequency limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/sensitivewords/list
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/sensitivewords/list
 
 > **Content-Type**: `application/json`
 

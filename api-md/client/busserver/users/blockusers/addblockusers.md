@@ -1,4 +1,4 @@
----
+﻿---
 title: Add User to Blacklist
 hide_title: true
 sidebar_position: 1
@@ -13,9 +13,9 @@ Add users to the blacklist.
 
 > **Request Type**: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../api#api)/jim/users/blockusers/add
+> **Request URL**: https://[request domain name](../../api.md#api)/jim/users/blockusers/add
 
 > **Content-Type**: `application/json`
 
@@ -52,3 +52,4 @@ Content-Type: application/json
 
 | Response Code | Description |   |
 |:--------------|:------------|---|
+

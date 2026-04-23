@@ -1,22 +1,22 @@
 ---
-title: Add Chat Room Member Whitelist
+title: Add Chatroom Member Whitelist
 hide_title: true
 sidebar_position: 1
 ---
 
 ### Function Description{#intro}
 
-Set chat room members to a whitelist. When the chat room is globally banned, whitelist members can still send messages.
+Set chatroom members to a whitelist. When the chatroom is globally banned, whitelist members can still send messages.
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api.md#header).
 
 > **Request Type**: `POST`
 
 > **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../../api#api)/apigateway/chatrooms/allowmembers/add
+> **Request URL**: https://[request domain name](../../api.md#api)/apigateway/chatrooms/allowmembers/add
 
 > **Content-Type**: `application/json`
 
@@ -25,8 +25,8 @@ Set chat room members to a whitelist. When the chat room is globally banned, whi
 
 | Parameter    | Data Type | Required | Description                                                                 |  |
 |:-------------|:----------|:---------|:----------------------------------------------------------------------------|--|
-| chat_id      | string    | Yes      | The ID of the chat room                                                     |  |
-| member_ids   | array     | Yes      | List of member IDs to be added to the chat room whitelist                   |  |
+| chat_id      | string    | Yes      | The ID of the chatroom                                                     |  |
+| member_ids   | array     | Yes      | List of member IDs to be added to the chatroom whitelist                   |  |
 | end_time     | number    | No       | Ban end time in milliseconds. A value of 0 indicates a permanent ban       |  |
 | end_time_offset | number | No       | Time offset in milliseconds. When `end_time` is not specified, the server calculates `end_time` as current time plus this offset |  |
 
@@ -54,3 +54,4 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+

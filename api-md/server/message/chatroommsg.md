@@ -1,4 +1,4 @@
----
+﻿---
 title: Send chat room message
 hide_title: true
 sidebar_position: 6
@@ -9,13 +9,13 @@ Developers can send chat room messages on the server side, supporting various me
 
 ### Request description{#req}
 
-> **Request Authentication**: This API requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This API requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
-> **Request URL**: https://[request domain name](../../api#api)/apigateway/messages/chatroom/send
+> **Request URL**: https://[request domain name](../api.md#api)/apigateway/messages/chatroom/send
 
 > **Content-Type**: `application/json`
 
@@ -68,3 +68,4 @@ Content-Type: application/json
   ]
 }
 ```
+

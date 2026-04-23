@@ -1,4 +1,4 @@
----
+﻿---
 title: Scan Code to Confirm
 hide_title: true
 sidebar_position: 9
@@ -9,11 +9,11 @@ Scan the QR code with your mobile phone and confirm your authorization to log in
 
 ### Request Description{#req}
 
-> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../../api#header).
+> **Request Authentication**: This endpoint requires an authentication header. Please refer to [Authentication Instructions](../api.md#header).
 
 > **Request Type**: `POST`
 
-> **Request Rate Limit**: `100 requests/second`
+> **Request Frequency Limit**: `100 requests/second`
 
 > **Request URL**: https://[request domain name](../api.md#api)/jim/qrcode/confirm
 
@@ -47,3 +47,4 @@ Content-Type: application/json
   "msg": "success"
 }
 ```
+

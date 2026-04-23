@@ -102,11 +102,11 @@ JConversation *conversation = [[JConversation alloc] initWithConversationType:JC
 | Name | Type | Required | Default | Description | Version |
 |---------------------|---------|------|------------------|------------------------------------------------------------------------------|--------|
 | params | Object | Yes | | Parameters for retrieving historical messages | 1.0.0 |
-| params.conversationType | Number | Yes | | [Conversation Type](../../../enum/web#conversation) | 1.0.0 |
+| params.conversationType | Number | Yes | | [Conversation Type](../../enum/web.md#conversation) | 1.0.0 |
 | params.conversationId | String | Yes | | Session ID. For `PRIVATE` sessions, this is the userId of the other party; for `GROUP` sessions, it is the group ID | 1.0.0 |
 | params.count | Number | No | 20 | Number of historical messages to retrieve, range: 1 - 20 | 1.0.0 |
 | params.time | Number | No | 0 | Starting point for retrieving historical messages. Can be used to fetch messages before or after a specific message | 1.0.0 |
-| params.order | Number | No | [BACKWARD](../../../enum/web) | Direction for retrieving historical messages; BACKWARD fetches earlier messages | 1.0.0 |
+| params.order | Number | No | [BACKWARD](../../enum/web.md#message) | Direction for retrieving historical messages; BACKWARD fetches earlier messages | 1.0.0 |
 
 **Successful callback**
 
@@ -114,13 +114,13 @@ JConversation *conversation = [[JConversation alloc] initWithConversationType:JC
 |------------------------|---------|-----------------------------------------|--------|
 | result | Object | | 1.0.0 |
 | result.isFinished | Boolean | Indicates whether there are more historical messages to retrieve | 1.0.0 |
-| result.messages | Array | Array of messages; see [Message](../../../msg/message) structure for details | 1.0.0 |
+| result.messages | Array | Array of messages; see the [message object](../../msg/message.md) for details | 1.0.0 |
 
 **Failure callback**
 
 | Name | Type | Description | Version |
 |--------|---------|--------------------------------------------------------------|--------|
-| error | Object | Contains error information. You can check `error.msg` or refer to [status codes](../../../status_code/web) | 1.0.0 |
+| error | Object | Contains error information. You can check `error.msg` or refer to [status codes](../../status_code/web.md) | 1.0.0 |
 
 **Sample Code**
 ```js
@@ -233,7 +233,7 @@ List<Message> messages = result.t as List<Message>;
 |------------------------|---------|-----------------------------------------|--------|
 | result | `GetMessageResult<List<Message>>` | | 0.6.3 |
 | result.hasMore | bool | Indicates whether there are more historical messages | 0.6.3 |
-| result.t | `List<Message>` | Array of messages; see [Message](../../../msg/message) structure for details | 0.6.3 |
+| result.t | `List<Message>` | Array of messages; see the [message object](../../msg/message.md) for details | 0.6.3 |
 
 </TabItem>
 </Tabs>
