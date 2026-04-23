@@ -25,7 +25,7 @@ Retrieve the list of friends.
 
 | Parameter  | Data type | Required | Description                                  |   |
 |:-----------|:----------|:---------|:---------------------------------------------|---|
-| user_id   | string    | Yes      | User鈥檚 ID                                   |   |
+| user_id   | string    | Yes      | User's ID                                   |   |
 | order     | int       | No       | Sorting order of the friend list: 0 for descending; 1 for ascending |   |
 | limit     | int       | No       | Number of friends to retrieve per request, default is 100 |   |
 | offset    | string    | No       | Pagination offset                            |   |

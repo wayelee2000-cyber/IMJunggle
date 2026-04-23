@@ -25,7 +25,7 @@ Delete a friend.
 
 | Parameter   | Data type | Required | Description                     |   |
 |:------------|:----------|:---------|:-------------------------------|---|
-| user_id    | string    | yes      | The user鈥檚 ID                  |   |
+| user_id    | string    | yes      | The user's ID                  |   |
 | friend_ids | array     | yes      | A list of user IDs to unfriend |   |
 
 

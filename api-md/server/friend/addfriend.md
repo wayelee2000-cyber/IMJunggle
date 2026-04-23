@@ -25,9 +25,9 @@ Add friends.
 
 | Parameters           | Data type | Required | Description           |   |
 |:---------------------|:----------|:---------|:----------------------|---|
-| user_id              | string    | yes      | User鈥檚 ID             |   |
-| friends.friend_id    | string    | yes      | Friend鈥檚 user ID      |   |
-| friends.display_name | string    | no       | Friend鈥檚 display name |   |
+| user_id              | string    | yes      | User's ID             |   |
+| friends.friend_id    | string    | yes      | Friend's user ID      |   |
+| friends.display_name | string    | no       | Friend's display name |   |
 
 
 ### Request Example{#req_demo}

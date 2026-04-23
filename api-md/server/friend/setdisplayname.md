@@ -1,5 +1,5 @@
 ﻿---
-title: Set the Friend鈥檚 Note Name
+title: Set the Friend's Note Name
 hide_title: true
 sidebar_position: 4
 ---
@@ -25,9 +25,9 @@ Set a custom display name (note) for a friend.
 
 | Parameter    | Data Type | Required | Description           |  |
 |:-------------|:----------|:---------|:----------------------|--|
-| user_id     | string    | yes      | User鈥檚 ID             |  |
-| friend_id   | string    | yes      | Friend鈥檚 user ID      |  |
-| display_name| string    | yes      | Friend鈥檚 custom note name |  |
+| user_id     | string    | yes      | User's ID             |  |
+| friend_id   | string    | yes      | Friend's user ID      |  |
+| display_name| string    | yes      | Friend's custom note name |  |
 
 
 ### Request Example{#req_demo}
