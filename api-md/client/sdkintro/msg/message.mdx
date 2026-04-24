@@ -22,20 +22,20 @@ values={[
 
 | 属性名       | 类型              | 说明                                                         | 版本  |
 | ------------ | ----------------- | ------------------------------------------------------------ | ----- |
-| conversation | [Conversation](#conversation)     | The conversation to which the message belongs                | 1.0.0 |
+| conversation | Conversation     | The conversation to which the message belongs                | 1.0.0 |
 | contentType  | String          | Message type (e.g., text message, image message)             | 1.0.0 |
-| content      | [MessageContent](#messagecontent)   | Message content, related to the contentType property. For example, when contentType is `jg:text`, content is a [text message](.././text) | 1.0.0 |
+| content      | MessageContent   | Message content, related to the contentType property. For example, when contentType is `jg:text`, content is a [text message](./text.md) | 1.0.0 |
 | messageId    | String          | Message ID, a globally unique identifier for each message    | 1.0.0 |
 | clientMsgNo  | long         | Unique message number on the client side (corresponds to the local database unique ID) | 1.0.0 |
-| direction    | [MessageDirection](#messagedirection) | Message direction, indicating whether the message is received or sent | 1.0.0 |
-| state | [MessageState](#messagestate)     | Message state, indicating whether the message is sending, sent successfully, or failed | 1.0.0 |
+| direction    | MessageDirection | Message direction, indicating whether the message is received or sent | 1.0.0 |
+| state | MessageState     | Message state, indicating whether the message is sending, sent successfully, or failed | 1.0.0 |
 | hasRead      | boolean              | Whether the message has been read                             | 1.0.0 |
 | timestamp    | long         | Message sending time as a timestamp in milliseconds (server time) | 1.0.0 |
 | senderUserId | String          | User ID of the message sender                                 | 1.0.0 |
 | referredMessage | Message   | Referenced message                                           | 1.0.0 |
-| mentionInfo | [MessageMentionInfo](#messagementioninfo) | @ mention information                                       | 1.0.0 |
+| mentionInfo | MessageMentionInfo | @ mention information                                       | 1.0.0 |
 | localAttribute | String | Local message attribute (effective only on the client side, not synchronized to the server) | 1.0.0 |
-| groupMessageReadInfo | [GroupMessageReadInfo](#groupmessagereadinfo) | Group message read information (effective only for group messages) | 1.0.0 |
+| groupMessageReadInfo | GroupMessageReadInfo | Group message read information (effective only for group messages) | 1.0.0 |
 | isEdit | boolean | Whether the message has been edited                            | 1.0.0 |
 | isDeleted | boolean | Whether the message has been deleted                           | 1.0.0 |
 | destroyTime | long | Message destruction timestamp (server time in milliseconds). Default is 0, meaning no auto-destruction. | 1.0.0 |
@@ -53,7 +53,7 @@ values={[
 | ------------ | ----------------- | ------------------------------------------------------------ | ----- |
 | conversation | JConversation     | The conversation to which the message belongs                | 1.0.0 |
 | contentType  | NSString          | Message type (e.g., text message, image message)             | 1.0.0 |
-| content      | JMessageContent   | Message content, related to the contentType property. For example, when contentType is `jg:text`, content is a [text message](.././text) | 1.0.0 |
+| content      | JMessageContent   | Message content, related to the contentType property. For example, when contentType is `jg:text`, content is a [text message](./text.md) | 1.0.0 |
 | messageId    | NSString          | Message ID, a globally unique identifier for each message    | 1.0.0 |
 | clientMsgNo  | long long         | Unique message number on the client side (corresponds to the local database unique ID) | 1.0.0 |
 | direction    | JMessageDirection | Message direction, indicating whether the message is received or sent | 1.0.0 |
@@ -88,21 +88,21 @@ values={[
 | tid              | String    | Locally generated temporary message ID. Sending messages is asynchronous; both successful sending and the `onbefore` event return `tid` to match and update the message sending status in the UI | 1.0.0    |
 | messageId        | String    | Server-generated message ID, a globally unique identifier | 1.0.0    |
 | name             | String    | Message name, used for UI display after sending and receiving | 1.0.0    |
-| content          | Object    | Message content, related to the name property. For example, when name is `jg:text`, content is a [text message](.././text) | 1.0.0    |
-| sentState        | Number    | Message [sending state](../../enum/web#msg_sent)    | 1.0.0    |
+| content          | Object    | Message content, related to the name property. For example, when name is `jg:text`, content is a [text message](./text.md) | 1.0.0    |
+| sentState        | Number    | Message [sending state](../enum/web.md#msg_sent)    | 1.0.0    |
 | sentTime         | Number    | Message sending time as a timestamp in milliseconds, used for UI display | 1.0.0    |
 | sender           | Object    | Information about the message sender                  | 1.0.0    |
-| sender.id        | String    | Sender's ID. [Use API to update](../../../../server/user/updateuser/) | 1.0.0    |
-| sender.name      | String    | Sender's name. [Use API to update](../../../../server/user/updateuser/) | 1.0.0    |
-| sender.portrait  | String    | Sender's avatar. [Use API to update](../../../../server/user/updateuser/) | 1.0.0    |
-| sender.exts      | Object    | User extension fields. [Use API to update](../../../../server/user/updateuser/) | 1.0.0    |
-| attribute        | String    | Effective in `Electron`, local message extension attribute, e.g., storing local file URLs. Can be modified via [Update Local Message Extension](../../message/operator/update_lc_attr) | 1.0.0    |
+| sender.id        | String    | Sender's ID. [Use API to update](../../../server/user/updateuser.md) | 1.0.0    |
+| sender.name      | String    | Sender's name. [Use API to update](../../../server/user/updateuser.md) | 1.0.0    |
+| sender.portrait  | String    | Sender's avatar. [Use API to update](../../../server/user/updateuser.md) | 1.0.0    |
+| sender.exts      | Object    | User extension fields. [Use API to update](../../../server/user/updateuser.md) | 1.0.0    |
+| attribute        | String    | Effective in `Electron`, local message extension attribute, e.g., storing local file URLs. Can be modified via [Update Local Message Extension](../message/operator/update_lc_attr.md) | 1.0.0    |
 | reactions        | Object    | Message reactions                                     | 1.8.0    |
 | mentionInfo      | Object    | @ mention information                                | 1.0.0    |
-| mentionInfo.mentionType      | Number    | @ all or @ specific users. See [MentionType](../../enum/web/#mention) for enum values | 1.0.0    |
+| mentionInfo.mentionType      | Number    | @ all or @ specific users. See [MentionType](../enum/web.md#mention) for enum values | 1.0.0    |
 | mentionInfo.members      | Array    | List of mentioned users, present when @ specific users is used, includes `id`, `name`, and `portrait` | 1.0.0    |
-| referMsg         | Object    | Referenced or replied message content, including sender information. See [Message](./) object for details | 1.0.0    |
-| isMass           | Boolean   | Whether the message is a [mass message](../../message/msg_send/send_mass) | 1.0.0    |
+| referMsg         | Object    | Referenced or replied message content, including sender information. See [Message](./message.md) object for details | 1.0.0    |
+| isMass           | Boolean   | Whether the message is a [mass message](../message/msg_send/send_mass.md) | 1.0.0    |
 | isUpdated        | Boolean   | Whether the message has been edited                   | 1.0.0    |
 | isSender         | Boolean   | Whether the current user is the sender of this message, e.g., for UI layout where sent messages appear on the right and received messages on the left | 1.0.0    |
 | isRead           | Boolean   | Effective in one-on-one conversations, indicates whether the recipient has read the message | 1.0.0    |
@@ -141,7 +141,7 @@ let message = {
 | ------------ | ----------------- | ------------------------------------------------------------ | ----- |
 | conversation | Conversation     | The conversation to which the message belongs                | 0.0.63 |
 | contentType  | String          | Message type (e.g., text message, image message)             | 0.0.63 |
-| content      | MessageContent   | Message content, related to the contentType property. For example, when contentType is `jg:text`, content is a [text message](.././text) | 0.0.63 |
+| content      | MessageContent   | Message content, related to the contentType property. For example, when contentType is `jg:text`, content is a [text message](./text.md) | 0.0.63 |
 | messageId    | String          | Message ID, a globally unique identifier for each message    | 0.0.63 |
 | clientMsgNo  | int         | Unique message number on the client side (corresponds to the local database unique ID) | 0.0.63 |
 | direction    | int | Message direction, indicating “received message (2)” or “sent message (1)” | 0.0.63 |
@@ -169,7 +169,7 @@ let message = {
 | ------------ | ----------------- | ------------------------------------------------------------ | ----- |
 | conversation | Conversation     | The conversation to which the message belongs                | 1.0.0 |
 | contentType  | string          | Message type (e.g., text message, image message)             | 1.0.0 |
-| content      | MessageContent   | Message content, related to the contentType property. For example, when contentType is `jg:text`, content is a [text message](.././text) | 1.0.0 |
+| content      | MessageContent   | Message content, related to the contentType property. For example, when contentType is `jg:text`, content is a [text message](./text.md) | 1.0.0 |
 | messageId    | string          | Message ID, a globally unique identifier for each message    | 1.0.0 |
 | clientMsgNo  | number         | Unique message number on the client side (corresponds to the local database unique ID) | 1.0.0 |
 | direction    | number | Message direction, indicating "received message (2)" or "sent message (1)" | 1.0.0 |

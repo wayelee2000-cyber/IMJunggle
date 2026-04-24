@@ -22,20 +22,20 @@ values={[
 
 | Property | Type | Description | Version |
 | ------------ | ----------------- | ------------------------------------------------------------ | ----- |
-| conversation | [Conversation](#conversation)     | The conversation to which the message belongs                | 1.0.0 |
+| conversation | Conversation     | The conversation to which the message belongs                | 1.0.0 |
 | contentType  | String          | Message type (e.g., text message, image message)             | 1.0.0 |
-| content      | [MessageContent](#messagecontent)   | Message content, related to the contentType property. For example, when contentType is `jg:text`, content is a [text message](./text.md) | 1.0.0 |
+| content      | MessageContent   | Message content, related to the contentType property. For example, when contentType is `jg:text`, content is a [text message](./text.md) | 1.0.0 |
 | messageId    | String          | Message ID, a globally unique identifier for each message    | 1.0.0 |
 | clientMsgNo  | long         | Unique message number on the client side (corresponds to the local database unique ID) | 1.0.0 |
-| direction    | [MessageDirection](#messagedirection) | Message direction, indicating whether the message is received or sent | 1.0.0 |
-| state | [MessageState](#messagestate)     | Message state, indicating whether the message is sending, sent successfully, or failed | 1.0.0 |
+| direction    | MessageDirection | Message direction, indicating whether the message is received or sent | 1.0.0 |
+| state | MessageState     | Message state, indicating whether the message is sending, sent successfully, or failed | 1.0.0 |
 | hasRead      | boolean              | Whether the message has been read                             | 1.0.0 |
 | timestamp    | long         | Message sending time as a timestamp in milliseconds (server time) | 1.0.0 |
 | senderUserId | String          | User ID of the message sender                                 | 1.0.0 |
 | referredMessage | Message   | Referenced message                                           | 1.0.0 |
-| mentionInfo | [MessageMentionInfo](#messagementioninfo) | @ mention information                                       | 1.0.0 |
+| mentionInfo | MessageMentionInfo | @ mention information                                       | 1.0.0 |
 | localAttribute | String | Local message attribute (effective only on the client side, not synchronized to the server) | 1.0.0 |
-| groupMessageReadInfo | [GroupMessageReadInfo](#groupmessagereadinfo) | Group message read information (effective only for group messages) | 1.0.0 |
+| groupMessageReadInfo | GroupMessageReadInfo | Group message read information (effective only for group messages) | 1.0.0 |
 | isEdit | boolean | Whether the message has been edited                            | 1.0.0 |
 | isDeleted | boolean | Whether the message has been deleted                           | 1.0.0 |
 | destroyTime | long | Message destruction timestamp (server time in milliseconds). Default is 0, meaning no auto-destruction. | 1.0.0 |

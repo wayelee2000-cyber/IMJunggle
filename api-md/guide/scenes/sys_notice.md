@@ -6,7 +6,7 @@ sidebar_position: 3
 
 ### Scene introduction{#intro}
 
-System notification refers to the one-way push of messages from the server to users in IM products. Both `System notification` and `Pingalong chat` involve two-party communication. The difference is that single chat supports bidirectional messaging, while system notifications can only be sent via the server API and are only received by end users. System notifications support sending text, images, voice, files, and custom messages.
+System notification refers to the one-way push of messages from the server to users in IM products. Both `System notification` and `single chat` involve two-party communication. The difference is that single chat supports bidirectional messaging, while system notifications can only be sent via the server API and are only received by end users. System notifications support sending text, images, voice, files, and custom messages.
 
 ### Applicable scenarios{#match}
 

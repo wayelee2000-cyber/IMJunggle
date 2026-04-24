@@ -65,7 +65,7 @@ npm install jugglechat-websdk --save
 import JIM from 'jugglechat-websdk';
 ```
 
-For detailed examples, please refer to [Quick Start](../../client/quickstart/web/quickstart).
+For detailed examples, please refer to [Quick Start](./quickstart/web/quickstart.md).
 
 </TabItem>
 
@@ -80,7 +80,7 @@ dependencies:
   juggle_im: 0.0.63
 ```
 
-2. For detailed examples, please refer to [Quick Start](../../client/quickstart/flutter).
+2. For detailed examples, please refer to [Quick Start](./quickstart/flutter.md).
 
 </TabItem>
 

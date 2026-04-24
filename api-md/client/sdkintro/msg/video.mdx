@@ -50,7 +50,7 @@ File message (JVideoMessage) is a built-in message type in the SDK, with the con
 </TabItem>
 <TabItem value="js">
 
-Video message is a built-in SDK message type, corresponding to the enum _[MessageType.VIDEO](../../enum/web#message)_.
+Video message is a built-in SDK message type, corresponding to the enum _[MessageType.VIDEO](../enum/web.md#message)_.
 
 | Property    | Type    | Description                                               | Version |
 |-------------|---------|-----------------------------------------------------------|---------|

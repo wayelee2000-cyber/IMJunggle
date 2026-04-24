@@ -118,14 +118,33 @@
     return parts.join('');
   }
 
+  function buildInfoTipHtml(fullMatch) {
+    var match = fullMatch.match(/^:::info-tip(?:\s+([^\n]+))?\s*\n([\s\S]*?)\n:::\s*$/i);
+    if (!match) return null;
+
+    var title = (match[1] || 'Tip').trim();
+    var body = (match[2] || '').trim();
+    var parts = [];
+    parts.push('<div class="api-admonition api-admonition-tip">');
+    parts.push('<div class="api-admonition-title">');
+    parts.push('<span class="api-admonition-icon" aria-hidden="true">');
+    parts.push('<svg viewBox="0 0 20 20" focusable="false"><path d="M10 1.75a8.25 8.25 0 1 0 0 16.5 8.25 8.25 0 0 0 0-16.5Zm0 3a1.1 1.1 0 1 1 0 2.2 1.1 1.1 0 0 1 0-2.2Zm1.1 10.4H8.9v-1.3h.55V9.2H8.9V7.9h2.2v5.95h.55v1.3Z" fill="currentColor"/></svg>');
+    parts.push('</span>');
+    parts.push('<span>' + escapeHtml(title) + '</span>');
+    parts.push('</div>');
+    parts.push('<div class="api-admonition-body">' + parseMd(body) + '</div>');
+    parts.push('</div>');
+    return parts.join('');
+  }
+
   function renderMdWithTabs(md) {
-    var re = /<Tabs\b[^>]*>[\s\S]*?<\/Tabs>/gi;
+    var re = /<Tabs\b[^>]*>[\s\S]*?<\/Tabs>|:::info-tip(?:\s+[^\n]+)?\s*\n[\s\S]*?\n:::/gi;
     var out = [];
     var last = 0;
     var match;
     while ((match = re.exec(md))) {
       out.push(parseMd(md.slice(last, match.index)));
-      out.push(buildTabsHtml(match[0]) || parseMd(match[0]));
+      out.push(buildTabsHtml(match[0]) || buildInfoTipHtml(match[0]) || parseMd(match[0]));
       last = re.lastIndex;
     }
     out.push(parseMd(md.slice(last)));
@@ -197,8 +216,22 @@
     });
   }
 
+  function splitDocTarget(target) {
+    var raw = target || '';
+    var hashIndex = raw.indexOf('#');
+    if (hashIndex === -1) {
+      return { docPath: raw, anchor: '' };
+    }
+    return {
+      docPath: raw.slice(0, hashIndex),
+      anchor: raw.slice(hashIndex + 1)
+    };
+  }
+
   function resolveDocPath(path) {
     if (!path) return '';
+    var parts = splitDocTarget(path);
+    path = parts.docPath;
     if (docsByPath[path]) return path;
     if (/\.md$/i.test(path)) {
       var mdxPath = path.replace(/\.md$/i, '.mdx');
@@ -321,8 +354,10 @@
 
   function openDoc(path, push) {
     if (!path) return;
-    path = resolveDocPath(path);
-    currentDocPath = path;
+    var parts = splitDocTarget(path);
+    var anchor = parts.anchor;
+    path = resolveDocPath(parts.docPath);
+    currentDocPath = path + (anchor ? '#' + anchor : '');
     function loadDoc(fetchPath) {
       return fetch(fetchPath).then(function (r) {
         if (!r.ok) {
@@ -365,6 +400,14 @@
         titleEl.textContent = meta.navLabel || meta.title || path;
         current.textContent = resolvedPath;
         scrollDocToTop();
+        if (anchor) {
+          window.requestAnimationFrame(function () {
+            var target = content.querySelector('#' + CSS.escape(anchor));
+            if (target) {
+              target.scrollIntoView({ block: 'start' });
+            }
+          });
+        }
       })
       .catch(function (err) {
         var hint = window.location.protocol === 'file:'
@@ -376,9 +419,10 @@
 
     setActive(path);
     if (push !== false) {
-      var targetHash = '#' + encodeURIComponent(path);
+      var fullTarget = path + (anchor ? '#' + anchor : '');
+      var targetHash = '#' + encodeURIComponent(fullTarget);
       if (location.hash !== targetHash) {
-        location.hash = encodeURIComponent(path);
+        location.hash = encodeURIComponent(fullTarget);
       }
     }
   }
@@ -407,13 +451,16 @@
     var a = e.target.closest('a[data-doc-path]');
     if (!a) return;
     e.preventDefault();
-    var nextPath = resolveDocPath(a.getAttribute('data-doc-path'));
-    var targetHash = '#' + encodeURIComponent(nextPath);
+    var rawTarget = a.getAttribute('data-doc-path');
+    var rawParts = splitDocTarget(rawTarget);
+    var nextPath = resolveDocPath(rawParts.docPath);
+    var fullTarget = nextPath + (rawParts.anchor ? '#' + rawParts.anchor : '');
+    var targetHash = '#' + encodeURIComponent(fullTarget);
     if (location.hash === targetHash) {
-      openDoc(nextPath, false);
+      openDoc(fullTarget, false);
       return;
     }
-    location.hash = encodeURIComponent(nextPath);
+    location.hash = encodeURIComponent(fullTarget);
   });
 
   document.addEventListener('click', function (e) {
@@ -476,12 +523,14 @@
 
   window.addEventListener('hashchange', function () {
     var h = hashToDocPath();
-    var next = h ? resolveDocPath(h) : docs[0].path;
+    var hParts = splitDocTarget(h);
+    var next = h ? (resolveDocPath(hParts.docPath) + (hParts.anchor ? '#' + hParts.anchor : '')) : docs[0].path;
     if (next !== currentDocPath) openDoc(next, false);
   });
 
   var initial = hashToDocPath();
-  var initialPath = initial ? resolveDocPath(initial) : docs[0].path;
+  var initialParts = splitDocTarget(initial);
+  var initialPath = initial ? (resolveDocPath(initialParts.docPath) + (initialParts.anchor ? '#' + initialParts.anchor : '')) : docs[0].path;
   if (location.hash !== '#' + encodeURIComponent(initialPath)) {
     try {
       history.replaceState({ docPath: initialPath }, '', '#' + encodeURIComponent(initialPath));

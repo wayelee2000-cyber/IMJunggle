@@ -42,7 +42,7 @@ JMergeMessage is a built-in message type in the SDK, with the corresponding cont
 </TabItem>
 <TabItem value="js">
 
-Merged forward message is a built-in message type in the SDK, corresponding to the enum _[MessageType.MERGE](../../enum/web#message)_.
+Merged forward message is a built-in message type in the SDK, corresponding to the enum _[MessageType.MERGE](../enum/web.md#message)_.
 
 | Property       | Type          | Description                                         | Version  |
 |----------------|---------------|-----------------------------------------------------|----------|

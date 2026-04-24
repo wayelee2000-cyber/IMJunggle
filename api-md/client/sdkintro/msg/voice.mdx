@@ -39,7 +39,7 @@ Voice messages (JVoiceMessage) are a built-in message type in the SDK, with the 
 </TabItem>
 <TabItem value="js">
 
-Voice messages are a built-in message type in the SDK, corresponding to the enum _[MessageType.VOICE](../../enum/web#message)_.
+Voice messages are a built-in message type in the SDK, corresponding to the enum _[MessageType.VOICE](../enum/web.md#message)_.
 
 | Property  | Type    | Description                                                                 | Version |
 |-----------|---------|-----------------------------------------------------------------------------|---------|
